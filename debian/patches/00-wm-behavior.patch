@@ -1,0 +1,13 @@
+=== modified file 'data/awn.schema-ini.in'
+--- data/awn.schema-ini.in	2009-01-31 17:08:34 +0000
++++ data/awn.schema-ini.in	2009-02-01 01:00:17 +0000
+@@ -124,7 +124,7 @@
+ description = The relative horizontal position of the bar.  0 is the left edge of the screen, 1 is the right edge.
+ [window_manager/activate_behavior]
+ type = int
+-default = 0
++default = 1
+ description = Behavior when window on a different workspace is activated. (0 for default, 1 - change active workspace, 2 - move to current workspace)
+ [window_manager/show_all_windows]
+ type = bool
+

@@ -1,0 +1,34 @@
+#!/usr/bin/make -f
+DEB_DH_INSTALL_SOURCEDIR=debian/tmp
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/gnome.mk
+include /usr/share/cdbs/1/rules/simple-patchsys.mk
+
+DEB_CONFIGURE_EXTRA_FLAGS += 	--disable-pymod-checks \
+				--with-desktop=gnome \
+				--with-gconf \
+				--enable-gtk-doc
+
+DEB_CONFIGURE_SCRIPT_ENV += LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
+
+DEB_INSTALL_MANPAGES_avant-window-navigator := debian/avant-window-navigator.1 debian/awn-applet-activation.1 debian/awn-autostart.1
+DEB_INSTALL_MANPAGES_awn-manager := debian/awn-manager.1 debian/awn-launcher-editor.1 debian/awn-schema-to-gconf.1 debian/awn-applets-migration.1
+
+DEB_DH_MAKESHLIBS_ARGS_libawn0 += -V"libawn0 (>= 0.3~bzr489)"
+DEB_DH_MAKESHLIBS_ARGS_avant-window-navigator += -n
+DEB_SHLIBDEPS_LIBRARY_avant-window-navigator:= libawn0
+DEB_SHLIBDEPS_INCLUDE_avant-window-navigator := debian/libawn0/usr/
+DEB_DH_STRIP_ARGS := --dbg-package=libawn0-dbg
+
+install/avant-window-navigator::
+	dh_install -pavant-window-navigator --sourcedir=debian/tmp
+	mv debian/tmp/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
+	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
+
+
+binary-post-install/awn-manager::
+	dh_pycentral -pawn-manager
+
+binary-post-install/python-awn::
+	dh_pycentral -ppython-awn

@@ -1,0 +1,194 @@
+avant-window-navigator (0.3.2-1) unstable; urgency=low
+
+  * New upstream release (Closes : #514681) (LP: #327443)
+   - Add a script to delay the start of awn when using the autostart. 
+     (Closes: #493640)
+   - Fix awn-manager permission when trying to edit some desktop file 
+    (LP: #260987)
+   - Update position on screen resolution changes (LP: #276734)
+  * debian/awn.wrapper
+   - A script to update applets path using awn-applets-migration script.
+  * debian/*.install: 
+   - Add the themes directory to avant-window-navigator-data.install.
+   - Add awn-autostart to avant-window-navigator.install.
+   - Add awn-applets-migration to awn-manager.install.
+   - Remove usr/bin/avant-window-navigator, handle by debian/rules.
+   - Install python bindings in *-packages instead of site-packages only, 
+     needed for the python migration in squeeze (LP: #335785).
+  * debian/control:
+   - Add missing ${misc:Depends}.
+   - Bump Build-Depends and Depends for vala to (>= 0.5.4).
+   - Set awn-manager as Depends rather than Recommends, needed by the 
+     awn-applets-migration script.
+   - Remove unnecessary "Section: gnome"
+   - Note that the libawn0-dbg contains debuggins symbols.
+   - Set Build-Depends on python (>= 2.5) instead of hardcoding the python 
+     version.
+  * debian/awn-autostart.1 & debian/awn-applets-migrations:
+   - Add new man pages.
+  * debian/avant-window-navigator.links
+   - Symlink awn.1 with avant-window-navigator.1
+  * debian/rules:
+   - Move avant-window-navigator to awn, and copy awn.wrapper to 
+     avant-window-navigator
+   - Add new man pages.
+  * debian/patches/
+   - 00-wm-behavior.patch : Don't bring the windows to the current workspace 
+     when the icon of the bar is clicked. Keep the same behavior that the 
+     gnome-panel applet.
+   - 01-tasks-have-arrow.patch: Set the option "Tasks have arrow" by default.
+   - 03-python-import.path : Update.
+  * debian/copyright
+   - Replace (C) by ©.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Mon, 19 Jan 2009 19:35:52 +0100
+
+avant-window-navigator (0.3~bzr489-1) experimental; urgency=low
+
+  * New upstream snapshot (Closes: #484008)
+  * debian/patches:
+   - 01-gconf-not-empty.patch : dropped, merged upstream.
+   - 02-awn-manager.patch : dropped, merged upstream.
+   - 04-fix-colormap.patch : dropped, merged upstream.
+   - 90_null_awn_cairo.patch dropped, merged upstream.
+   - 02-awn-manager-applets.patch : dropped, merged upstream.
+   - 03-python-import.patch : Update and add upstream and Debian bugtracker
+     entry for this patch.
+  * debian/control: 
+   - Add libglade2-dev to Build-Depends.
+   - Bump Standards-Version to 3.8.0.
+   - Bump vala version to 0.3.4 for Depends and Build-Depends.
+  * debian/README.source
+   - Added according to Standards-Version 3.8.0.
+  * debian/avant-window-navigator.install
+   - Update location of desktop files.
+   - Install schemas-ini files.
+  * debian/avant-window-navigator.install
+   - Update icons location. 
+  * debian/rules:
+   - Add --enable-gtk-doc flag to generate documentation.
+   - Update version requirement for libawn0.
+  * debian/libawn0.symbols:
+   - Add symbols file for libawn0.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Tue, 11 Nov 2008 14:38:44 +0100
+
+avant-window-navigator (0.2.6-7) unstable; urgency=medium
+
+  * debian/control
+   - Set a dependency on a composite manager rather than just suggest it. 
+     (Closes: #483673). Urgency set to medium as it's a RC bug.
+  * debian/README.debian
+   - Document how to enable composite manager for each application.
+  * debian/patches/90_null_awn_cairo.patch
+   - From upstream, fix a possible crash when a applet return wrong 
+     informations.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Fri, 06 Jun 2008 15:58:24 +0200
+
+avant-window-navigator (0.2.6-6) unstable; urgency=low
+
+  * debian/patches/04-fix-colormap.patch
+   - Fix crash in awn-manager if colormap == None. Thanks Emme for the 
+     patch. (Closes: #482030) 
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Sat, 24 May 2008 14:42:01 +0200
+
+avant-window-navigator (0.2.6-5) unstable; urgency=low
+
+  * debian/control
+   - Drop the depends of awn-data on awn binary to avoid circular dependency. 
+     Only the depends of awn on awn-data is needed. (Closes: #478709).
+   - Add a debug binary.
+  * debian rules
+   - Add the strip command to the libawn0-dbg binary.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Sun, 04 May 2008 13:21:01 +0200
+
+avant-window-navigator (0.2.6-4) unstable; urgency=medium
+
+  * debian/patches/03-python-import.patch : Import correct version of python
+    at runtime. Thanks Luca Bruno for the patch. (Closes: #476400, #476829)
+  * debian/control
+   - Set dbus-x11 as Recommends rather than Depends, not needed if D-Bus 
+     is running.
+   - Add awn-applets-c-core and awn-applets-python-core to Recommends to
+     install a set of applets.
+   - Bump awn-manager version to (0.2.6-3) needed for the applets.
+   - Add python2.5 as Build-Depends if python-elementtree is not installed.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Mon, 21 Apr 2008 10:55:45 +0200
+
+avant-window-navigator (0.2.6-3) unstable; urgency=low
+
+  * debian/patches
+   - 02-awn-manager-applets.patch : Search for applets installed in /usr/share.
+   - 01-gconf-not-empty.patch : Update with upstream changes.
+  * debian/control
+   - Set a correct short description for libawn-doc (Closes: #472333).
+  * debian/watch
+   - Switch to http, require by Launchpad.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Tue, 01 Apr 2008 19:22:42 +0200
+
+avant-window-navigator (0.2.6-2) unstable; urgency=low
+
+  * Add python-xdg Depends for awn-manager (Closes: #471372).
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Mon, 17 Mar 2008 23:12:30 +0100
+
+avant-window-navigator (0.2.6-1) unstable; urgency=low
+
+  * New upsteam release.
+  * Create new man pages: awn-launcher-editor.1 and awn-schema-to-gconf.1
+  * debian/patches:
+   - Drop 01-Fix-desktop-exec-path.patch, merged upstream.
+   - Drop 02-Fix-encode-in-desktop.patch, merged upstream.
+   - 01-gconf-not-empty.patch: Don't install gconf schemas with empty entries.
+  * debian/control:
+   - Add gtk-doc-tools, valac (>= 0.1.6) and python-elementtree Build-Depends 
+     needed by the new version.
+   - Add doc-base Build-Depends for the documentation.
+   - Add binaries vala binding, libawn-doc and avant-window-navigator-data 
+     binaries.
+   - Add avant-window-navigator-data and dbus-x11 Depends for 
+     avant-window-navigator.
+   - Add python-awn Depends for awn-manager.
+   - Add ${shlibs:Depends} to libawn-dev.
+   - Replace "current" by ">= 2.4" for Build-Depends and XS-Python-Version.
+   - Add a Provide: ${python:Provides} for the python-awn module.
+   - Add depends on libawn0 for all bindings.
+   - Fix spelling error.
+  * debian/rules:
+   - Bump libawn0 shlibs to >= 0.2.6
+   - Add LDFLAGS= "-Wl,-z,defs -Wl,--as-needed" to reduce depends.
+   - Add extras configure flags for backward compatibility.
+   - Add awn-launcher-editor.1 and awn-schema-to-gconf.1 as man pages.
+   - Only call pycentral with binary-post-install for python binaries.
+  * debian/awn-manager.install:
+   - Add awn-launcher-editor and awn-schema-to-gconf.
+   - Add awn-manager icon.
+  * debian/avant-window-navigator.install
+   - Add the gconf schemas.
+   - Move locales and images to avant-window-navigator-data, an 
+     arch-independent binary.
+  * debian/libawn-dev
+   - Install only *.h files.
+  * debian/copyright:
+   - All libawn/* is now LGPL-2.
+   - Update Copyright and Upstream Authors.
+   - Remove note about the repack.
+  * Add libawn-doc.install and libawn-doc.doc-base to install documentation.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Fri, 07 Mar 2008 01:00:50 +0100
+
+avant-window-navigator (0.2.1-dfsg1-1) unstable; urgency=low
+
+  * Initial release version (Closes: #428246)
+  * debian/patches:
+   - 01-Fix-desktop-exec-path.patch : Fix lintian warning in 
+  applets/taskman.desktop.in.in
+   - 02-Fix-encode-in-desktop.patch : Remove Encoding in the *.desktop files
+  * Original tarball repack due to the licence of the icon.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Mon, 28 Jan 2008 20:30:03 +0100

@@ -1,0 +1,17 @@
+#Upstream bug : https://bugs.edge.launchpad.net/awn/+bug/220169
+#Debian bug : http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=476400
+=== modified file 'awn-manager/awnManager.py.in'
+--- awn-manager/awnManager.py.in	2009-02-02 19:21:27 +0000
++++ awn-manager/awnManager.py.in	2009-02-07 23:32:20 +0000
+@@ -22,8 +22,8 @@
+ 
+ import sys, os, os.path, time
+ 
+-PLAT_PKG = '@PY_PLAT_PKG@'
+-SITE_PKG = '@PY_SITE_PKG@'
++PLAT_PKG = '/usr/lib/python'+sys.version[0:3]+'/site-packages'
++SITE_PKG = '/usr/lib/python'+sys.version[0:3]+'/site-packages'
+ AWN_MANAGER_DIR = os.path.join('@PKGDATADIR@', 'awn-manager')
+ sys.path = [AWN_MANAGER_DIR] + sys.path
+ if PLAT_PKG not in sys.path:
+

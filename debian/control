@@ -1,0 +1,131 @@
+Source: avant-window-navigator
+Section: gnome
+Priority: optional
+Maintainer: Julien Lavergne <julien.lavergne@gmail.com>
+Build-Depends: 	debhelper (>= 6),
+		cdbs,
+		intltool,
+		libwnck-dev,
+		libgnome2-dev,
+		libgnome-desktop-dev,
+		libglade2-dev,
+		libdbus-glib-1-dev,
+		libxcomposite-dev,
+		libxdamage-dev,
+		python-central (>= 0.5.6),
+		python-all-dev (>= 2.4),
+		python-gnome2-dev,
+		python-cairo-dev,
+		gtk-doc-tools, 
+		doc-base,
+		valac (>= 0.5.4),
+		python-elementtree | python (>= 2.5)
+Standards-Version: 3.8.0
+Homepage: https://launchpad.net/avant-window-navigator/
+XS-Python-Version: >= 2.4
+
+Package: avant-window-navigator
+Architecture: any
+Depends: 	${shlibs:Depends},
+		${misc:Depends},
+		avant-window-navigator-data (>= ${source:Version}),
+		metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0),
+		awn-manager (>= ${source:Version})
+Recommends:	awn-applets-python-core,
+		awn-applets-c-core,
+		dbus-x11
+Description: A MacOS X like panel for GNOME
+ The avant-window-navigator is a MacOS X like panel for the GNOME Desktop
+ written in C.  In addition to launchers that can be dragged onto the bar, 
+ it features a taskbar that behaves similarly to the Mac OSX dock. The window 
+ navigator uses the composite extension for transparency and other effects.
+
+Package: avant-window-navigator-data
+Architecture: all
+Depends: 	${misc:Depends}
+Conflicts: avant-window-navigator (<= 0.2.1-dfsg1-1)
+Replaces: avant-window-navigator (<= 0.2.1-dfsg1-1)
+Description: Common files for avant-window-navigator
+ This package contains all images and locales for avant-windows-navigator.
+
+Package: libawn0
+Section: libs
+Architecture: any
+Depends: 	${shlibs:Depends},
+		${misc:Depends}
+Suggests: 	metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2)
+Description: library for avant-window-navigator
+ This library is used by avant-window-navigator and its applets. It provides 
+ functions to create the bar and the applets.
+
+Package: libawn-doc
+Section: doc
+Architecture: all
+Depends:	libawn0 (>= ${source:Version}),
+		${misc:Depends}
+Description: library for avant-window-navigator - documentation files
+ This package contains documentation for avant-window-navigator and its library
+ libawn to develop applets or the bar.
+
+Package: libawn-dev
+Section: libdevel
+Architecture: any
+Depends:	libawn0 (= ${binary:Version}),
+		${shlibs:Depends},
+		${misc:Depends},
+		libgnome2-dev,
+		libgtk2.0-dev
+Description: library for avant-window-navigator - development files
+ This package provides the include files and static library for the
+ avant-window-navigator library functions.
+
+Package: awn-manager
+Architecture: all
+Depends:	${python:Depends}, 
+		${misc:Depends},
+		avant-window-navigator (>= 0.2),
+		python-gnome2,
+		python-gnome2-desktop,
+		gnome-menus,
+		librsvg2-common,
+		python-awn,
+		python-xdg
+XB-Python-Version: ${python:Versions}
+Description: A preferences manager for avant-window-navigator
+ Awn-Manager provides a simple way to configure avant-window-navigator.
+ You can manage preferences, themes, applets and launchers.
+
+Package: python-awn
+Section: python
+Architecture: any
+Depends:	libawn0 (= ${binary:Version}),
+		${shlibs:Depends},
+		${misc:Depends},
+		${python:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: Python bindings for avant-window-navigator library 
+ This library is used by avant-window-navigator. It provides Python bindings 
+ to create and use Python applets for avant-window-navigator.
+
+Package: vala-awn
+Architecture: all
+Depends: 	libawn0 (>= ${source:Version}),
+		${shlibs:Depends}, 
+		${misc:Depends},
+		valac (>= 0.5.4)
+Description: Vala bindings for avant-window-navigator library 
+ This library is used by avant-window-navigator. It provides Vala bindings 
+ to create and use Vala applets for avant-window-navigator.
+
+Package: libawn0-dbg
+Section: libs
+Priority: extra
+Architecture: any
+Depends: 	libawn0 (= ${binary:Version}),
+		${misc:Depends}
+Description: library for avant-window-navigator - debug package
+ This library is used by avant-window-navigator and its applets. It provides 
+ functions to create the bar and the applets.
+ .
+ This package contains the debugging symbols.
