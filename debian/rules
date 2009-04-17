@@ -27,8 +27,8 @@ install/avant-window-navigator::
 	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
 
 
-binary-install/awn-manager::
-	dh_pysupport -pawn-manager
+binary-post-install/awn-manager::
+	dh_pycentral -pawn-manager
 
-binary-install/python-awn::
-	dh_pysupport -ppython-awn
+binary-post-install/python-awn::
+	dh_pycentral -ppython-awn
