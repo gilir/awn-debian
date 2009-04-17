@@ -83,7 +83,6 @@ Package: awn-manager
 Architecture: all
 Depends:	${python:Depends}, 
 		${misc:Depends},
-		avant-window-navigator (>= 0.2),
 		gnome-menus,
 		librsvg2-common,
 		python-awn,
