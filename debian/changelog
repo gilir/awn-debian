@@ -3,6 +3,7 @@ avant-window-navigator (0.3.2-2) UNRELEASED; urgency=low
   * debian/control
    - Remove depends on python-gnome2 and python-gnome2-desktop for 
      awn-manager, not needed anymore.
+   - Add python-gtk2 as depends for python-awn.
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Fri, 17 Apr 2009 22:37:03 +0200
 

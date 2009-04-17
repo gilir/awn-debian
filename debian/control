@@ -99,7 +99,8 @@ Architecture: any
 Depends:	libawn0 (= ${binary:Version}),
 		${shlibs:Depends},
 		${misc:Depends},
-		${python:Depends}
+		${python:Depends},
+		python-gtk2
 Provides: ${python:Provides}
 XB-Python-Version: ${python:Versions}
 Description: Python bindings for avant-window-navigator library 
