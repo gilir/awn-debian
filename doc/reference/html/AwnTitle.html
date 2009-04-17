@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnTitle</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libawn Reference Manual">
+<link rel="up" href="ch01.html" title="Table of Contents">
+<link rel="prev" href="AwnPlug.html" title="AwnPlug">
+<link rel="next" href="AwnApplet.html" title="AwnApplet">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Table of Contents">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnPlug.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libawn Reference Manual</th>
+<td><a accesskey="n" href="AwnApplet.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AwnTitle.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AwnTitle.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AwnTitle.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AwnTitle.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="AwnTitle"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AwnTitle.top_of_page"></a>AwnTitle</span></h2>
+<p>AwnTitle</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="AwnTitle.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="AwnTitle.html#AwnTitlePrivate" title="AwnTitlePrivate">AwnTitlePrivate</a>;
+                    <a class="link" href="AwnTitle.html#AwnTitle-struct" title="AwnTitle">AwnTitle</a>;
+<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *         <a class="link" href="AwnTitle.html#awn-title-get-default" title="awn_title_get_default ()">awn_title_get_default</a>               (void);
+void                <a class="link" href="AwnTitle.html#awn-title-show" title="awn_title_show ()">awn_title_show</a>                      (<a class="link" href="AwnTitle.html" title="AwnTitle">AwnTitle</a> *title,
+                                                         <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *focus,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *text);
+void                <a class="link" href="AwnTitle.html#awn-title-hide" title="awn_title_hide ()">awn_title_hide</a>                      (<a class="link" href="AwnTitle.html" title="AwnTitle">AwnTitle</a> *title,
+                                                         <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *focus);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnTitle.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkObject.html"
+>GtkObject</a>
+               +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a>
+                     +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkContainer.html"
+>GtkContainer</a>
+                           +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkBin.html"
+>GtkBin</a>
+                                 +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkWindow.html"
+>GtkWindow</a>
+                                       +----AwnTitle
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnTitle.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnTitle implements
+ AtkImplementorIface and  <a
+href="/usr/share/gtk-doc/html/gtk/gtk-gtkbuildable.html#GtkBuildable"
+>GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnTitle.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnTitle.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnTitlePrivate"></a><h3>AwnTitlePrivate</h3>
+<pre class="programlisting">typedef struct _AwnTitlePrivate AwnTitlePrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnTitle-struct"></a><h3>AwnTitle</h3>
+<pre class="programlisting">typedef struct _AwnTitle AwnTitle;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-title-get-default"></a><h3>awn_title_get_default ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *         awn_title_get_default               (void);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-title-show"></a><h3>awn_title_show ()</h3>
+<pre class="programlisting">void                awn_title_show                      (<a class="link" href="AwnTitle.html" title="AwnTitle">AwnTitle</a> *title,
+                                                         <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *focus,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *text);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>focus</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-title-hide"></a><h3>awn_title_hide ()</h3>
+<pre class="programlisting">void                awn_title_hide                      (<a class="link" href="AwnTitle.html" title="AwnTitle">AwnTitle</a> *title,
+                                                         <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *focus);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>focus</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

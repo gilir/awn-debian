@@ -1,0 +1,740 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>awn-desktop-item</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libawn Reference Manual">
+<link rel="up" href="ch01.html" title="Table of Contents">
+<link rel="prev" href="libawn-awn-defines.html" title="awn-defines">
+<link rel="next" href="libawn-awn-effects.html" title="awn-effects">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Table of Contents">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libawn-awn-defines.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libawn Reference Manual</th>
+<td><a accesskey="n" href="libawn-awn-effects.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libawn-awn-desktop-item.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libawn-awn-desktop-item.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libawn-awn-desktop-item"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libawn-awn-desktop-item.top_of_page"></a>awn-desktop-item</span></h2>
+<p>awn-desktop-item — A desktop item-specific API wrapper.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libawn-awn-desktop-item.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;libawn/awn-desktop-item.h&gt;
+
+                    <a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a>;
+#define             <a class="link" href="libawn-awn-desktop-item.html#AWN-DESKTOP-ITEM--CAPS" title="AWN_DESKTOP_ITEM()">AWN_DESKTOP_ITEM</a>                    (obj)
+<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *    <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-new" title="awn_desktop_item_new ()">awn_desktop_item_new</a>                (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *filename);
+<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *    <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-copy" title="awn_desktop_item_copy ()">awn_desktop_item_copy</a>               (const <a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-get-filename" title="awn_desktop_item_get_filename ()">awn_desktop_item_get_filename</a>       (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-get-item-type" title="awn_desktop_item_get_item_type ()">awn_desktop_item_get_item_type</a>      (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);
+void                <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-set-item-type" title="awn_desktop_item_set_item_type ()">awn_desktop_item_set_item_type</a>      (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *item_type);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-get-icon" title="awn_desktop_item_get_icon ()">awn_desktop_item_get_icon</a>           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/gtk/GtkIconTheme.html"
+>GtkIconTheme</a> *icon_theme);
+void                <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-set-icon" title="awn_desktop_item_set_icon ()">awn_desktop_item_set_icon</a>           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *icon);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-get-name" title="awn_desktop_item_get_name ()">awn_desktop_item_get_name</a>           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);
+void                <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-set-name" title="awn_desktop_item_set_name ()">awn_desktop_item_set_name</a>           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-get-exec" title="awn_desktop_item_get_exec ()">awn_desktop_item_get_exec</a>           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);
+void                <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-set-exec" title="awn_desktop_item_set_exec ()">awn_desktop_item_set_exec</a>           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *exec);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-get-string" title="awn_desktop_item_get_string ()">awn_desktop_item_get_string</a>         (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *key);
+void                <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-set-string" title="awn_desktop_item_set_string ()">awn_desktop_item_set_string</a>         (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *key,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *value);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-get-localestring" title="awn_desktop_item_get_localestring ()">awn_desktop_item_get_localestring</a>   (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *key);
+void                <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-set-localestring" title="awn_desktop_item_set_localestring ()">awn_desktop_item_set_localestring</a>   (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *key,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *locale,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *value);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-exists" title="awn_desktop_item_exists ()">awn_desktop_item_exists</a>             (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-launch" title="awn_desktop_item_launch ()">awn_desktop_item_launch</a>             (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *documents,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **err);
+void                <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-save" title="awn_desktop_item_save ()">awn_desktop_item_save</a>               (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *new_filename,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **err);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="libawn-awn-desktop-item.description"></a><h2>Description</h2>
+<p>
+Contains a desktop item wrapper API whose implementation depends on
+the compile-time configuration.</p>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="libawn-awn-desktop-item.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnDesktopItem"></a><h3>AwnDesktopItem</h3>
+<pre class="programlisting">typedef struct _AwnDesktopItem AwnDesktopItem;</pre>
+<p>
+An alias for the desktop-specific .desktop file-handling structure.</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AWN-DESKTOP-ITEM--CAPS"></a><h3>AWN_DESKTOP_ITEM()</h3>
+<pre class="programlisting">#define AWN_DESKTOP_ITEM(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), AWN_TYPE_DESKTOP_ITEM, AwnDesktopItem))
+</pre>
+<p>
+Casts a variable/value to be an <a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem"><span class="type">AwnDesktopItem</span></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td> The variable/value to cast
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-new"></a><h3>awn_desktop_item_new ()</h3>
+<pre class="programlisting"><a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *    awn_desktop_item_new                (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *filename);</pre>
+<p>
+Creates a new desktop item structure.  If <em class="parameter"><code>filename</code></em> exists, it attempts to
+parse the file at that path as a desktop file.  Otherwise, it is used as the
+path that will be used if <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-save" title="awn_desktop_item_save ()"><code class="function">awn_desktop_item_save()</code></a> is called.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> The path to the desktop file.  The base name of the path does not
+need to exist at the time that this function is called.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly created item structure.  When it is no longer needed, it
+needs to be freed via <code class="function">awn_desktop_item_unref()</code>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-copy"></a><h3>awn_desktop_item_copy ()</h3>
+<pre class="programlisting"><a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *    awn_desktop_item_copy               (const <a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);</pre>
+<p>
+Creates a copy of the structure.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item to copy.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A copy of the structure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-get-filename"></a><h3>awn_desktop_item_get_filename ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_desktop_item_get_filename       (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);</pre>
+<p>
+Retrieves the filename that is associated with the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being queried.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The filename associated with the desktop item
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-get-item-type"></a><h3>awn_desktop_item_get_item_type ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_desktop_item_get_item_type      (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);</pre>
+<p>
+Retrieves the type of the desktop item, for example
+"Application" or "Directory".</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being queried.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the item type name.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-set-item-type"></a><h3>awn_desktop_item_set_item_type ()</h3>
+<pre class="programlisting">void                awn_desktop_item_set_item_type      (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *item_type);</pre>
+<p>
+Sets the type of the desktop item, for example "Application"
+or "Directory".</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being modified.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item_type</code></em> :</span></p></td>
+<td> The new item type of the desktop item.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-get-icon"></a><h3>awn_desktop_item_get_icon ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_desktop_item_get_icon           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/gtk/GtkIconTheme.html"
+>GtkIconTheme</a> *icon_theme);</pre>
+<p>
+Retrieves the icon associated with the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structre that is being queried.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_theme</code></em> :</span></p></td>
+<td> The icon theme in which the function searches for the icon.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the absolute filename of the icon.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-set-icon"></a><h3>awn_desktop_item_set_icon ()</h3>
+<pre class="programlisting">void                awn_desktop_item_set_icon           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *icon);</pre>
+<p>
+Sets the icon name of the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being modified.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> The name of the icon, preferably per the Freedesktop.org Icon Naming
+Specification.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-get-name"></a><h3>awn_desktop_item_get_name ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_desktop_item_get_name           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);</pre>
+<p>
+Retrieves the name of the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being queried.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the item name.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-set-name"></a><h3>awn_desktop_item_set_name ()</h3>
+<pre class="programlisting">void                awn_desktop_item_set_name           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);</pre>
+<p>
+Sets the name of the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being modified.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> The new name of the desktop item.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-get-exec"></a><h3>awn_desktop_item_get_exec ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_desktop_item_get_exec           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);</pre>
+<p>
+Retrieves the path of the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being queried.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the item path.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-set-exec"></a><h3>awn_desktop_item_set_exec ()</h3>
+<pre class="programlisting">void                awn_desktop_item_set_exec           (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *exec);</pre>
+<p>
+Sets the path of the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being modified.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>exec</code></em> :</span></p></td>
+<td> The new path of the desktop item.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-get-string"></a><h3>awn_desktop_item_get_string ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_desktop_item_get_string         (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *key);</pre>
+<p>
+Retrieves the value of a key in the desktop item specified.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being queried.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td> The name of the key.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the value of the key if it exists, or <code class="literal">NULL</code> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-set-string"></a><h3>awn_desktop_item_set_string ()</h3>
+<pre class="programlisting">void                awn_desktop_item_set_string         (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *key,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *value);</pre>
+<p>
+Changes the value of a key in the desktop item specified.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being modified.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td> The name of the key.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> The new value of the key.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-get-localestring"></a><h3>awn_desktop_item_get_localestring ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_desktop_item_get_localestring   (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *key);</pre>
+<p>
+Retrieves a locale-specific value for a key in the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being queried.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td> The name of the key.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the locale-specific value, if it exists, or <code class="literal">NULL</code> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-set-localestring"></a><h3>awn_desktop_item_set_localestring ()</h3>
+<pre class="programlisting">void                awn_desktop_item_set_localestring   (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *key,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *locale,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *value);</pre>
+<p>
+Sets a locale-specific value for a key in a desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being modified.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td> The name of the key.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>locale</code></em> :</span></p></td>
+<td> The name of the locale.  The format must correspond to the
+POSIX specification on locale names.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> The new value of the locale-specific key.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-exists"></a><h3>awn_desktop_item_exists ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            awn_desktop_item_exists             (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item);</pre>
+<p>
+Checks to see if the path associated with the desktop item exists
+and is executable.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure that is being queried.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-launch"></a><h3>awn_desktop_item_launch ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                awn_desktop_item_launch             (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *documents,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **err);</pre>
+<p>
+Launches the path of the desktop item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure to be launched.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>documents</code></em> :</span></p></td>
+<td> A list of documents that is passed to the path as arguments.
+Can be <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td> A pointer to a <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a> structure, which contains an error message
+if the function fails.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the process ID (PID) of the new process.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-desktop-item-save"></a><h3>awn_desktop_item_save ()</h3>
+<pre class="programlisting">void                awn_desktop_item_save               (<a class="link" href="libawn-awn-desktop-item.html#AwnDesktopItem" title="AwnDesktopItem">AwnDesktopItem</a> *item,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *new_filename,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **err);</pre>
+<p>
+Saves the serialized desktop item to disk.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> The desktop item structure to be serialized.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_filename</code></em> :</span></p></td>
+<td> the new name of the file where the serialized data
+is saved.  If it is <code class="literal">NULL</code>, the filename specified in <a class="link" href="libawn-awn-desktop-item.html#awn-desktop-item-new" title="awn_desktop_item_new ()"><code class="function">awn_desktop_item_new()</code></a>
+is used.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td> The pointer to a <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a> structure, which contains an error
+message when the function fails.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

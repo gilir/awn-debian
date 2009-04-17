@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="libawn Reference Manual" link="index.html" author="" name="libawn">
+  <chapters>
+    <sub name="Table of Contents" link="ch01.html">
+      <sub name="AwnAppletDialog" link="AwnAppletDialog.html"/>
+      <sub name="AwnAppletSimple" link="AwnAppletSimple.html"/>
+      <sub name="AwnPlug" link="AwnPlug.html"/>
+      <sub name="AwnTitle" link="AwnTitle.html"/>
+      <sub name="AwnApplet" link="AwnApplet.html"/>
+      <sub name="awn-vfs" link="libawn-awn-vfs.html"/>
+      <sub name="awn-settings" link="libawn-awn-settings.html"/>
+      <sub name="awn-config-client" link="libawn-awn-config-client.html"/>
+      <sub name="awn-defines" link="libawn-awn-defines.html"/>
+      <sub name="awn-desktop-item" link="libawn-awn-desktop-item.html"/>
+      <sub name="awn-effects" link="libawn-awn-effects.html"/>
+      <sub name="awn-cairo-utils" link="libawn-awn-cairo-utils.html"/>
+    </sub>
+  </chapters>
+  <functions>
+    <function name="AwnAppletDialogPrivate" link="AwnAppletDialog.html#AwnAppletDialogPrivate"/>
+    <function name="AwnAppletDialog" link="AwnAppletDialog.html#AwnAppletDialog-struct"/>
+    <function name="awn_applet_dialog_new ()" link="AwnAppletDialog.html#awn-applet-dialog-new"/>
+    <function name="awn_applet_dialog_position_reset ()" link="AwnAppletDialog.html#awn-applet-dialog-position-reset"/>
+    <function name="AwnAppletSimplePrivate" link="AwnAppletSimple.html#AwnAppletSimplePrivate"/>
+    <function name="AwnAppletSimple" link="AwnAppletSimple.html#AwnAppletSimple-struct"/>
+    <function name="awn_applet_simple_new ()" link="AwnAppletSimple.html#awn-applet-simple-new"/>
+    <function name="awn_applet_simple_set_icon ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon"/>
+    <function name="awn_applet_simple_set_temp_icon ()" link="AwnAppletSimple.html#awn-applet-simple-set-temp-icon"/>
+    <function name="awn_applet_simple_get_effects ()" link="AwnAppletSimple.html#awn-applet-simple-get-effects"/>
+    <function name="AwnPlugPrivate" link="AwnPlug.html#AwnPlugPrivate"/>
+    <function name="AwnPlug" link="AwnPlug.html#AwnPlug-struct"/>
+    <function name="awn_plug_new ()" link="AwnPlug.html#awn-plug-new"/>
+    <function name="awn_plug_construct ()" link="AwnPlug.html#awn-plug-construct"/>
+    <function name="The &quot;applet-deleted&quot; signal" link="AwnPlug.html#AwnPlug-applet-deleted"/>
+    <function name="AwnTitlePrivate" link="AwnTitle.html#AwnTitlePrivate"/>
+    <function name="AwnTitle" link="AwnTitle.html#AwnTitle-struct"/>
+    <function name="awn_title_get_default ()" link="AwnTitle.html#awn-title-get-default"/>
+    <function name="awn_title_show ()" link="AwnTitle.html#awn-title-show"/>
+    <function name="awn_title_hide ()" link="AwnTitle.html#awn-title-hide"/>
+    <function name="AwnAppletPrivate" link="AwnApplet.html#AwnAppletPrivate"/>
+    <function name="AwnApplet" link="AwnApplet.html#AwnApplet-struct"/>
+    <function name="AwnAppletInitFunc ()" link="AwnApplet.html#AwnAppletInitFunc"/>
+    <function name="AwnAppletInitPFunc ()" link="AwnApplet.html#AwnAppletInitPFunc"/>
+    <function name="awn_applet_new ()" link="AwnApplet.html#awn-applet-new"/>
+    <function name="awn_applet_get_orientation ()" link="AwnApplet.html#awn-applet-get-orientation"/>
+    <function name="awn_applet_get_height ()" link="AwnApplet.html#awn-applet-get-height"/>
+    <function name="awn_applet_create_default_menu ()" link="AwnApplet.html#awn-applet-create-default-menu"/>
+    <function name="The &quot;height&quot; property" link="AwnApplet.html#AwnApplet--height"/>
+    <function name="The &quot;orient&quot; property" link="AwnApplet.html#AwnApplet--orient"/>
+    <function name="The &quot;uid&quot; property" link="AwnApplet.html#AwnApplet--uid"/>
+    <function name="The &quot;applet-deleted&quot; signal" link="AwnApplet.html#AwnApplet-applet-deleted"/>
+    <function name="The &quot;height-changed&quot; signal" link="AwnApplet.html#AwnApplet-height-changed"/>
+    <function name="The &quot;orientation-changed&quot; signal" link="AwnApplet.html#AwnApplet-orientation-changed"/>
+    <function name="AwnVfsMonitor" link="libawn-awn-vfs.html#AwnVfsMonitor"/>
+    <function name="enum AwnVfsMonitorEvent" link="libawn-awn-vfs.html#AwnVfsMonitorEvent"/>
+    <function name="enum AwnVfsMonitorType" link="libawn-awn-vfs.html#AwnVfsMonitorType"/>
+    <function name="AwnVfsMonitorFunc ()" link="libawn-awn-vfs.html#AwnVfsMonitorFunc"/>
+    <function name="awn_vfs_monitor_add ()" link="libawn-awn-vfs.html#awn-vfs-monitor-add"/>
+    <function name="awn_vfs_monitor_emit ()" link="libawn-awn-vfs.html#awn-vfs-monitor-emit"/>
+    <function name="awn_vfs_monitor_remove ()" link="libawn-awn-vfs.html#awn-vfs-monitor-remove"/>
+    <function name="awn_vfs_init ()" link="libawn-awn-vfs.html#awn-vfs-init"/>
+    <function name="awn_vfs_get_pathlist_from_string ()" link="libawn-awn-vfs.html#awn-vfs-get-pathlist-from-string"/>
+    <function name="awn_settings_new ()" link="libawn-awn-settings.html#awn-settings-new"/>
+    <function name="awn_get_settings ()" link="libawn-awn-settings.html#awn-get-settings"/>
+    <function name="AwnConfigClient" link="libawn-awn-config-client.html#AwnConfigClient"/>
+    <function name="AWN_CONFIG_CLIENT()" link="libawn-awn-config-client.html#AWN-CONFIG-CLIENT--CAPS"/>
+    <function name="AwnConfigClientNotifyEntry" link="libawn-awn-config-client.html#AwnConfigClientNotifyEntry"/>
+    <function name="AwnConfigClientNotifyFunc ()" link="libawn-awn-config-client.html#AwnConfigClientNotifyFunc"/>
+    <function name="AWN_CONFIG_CLIENT_DEFAULT_GROUP" link="libawn-awn-config-client.html#AWN-CONFIG-CLIENT-DEFAULT-GROUP--CAPS"/>
+    <function name="enum AwnConfigValueType" link="libawn-awn-config-client.html#AwnConfigValueType"/>
+    <function name="enum AwnConfigListType" link="libawn-awn-config-client.html#AwnConfigListType"/>
+    <function name="awn_config_client_new ()" link="libawn-awn-config-client.html#awn-config-client-new"/>
+    <function name="awn_config_client_new_for_applet ()" link="libawn-awn-config-client.html#awn-config-client-new-for-applet"/>
+    <function name="awn_config_client_clear ()" link="libawn-awn-config-client.html#awn-config-client-clear"/>
+    <function name="awn_config_client_ensure_group ()" link="libawn-awn-config-client.html#awn-config-client-ensure-group"/>
+    <function name="awn_config_client_notify_add ()" link="libawn-awn-config-client.html#awn-config-client-notify-add"/>
+    <function name="awn_config_client_entry_exists ()" link="libawn-awn-config-client.html#awn-config-client-entry-exists"/>
+    <function name="awn_config_client_get_bool ()" link="libawn-awn-config-client.html#awn-config-client-get-bool"/>
+    <function name="awn_config_client_set_bool ()" link="libawn-awn-config-client.html#awn-config-client-set-bool"/>
+    <function name="awn_config_client_get_float ()" link="libawn-awn-config-client.html#awn-config-client-get-float"/>
+    <function name="awn_config_client_set_float ()" link="libawn-awn-config-client.html#awn-config-client-set-float"/>
+    <function name="awn_config_client_get_int ()" link="libawn-awn-config-client.html#awn-config-client-get-int"/>
+    <function name="awn_config_client_set_int ()" link="libawn-awn-config-client.html#awn-config-client-set-int"/>
+    <function name="awn_config_client_get_string ()" link="libawn-awn-config-client.html#awn-config-client-get-string"/>
+    <function name="awn_config_client_set_string ()" link="libawn-awn-config-client.html#awn-config-client-set-string"/>
+    <function name="awn_config_client_get_list ()" link="libawn-awn-config-client.html#awn-config-client-get-list"/>
+    <function name="awn_config_client_set_list ()" link="libawn-awn-config-client.html#awn-config-client-set-list"/>
+    <function name="AWN_GCONF_PATH" link="libawn-awn-defines.html#AWN-GCONF-PATH--CAPS"/>
+    <function name="AWN_APPLET_GCONF_PATH" link="libawn-awn-defines.html#AWN-APPLET-GCONF-PATH--CAPS"/>
+    <function name="AWN_MAX_HEIGHT" link="libawn-awn-defines.html#AWN-MAX-HEIGHT--CAPS"/>
+    <function name="AWN_MIN_HEIGHT" link="libawn-awn-defines.html#AWN-MIN-HEIGHT--CAPS"/>
+    <function name="enum AwnOrientation" link="libawn-awn-defines.html#AwnOrientation"/>
+    <function name="AwnDesktopItem" link="libawn-awn-desktop-item.html#AwnDesktopItem"/>
+    <function name="AWN_DESKTOP_ITEM()" link="libawn-awn-desktop-item.html#AWN-DESKTOP-ITEM--CAPS"/>
+    <function name="awn_desktop_item_new ()" link="libawn-awn-desktop-item.html#awn-desktop-item-new"/>
+    <function name="awn_desktop_item_copy ()" link="libawn-awn-desktop-item.html#awn-desktop-item-copy"/>
+    <function name="awn_desktop_item_get_filename ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-filename"/>
+    <function name="awn_desktop_item_get_item_type ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-item-type"/>
+    <function name="awn_desktop_item_set_item_type ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-item-type"/>
+    <function name="awn_desktop_item_get_icon ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-icon"/>
+    <function name="awn_desktop_item_set_icon ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-icon"/>
+    <function name="awn_desktop_item_get_name ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-name"/>
+    <function name="awn_desktop_item_set_name ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-name"/>
+    <function name="awn_desktop_item_get_exec ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-exec"/>
+    <function name="awn_desktop_item_set_exec ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-exec"/>
+    <function name="awn_desktop_item_get_string ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-string"/>
+    <function name="awn_desktop_item_set_string ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-string"/>
+    <function name="awn_desktop_item_get_localestring ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-localestring"/>
+    <function name="awn_desktop_item_set_localestring ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-localestring"/>
+    <function name="awn_desktop_item_exists ()" link="libawn-awn-desktop-item.html#awn-desktop-item-exists"/>
+    <function name="awn_desktop_item_launch ()" link="libawn-awn-desktop-item.html#awn-desktop-item-launch"/>
+    <function name="awn_desktop_item_save ()" link="libawn-awn-desktop-item.html#awn-desktop-item-save"/>
+    <function name="enum AwnEffect" link="libawn-awn-effects.html#AwnEffect"/>
+    <function name="AwnEffects" link="libawn-awn-effects.html#AwnEffects"/>
+    <function name="awn_effects_new ()" link="libawn-awn-effects.html#awn-effects-new"/>
+    <function name="awn_effects_new_for_widget ()" link="libawn-awn-effects.html#awn-effects-new-for-widget"/>
+    <function name="awn_effects_free ()" link="libawn-awn-effects.html#awn-effects-free"/>
+    <function name="awn_effects_finalize ()" link="libawn-awn-effects.html#awn-effects-finalize"/>
+    <function name="awn_effects_register ()" link="libawn-awn-effects.html#awn-effects-register"/>
+    <function name="awn_effects_unregister ()" link="libawn-awn-effects.html#awn-effects-unregister"/>
+    <function name="awn_effects_start ()" link="libawn-awn-effects.html#awn-effects-start"/>
+    <function name="awn_effects_stop ()" link="libawn-awn-effects.html#awn-effects-stop"/>
+    <function name="awn_effects_set_title ()" link="libawn-awn-effects.html#awn-effects-set-title"/>
+    <function name="awn_effects_start_ex ()" link="libawn-awn-effects.html#awn-effects-start-ex"/>
+    <function name="awn_effects_draw_background ()" link="libawn-awn-effects.html#awn-effects-draw-background"/>
+    <function name="awn_effects_draw_icons ()" link="libawn-awn-effects.html#awn-effects-draw-icons"/>
+    <function name="awn_effects_draw_icons_cairo ()" link="libawn-awn-effects.html#awn-effects-draw-icons-cairo"/>
+    <function name="awn_effects_draw_foreground ()" link="libawn-awn-effects.html#awn-effects-draw-foreground"/>
+    <function name="awn_effects_draw_set_window_size ()" link="libawn-awn-effects.html#awn-effects-draw-set-window-size"/>
+    <function name="awn_effects_draw_set_icon_size ()" link="libawn-awn-effects.html#awn-effects-draw-set-icon-size"/>
+    <function name="awn_effects_reflection_off ()" link="libawn-awn-effects.html#awn-effects-reflection-off"/>
+    <function name="awn_effects_reflection_on ()" link="libawn-awn-effects.html#awn-effects-reflection-on"/>
+    <function name="awn_effects_set_offset_cut ()" link="libawn-awn-effects.html#awn-effects-set-offset-cut"/>
+    <function name="enum AwnCairoRoundCorners" link="libawn-awn-cairo-utils.html#AwnCairoRoundCorners"/>
+    <function name="awn_cairo_rounded_rect ()" link="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect"/>
+    <function name="awn_cairo_string_to_color ()" link="libawn-awn-cairo-utils.html#awn-cairo-string-to-color"/>
+  </functions>
+</book>

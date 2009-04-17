@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnTitle">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnTitle.top_of_page">AwnTitle</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnTitle</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="AwnTitle.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="AwnTitlePrivate">AwnTitlePrivate</link>;
+                    <link linkend="AwnTitle-struct">AwnTitle</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="awn-title-get-default">awn_title_get_default</link>               (void);
+<link linkend="void">void</link>                <link linkend="awn-title-show">awn_title_show</link>                      (<link linkend="AwnTitle">AwnTitle</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *focus,
+                                                         const <link linkend="gchar">gchar</link> *text);
+<link linkend="void">void</link>                <link linkend="awn-title-hide">awn_title_hide</link>                      (<link linkend="AwnTitle">AwnTitle</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *focus);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnTitle.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkWindow">GtkWindow</link>
+                                       +----AwnTitle
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnTitle.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+AwnTitle implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+
+
+
+<refsect1 id="AwnTitle.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnTitle.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnTitlePrivate" role="struct">
+<title>AwnTitlePrivate</title>
+<indexterm zone="AwnTitlePrivate"><primary sortas="AwnTitlePrivate">AwnTitlePrivate</primary></indexterm><programlisting>typedef struct _AwnTitlePrivate AwnTitlePrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnTitle-struct" role="struct">
+<title>AwnTitle</title>
+<indexterm zone="AwnTitle-struct"><primary sortas="AwnTitle">AwnTitle</primary></indexterm><programlisting>typedef struct _AwnTitle AwnTitle;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="awn-title-get-default" role="function">
+<title>awn_title_get_default ()</title>
+<indexterm zone="awn-title-get-default"><primary sortas="awn_title_get_default">awn_title_get_default</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         awn_title_get_default               (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-title-show" role="function">
+<title>awn_title_show ()</title>
+<indexterm zone="awn-title-show"><primary sortas="awn_title_show">awn_title_show</primary></indexterm><programlisting><link linkend="void">void</link>                awn_title_show                      (<link linkend="AwnTitle">AwnTitle</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *focus,
+                                                         const <link linkend="gchar">gchar</link> *text);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>focus</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-title-hide" role="function">
+<title>awn_title_hide ()</title>
+<indexterm zone="awn-title-hide"><primary sortas="awn_title_hide">awn_title_hide</primary></indexterm><programlisting><link linkend="void">void</link>                awn_title_hide                      (<link linkend="AwnTitle">AwnTitle</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *focus);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>focus</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

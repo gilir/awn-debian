@@ -1,0 +1,13 @@
+awn-manager/awn-manager.desktop.in.in
+awn-manager/awnLauncher.py
+awn-manager/awnLauncherEditor.py
+awn-manager/awnManager.py
+awn-manager/awnPreferences.py
+awn-manager/launcher-editor.glade
+awn-manager/window.glade
+data/avant-window-navigator.desktop.in.in
+libawn/egg/eggdesktopfile.c
+libawn/awn-applet.c
+libawn/awn-icons.c
+src/awn-task.c
+src/main.c

@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libawn-awn-desktop-item">
+<refmeta>
+<refentrytitle role="top_of_page" id="libawn-awn-desktop-item.top_of_page">awn-desktop-item</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>awn-desktop-item</refname>
+<refpurpose>A desktop item-specific API wrapper.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libawn-awn-desktop-item.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+#include &lt;libawn/awn-desktop-item.h&gt;
+
+                    <link linkend="AwnDesktopItem">AwnDesktopItem</link>;
+#define             <link linkend="AWN-DESKTOP-ITEM--CAPS">AWN_DESKTOP_ITEM</link>                    (obj)
+<link linkend="AwnDesktopItem">AwnDesktopItem</link> *    <link linkend="awn-desktop-item-new">awn_desktop_item_new</link>                (<link linkend="gchar">gchar</link> *filename);
+<link linkend="AwnDesktopItem">AwnDesktopItem</link> *    <link linkend="awn-desktop-item-copy">awn_desktop_item_copy</link>               (const <link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-desktop-item-get-filename">awn_desktop_item_get_filename</link>       (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-desktop-item-get-item-type">awn_desktop_item_get_item_type</link>      (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);
+<link linkend="void">void</link>                <link linkend="awn-desktop-item-set-item-type">awn_desktop_item_set_item_type</link>      (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *item_type);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-desktop-item-get-icon">awn_desktop_item_get_icon</link>           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="GtkIconTheme">GtkIconTheme</link> *icon_theme);
+<link linkend="void">void</link>                <link linkend="awn-desktop-item-set-icon">awn_desktop_item_set_icon</link>           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *icon);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-desktop-item-get-name">awn_desktop_item_get_name</link>           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);
+<link linkend="void">void</link>                <link linkend="awn-desktop-item-set-name">awn_desktop_item_set_name</link>           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-desktop-item-get-exec">awn_desktop_item_get_exec</link>           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);
+<link linkend="void">void</link>                <link linkend="awn-desktop-item-set-exec">awn_desktop_item_set_exec</link>           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *exec);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-desktop-item-get-string">awn_desktop_item_get_string</link>         (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *key);
+<link linkend="void">void</link>                <link linkend="awn-desktop-item-set-string">awn_desktop_item_set_string</link>         (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="gchar">gchar</link> *value);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-desktop-item-get-localestring">awn_desktop_item_get_localestring</link>   (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *key);
+<link linkend="void">void</link>                <link linkend="awn-desktop-item-set-localestring">awn_desktop_item_set_localestring</link>   (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="gchar">gchar</link> *locale,
+                                                         <link linkend="gchar">gchar</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="awn-desktop-item-exists">awn_desktop_item_exists</link>             (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);
+<link linkend="gint">gint</link>                <link linkend="awn-desktop-item-launch">awn_desktop_item_launch</link>             (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="GSList">GSList</link> *documents,
+                                                         <link linkend="GError">GError</link> **err);
+<link linkend="void">void</link>                <link linkend="awn-desktop-item-save">awn_desktop_item_save</link>               (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *new_filename,
+                                                         <link linkend="GError">GError</link> **err);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libawn-awn-desktop-item.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Contains a desktop item wrapper API whose implementation depends on
+the compile-time configuration.</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libawn-awn-desktop-item.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnDesktopItem" role="struct">
+<title>AwnDesktopItem</title>
+<indexterm zone="AwnDesktopItem"><primary sortas="AwnDesktopItem">AwnDesktopItem</primary></indexterm><programlisting>typedef struct _AwnDesktopItem AwnDesktopItem;</programlisting>
+<para>
+An alias for the desktop-specific .desktop file-handling structure.</para>
+<para>
+</para></refsect2>
+<refsect2 id="AWN-DESKTOP-ITEM--CAPS" role="macro">
+<title>AWN_DESKTOP_ITEM()</title>
+<indexterm zone="AWN-DESKTOP-ITEM--CAPS"><primary sortas="AWN_DESKTOP_ITEM">AWN_DESKTOP_ITEM</primary></indexterm><programlisting>#define AWN_DESKTOP_ITEM(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), AWN_TYPE_DESKTOP_ITEM, AwnDesktopItem))
+</programlisting>
+<para>
+Casts a variable/value to be an <link linkend="AwnDesktopItem"><type>AwnDesktopItem</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara> The variable/value to cast
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-new" role="function">
+<title>awn_desktop_item_new ()</title>
+<indexterm zone="awn-desktop-item-new"><primary sortas="awn_desktop_item_new">awn_desktop_item_new</primary></indexterm><programlisting><link linkend="AwnDesktopItem">AwnDesktopItem</link> *    awn_desktop_item_new                (<link linkend="gchar">gchar</link> *filename);</programlisting>
+<para>
+Creates a new desktop item structure.  If <parameter>filename</parameter> exists, it attempts to
+parse the file at that path as a desktop file.  Otherwise, it is used as the
+path that will be used if <link linkend="awn-desktop-item-save"><function>awn_desktop_item_save()</function></link> is called.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>filename</parameter>&#160;:</term>
+<listitem><simpara> The path to the desktop file.  The base name of the path does not
+need to exist at the time that this function is called.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a newly created item structure.  When it is no longer needed, it
+needs to be freed via <link linkend="awn-desktop-item-unref"><function>awn_desktop_item_unref()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-copy" role="function">
+<title>awn_desktop_item_copy ()</title>
+<indexterm zone="awn-desktop-item-copy"><primary sortas="awn_desktop_item_copy">awn_desktop_item_copy</primary></indexterm><programlisting><link linkend="AwnDesktopItem">AwnDesktopItem</link> *    awn_desktop_item_copy               (const <link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);</programlisting>
+<para>
+Creates a copy of the structure.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item to copy.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A copy of the structure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-get-filename" role="function">
+<title>awn_desktop_item_get_filename ()</title>
+<indexterm zone="awn-desktop-item-get-filename"><primary sortas="awn_desktop_item_get_filename">awn_desktop_item_get_filename</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_desktop_item_get_filename       (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);</programlisting>
+<para>
+Retrieves the filename that is associated with the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The filename associated with the desktop item
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-get-item-type" role="function">
+<title>awn_desktop_item_get_item_type ()</title>
+<indexterm zone="awn-desktop-item-get-item-type"><primary sortas="awn_desktop_item_get_item_type">awn_desktop_item_get_item_type</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_desktop_item_get_item_type      (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);</programlisting>
+<para>
+Retrieves the type of the desktop item, for example
+"Application" or "Directory".</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the item type name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-set-item-type" role="function">
+<title>awn_desktop_item_set_item_type ()</title>
+<indexterm zone="awn-desktop-item-set-item-type"><primary sortas="awn_desktop_item_set_item_type">awn_desktop_item_set_item_type</primary></indexterm><programlisting><link linkend="void">void</link>                awn_desktop_item_set_item_type      (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *item_type);</programlisting>
+<para>
+Sets the type of the desktop item, for example "Application"
+or "Directory".</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being modified.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item_type</parameter>&#160;:</term>
+<listitem><simpara> The new item type of the desktop item.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-get-icon" role="function">
+<title>awn_desktop_item_get_icon ()</title>
+<indexterm zone="awn-desktop-item-get-icon"><primary sortas="awn_desktop_item_get_icon">awn_desktop_item_get_icon</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_desktop_item_get_icon           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="GtkIconTheme">GtkIconTheme</link> *icon_theme);</programlisting>
+<para>
+Retrieves the icon associated with the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structre that is being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icon_theme</parameter>&#160;:</term>
+<listitem><simpara> The icon theme in which the function searches for the icon.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the absolute filename of the icon.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-set-icon" role="function">
+<title>awn_desktop_item_set_icon ()</title>
+<indexterm zone="awn-desktop-item-set-icon"><primary sortas="awn_desktop_item_set_icon">awn_desktop_item_set_icon</primary></indexterm><programlisting><link linkend="void">void</link>                awn_desktop_item_set_icon           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *icon);</programlisting>
+<para>
+Sets the icon name of the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being modified.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> The name of the icon, preferably per the Freedesktop.org Icon Naming
+Specification.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-get-name" role="function">
+<title>awn_desktop_item_get_name ()</title>
+<indexterm zone="awn-desktop-item-get-name"><primary sortas="awn_desktop_item_get_name">awn_desktop_item_get_name</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_desktop_item_get_name           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);</programlisting>
+<para>
+Retrieves the name of the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the item name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-set-name" role="function">
+<title>awn_desktop_item_set_name ()</title>
+<indexterm zone="awn-desktop-item-set-name"><primary sortas="awn_desktop_item_set_name">awn_desktop_item_set_name</primary></indexterm><programlisting><link linkend="void">void</link>                awn_desktop_item_set_name           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Sets the name of the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being modified.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&#160;:</term>
+<listitem><simpara> The new name of the desktop item.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-get-exec" role="function">
+<title>awn_desktop_item_get_exec ()</title>
+<indexterm zone="awn-desktop-item-get-exec"><primary sortas="awn_desktop_item_get_exec">awn_desktop_item_get_exec</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_desktop_item_get_exec           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);</programlisting>
+<para>
+Retrieves the path of the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the item path.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-set-exec" role="function">
+<title>awn_desktop_item_set_exec ()</title>
+<indexterm zone="awn-desktop-item-set-exec"><primary sortas="awn_desktop_item_set_exec">awn_desktop_item_set_exec</primary></indexterm><programlisting><link linkend="void">void</link>                awn_desktop_item_set_exec           (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *exec);</programlisting>
+<para>
+Sets the path of the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being modified.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>exec</parameter>&#160;:</term>
+<listitem><simpara> The new path of the desktop item.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-get-string" role="function">
+<title>awn_desktop_item_get_string ()</title>
+<indexterm zone="awn-desktop-item-get-string"><primary sortas="awn_desktop_item_get_string">awn_desktop_item_get_string</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_desktop_item_get_string         (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *key);</programlisting>
+<para>
+Retrieves the value of a key in the desktop item specified.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara> The name of the key.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the value of the key if it exists, or <link linkend="NULL--CAPS"><literal>NULL</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-set-string" role="function">
+<title>awn_desktop_item_set_string ()</title>
+<indexterm zone="awn-desktop-item-set-string"><primary sortas="awn_desktop_item_set_string">awn_desktop_item_set_string</primary></indexterm><programlisting><link linkend="void">void</link>                awn_desktop_item_set_string         (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="gchar">gchar</link> *value);</programlisting>
+<para>
+Changes the value of a key in the desktop item specified.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being modified.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara> The name of the key.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara> The new value of the key.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-get-localestring" role="function">
+<title>awn_desktop_item_get_localestring ()</title>
+<indexterm zone="awn-desktop-item-get-localestring"><primary sortas="awn_desktop_item_get_localestring">awn_desktop_item_get_localestring</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_desktop_item_get_localestring   (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *key);</programlisting>
+<para>
+Retrieves a locale-specific value for a key in the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara> The name of the key.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the locale-specific value, if it exists, or <link linkend="NULL--CAPS"><literal>NULL</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-set-localestring" role="function">
+<title>awn_desktop_item_set_localestring ()</title>
+<indexterm zone="awn-desktop-item-set-localestring"><primary sortas="awn_desktop_item_set_localestring">awn_desktop_item_set_localestring</primary></indexterm><programlisting><link linkend="void">void</link>                awn_desktop_item_set_localestring   (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="gchar">gchar</link> *locale,
+                                                         <link linkend="gchar">gchar</link> *value);</programlisting>
+<para>
+Sets a locale-specific value for a key in a desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being modified.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara> The name of the key.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>locale</parameter>&#160;:</term>
+<listitem><simpara> The name of the locale.  The format must correspond to the
+POSIX specification on locale names.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara> The new value of the locale-specific key.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-exists" role="function">
+<title>awn_desktop_item_exists ()</title>
+<indexterm zone="awn-desktop-item-exists"><primary sortas="awn_desktop_item_exists">awn_desktop_item_exists</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            awn_desktop_item_exists             (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item);</programlisting>
+<para>
+Checks to see if the path associated with the desktop item exists
+and is executable.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure that is being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="TRUE--CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-launch" role="function">
+<title>awn_desktop_item_launch ()</title>
+<indexterm zone="awn-desktop-item-launch"><primary sortas="awn_desktop_item_launch">awn_desktop_item_launch</primary></indexterm><programlisting><link linkend="gint">gint</link>                awn_desktop_item_launch             (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="GSList">GSList</link> *documents,
+                                                         <link linkend="GError">GError</link> **err);</programlisting>
+<para>
+Launches the path of the desktop item.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure to be launched.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>documents</parameter>&#160;:</term>
+<listitem><simpara> A list of documents that is passed to the path as arguments.
+Can be <link linkend="NULL--CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>err</parameter>&#160;:</term>
+<listitem><simpara> A pointer to a <link linkend="GError"><type>GError</type></link> structure, which contains an error message
+if the function fails.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the process ID (PID) of the new process.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-desktop-item-save" role="function">
+<title>awn_desktop_item_save ()</title>
+<indexterm zone="awn-desktop-item-save"><primary sortas="awn_desktop_item_save">awn_desktop_item_save</primary></indexterm><programlisting><link linkend="void">void</link>                awn_desktop_item_save               (<link linkend="AwnDesktopItem">AwnDesktopItem</link> *item,
+                                                         <link linkend="gchar">gchar</link> *new_filename,
+                                                         <link linkend="GError">GError</link> **err);</programlisting>
+<para>
+Saves the serialized desktop item to disk.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> The desktop item structure to be serialized.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_filename</parameter>&#160;:</term>
+<listitem><simpara> the new name of the file where the serialized data
+is saved.  If it is <link linkend="NULL--CAPS"><literal>NULL</literal></link>, the filename specified in <link linkend="awn-desktop-item-new"><function>awn_desktop_item_new()</function></link>
+is used.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>err</parameter>&#160;:</term>
+<listitem><simpara> The pointer to a <link linkend="GError"><type>GError</type></link> structure, which contains an error
+message when the function fails.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

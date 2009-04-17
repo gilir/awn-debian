@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnAppletDialog">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnAppletDialog.top_of_page">AwnAppletDialog</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnAppletDialog</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="AwnAppletDialog.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="AwnAppletDialogPrivate">AwnAppletDialogPrivate</link>;
+                    <link linkend="AwnAppletDialog-struct">AwnAppletDialog</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="awn-applet-dialog-new">awn_applet_dialog_new</link>               (<link linkend="AwnApplet">AwnApplet</link> *applet);
+<link linkend="void">void</link>                <link linkend="awn-applet-dialog-position-reset">awn_applet_dialog_position_reset</link>    (<link linkend="AwnAppletDialog">AwnAppletDialog</link> *dialog);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnAppletDialog.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkWindow">GtkWindow</link>
+                                       +----AwnAppletDialog
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnAppletDialog.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+AwnAppletDialog implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+
+
+
+<refsect1 id="AwnAppletDialog.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnAppletDialog.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnAppletDialogPrivate" role="struct">
+<title>AwnAppletDialogPrivate</title>
+<indexterm zone="AwnAppletDialogPrivate"><primary sortas="AwnAppletDialogPrivate">AwnAppletDialogPrivate</primary></indexterm><programlisting>typedef struct _AwnAppletDialogPrivate AwnAppletDialogPrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnAppletDialog-struct" role="struct">
+<title>AwnAppletDialog</title>
+<indexterm zone="AwnAppletDialog-struct"><primary sortas="AwnAppletDialog">AwnAppletDialog</primary></indexterm><programlisting>typedef struct _AwnAppletDialog AwnAppletDialog;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="awn-applet-dialog-new" role="function">
+<title>awn_applet_dialog_new ()</title>
+<indexterm zone="awn-applet-dialog-new"><primary sortas="awn_applet_dialog_new">awn_applet_dialog_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          awn_applet_dialog_new               (<link linkend="AwnApplet">AwnApplet</link> *applet);</programlisting>
+<para>
+Creates a new toplevel window that is "attached" to the <parameter>applet</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>applet</parameter>&#160;:</term>
+<listitem><simpara> The applet to which to associate the dialog
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a new dialog.  Caller is responsible for freeing the memory when the
+dialog is no longer being used.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-applet-dialog-position-reset" role="function">
+<title>awn_applet_dialog_position_reset ()</title>
+<indexterm zone="awn-applet-dialog-position-reset"><primary sortas="awn_applet_dialog_position_reset">awn_applet_dialog_position_reset</primary></indexterm><programlisting><link linkend="void">void</link>                awn_applet_dialog_position_reset    (<link linkend="AwnAppletDialog">AwnAppletDialog</link> *dialog);</programlisting>
+<para>
+Resets the position of the dialog so it is centered over its associated
+applet window.  Should "reposition" dialog-arrow if the dialog does not fit
+(fall-off-screen) on the desired place.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>dialog</parameter>&#160;:</term>
+<listitem><simpara> The dialog to reposition.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

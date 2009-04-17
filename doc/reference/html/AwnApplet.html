@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnApplet</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libawn Reference Manual">
+<link rel="up" href="ch01.html" title="Table of Contents">
+<link rel="prev" href="AwnTitle.html" title="AwnTitle">
+<link rel="next" href="libawn-awn-vfs.html" title="awn-vfs">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Table of Contents">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnTitle.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libawn Reference Manual</th>
+<td><a accesskey="n" href="libawn-awn-vfs.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AwnApplet.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AwnApplet.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AwnApplet.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AwnApplet.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#AwnApplet.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#AwnApplet.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="AwnApplet"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AwnApplet.top_of_page"></a>AwnApplet</span></h2>
+<p>AwnApplet</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="AwnApplet.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="AwnApplet.html#AwnAppletPrivate" title="AwnAppletPrivate">AwnAppletPrivate</a>;
+                    <a class="link" href="AwnApplet.html#AwnApplet-struct" title="AwnApplet">AwnApplet</a>;
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            (<a class="link" href="AwnApplet.html#AwnAppletInitFunc" title="AwnAppletInitFunc ()">*AwnAppletInitFunc</a>)                (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);
+<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *         (<a class="link" href="AwnApplet.html#AwnAppletInitPFunc" title="AwnAppletInitPFunc ()">*AwnAppletInitPFunc</a>)               (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *uid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> orient,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> height);
+<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *         <a class="link" href="AwnApplet.html#awn-applet-new" title="awn_applet_new ()">awn_applet_new</a>                      (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *uid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> orient,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> height);
+<a class="link" href="libawn-awn-defines.html#AwnOrientation" title="enum AwnOrientation">AwnOrientation</a>      <a class="link" href="AwnApplet.html#awn-applet-get-orientation" title="awn_applet_get_orientation ()">awn_applet_get_orientation</a>          (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="AwnApplet.html#awn-applet-get-height" title="awn_applet_get_height ()">awn_applet_get_height</a>               (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);
+<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *         <a class="link" href="AwnApplet.html#awn-applet-create-default-menu" title="awn_applet_create_default_menu ()">awn_applet_create_default_menu</a>      (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnApplet.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkObject.html"
+>GtkObject</a>
+               +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a>
+                     +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkContainer.html"
+>GtkContainer</a>
+                           +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkBin.html"
+>GtkBin</a>
+                                 +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkEventBox.html"
+>GtkEventBox</a>
+                                       +----AwnApplet
+                                             +----<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a>
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnApplet.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnApplet implements
+ AtkImplementorIface and  <a
+href="/usr/share/gtk-doc/html/gtk/gtk-gtkbuildable.html#GtkBuildable"
+>GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnApplet.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnApplet.html#AwnApplet--height" title='The "height" property'>height</a>"                   <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct
+  "<a class="link" href="AwnApplet.html#AwnApplet--orient" title='The "orient" property'>orient</a>"                   <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct
+  "<a class="link" href="AwnApplet.html#AwnApplet--uid" title='The "uid" property'>uid</a>"                      <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnApplet.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnApplet.html#AwnApplet-applet-deleted" title='The "applet-deleted" signal'>applet-deleted</a>"                                 : Run First
+  "<a class="link" href="AwnApplet.html#AwnApplet-height-changed" title='The "height-changed" signal'>height-changed</a>"                                 : Run First
+  "<a class="link" href="AwnApplet.html#AwnApplet-orientation-changed" title='The "orientation-changed" signal'>orientation-changed</a>"                            : Run First
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnApplet.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnApplet.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnAppletPrivate"></a><h3>AwnAppletPrivate</h3>
+<pre class="programlisting">typedef struct _AwnAppletPrivate AwnAppletPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnApplet-struct"></a><h3>AwnApplet</h3>
+<pre class="programlisting">typedef struct _AwnApplet AwnApplet;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnAppletInitFunc"></a><h3>AwnAppletInitFunc ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            (*AwnAppletInitFunc)                (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnAppletInitPFunc"></a><h3>AwnAppletInitPFunc ()</h3>
+<pre class="programlisting"><a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *         (*AwnAppletInitPFunc)               (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *uid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> orient,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> height);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>orient</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-applet-new"></a><h3>awn_applet_new ()</h3>
+<pre class="programlisting"><a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *         awn_applet_new                      (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *uid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> orient,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> height);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>orient</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-applet-get-orientation"></a><h3>awn_applet_get_orientation ()</h3>
+<pre class="programlisting"><a class="link" href="libawn-awn-defines.html#AwnOrientation" title="enum AwnOrientation">AwnOrientation</a>      awn_applet_get_orientation          (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-applet-get-height"></a><h3>awn_applet_get_height ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               awn_applet_get_height               (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-applet-create-default-menu"></a><h3>awn_applet_create_default_menu ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *         awn_applet_create_default_menu      (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnApplet.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnApplet--height"></a><h3>The <code class="literal">"height"</code> property</h3>
+<pre class="programlisting">  "height"                   <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct</pre>
+<p>The current visible height of the bar.</p>
+<p>Allowed values: [12,100]</p>
+<p>Default value: 48</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnApplet--orient"></a><h3>The <code class="literal">"orient"</code> property</h3>
+<pre class="programlisting">  "orient"                   <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct</pre>
+<p>The current bar orientation.</p>
+<p>Allowed values: [0,10]</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnApplet--uid"></a><h3>The <code class="literal">"uid"</code> property</h3>
+<pre class="programlisting">  "uid"                      <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct</pre>
+<p>Awn's Unique ID for this applet instance (used for gconf).</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnApplet.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnApplet-applet-deleted"></a><h3>The <code class="literal">"applet-deleted"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *awnapplet,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>     *arg1,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnapplet</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnApplet-height-changed"></a><h3>The <code class="literal">"height-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *awnapplet,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>       arg1,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnapplet</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnApplet-orientation-changed"></a><h3>The <code class="literal">"orientation-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *awnapplet,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>       arg1,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnapplet</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

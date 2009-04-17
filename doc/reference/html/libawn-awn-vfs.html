@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>awn-vfs</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libawn Reference Manual">
+<link rel="up" href="ch01.html" title="Table of Contents">
+<link rel="prev" href="AwnApplet.html" title="AwnApplet">
+<link rel="next" href="libawn-awn-settings.html" title="awn-settings">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Table of Contents">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnApplet.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libawn Reference Manual</th>
+<td><a accesskey="n" href="libawn-awn-settings.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libawn-awn-vfs.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libawn-awn-vfs.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libawn-awn-vfs"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libawn-awn-vfs.top_of_page"></a>awn-vfs</span></h2>
+<p>awn-vfs — VFS-related API wrappers and utility functions.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libawn-awn-vfs.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;libawn/awn-vfs.h&gt;
+
+typedef             <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a>;
+enum                <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorEvent" title="enum AwnVfsMonitorEvent">AwnVfsMonitorEvent</a>;
+enum                <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorType" title="enum AwnVfsMonitorType">AwnVfsMonitorType</a>;
+void                (<a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorFunc" title="AwnVfsMonitorFunc ()">*AwnVfsMonitorFunc</a>)                (<a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a> *monitor,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *monitor_path,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *event_path,
+                                                         <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorEvent" title="enum AwnVfsMonitorEvent">AwnVfsMonitorEvent</a> event,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+<a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a> *     <a class="link" href="libawn-awn-vfs.html#awn-vfs-monitor-add" title="awn_vfs_monitor_add ()">awn_vfs_monitor_add</a>                 (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *path,
+                                                         <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorType" title="enum AwnVfsMonitorType">AwnVfsMonitorType</a> monitor_type,
+                                                         <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorFunc" title="AwnVfsMonitorFunc ()">AwnVfsMonitorFunc</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                <a class="link" href="libawn-awn-vfs.html#awn-vfs-monitor-emit" title="awn_vfs_monitor_emit ()">awn_vfs_monitor_emit</a>                (<a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a> *monitor,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *path,
+                                                         <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorEvent" title="enum AwnVfsMonitorEvent">AwnVfsMonitorEvent</a> event);
+void                <a class="link" href="libawn-awn-vfs.html#awn-vfs-monitor-remove" title="awn_vfs_monitor_remove ()">awn_vfs_monitor_remove</a>              (<a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a> *monitor);
+void                <a class="link" href="libawn-awn-vfs.html#awn-vfs-init" title="awn_vfs_init ()">awn_vfs_init</a>                        (void);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            <a class="link" href="libawn-awn-vfs.html#awn-vfs-get-pathlist-from-string" title="awn_vfs_get_pathlist_from_string ()">awn_vfs_get_pathlist_from_string</a>    (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *paths,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **err);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="libawn-awn-vfs.description"></a><h2>Description</h2>
+<p>
+Contains a file monitoring wrapper API and utility functions whose
+implementations depend on the compile-time configuration.</p>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="libawn-awn-vfs.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnVfsMonitor"></a><h3>AwnVfsMonitor</h3>
+<p>
+A wrapper structure for the VFS libraries' file/directory monitoring
+structure. In the case of the GIO implementation, it is an opaque structure.</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnVfsMonitorEvent"></a><h3>enum AwnVfsMonitorEvent</h3>
+<pre class="programlisting">typedef enum {
+	AWN_VFS_MONITOR_EVENT_CHANGED,
+	AWN_VFS_MONITOR_EVENT_CREATED,
+	AWN_VFS_MONITOR_EVENT_DELETED
+} AwnVfsMonitorEvent;
+</pre>
+<p>
+A list of valid monitor event types for use with monitor event emission or
+retrieving the type of monitor event in the callback.  Due to thunar-vfs's
+limited support for event types, only "changed", "created", and "deleted"
+are available for use.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="AWN-VFS-MONITOR-EVENT-CHANGED--CAPS"></a><span class="term"><code class="literal">AWN_VFS_MONITOR_EVENT_CHANGED</code></span></p></td>
+<td> Indicates that the path referenced has
+been changed.
+</td>
+</tr>
+<tr>
+<td><p><a name="AWN-VFS-MONITOR-EVENT-CREATED--CAPS"></a><span class="term"><code class="literal">AWN_VFS_MONITOR_EVENT_CREATED</code></span></p></td>
+<td> Indicates that the path referenced has
+been created on the filesystem.
+</td>
+</tr>
+<tr>
+<td><p><a name="AWN-VFS-MONITOR-EVENT-DELETED--CAPS"></a><span class="term"><code class="literal">AWN_VFS_MONITOR_EVENT_DELETED</code></span></p></td>
+<td> Indicates that the path referenced has
+been removed from the filesystem.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnVfsMonitorType"></a><h3>enum AwnVfsMonitorType</h3>
+<pre class="programlisting">typedef enum {
+	AWN_VFS_MONITOR_FILE,
+	AWN_VFS_MONITOR_DIRECTORY
+} AwnVfsMonitorType;
+</pre>
+<p>
+The type of path that an <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor"><span class="type">AwnVfsMonitor</span></a> instance is monitoring.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="AWN-VFS-MONITOR-FILE--CAPS"></a><span class="term"><code class="literal">AWN_VFS_MONITOR_FILE</code></span></p></td>
+<td> Indicates that the <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor"><span class="type">AwnVfsMonitor</span></a> instance is
+monitoring a file.
+</td>
+</tr>
+<tr>
+<td><p><a name="AWN-VFS-MONITOR-DIRECTORY--CAPS"></a><span class="term"><code class="literal">AWN_VFS_MONITOR_DIRECTORY</code></span></p></td>
+<td> Indicates that the <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor"><span class="type">AwnVfsMonitor</span></a> instance is
+monitoring a directory.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnVfsMonitorFunc"></a><h3>AwnVfsMonitorFunc ()</h3>
+<pre class="programlisting">void                (*AwnVfsMonitorFunc)                (<a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a> *monitor,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *monitor_path,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *event_path,
+                                                         <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorEvent" title="enum AwnVfsMonitorEvent">AwnVfsMonitorEvent</a> event,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+The function template used for callbacks executed when a filesystem event has
+occurred on a path that is being monitored.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>monitor</code></em> :</span></p></td>
+<td> The monitor structure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>monitor_path</code></em> :</span></p></td>
+<td> The path that is associated with the monitor structure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_path</code></em> :</span></p></td>
+<td> In the case of a directory monitor, the path inside the folder
+that triggered the event.  Otherwise, it is the same as the <em class="parameter"><code>monitor_path</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> The filesystem operation that triggered the callback to be executed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> The data passed to <a class="link" href="libawn-awn-vfs.html#awn-vfs-monitor-add" title="awn_vfs_monitor_add ()"><code class="function">awn_vfs_monitor_add()</code></a> so that it could be used
+in the callback.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-vfs-monitor-add"></a><h3>awn_vfs_monitor_add ()</h3>
+<pre class="programlisting"><a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a> *     awn_vfs_monitor_add                 (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *path,
+                                                         <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorType" title="enum AwnVfsMonitorType">AwnVfsMonitorType</a> monitor_type,
+                                                         <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorFunc" title="AwnVfsMonitorFunc ()">AwnVfsMonitorFunc</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+Adds a monitor callback to the list of callbacks associated with a file
+or directory.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> The path to the file/directory being monitored.  The path does not
+have to exist on the filesystem at the time this function is called.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>monitor_type</code></em> :</span></p></td>
+<td> States whether the path being monitored is a directory or
+a file.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td> The function to be executed when an event occurs with regards
+to the path.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> Extra data to be used by the <em class="parameter"><code>callback</code></em> function.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a reference to a newly created monitor struct.  The caller is
+obligated to free the memory when the struct is no longer needed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-vfs-monitor-emit"></a><h3>awn_vfs_monitor_emit ()</h3>
+<pre class="programlisting">void                awn_vfs_monitor_emit                (<a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a> *monitor,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *path,
+                                                         <a class="link" href="libawn-awn-vfs.html#AwnVfsMonitorEvent" title="enum AwnVfsMonitorEvent">AwnVfsMonitorEvent</a> event);</pre>
+<p>
+Emits an artificial monitor event to a monitor.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>monitor</code></em> :</span></p></td>
+<td> The monitor structure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> The path on the filesystem that will be passed to the
+respective callbacks.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> The type of monitor event to fake.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-vfs-monitor-remove"></a><h3>awn_vfs_monitor_remove ()</h3>
+<pre class="programlisting">void                awn_vfs_monitor_remove              (<a class="link" href="libawn-awn-vfs.html#AwnVfsMonitor" title="AwnVfsMonitor">AwnVfsMonitor</a> *monitor);</pre>
+<p>
+Removes a monitor structure from monitoring a path.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>monitor</code></em> :</span></p></td>
+<td> The structure to remove from monitoring  a path.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-vfs-init"></a><h3>awn_vfs_init ()</h3>
+<pre class="programlisting">void                awn_vfs_init                        (void);</pre>
+<p>
+Starts up the VFS library routines that Awn uses, if necessary.</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-vfs-get-pathlist-from-string"></a><h3>awn_vfs_get_pathlist_from_string ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            awn_vfs_get_pathlist_from_string    (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *paths,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **err);</pre>
+<p>
+Converts a string of type text/uri-list into a GSList of URIs.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paths</code></em> :</span></p></td>
+<td> A list of strings in a text/uri-list format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td> A pointer to the reference object that is used to determine whether
+the operation was successful.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a list of URIs
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

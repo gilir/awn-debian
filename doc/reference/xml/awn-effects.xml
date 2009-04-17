@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libawn-awn-effects">
+<refmeta>
+<refentrytitle role="top_of_page" id="libawn-awn-effects.top_of_page">awn-effects</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>awn-effects</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libawn-awn-effects.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="AwnEffect">AwnEffect</link>;
+                    <link linkend="AwnEffects">AwnEffects</link>;
+<link linkend="AwnEffects">AwnEffects</link>*         <link linkend="awn-effects-new">awn_effects_new</link>                     ();
+<link linkend="AwnEffects">AwnEffects</link>*         <link linkend="awn-effects-new-for-widget">awn_effects_new_for_widget</link>          (<link linkend="GtkWidget">GtkWidget</link> *widget);
+<link linkend="void">void</link>                <link linkend="awn-effects-free">awn_effects_free</link>                    (<link linkend="AwnEffects">AwnEffects</link> *fx);
+<link linkend="void">void</link>                <link linkend="awn-effects-finalize">awn_effects_finalize</link>                (<link linkend="AwnEffects">AwnEffects</link> *fx);
+<link linkend="void">void</link>                <link linkend="awn-effects-register">awn_effects_register</link>                (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *obj);
+<link linkend="void">void</link>                <link linkend="awn-effects-unregister">awn_effects_unregister</link>              (<link linkend="AwnEffects">AwnEffects</link> *fx);
+<link linkend="void">void</link>                <link linkend="awn-effects-start">awn_effects_start</link>                   (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         const <link linkend="AwnEffect">AwnEffect</link> effect);
+<link linkend="void">void</link>                <link linkend="awn-effects-stop">awn_effects_stop</link>                    (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         const <link linkend="AwnEffect">AwnEffect</link> effect);
+<link linkend="void">void</link>                <link linkend="awn-effects-set-title">awn_effects_set_title</link>               (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         <link linkend="AwnTitle">AwnTitle</link> *title,
+                                                         <link linkend="AwnTitleCallback">AwnTitleCallback</link> title_func);
+<link linkend="void">void</link>                <link linkend="awn-effects-start-ex">awn_effects_start_ex</link>                (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         const <link linkend="AwnEffect">AwnEffect</link> effect,
+                                                         <link linkend="AwnEventNotify">AwnEventNotify</link> start,
+                                                         <link linkend="AwnEventNotify">AwnEventNotify</link> stop,
+                                                         <link linkend="gint">gint</link> max_loops);
+<link linkend="void">void</link>                <link linkend="awn-effects-draw-background">awn_effects_draw_background</link>         (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         <link linkend="cairo-t">cairo_t</link> *);
+<link linkend="void">void</link>                <link linkend="awn-effects-draw-icons">awn_effects_draw_icons</link>              (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         <link linkend="cairo-t">cairo_t</link> *,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *);
+<link linkend="void">void</link>                <link linkend="awn-effects-draw-icons-cairo">awn_effects_draw_icons_cairo</link>        (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         <link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="cairo-t">cairo_t</link> *,
+                                                         <link linkend="cairo-t">cairo_t</link> *);
+<link linkend="void">void</link>                <link linkend="awn-effects-draw-foreground">awn_effects_draw_foreground</link>         (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         <link linkend="cairo-t">cairo_t</link> *);
+<link linkend="void">void</link>                <link linkend="awn-effects-draw-set-window-size">awn_effects_draw_set_window_size</link>    (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         const <link linkend="gint">gint</link> ,
+                                                         const <link linkend="gint">gint</link> );
+<link linkend="void">void</link>                <link linkend="awn-effects-draw-set-icon-size">awn_effects_draw_set_icon_size</link>      (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         const <link linkend="gint">gint</link> ,
+                                                         const <link linkend="gint">gint</link> );
+<link linkend="void">void</link>                <link linkend="awn-effects-reflection-off">awn_effects_reflection_off</link>          (<link linkend="AwnEffects">AwnEffects</link> *fx);
+<link linkend="void">void</link>                <link linkend="awn-effects-reflection-on">awn_effects_reflection_on</link>           (<link linkend="AwnEffects">AwnEffects</link> *fx);
+<link linkend="void">void</link>                <link linkend="awn-effects-set-offset-cut">awn_effects_set_offset_cut</link>          (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         <link linkend="gboolean">gboolean</link> cut);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libawn-awn-effects.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libawn-awn-effects.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnEffect" role="enum">
+<title>enum AwnEffect</title>
+<indexterm zone="AwnEffect"><primary sortas="AwnEffect">AwnEffect</primary></indexterm><programlisting>typedef enum
+{
+  AWN_EFFECT_NONE,
+  AWN_EFFECT_OPENING,
+  AWN_EFFECT_LAUNCHING,
+  AWN_EFFECT_HOVER,
+  AWN_EFFECT_ATTENTION,
+  AWN_EFFECT_CLOSING,
+  AWN_EFFECT_DESATURATE
+} AwnEffect;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnEffects" role="struct">
+<title>AwnEffects</title>
+<indexterm zone="AwnEffects"><primary sortas="AwnEffects">AwnEffects</primary></indexterm><programlisting>typedef struct {
+  GtkWidget *self;
+  GtkWidget *focus_window;
+  AwnSettings *settings;
+  AwnTitle *title;
+  AwnTitleCallback get_title;
+  GList *effect_queue;
+
+  gint icon_width, icon_height;
+  gint window_width, window_height;
+
+  /* EFFECT VARIABLES */
+  gboolean effect_lock;
+  AwnEffect current_effect;
+  AwnEffectSequence direction;
+  gint count;
+
+  gdouble x_offset;
+  gdouble y_offset;
+  gdouble curve_offset;
+
+  gint delta_width;
+  gint delta_height;
+
+  GtkAllocation clip_region;
+
+  gdouble rotate_degrees;
+  gfloat alpha;
+  gfloat spotlight_alpha;
+  gfloat saturation;
+  gfloat glow_amount;
+
+  gint icon_depth;
+  gint icon_depth_direction;
+
+  /* State variables */
+  gboolean hover;
+  gboolean clip;
+  gboolean flip;
+  gboolean spotlight;
+  gboolean do_reflections;
+  gboolean do_offset_cut;
+
+  guint enter_notify;
+  guint leave_notify;
+  guint timer_id;
+
+  cairo_t * icon_ctx;
+  cairo_t * reflect_ctx;
+
+  AwnEffectsOp  * op_list;
+
+  /* padding so we dont break ABI compability every time */
+  void *pad1;
+  void *pad2;
+  void *pad3;
+  void *pad4;
+} AwnEffects;
+</programlisting>
+<para>
+Structure containing all necessary variables for effects state for
+particular widget.</para>
+<para>
+</para></refsect2>
+<refsect2 id="awn-effects-new" role="function">
+<title>awn_effects_new ()</title>
+<indexterm zone="awn-effects-new"><primary sortas="awn_effects_new">awn_effects_new</primary></indexterm><programlisting><link linkend="AwnEffects">AwnEffects</link>*         awn_effects_new                     ();</programlisting>
+<para>
+Creates and initializes new <link linkend="AwnEffects"><type>AwnEffects</type></link> structure. After using this
+constructor it is necessary to set 'self' member to be able to use effects
+properly.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> Newly created <link linkend="AwnEffects"><type>AwnEffects</type></link> instance.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-new-for-widget" role="function">
+<title>awn_effects_new_for_widget ()</title>
+<indexterm zone="awn-effects-new-for-widget"><primary sortas="awn_effects_new_for_widget">awn_effects_new_for_widget</primary></indexterm><programlisting><link linkend="AwnEffects">AwnEffects</link>*         awn_effects_new_for_widget          (<link linkend="GtkWidget">GtkWidget</link> *widget);</programlisting>
+<para>
+Creates and initializes new <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&#160;:</term>
+<listitem><simpara> Object which will be passed to all callback functions, this object
+is also passed to <link linkend="gtk-widget-queue-draw"><function>gtk_widget_queue_draw()</function></link> during the animation.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> Newly created <link linkend="AwnEffects"><type>AwnEffects</type></link> instance.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-free" role="function">
+<title>awn_effects_free ()</title>
+<indexterm zone="awn-effects-free"><primary sortas="awn_effects_free">awn_effects_free</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_free                    (<link linkend="AwnEffects">AwnEffects</link> *fx);</programlisting>
+<para>
+Cleans up (by calling awn_effects_finalize) and frees <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-finalize" role="function">
+<title>awn_effects_finalize ()</title>
+<indexterm zone="awn-effects-finalize"><primary sortas="awn_effects_finalize">awn_effects_finalize</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_finalize                (<link linkend="AwnEffects">AwnEffects</link> *fx);</programlisting>
+<para>
+Finalizes <link linkend="AwnEffects"><type>AwnEffects</type></link> usage and frees internally allocated memory.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-register" role="function">
+<title>awn_effects_register ()</title>
+<indexterm zone="awn-effects-register"><primary sortas="awn_effects_register">awn_effects_register</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_register                (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *obj);</programlisting>
+<para>
+Registers <link linkend="GtkWidget-enter-notify-event"><type>"enter-notify-event"</type></link> and <link linkend="GtkWidget-leave-notify-event"><type>"leave-notify-event"</type></link>
+signals for the managed window.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara> GtkWidget derived class providing enter-notify-event and leave-notify-event signals.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-unregister" role="function">
+<title>awn_effects_unregister ()</title>
+<indexterm zone="awn-effects-unregister"><primary sortas="awn_effects_unregister">awn_effects_unregister</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_unregister              (<link linkend="AwnEffects">AwnEffects</link> *fx);</programlisting>
+<para>
+Unregisters events for managed window.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-start" role="function">
+<title>awn_effects_start ()</title>
+<indexterm zone="awn-effects-start"><primary sortas="awn_effects_start">awn_effects_start</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_start                   (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         const <link linkend="AwnEffect">AwnEffect</link> effect);</programlisting>
+<para>
+Start a single effect. The effect will loop until <link linkend="awn-effect-stop"><function>awn_effect_stop()</function></link>
+is called.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>effect</parameter>&#160;:</term>
+<listitem><simpara> <link linkend="AwnEffect"><type>AwnEffect</type></link> to schedule.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-stop" role="function">
+<title>awn_effects_stop ()</title>
+<indexterm zone="awn-effects-stop"><primary sortas="awn_effects_stop">awn_effects_stop</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_stop                    (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         const <link linkend="AwnEffect">AwnEffect</link> effect);</programlisting>
+<para>
+Stop a single effect.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>effect</parameter>&#160;:</term>
+<listitem><simpara> <link linkend="AwnEffect"><type>AwnEffect</type></link> to stop.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-set-title" role="function">
+<title>awn_effects_set_title ()</title>
+<indexterm zone="awn-effects-set-title"><primary sortas="awn_effects_set_title">awn_effects_set_title</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_set_title               (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         <link linkend="AwnTitle">AwnTitle</link> *title,
+                                                         <link linkend="AwnTitleCallback">AwnTitleCallback</link> title_func);</programlisting>
+<para>
+Makes <link linkend="AwnTitle"><type>AwnTitle</type></link> appear on <link linkend="GtkWidget-enter-notify-event"><type>"enter-notify-event"</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>title</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnTitle"><type>AwnTitle</type></link> instance.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>title_func</parameter>&#160;:</term>
+<listitem><simpara> Pointer to function which returns desired title text.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-start-ex" role="function">
+<title>awn_effects_start_ex ()</title>
+<indexterm zone="awn-effects-start-ex"><primary sortas="awn_effects_start_ex">awn_effects_start_ex</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_start_ex                (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         const <link linkend="AwnEffect">AwnEffect</link> effect,
+                                                         <link linkend="AwnEventNotify">AwnEventNotify</link> start,
+                                                         <link linkend="AwnEventNotify">AwnEventNotify</link> stop,
+                                                         <link linkend="gint">gint</link> max_loops);</programlisting>
+<para>
+Extended effect start, which provides callbacks for animation start, end and
+possibility to specify maximum number of loops.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara> Pointer to <link linkend="AwnEffects"><type>AwnEffects</type></link> structure.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>effect</parameter>&#160;:</term>
+<listitem><simpara> Effect to schedule.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>start</parameter>&#160;:</term>
+<listitem><simpara> Function which will be called when animation starts.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stop</parameter>&#160;:</term>
+<listitem><simpara> Function which will be called when animation finishes.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max_loops</parameter>&#160;:</term>
+<listitem><simpara> Number of maximum animation loops (0 for unlimited).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-draw-background" role="function">
+<title>awn_effects_draw_background ()</title>
+<indexterm zone="awn-effects-draw-background"><primary sortas="awn_effects_draw_background">awn_effects_draw_background</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_draw_background         (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         <link linkend="cairo-t">cairo_t</link> *);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>Param1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-draw-icons" role="function">
+<title>awn_effects_draw_icons ()</title>
+<indexterm zone="awn-effects-draw-icons"><primary sortas="awn_effects_draw_icons">awn_effects_draw_icons</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_draw_icons              (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         <link linkend="cairo-t">cairo_t</link> *,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>Param1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param4</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-draw-icons-cairo" role="function">
+<title>awn_effects_draw_icons_cairo ()</title>
+<indexterm zone="awn-effects-draw-icons-cairo"><primary sortas="awn_effects_draw_icons_cairo">awn_effects_draw_icons_cairo</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_draw_icons_cairo        (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         <link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="cairo-t">cairo_t</link> *,
+                                                         <link linkend="cairo-t">cairo_t</link> *);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param4</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-draw-foreground" role="function">
+<title>awn_effects_draw_foreground ()</title>
+<indexterm zone="awn-effects-draw-foreground"><primary sortas="awn_effects_draw_foreground">awn_effects_draw_foreground</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_draw_foreground         (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         <link linkend="cairo-t">cairo_t</link> *);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>Param1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-draw-set-window-size" role="function">
+<title>awn_effects_draw_set_window_size ()</title>
+<indexterm zone="awn-effects-draw-set-window-size"><primary sortas="awn_effects_draw_set_window_size">awn_effects_draw_set_window_size</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_draw_set_window_size    (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         const <link linkend="gint">gint</link> ,
+                                                         const <link linkend="gint">gint</link> );</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>Param1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-draw-set-icon-size" role="function">
+<title>awn_effects_draw_set_icon_size ()</title>
+<indexterm zone="awn-effects-draw-set-icon-size"><primary sortas="awn_effects_draw_set_icon_size">awn_effects_draw_set_icon_size</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_draw_set_icon_size      (<link linkend="AwnEffects">AwnEffects</link> *,
+                                                         const <link linkend="gint">gint</link> ,
+                                                         const <link linkend="gint">gint</link> );</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>Param1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-reflection-off" role="function">
+<title>awn_effects_reflection_off ()</title>
+<indexterm zone="awn-effects-reflection-off"><primary sortas="awn_effects_reflection_off">awn_effects_reflection_off</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_reflection_off          (<link linkend="AwnEffects">AwnEffects</link> *fx);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-reflection-on" role="function">
+<title>awn_effects_reflection_on ()</title>
+<indexterm zone="awn-effects-reflection-on"><primary sortas="awn_effects_reflection_on">awn_effects_reflection_on</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_reflection_on           (<link linkend="AwnEffects">AwnEffects</link> *fx);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-effects-set-offset-cut" role="function">
+<title>awn_effects_set_offset_cut ()</title>
+<indexterm zone="awn-effects-set-offset-cut"><primary sortas="awn_effects_set_offset_cut">awn_effects_set_offset_cut</primary></indexterm><programlisting><link linkend="void">void</link>                awn_effects_set_offset_cut          (<link linkend="AwnEffects">AwnEffects</link> *fx,
+                                                         <link linkend="gboolean">gboolean</link> cut);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cut</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnApplet">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnApplet.top_of_page">AwnApplet</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnApplet</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="AwnApplet.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="AwnAppletPrivate">AwnAppletPrivate</link>;
+                    <link linkend="AwnApplet-struct">AwnApplet</link>;
+<link linkend="gboolean">gboolean</link>            (<link linkend="AwnAppletInitFunc">*AwnAppletInitFunc</link>)                (<link linkend="AwnApplet">AwnApplet</link> *applet);
+<link linkend="AwnApplet">AwnApplet</link> *         (<link linkend="AwnAppletInitPFunc">*AwnAppletInitPFunc</link>)               (const <link linkend="gchar">gchar</link> *uid,
+                                                         <link linkend="gint">gint</link> orient,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="AwnApplet">AwnApplet</link> *         <link linkend="awn-applet-new">awn_applet_new</link>                      (const <link linkend="gchar">gchar</link> *uid,
+                                                         <link linkend="gint">gint</link> orient,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="AwnOrientation">AwnOrientation</link>      <link linkend="awn-applet-get-orientation">awn_applet_get_orientation</link>          (<link linkend="AwnApplet">AwnApplet</link> *applet);
+<link linkend="guint">guint</link>               <link linkend="awn-applet-get-height">awn_applet_get_height</link>               (<link linkend="AwnApplet">AwnApplet</link> *applet);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="awn-applet-create-default-menu">awn_applet_create_default_menu</link>      (<link linkend="AwnApplet">AwnApplet</link> *applet);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnApplet.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkEventBox">GtkEventBox</link>
+                                       +----AwnApplet
+                                             +----<link linkend="AwnAppletSimple">AwnAppletSimple</link>
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnApplet.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+AwnApplet implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="AwnApplet.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="AwnApplet--height">height</link>&quot;                   <link linkend="gint">gint</link>                  : Read / Write / Construct
+  &quot;<link linkend="AwnApplet--orient">orient</link>&quot;                   <link linkend="gint">gint</link>                  : Read / Write / Construct
+  &quot;<link linkend="AwnApplet--uid">uid</link>&quot;                      <link linkend="gchar">gchar</link>*                : Read / Write / Construct
+</synopsis>
+</refsect1>
+
+<refsect1 id="AwnApplet.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="AwnApplet-applet-deleted">applet-deleted</link>&quot;                                 : Run First
+  &quot;<link linkend="AwnApplet-height-changed">height-changed</link>&quot;                                 : Run First
+  &quot;<link linkend="AwnApplet-orientation-changed">orientation-changed</link>&quot;                            : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="AwnApplet.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnApplet.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnAppletPrivate" role="struct">
+<title>AwnAppletPrivate</title>
+<indexterm zone="AwnAppletPrivate"><primary sortas="AwnAppletPrivate">AwnAppletPrivate</primary></indexterm><programlisting>typedef struct _AwnAppletPrivate AwnAppletPrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnApplet-struct" role="struct">
+<title>AwnApplet</title>
+<indexterm zone="AwnApplet-struct"><primary sortas="AwnApplet">AwnApplet</primary></indexterm><programlisting>typedef struct _AwnApplet AwnApplet;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnAppletInitFunc" role="function">
+<title>AwnAppletInitFunc ()</title>
+<indexterm zone="AwnAppletInitFunc"><primary sortas="AwnAppletInitFunc">AwnAppletInitFunc</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            (*AwnAppletInitFunc)                (<link linkend="AwnApplet">AwnApplet</link> *applet);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>applet</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="AwnAppletInitPFunc" role="function">
+<title>AwnAppletInitPFunc ()</title>
+<indexterm zone="AwnAppletInitPFunc"><primary sortas="AwnAppletInitPFunc">AwnAppletInitPFunc</primary></indexterm><programlisting><link linkend="AwnApplet">AwnApplet</link> *         (*AwnAppletInitPFunc)               (const <link linkend="gchar">gchar</link> *uid,
+                                                         <link linkend="gint">gint</link> orient,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uid</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>orient</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-applet-new" role="function">
+<title>awn_applet_new ()</title>
+<indexterm zone="awn-applet-new"><primary sortas="awn_applet_new">awn_applet_new</primary></indexterm><programlisting><link linkend="AwnApplet">AwnApplet</link> *         awn_applet_new                      (const <link linkend="gchar">gchar</link> *uid,
+                                                         <link linkend="gint">gint</link> orient,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uid</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>orient</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-applet-get-orientation" role="function">
+<title>awn_applet_get_orientation ()</title>
+<indexterm zone="awn-applet-get-orientation"><primary sortas="awn_applet_get_orientation">awn_applet_get_orientation</primary></indexterm><programlisting><link linkend="AwnOrientation">AwnOrientation</link>      awn_applet_get_orientation          (<link linkend="AwnApplet">AwnApplet</link> *applet);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>applet</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-applet-get-height" role="function">
+<title>awn_applet_get_height ()</title>
+<indexterm zone="awn-applet-get-height"><primary sortas="awn_applet_get_height">awn_applet_get_height</primary></indexterm><programlisting><link linkend="guint">guint</link>               awn_applet_get_height               (<link linkend="AwnApplet">AwnApplet</link> *applet);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>applet</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-applet-create-default-menu" role="function">
+<title>awn_applet_create_default_menu ()</title>
+<indexterm zone="awn-applet-create-default-menu"><primary sortas="awn_applet_create_default_menu">awn_applet_create_default_menu</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         awn_applet_create_default_menu      (<link linkend="AwnApplet">AwnApplet</link> *applet);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>applet</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="AwnApplet.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="AwnApplet--height" role="property"><title>The <literal>&quot;height&quot;</literal> property</title>
+<indexterm zone="AwnApplet--height"><primary sortas="AwnApplet:height">AwnApplet:height</primary></indexterm><programlisting>  &quot;height&quot;                   <link linkend="gint">gint</link>                  : Read / Write / Construct</programlisting>
+<para>The current visible height of the bar.</para><para>Allowed values: [12,100]</para>
+<para>Default value: 48</para>
+</refsect2>
+<refsect2 id="AwnApplet--orient" role="property"><title>The <literal>&quot;orient&quot;</literal> property</title>
+<indexterm zone="AwnApplet--orient"><primary sortas="AwnApplet:orient">AwnApplet:orient</primary></indexterm><programlisting>  &quot;orient&quot;                   <link linkend="gint">gint</link>                  : Read / Write / Construct</programlisting>
+<para>The current bar orientation.</para><para>Allowed values: [0,10]</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="AwnApplet--uid" role="property"><title>The <literal>&quot;uid&quot;</literal> property</title>
+<indexterm zone="AwnApplet--uid"><primary sortas="AwnApplet:uid">AwnApplet:uid</primary></indexterm><programlisting>  &quot;uid&quot;                      <link linkend="gchar">gchar</link>*                : Read / Write / Construct</programlisting>
+<para>Awn's Unique ID for this applet instance (used for gconf).</para><para>Default value: NULL</para>
+</refsect2>
+</refsect1>
+
+<refsect1 id="AwnApplet.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="AwnApplet-applet-deleted" role="signal"><title>The <literal>&quot;applet-deleted&quot;</literal> signal</title>
+<indexterm zone="AwnApplet-applet-deleted"><primary sortas="AwnApplet::applet-deleted">AwnApplet::applet-deleted</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="AwnApplet">AwnApplet</link> *awnapplet,
+                                                        <link linkend="gchar">gchar</link>     *arg1,
+                                                        <link linkend="gpointer">gpointer</link>   user_data)      : Run First</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>awnapplet</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="AwnApplet-height-changed" role="signal"><title>The <literal>&quot;height-changed&quot;</literal> signal</title>
+<indexterm zone="AwnApplet-height-changed"><primary sortas="AwnApplet::height-changed">AwnApplet::height-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="AwnApplet">AwnApplet</link> *awnapplet,
+                                                        <link linkend="gint">gint</link>       arg1,
+                                                        <link linkend="gpointer">gpointer</link>   user_data)      : Run First</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>awnapplet</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="AwnApplet-orientation-changed" role="signal"><title>The <literal>&quot;orientation-changed&quot;</literal> signal</title>
+<indexterm zone="AwnApplet-orientation-changed"><primary sortas="AwnApplet::orientation-changed">AwnApplet::orientation-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="AwnApplet">AwnApplet</link> *awnapplet,
+                                                        <link linkend="gint">gint</link>       arg1,
+                                                        <link linkend="gpointer">gpointer</link>   user_data)      : Run First</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>awnapplet</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

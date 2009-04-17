@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libawn-awn-defines">
+<refmeta>
+<refentrytitle role="top_of_page" id="libawn-awn-defines.top_of_page">awn-defines</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>awn-defines</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libawn-awn-defines.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="AWN-GCONF-PATH--CAPS">AWN_GCONF_PATH</link>
+#define             <link linkend="AWN-APPLET-GCONF-PATH--CAPS">AWN_APPLET_GCONF_PATH</link>
+#define             <link linkend="AWN-MAX-HEIGHT--CAPS">AWN_MAX_HEIGHT</link>
+#define             <link linkend="AWN-MIN-HEIGHT--CAPS">AWN_MIN_HEIGHT</link>
+enum                <link linkend="AwnOrientation">AwnOrientation</link>;
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libawn-awn-defines.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libawn-awn-defines.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AWN-GCONF-PATH--CAPS" role="macro">
+<title>AWN_GCONF_PATH</title>
+<indexterm zone="AWN-GCONF-PATH--CAPS"><primary sortas="AWN_GCONF_PATH">AWN_GCONF_PATH</primary></indexterm><programlisting>#define AWN_GCONF_PATH "/apps/avant-window-navigator"
+</programlisting>
+<para>
+The prefix for all Awn proper configuration keys.</para>
+<para>
+</para></refsect2>
+<refsect2 id="AWN-APPLET-GCONF-PATH--CAPS" role="macro">
+<title>AWN_APPLET_GCONF_PATH</title>
+<indexterm zone="AWN-APPLET-GCONF-PATH--CAPS"><primary sortas="AWN_APPLET_GCONF_PATH">AWN_APPLET_GCONF_PATH</primary></indexterm><programlisting>#define AWN_APPLET_GCONF_PATH "/apps/avant-window-navigator/applets"
+</programlisting>
+<para>
+The prefix for all Awn applet instances' configuration keys.</para>
+<para>
+</para></refsect2>
+<refsect2 id="AWN-MAX-HEIGHT--CAPS" role="macro">
+<title>AWN_MAX_HEIGHT</title>
+<indexterm zone="AWN-MAX-HEIGHT--CAPS"><primary sortas="AWN_MAX_HEIGHT">AWN_MAX_HEIGHT</primary></indexterm><programlisting>#define AWN_MAX_HEIGHT 100
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AWN-MIN-HEIGHT--CAPS" role="macro">
+<title>AWN_MIN_HEIGHT</title>
+<indexterm zone="AWN-MIN-HEIGHT--CAPS"><primary sortas="AWN_MIN_HEIGHT">AWN_MIN_HEIGHT</primary></indexterm><programlisting>#define AWN_MIN_HEIGHT 12
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnOrientation" role="enum">
+<title>enum AwnOrientation</title>
+<indexterm zone="AwnOrientation"><primary sortas="AwnOrientation">AwnOrientation</primary></indexterm><programlisting>typedef enum
+{
+        AWN_ORIENTATION_BOTTOM =0,
+        AWN_ORIENTATION_TOP,
+        AWN_ORIENTATION_RIGHT,
+        AWN_ORIENTATION_LEFT
+
+} AwnOrientation;
+</programlisting>
+<para>
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

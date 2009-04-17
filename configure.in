@@ -1,0 +1,274 @@
+AC_INIT([avant-window-navigator], [0.3.2], [])
+
+EXTRA_VERSION=
+AC_ARG_ENABLE([extra-version],
+              AS_HELP_STRING([--enable-extra_version],
+                             [Adds a custom string to the end of the version. Useful for packagers.]),
+              [EXTRA_VERSION="$enableval"])
+AC_SUBST(EXTRA_VERSION)
+AC_DEFINE_UNQUOTED([EXTRA_VERSION], ["$EXTRA_VERSION"],
+                   [Extra version metadata provided by ./configure])
+
+AC_CONFIG_SRCDIR([.])
+AC_CONFIG_HEADERS([config.h])
+
+m4_define(pycairo_required_version,      1.0.2) dnl or 1.1.7
+m4_define(pygtk_required_version,        2.10.0)
+
+AM_INIT_AUTOMAKE([1.8])
+AM_MAINTAINER_MODE
+
+AC_SUBST([ACLOCAL_AMFLAGS], ["\${ACLOCAL_FLAGS}"])
+
+AC_ISC_POSIX
+AC_PROG_CC
+AC_STDC_HEADERS
+AM_PROG_LIBTOOL
+
+dnl check for gtk-doc
+GTK_DOC_CHECK(1.4)
+
+dnl ==============================================
+dnl Python support
+dnl ==============================================
+
+AC_PYTHON_DEVEL(2.3.5)
+
+PLATFORM=`$PYTHON -c "from distutils import util; print util.get_platform()"`
+AC_SUBST(PLATFORM)
+
+dnl ==============================================
+dnl check for pygtk
+dnl ==============================================
+PKG_CHECK_MODULES(PYGTK, gtk+-2.0 pygtk-2.0 >= pygtk_required_version)
+AC_SUBST(PYGTK_CFLAGS)
+AC_PATH_PROG(PYGTK_CODEGEN, pygtk-codegen-2.0, no)
+if test "x$PYGTK_CODEGEN" = "xno"; then
+  AC_MSG_ERROR([could not find pygtk-codegen-2.0 script])
+fi
+
+AC_MSG_CHECKING(for pygtk defs)
+PYGTK_DEFSDIR=`$PKG_CONFIG --variable=defsdir pygtk-2.0`
+AC_SUBST(PYGTK_DEFSDIR)
+AC_MSG_RESULT($PYGTK_DEFSDIR)
+
+PKG_CHECK_MODULES(PYCAIRO, pycairo >= pycairo_required_version)
+AC_SUBST(PYCAIRO_CFLAGS)
+AC_SUBST(PYCAIRO_LIBS)
+PYGTK_CODEGEN_DEFINES="-DHAVE_PYCAIRO $PYGTK_CODEGEN_DEFINES";
+AC_DEFINE([HAVE_PYCAIRO], [1], [Define to 1 if pycairo is available])
+
+dnl ==============================================
+dnl Vala support
+dnl ==============================================
+
+AC_ARG_WITH(vala, AS_HELP_STRING([--without-vala],[Disables installation of the Vala bindings]),,[with_vala=yes])
+
+if test "$with_vala" != "no"; then
+  VALA_PROG_VALAC(0.5.4)
+  if test $USE_MAINTAINER_MODE = yes; then
+    AC_PATH_PROG(VALA_GEN_INTROSPECT, vala-gen-introspect, vala-gen-introspect, [])
+    AC_PATH_PROG(VAPIGEN, vapigen, vapigen, [])
+  fi
+fi
+AM_CONDITIONAL(HAVE_VALA, test -n "$VALAC")
+
+dnl ==============================================
+dnl check for others python modules
+dnl ==============================================
+AC_ARG_ENABLE(pymod_checks, 
+              AC_HELP_STRING([--disable-pymod-checks], [Disable checks for Python modules]),
+              enable_pymod_checks=$enableval,
+	      enable_pymod_checks=yes)
+              
+if test x${enable_pymod_checks} = xyes; then
+  AM_CHECK_PYMOD(gtk.glade,,,AC_MSG_ERROR([pygtk's gtk.glade module is needed for awn-manager's user interface]))
+  AM_CHECK_PYMOD(xdg,,,AC_MSG_ERROR([The xdg python module is required (pyxdg or python-xdg)]))
+fi
+
+dnl ==============================================
+dnl CFLAGS
+dnl ==============================================
+
+dnl Only use -Wall if we have gcc
+if test "x$GCC" = "xyes"; then
+  if test -z "`echo "$CFLAGS" | grep "\-Wall" 2> /dev/null`" ; then
+    CFLAGS="$CFLAGS -Wall -fno-strict-aliasing -fmessage-length=0 -D_FORTIFY_SOURCE=2"
+  fi
+fi
+
+dnl ==============================================
+dnl translation support
+dnl ==============================================
+
+GETTEXT_PACKAGE=avant-window-navigator
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
+ALL_LINGUAS="af ar be bg bn bs ca csb cs da de el en_AU en_CA en_GB eo es et eu fa fi fr ga gl gu he hi hr hu id is it ja jv ka ko ku lt lv mk mr ms nb nds nl nn oc pl pt_BR pt ro ru sk sl sq sr sv ta te th tr uk vi zh_CN zh_HK zh_TW"
+
+IT_PROG_INTLTOOL([0.34])
+AM_GLIB_GNU_GETTEXT
+
+slicelocaledir='${prefix}/${DATADIRNAME}/locale'
+AC_SUBST(slicelocaledir)
+
+dnl ==============================================
+dnl Check that we meet the  dependencies
+dnl ==============================================
+AM_PATH_GLIB_2_0(2.8.0,,,gobject)
+
+AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal, glib-genmarshal)
+
+AC_MSG_CHECKING([for specific desktop support])
+use_egg=no
+AC_ARG_WITH(desktop,
+            AS_HELP_STRING([--with-desktop=[gnome|xfce4|agnostic]],
+                           [Specifies which desktop type for which to compile.  Current choices: xfce4, gnome, agnostic (defaults to gnome)]),
+            [], [with_desktop=gnome])
+case "$with_desktop" in
+    xfce4)
+    use_egg=yes
+    VFS_MODULE="thunar-vfs-1"
+    AC_DEFINE(LIBAWN_USE_XFCE, 1, [Define support for the Xfce4 desktop])
+    USE_DESKTOP="-DLIBAWN_USE_XFCE"
+    AC_MSG_RESULT(Xfce4)
+    ;;
+    agnostic)
+    use_egg=yes
+    VFS_MODULE="gio-2.0"
+    AC_MSG_RESULT([None, enabling desktop agnostic support])
+    ;;
+    gnome|*)
+    DESKTOP_MODULES="gnome-desktop-2.0 libgnome-2.0"
+    VFS_MODULE="gnome-vfs-module-2.0"
+    AC_DEFINE(LIBAWN_USE_GNOME, 1, [Define support for the Gnome desktop])
+    USE_DESKTOP="-DLIBAWN_USE_GNOME"
+    AC_MSG_RESULT(Gnome)
+    AC_SYS_LARGEFILE
+    ;;
+esac
+AC_SUBST(USE_DESKTOP)
+AM_CONDITIONAL(USE_GNOME, test "$with_desktop" = "gnome")
+AM_CONDITIONAL(USE_XFCE, test "$with_desktop" = "xfce4")
+AM_CONDITIONAL(USE_EGG, test "$use_egg" = "yes")
+old_CPPFLAGS="$CPPFLAGS"
+CPPFLAGS="-D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE $CPPFLAGS"
+AC_MSG_CHECKING([for config backend support])
+AC_ARG_WITH(gconf,
+            AS_HELP_STRING([--with-gconf],
+                           [Use GConf to store configuration information]),
+            [if test "$with_gconf" == "no"; then
+                # use Glib's GKeyFile - it's already pulled in.
+                CFG_MODULE=""
+                CFG_BACKEND_NAME="GKeyFile"
+                GCONF_SCHEMA_INSTALL_SOURCE="/dev/null"
+                GCONF_SCHEMA_FILE_DIR="/dev/null"
+                AC_MSG_RESULT([GKeyFile (part of Glib)])
+            fi])
+if test "$with_gconf" != "no"; then
+    CFG_MODULE="gconf-2.0"
+    CFG_BACKEND_NAME="GConf"
+    AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
+    if test x"$GCONFTOOL" = xno; then
+        AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
+    fi
+    AC_DEFINE([USE_GCONF], 1, [Use GConf to store configuration information])
+    AC_MSG_RESULT([GConf])
+fi
+AC_SUBST(CFG_BACKEND_NAME)
+AM_CONDITIONAL(USE_GCONF, test "$with_gconf" != "no")
+# we need GChecksum (is in Glib 2.15)
+PKG_CHECK_EXISTS(
+    [glib-2.0 >= 2.15.0],
+    [use_egg_checksum="no"],
+    [use_egg_checksum="yes"])
+AM_CONDITIONAL(USE_EGG_CHECKSUM, test "$use_egg_checksum" = "yes")
+
+AC_ARG_ENABLE(experimental,
+    AS_HELP_STRING([--enable-experimental],[Enable building experimental binaries]),
+    [enable_experimental=$enableval],[enable_experimental=no])
+
+if test "$enable_experimental" != "no"; then
+    gdk_min_version="2.12"
+else
+    gdk_min_version="2.10"
+fi
+AM_CONDITIONAL(BUILD_EXPERIMENTAL, test "$enable_experimental" != "no")
+
+LIBRARY_MODULES="glib-2.0 >= 2.8.0 gthread-2.0 gobject-2.0 gtk+-2.0 gdk-2.0 >= $gdk_min_version dbus-glib-1 $DESKTOP_MODULES $VFS_MODULE $CFG_MODULE"
+DOCK_MODULES="libwnck-1.0 x11 xproto xcomposite xrender"
+AC_SUBST(LIBRARY_MODULES)
+
+PKG_CHECK_EXISTS([libwnck-1.0 >= 2.19.3.1], [AC_DEFINE(HAVE_LIBWNCK_220, 1, [Have libwnck with the ABI that changed with version 2.19.3.1])])
+
+PKG_CHECK_MODULES(AWN, [$LIBRARY_MODULES])
+PKG_CHECK_MODULES(DOCK, [$DOCK_MODULES])
+
+if test "$use_egg" = "yes"; then
+	old_LIBS="$LIBS"
+	LIBS="$LIBS $AWN_LIBS"
+	AC_CHECK_FUNCS(gdk_x11_display_broadcast_startup_message)
+	LIBS="$old_LIBS"
+fi
+AC_CHECK_LIB(m, sin)
+
+dnl ==============================================
+dnl DBUS
+dnl ==============================================
+
+DBUS_GLIB_BIN="`$PKG_CONFIG --variable=exec_prefix dbus-glib-1`/bin"
+AC_SUBST(DBUS_GLIB_BIN)
+
+dnl ==============================================
+dnl GConf
+dnl ==============================================
+AM_GCONF_SOURCE_2
+
+AS_AC_EXPAND([PY_SITE_PKG], [$PYTHON_SITE_PKG])
+AS_AC_EXPAND([PY_PLAT_PKG], [$PYTHON_PLATFORM_PKG])
+AS_AC_EXPAND([PKGDATADIR], [$datadir/$PACKAGE_NAME])
+AS_AC_EXPAND([DATADIR], [$datadir])
+AS_AC_EXPAND([LIBDIR], [$libdir])
+
+AC_OUTPUT([
+Makefile
+applets/Makefile
+awn.pc
+awn-applet-activation/Makefile
+awn-manager/Makefile
+awn-manager/awn-launcher-editor
+awn-manager/awn-manager.desktop.in
+awn-manager/awnDefs.py
+awn-manager/awnManager.py
+bindings/Makefile
+bindings/python/Makefile
+bindings/vala/Makefile
+data/Makefile
+data/active/Makefile
+data/avant-window-navigator.desktop.in
+data/default-theme/Makefile
+data/awn.schema-ini
+doc/Makefile
+doc/reference/Makefile
+libawn/Makefile
+libawn/egg/Makefile
+po/Makefile.in
+src/Makefile
+])
+
+dnl ========================================================================
+
+echo ""
+echo "             Avant Window Navigator $VERSION"
+echo "             ============================"
+echo ""
+echo "                   prefix:   ${prefix}"
+echo ""
+echo "                  Desktop:   ${with_desktop}"
+echo "    Configuration Backend:   $CFG_BACKEND_NAME"
+echo "              VFS Backend:   $VFS_MODULE"
+echo ""
+echo "             Vala Support:   ${with_vala}"
+echo ""
+echo "            Documentation:   ${enable_gtk_doc}"
+echo ""

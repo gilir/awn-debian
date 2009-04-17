@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnAppletSimple">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnAppletSimple.top_of_page">AwnAppletSimple</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnAppletSimple</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="AwnAppletSimple.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="AwnAppletSimplePrivate">AwnAppletSimplePrivate</link>;
+                    <link linkend="AwnAppletSimple-struct">AwnAppletSimple</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="awn-applet-simple-new">awn_applet_simple_new</link>               (const <link linkend="gchar">gchar</link> *uid,
+                                                         <link linkend="gint">gint</link> orient,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="void">void</link>                <link linkend="awn-applet-simple-set-icon">awn_applet_simple_set_icon</link>          (<link linkend="AwnAppletSimple">AwnAppletSimple</link> *simple,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);
+<link linkend="void">void</link>                <link linkend="awn-applet-simple-set-temp-icon">awn_applet_simple_set_temp_icon</link>     (<link linkend="AwnAppletSimple">AwnAppletSimple</link> *simple,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);
+<link linkend="AwnEffects">AwnEffects</link> *        <link linkend="awn-applet-simple-get-effects">awn_applet_simple_get_effects</link>       (<link linkend="AwnAppletSimple">AwnAppletSimple</link> *simple);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnAppletSimple.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkEventBox">GtkEventBox</link>
+                                       +----<link linkend="AwnApplet">AwnApplet</link>
+                                             +----AwnAppletSimple
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnAppletSimple.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+AwnAppletSimple implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+
+
+
+<refsect1 id="AwnAppletSimple.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnAppletSimple.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnAppletSimplePrivate" role="struct">
+<title>AwnAppletSimplePrivate</title>
+<indexterm zone="AwnAppletSimplePrivate"><primary sortas="AwnAppletSimplePrivate">AwnAppletSimplePrivate</primary></indexterm><programlisting>typedef struct _AwnAppletSimplePrivate AwnAppletSimplePrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnAppletSimple-struct" role="struct">
+<title>AwnAppletSimple</title>
+<indexterm zone="AwnAppletSimple-struct"><primary sortas="AwnAppletSimple">AwnAppletSimple</primary></indexterm><programlisting>typedef struct _AwnAppletSimple AwnAppletSimple;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="awn-applet-simple-new" role="function">
+<title>awn_applet_simple_new ()</title>
+<indexterm zone="awn-applet-simple-new"><primary sortas="awn_applet_simple_new">awn_applet_simple_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         awn_applet_simple_new               (const <link linkend="gchar">gchar</link> *uid,
+                                                         <link linkend="gint">gint</link> orient,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Creates a new <link linkend="AwnAppletSimple"><type>AwnAppletSimple</type></link> object.  This applet will have awn-effects
+effects applied to its icon automatically if <link linkend="awn-applet-simple-set-icon"><function>awn_applet_simple_set_icon()</function></link> or
+<link linkend="awn-applet-simple-set-temp-icon"><function>awn_applet_simple_set_temp_icon()</function></link> are used to specify the applet icon.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uid</parameter>&#160;:</term>
+<listitem><simpara> The unique identifier of the instance of the applet on the dock.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>orient</parameter>&#160;:</term>
+<listitem><simpara> The orientation of the applet - see <link linkend="AwnOrientation"><type>AwnOrientation</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara> The height of the applet.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a new instance of an applet.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-applet-simple-set-icon" role="function">
+<title>awn_applet_simple_set_icon ()</title>
+<indexterm zone="awn-applet-simple-set-icon"><primary sortas="awn_applet_simple_set_icon">awn_applet_simple_set_icon</primary></indexterm><programlisting><link linkend="void">void</link>                awn_applet_simple_set_icon          (<link linkend="AwnAppletSimple">AwnAppletSimple</link> *simple,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);</programlisting>
+<para>
+Sets the applet icon to the pixbuf provided as an argument.  A private copy
+of the pixbuf argument is made by <link linkend="awn-applet-simple-set-icon"><function>awn_applet_simple_set_icon()</function></link> and the
+original argument is left unchanged.  The caller retains ownership of pixbuf
+and is required to unref it when it is no longer required.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>simple</parameter>&#160;:</term>
+<listitem><simpara> The applet whose icon is being set.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf</parameter>&#160;:</term>
+<listitem><simpara> The pixbuf image to use as the icon.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-applet-simple-set-temp-icon" role="function">
+<title>awn_applet_simple_set_temp_icon ()</title>
+<indexterm zone="awn-applet-simple-set-temp-icon"><primary sortas="awn_applet_simple_set_temp_icon">awn_applet_simple_set_temp_icon</primary></indexterm><programlisting><link linkend="void">void</link>                awn_applet_simple_set_temp_icon     (<link linkend="AwnAppletSimple">AwnAppletSimple</link> *simple,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);</programlisting>
+<para>
+A convenience function that sets the applet icon to the pixbuf provided as an
+argument.  A private copy of the pixbuf argument is made by the function, and
+the argument is unreferenced.  The caller should not reference pixbuf after
+calling this function.  If the pixbuf needs to be retained, then
+<link linkend="awn-applet-simple-set-icon"><function>awn_applet_simple_set_icon()</function></link> should be used.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>simple</parameter>&#160;:</term>
+<listitem><simpara> The applet whose icon is being set.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf</parameter>&#160;:</term>
+<listitem><simpara> The pixbuf image to use as the icon.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-applet-simple-get-effects" role="function">
+<title>awn_applet_simple_get_effects ()</title>
+<indexterm zone="awn-applet-simple-get-effects"><primary sortas="awn_applet_simple_get_effects">awn_applet_simple_get_effects</primary></indexterm><programlisting><link linkend="AwnEffects">AwnEffects</link> *        awn_applet_simple_get_effects       (<link linkend="AwnAppletSimple">AwnAppletSimple</link> *simple);</programlisting>
+<para>
+Retrieves the <link linkend="AwnEffects"><type>AwnEffects</type></link> object associated with the applet.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>simple</parameter>&#160;:</term>
+<listitem><simpara> The applet whose properties are being queried.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a pointer to an <link linkend="AwnEffects"><type>AwnEffects</type></link> object associated with the
+applet.  The caller does not own this object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

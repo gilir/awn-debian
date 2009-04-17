@@ -1,0 +1,730 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>awn-effects</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libawn Reference Manual">
+<link rel="up" href="ch01.html" title="Table of Contents">
+<link rel="prev" href="libawn-awn-desktop-item.html" title="awn-desktop-item">
+<link rel="next" href="libawn-awn-cairo-utils.html" title="awn-cairo-utils">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Table of Contents">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libawn-awn-desktop-item.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libawn Reference Manual</th>
+<td><a accesskey="n" href="libawn-awn-cairo-utils.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libawn-awn-effects.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libawn-awn-effects.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libawn-awn-effects"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libawn-awn-effects.top_of_page"></a>awn-effects</span></h2>
+<p>awn-effects</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libawn-awn-effects.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+enum                <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a>;
+                    <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a>;
+<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a>*         <a class="link" href="libawn-awn-effects.html#awn-effects-new" title="awn_effects_new ()">awn_effects_new</a>                     ();
+<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a>*         <a class="link" href="libawn-awn-effects.html#awn-effects-new-for-widget" title="awn_effects_new_for_widget ()">awn_effects_new_for_widget</a>          (<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *widget);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-free" title="awn_effects_free ()">awn_effects_free</a>                    (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-finalize" title="awn_effects_finalize ()">awn_effects_finalize</a>                (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-register" title="awn_effects_register ()">awn_effects_register</a>                (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *obj);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-unregister" title="awn_effects_unregister ()">awn_effects_unregister</a>              (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-start" title="awn_effects_start ()">awn_effects_start</a>                   (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-stop" title="awn_effects_stop ()">awn_effects_stop</a>                    (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-set-title" title="awn_effects_set_title ()">awn_effects_set_title</a>               (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         <a class="link" href="AwnTitle.html" title="AwnTitle">AwnTitle</a> *title,
+                                                         AwnTitleCallback title_func);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-start-ex" title="awn_effects_start_ex ()">awn_effects_start_ex</a>                (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect,
+                                                         AwnEventNotify start,
+                                                         AwnEventNotify stop,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> max_loops);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-draw-background" title="awn_effects_draw_background ()">awn_effects_draw_background</a>         (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-draw-icons" title="awn_effects_draw_icons ()">awn_effects_draw_icons</a>              (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-draw-icons-cairo" title="awn_effects_draw_icons_cairo ()">awn_effects_draw_icons_cairo</a>        (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *cr,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-draw-foreground" title="awn_effects_draw_foreground ()">awn_effects_draw_foreground</a>         (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-draw-set-window-size" title="awn_effects_draw_set_window_size ()">awn_effects_draw_set_window_size</a>    (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> ,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> );
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-draw-set-icon-size" title="awn_effects_draw_set_icon_size ()">awn_effects_draw_set_icon_size</a>      (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> ,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> );
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-reflection-off" title="awn_effects_reflection_off ()">awn_effects_reflection_off</a>          (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-reflection-on" title="awn_effects_reflection_on ()">awn_effects_reflection_on</a>           (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);
+void                <a class="link" href="libawn-awn-effects.html#awn-effects-set-offset-cut" title="awn_effects_set_offset_cut ()">awn_effects_set_offset_cut</a>          (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> cut);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="libawn-awn-effects.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="libawn-awn-effects.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnEffect"></a><h3>enum AwnEffect</h3>
+<pre class="programlisting">typedef enum
+{
+  AWN_EFFECT_NONE,
+  AWN_EFFECT_OPENING,
+  AWN_EFFECT_LAUNCHING,
+  AWN_EFFECT_HOVER,
+  AWN_EFFECT_ATTENTION,
+  AWN_EFFECT_CLOSING,
+  AWN_EFFECT_DESATURATE
+} AwnEffect;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnEffects"></a><h3>AwnEffects</h3>
+<pre class="programlisting">typedef struct {
+  GtkWidget *self;
+  GtkWidget *focus_window;
+  AwnSettings *settings;
+  AwnTitle *title;
+  AwnTitleCallback get_title;
+  GList *effect_queue;
+
+  gint icon_width, icon_height;
+  gint window_width, window_height;
+
+  /* EFFECT VARIABLES */
+  gboolean effect_lock;
+  AwnEffect current_effect;
+  AwnEffectSequence direction;
+  gint count;
+
+  gdouble x_offset;
+  gdouble y_offset;
+  gdouble curve_offset;
+
+  gint delta_width;
+  gint delta_height;
+
+  GtkAllocation clip_region;
+
+  gdouble rotate_degrees;
+  gfloat alpha;
+  gfloat spotlight_alpha;
+  gfloat saturation;
+  gfloat glow_amount;
+
+  gint icon_depth;
+  gint icon_depth_direction;
+
+  /* State variables */
+  gboolean hover;
+  gboolean clip;
+  gboolean flip;
+  gboolean spotlight;
+  gboolean do_reflections;
+  gboolean do_offset_cut;
+
+  guint enter_notify;
+  guint leave_notify;
+  guint timer_id;
+
+  cairo_t * icon_ctx;
+  cairo_t * reflect_ctx;
+
+  AwnEffectsOp  * op_list;
+
+  /* padding so we dont break ABI compability every time */
+  void *pad1;
+  void *pad2;
+  void *pad3;
+  void *pad4;
+} AwnEffects;
+</pre>
+<p>
+Structure containing all necessary variables for effects state for
+particular widget.</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-new"></a><h3>awn_effects_new ()</h3>
+<pre class="programlisting"><a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a>*         awn_effects_new                     ();</pre>
+<p>
+Creates and initializes new <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure. After using this
+constructor it is necessary to set 'self' member to be able to use effects
+properly.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Newly created <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> instance.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-new-for-widget"></a><h3>awn_effects_new_for_widget ()</h3>
+<pre class="programlisting"><a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a>*         awn_effects_new_for_widget          (<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *widget);</pre>
+<p>
+Creates and initializes new <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td> Object which will be passed to all callback functions, this object
+is also passed to <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html#gtk-widget-queue-draw"
+><code class="function">gtk_widget_queue_draw()</code></a> during the animation.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Newly created <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> instance.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-free"></a><h3>awn_effects_free ()</h3>
+<pre class="programlisting">void                awn_effects_free                    (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);</pre>
+<p>
+Cleans up (by calling awn_effects_finalize) and frees <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-finalize"></a><h3>awn_effects_finalize ()</h3>
+<pre class="programlisting">void                awn_effects_finalize                (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);</pre>
+<p>
+Finalizes <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> usage and frees internally allocated memory.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-register"></a><h3>awn_effects_register ()</h3>
+<pre class="programlisting">void                awn_effects_register                (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *obj);</pre>
+<p>
+Registers <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html#GtkWidget-enter-notify-event"
+><span class="type">"enter-notify-event"</span></a> and <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html#GtkWidget-leave-notify-event"
+><span class="type">"leave-notify-event"</span></a>
+signals for the managed window.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td> GtkWidget derived class providing enter-notify-event and leave-notify-event signals.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-unregister"></a><h3>awn_effects_unregister ()</h3>
+<pre class="programlisting">void                awn_effects_unregister              (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);</pre>
+<p>
+Unregisters events for managed window.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-start"></a><h3>awn_effects_start ()</h3>
+<pre class="programlisting">void                awn_effects_start                   (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect);</pre>
+<p>
+Start a single effect. The effect will loop until <code class="function">awn_effect_stop()</code>
+is called.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td> <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> to schedule.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-stop"></a><h3>awn_effects_stop ()</h3>
+<pre class="programlisting">void                awn_effects_stop                    (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect);</pre>
+<p>
+Stop a single effect.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td> <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> to stop.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-set-title"></a><h3>awn_effects_set_title ()</h3>
+<pre class="programlisting">void                awn_effects_set_title               (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         <a class="link" href="AwnTitle.html" title="AwnTitle">AwnTitle</a> *title,
+                                                         AwnTitleCallback title_func);</pre>
+<p>
+Makes <a class="link" href="AwnTitle.html" title="AwnTitle"><span class="type">AwnTitle</span></a> appear on <a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html#GtkWidget-enter-notify-event"
+><span class="type">"enter-notify-event"</span></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="AwnTitle.html" title="AwnTitle"><span class="type">AwnTitle</span></a> instance.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title_func</code></em> :</span></p></td>
+<td> Pointer to function which returns desired title text.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-start-ex"></a><h3>awn_effects_start_ex ()</h3>
+<pre class="programlisting">void                awn_effects_start_ex                (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect,
+                                                         AwnEventNotify start,
+                                                         AwnEventNotify stop,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> max_loops);</pre>
+<p>
+Extended effect start, which provides callbacks for animation start, end and
+possibility to specify maximum number of loops.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td> Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> structure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td> Effect to schedule.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td> Function which will be called when animation starts.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stop</code></em> :</span></p></td>
+<td> Function which will be called when animation finishes.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_loops</code></em> :</span></p></td>
+<td> Number of maximum animation loops (0 for unlimited).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-draw-background"></a><h3>awn_effects_draw_background ()</h3>
+<pre class="programlisting">void                awn_effects_draw_background         (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-draw-icons"></a><h3>awn_effects_draw_icons ()</h3>
+<pre class="programlisting">void                awn_effects_draw_icons              (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param4</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-draw-icons-cairo"></a><h3>awn_effects_draw_icons_cairo ()</h3>
+<pre class="programlisting">void                awn_effects_draw_icons_cairo        (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *cr,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param4</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-draw-foreground"></a><h3>awn_effects_draw_foreground ()</h3>
+<pre class="programlisting">void                awn_effects_draw_foreground         (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-draw-set-window-size"></a><h3>awn_effects_draw_set_window_size ()</h3>
+<pre class="programlisting">void                awn_effects_draw_set_window_size    (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> ,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> );</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-draw-set-icon-size"></a><h3>awn_effects_draw_set_icon_size ()</h3>
+<pre class="programlisting">void                awn_effects_draw_set_icon_size      (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> ,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> );</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-reflection-off"></a><h3>awn_effects_reflection_off ()</h3>
+<pre class="programlisting">void                awn_effects_reflection_off          (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-reflection-on"></a><h3>awn_effects_reflection_on ()</h3>
+<pre class="programlisting">void                awn_effects_reflection_on           (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-effects-set-offset-cut"></a><h3>awn_effects_set_offset_cut ()</h3>
+<pre class="programlisting">void                awn_effects_set_offset_cut          (<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *fx,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> cut);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cut</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

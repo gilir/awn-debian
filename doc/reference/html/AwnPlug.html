@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnPlug</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libawn Reference Manual">
+<link rel="up" href="ch01.html" title="Table of Contents">
+<link rel="prev" href="AwnAppletSimple.html" title="AwnAppletSimple">
+<link rel="next" href="AwnTitle.html" title="AwnTitle">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Table of Contents">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnAppletSimple.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libawn Reference Manual</th>
+<td><a accesskey="n" href="AwnTitle.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AwnPlug.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AwnPlug.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AwnPlug.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AwnPlug.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#AwnPlug.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="AwnPlug"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AwnPlug.top_of_page"></a>AwnPlug</span></h2>
+<p>AwnPlug</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="AwnPlug.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="AwnPlug.html#AwnPlugPrivate" title="AwnPlugPrivate">AwnPlugPrivate</a>;
+                    <a class="link" href="AwnPlug.html#AwnPlug-struct" title="AwnPlug">AwnPlug</a>;
+<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *         <a class="link" href="AwnPlug.html#awn-plug-new" title="awn_plug_new ()">awn_plug_new</a>                        (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);
+void                <a class="link" href="AwnPlug.html#awn-plug-construct" title="awn_plug_construct ()">awn_plug_construct</a>                  (<a class="link" href="AwnPlug.html" title="AwnPlug">AwnPlug</a> *plug,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+>GdkNativeWindow</a> socket_id);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnPlug.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkObject.html"
+>GtkObject</a>
+               +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a>
+                     +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkContainer.html"
+>GtkContainer</a>
+                           +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkBin.html"
+>GtkBin</a>
+                                 +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkWindow.html"
+>GtkWindow</a>
+                                       +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkPlug.html"
+>GtkPlug</a>
+                                             +----AwnPlug
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnPlug.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnPlug implements
+ AtkImplementorIface and  <a
+href="/usr/share/gtk-doc/html/gtk/gtk-gtkbuildable.html#GtkBuildable"
+>GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnPlug.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnPlug.html#AwnPlug-applet-deleted" title='The "applet-deleted" signal'>applet-deleted</a>"                                 : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnPlug.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnPlug.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnPlugPrivate"></a><h3>AwnPlugPrivate</h3>
+<pre class="programlisting">typedef struct _AwnPlugPrivate AwnPlugPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AwnPlug-struct"></a><h3>AwnPlug</h3>
+<pre class="programlisting">typedef struct _AwnPlug AwnPlug;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-plug-new"></a><h3>awn_plug_new ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a> *         awn_plug_new                        (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="awn-plug-construct"></a><h3>awn_plug_construct ()</h3>
+<pre class="programlisting">void                awn_plug_construct                  (<a class="link" href="AwnPlug.html" title="AwnPlug">AwnPlug</a> *plug,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+>GdkNativeWindow</a> socket_id);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plug</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket_id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="AwnPlug.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="AwnPlug-applet-deleted"></a><h3>The <code class="literal">"applet-deleted"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnPlug.html" title="AwnPlug">AwnPlug</a> *awnplug,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>   *arg1,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnplug</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>
