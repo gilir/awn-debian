@@ -8,6 +8,9 @@ avant-window-navigator (0.3.2-2) UNRELEASED; urgency=low
      circular dependency. This is unnecessary until awn depends on awn-manager
      for the migration script. (Closes: #520120).
    - Add libgnome-desktop-dev and libdbus-glib-1-dev as depends for libawn-dev.
+   - Switch from python-central to python-support.
+  * debian/rules:
+   - Switch from python-central to python-support.
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Fri, 17 Apr 2009 22:37:03 +0200
 
