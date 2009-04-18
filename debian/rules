@@ -1,6 +1,8 @@
 #!/usr/bin/make -f
 #DH_VERBOSE=1
 
+PYVERS=$(shell pyversions -vs)
+
 build: build-stamp
 build-stamp:
 	dh build --before configure
