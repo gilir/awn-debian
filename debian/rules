@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
+%:
+	dh $@
+
 #DEB_DH_INSTALL_SOURCEDIR=debian/tmp
 
 #include /usr/share/cdbs/1/rules/debhelper.mk

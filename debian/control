@@ -2,7 +2,7 @@ Source: avant-window-navigator
 Section: gnome
 Priority: optional
 Maintainer: Julien Lavergne <julien.lavergne@gmail.com>
-Build-Depends: 	debhelper (>= 6),
+Build-Depends: 	debhelper (>= 7),
 		cdbs,
 		intltool,
 		libwnck-dev,
