@@ -20,6 +20,7 @@ install-stamp:
 	dh install
 	mv debian/tmp/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
 	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
+	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
 	touch install-stamp
 
 binary-arch: install
