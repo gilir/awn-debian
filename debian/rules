@@ -23,6 +23,7 @@ install-stamp:
 	touch install-stamp
 
 binary-arch: install
+	dh_strip -X libawn0-dbg
 	dh binary-arch
 
 binary-indep: install
