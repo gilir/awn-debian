@@ -7,7 +7,8 @@ build-stamp:
 	dh_auto_configure -- 	--disable-pymod-checks \
 				--with-desktop=gnome \
 				--with-gconf \
-				--enable-gtk-doc
+				--enable-gtk-doc \
+				LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
 	dh build --after configure
 	touch build-stamp
 
