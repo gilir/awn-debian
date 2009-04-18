@@ -1,0 +1,4 @@
+debian/awn-manager.1
+debian/awn-launcher-editor.1
+debian/awn-schema-to-gconf.1
+debian/awn-applets-migration.1
