@@ -3,7 +3,12 @@
 
 build: build-stamp
 build-stamp:
-	dh build
+	dh build --before configure
+	dh_auto_configure -- 	--disable-pymod-checks \
+				--with-desktop=gnome \
+				--with-gconf \
+				--enable-gtk-doc
+	dh build --after configure
 	touch build-stamp
 
 clean:
