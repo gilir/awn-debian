@@ -46,9 +46,12 @@ install-%: install-clean build-%/build-stamp
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 \
 	$(MAKE) -C build-$* install DESTDIR=$(CURDIR)/debian/tmp-$*
 	dh_install --sourcedir=debian/tmp-$*
+	mv debian/tmp-$*/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
 
 install: $(PYVERS:%=install-%)
 	dh_installdirs
+	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
+	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
 
 binary-arch: build install
 	dh_strip --dbg-package=libawn0-dbg
