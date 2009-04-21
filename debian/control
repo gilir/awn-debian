@@ -12,7 +12,7 @@ Build-Depends: 	debhelper (>= 7),
 		libdbus-glib-1-dev,
 		libxcomposite-dev,
 		libxdamage-dev,
-		python-central (>= 0.5.6),
+		python-support (>= 0.7.0),
 		python-all-dev (>= 2.4),
 		python-gnome2-dev,
 		python-cairo-dev,
@@ -22,7 +22,6 @@ Build-Depends: 	debhelper (>= 7),
 		python-elementtree | python (>= 2.5)
 Standards-Version: 3.8.0
 Homepage: https://launchpad.net/avant-window-navigator/
-XS-Python-Version: >= 2.4
 
 Package: avant-window-navigator
 Architecture: any
@@ -89,7 +88,6 @@ Depends:	${python:Depends},
 		librsvg2-common,
 		python-awn,
 		python-xdg
-XB-Python-Version: ${python:Versions}
 Description: A preferences manager for avant-window-navigator
  Awn-Manager provides a simple way to configure avant-window-navigator.
  You can manage preferences, themes, applets and launchers.
@@ -103,7 +101,6 @@ Depends:	libawn0 (= ${binary:Version}),
 		${python:Depends},
 		python-gtk2
 Provides: ${python:Provides}
-XB-Python-Version: ${python:Versions}
 Description: Python bindings for avant-window-navigator library 
  This library is used by avant-window-navigator. It provides Python bindings 
  to create and use Python applets for avant-window-navigator.
