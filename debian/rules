@@ -11,6 +11,7 @@ configure_flags += \
 			--with-desktop=gnome \
 			--with-gconf \
 			--enable-gtk-doc \
+			--with-gconf-schema-file-dir=/etc/gconf/schemas \
 			LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
 
 build-%/configure-stamp: patch
@@ -42,7 +43,7 @@ install-clean:
 install-%: install-clean build-%/build-stamp
 	dh_testdir
 	dh_testroot
-	dh_gconf
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 \
 	$(MAKE) -C build-$* install DESTDIR=$(CURDIR)/debian/tmp-$*
 	dh_install --sourcedir=debian/tmp-$*
 
