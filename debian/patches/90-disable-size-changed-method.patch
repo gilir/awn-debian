@@ -1,0 +1,16 @@
+#Ubuntu: 351433
+#Upstream: https://bugs.launchpad.net/awn-extras/+bug/351433
+=== modified file 'libawn/awn-plug.c'
+--- libawn/awn-plug.c	2008-08-08 23:36:14 +0000
++++ libawn/awn-plug.c	2009-04-03 18:12:56 +0000
+@@ -121,7 +121,8 @@
+ on_size_changed(DBusGProxy *proxy, gint x, AwnPlug *plug)
+ {
+   AwnPlugPrivate *priv = AWN_PLUG_GET_PRIVATE(plug);
+-  AWN_APPLET_GET_CLASS(priv->applet)->size_changed(priv->applet, x);
++/* Disable size_changed (see LP bug https://launchpad.net/bugs/351433 )
++  AWN_APPLET_GET_CLASS(priv->applet)->size_changed(priv->applet, x); */
+ }
+ 
+ static void
+

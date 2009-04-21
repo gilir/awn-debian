@@ -1,4 +1,15 @@
-avant-window-navigator (0.3.2-1) unstable; urgency=low
+avant-window-navigator (0.3.2-0ubuntu2) jaunty; urgency=low
+
+  * debian/patches/90-disable-size-changed_method.patch
+   - From upstream (r557), don't use size_changed. It's not used anymore and it
+     cause crashes (LP: #351433).
+  * debian/patches/91-use-g_strcmp0.patch
+   - From upstream (r558), use g_strcmp0 instead of strcmp to avoid crash 
+     (LP: #352950)
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Sat, 04 Apr 2009 00:05:58 +0200
+
+avant-window-navigator (0.3.2-0ubuntu1) jaunty; urgency=low
 
   * New upstream release (Closes : #514681) (LP: #327443)
    - Add a script to delay the start of awn when using the autostart. 
@@ -42,6 +53,19 @@ avant-window-navigator (0.3.2-1) unstable; urgency=low
    - Replace (C) by ©.
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Mon, 19 Jan 2009 19:35:52 +0100
+
+avant-window-navigator (0.3~bzr489-1ubuntu1) jaunty; urgency=low
+
+  * Python 2.6 transition (lp: #335785).
+
+ -- Michael Bienia <geser@ubuntu.com>  Thu, 05 Mar 2009 16:12:10 +0100
+
+avant-window-navigator (0.3~bzr489-1build1) jaunty; urgency=low
+
+  * Rebuild for libgnome-desktop-2-7 -> libgnome-desktop-2-11 
+    transition. (LP: #309529) 
+
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Thu, 18 Dec 2008 19:01:40 -0500
 
 avant-window-navigator (0.3~bzr489-1) experimental; urgency=low
 
