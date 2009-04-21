@@ -11,6 +11,7 @@ avant-window-navigator (0.3.2-2) UNRELEASED; urgency=low
    - Switch from python-central to python-support.
    - Bump build-depends on debhelper to (>= 7).
    - Remove build-depends on cdbs.
+   - Build depends on quilt.
    - Add Vcs fields.
   * debian/rules:
    - Rewrite to drop the use of cdbs and build python bindings for all version 
