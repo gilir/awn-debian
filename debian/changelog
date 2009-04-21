@@ -9,8 +9,20 @@ avant-window-navigator (0.3.2-2) UNRELEASED; urgency=low
      for the migration script. (Closes: #520120).
    - Add libgnome-desktop-dev and libdbus-glib-1-dev as depends for libawn-dev.
    - Switch from python-central to python-support.
+   - Bump build-depends on debhelper to (>= 7).
+   - Remove build-depends on cdbs.
   * debian/rules:
+   - Rewrite to drop the use of cdbs and build python bindings for all version 
+     of python.
    - Switch from python-central to python-support.
+  * debian/pycompat: 
+   - Remove.
+  * debian/pyversions:
+   - Add, python >= 2.4 is supported.
+  * debian/compat:
+   - Bump to 7.
+  * debian/*.manpages:
+   - Add for avant-window-navigator and awn-manager.
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Fri, 17 Apr 2009 22:37:03 +0200
 
