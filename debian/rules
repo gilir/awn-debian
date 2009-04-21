@@ -1,35 +1,59 @@
 #!/usr/bin/make -f
 #DH_VERBOSE=1
 
+include /usr/share/quilt/quilt.make
+
 PYVERS=$(shell pyversions -vs)
 
-build: build-stamp
-build-stamp:
-	dh build --before configure
-	dh_auto_configure -- 	--disable-pymod-checks \
-				--with-desktop=gnome \
-				--with-gconf \
-				--enable-gtk-doc \
-				LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
-	dh build --after configure
-	touch build-stamp
+configure_flags += \
+			--prefix=/usr \
+			--disable-pymod-checks \
+			--with-desktop=gnome \
+			--with-gconf \
+			--enable-gtk-doc \
+			LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
 
-clean:
-	dh clean
+build-%/configure-stamp: patch
+	dh_testdir
+	mkdir -p build-$*
+	cd build-$* && \
+		PYTHON=/usr/bin/python$* CFLAGS="$(CFLAGS)" \
+			$(CURDIR)/configure $(configure_flags)
+	touch $@
 
-install: build install-stamp
-install-stamp:
-	dh install
-	mv debian/tmp/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
-	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
-	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
-	touch install-stamp
+build-%/build-stamp: build-%/configure-stamp
+	dh_testdir
+	$(MAKE) -C build-$*
+	touch $@
 
-binary-arch: install
+build: $(PYVERS:%=build-%/build-stamp)
+
+clean: unpatch
+	dh_testdir
+	dh_testroot
+	rm -rf build-* debian/tmp-*
+	dh_clean
+
+install-clean:
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+
+install-%: install-clean build-%/build-stamp
+	dh_testdir
+	dh_testroot
+	dh_gconf
+	$(MAKE) -C build-$* install DESTDIR=$(CURDIR)/debian/tmp-$*
+	dh_install --sourcedir=debian/tmp-$*
+
+install: $(PYVERS:%=install-%)
+	dh_installdirs
+
+binary-arch: build install
 	dh_strip --dbg-package=libawn0-dbg
 	dh binary-arch
 
-binary-indep: install
+binary-indep: build install
 	dh binary-indep
 
 binary: binary-arch binary-indep
@@ -67,3 +91,5 @@ binary: binary-arch binary-indep
 #
 #binary-install/python-awn::
 #	dh_pysupport -ppython-awn
+#!/usr/bin/make -f
+#DH_VERBOSE=1
