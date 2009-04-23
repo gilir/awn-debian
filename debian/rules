@@ -49,16 +49,24 @@ build-%/build-stamp: build-%/configure-stamp
 build: $(PYVERS:%=build-%/build-stamp) build-standart
 
 clean: unpatch
+	dh_testdir
+	dh_testroot
 	rm -rf build-* debian/tmp-*
-	dh clean
+	dh_clean
 
+#install-clean:
+#	dh_testdir
+#	dh_testroot
+#	dh_prep
 
 install-%:
 	dh_testdir
 	dh_testroot
 	$(MAKE) -C build-$*/libawn install DESTDIR=$(CURDIR)/debian/tmp-$*
 	$(MAKE) -C build-$*/bindings install DESTDIR=$(CURDIR)/debian/tmp-$*
-	cp -r debian/tmp-$*/usr/lib debian/tmp/usr/
+	cp -r debian/tmp-$*/usr/lib debian/tmp/usr/lib
+#	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 \
+#	dh_install --sourcedir=debian/tmp-$* debian/tmp-$*/usr/lib/python$*/site-packages/awn/awn.so debian/tmp-$*/usr/lib/python$*/site-packages/awn/__init__.py
 
 install: install-standart $(PYVERS:%=install-%)
 
