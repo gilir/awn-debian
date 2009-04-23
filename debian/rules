@@ -14,6 +14,24 @@ configure_flags += \
 			--with-gconf-schema-file-dir=/etc/gconf/schemas \
 			LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
 
+
+#Standart build
+build-standart: build-standart-stamp
+
+build-standart-stamp: patch
+	dh_testdir
+	dh_auto_configure -- 	$(configure_flags)
+	dh_auto_build
+	touch build-standart-stamp
+
+install-standart:
+	dh_testroot
+	dh install --before build
+	dh_auto_build
+	dh install --after test
+	touch install-standart
+
+#Build python bindings for all python versions
 build-%/configure-stamp: patch
 	dh_testdir
 	mkdir -p build-$*
@@ -24,10 +42,11 @@ build-%/configure-stamp: patch
 
 build-%/build-stamp: build-%/configure-stamp
 	dh_testdir
-	$(MAKE) -C build-$*
+	$(MAKE) -C build-$*/libawn
+	$(MAKE) -C build-$*/bindings
 	touch $@
 
-build: $(PYVERS:%=build-%/build-stamp)
+build: $(PYVERS:%=build-%/build-stamp) build-standart
 
 clean: unpatch
 	dh_testdir
@@ -35,29 +54,30 @@ clean: unpatch
 	rm -rf build-* debian/tmp-*
 	dh_clean
 
-install-clean:
+#install-clean:
+#	dh_testdir
+#	dh_testroot
+#	dh_prep
+
+install-%:
 	dh_testdir
 	dh_testroot
-	dh_prep
+	$(MAKE) -C build-$*/libawn install DESTDIR=$(CURDIR)/debian/tmp-$*
+	$(MAKE) -C build-$*/bindings install DESTDIR=$(CURDIR)/debian/tmp-$*
+	cp -r debian/tmp-$*/usr/lib debian/tmp/usr/lib
+#	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 \
+#	dh_install --sourcedir=debian/tmp-$* debian/tmp-$*/usr/lib/python$*/site-packages/awn/awn.so debian/tmp-$*/usr/lib/python$*/site-packages/awn/__init__.py
 
-install-%: install-clean build-%/build-stamp
-	dh_testdir
-	dh_testroot
-	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 \
-	$(MAKE) -C build-$* install DESTDIR=$(CURDIR)/debian/tmp-$*
-	dh_install --sourcedir=debian/tmp-$*
-	mv debian/tmp-$*/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
+install: install-standart $(PYVERS:%=install-%)
 
-install: $(PYVERS:%=install-%)
-	dh_installdirs
+binary-arch: install
+	dh_strip --dbg-package=libawn0-dbg
+	mv debian/tmp/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
 	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
 	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
+	dh binary-arch --after test
 
-binary-arch: build install
-	dh_strip --dbg-package=libawn0-dbg
-	dh binary-arch
-
-binary-indep: build install
+binary-indep: install
 	dh binary-indep
 
 binary: binary-arch binary-indep
