@@ -29,6 +29,9 @@ install-standart:
 	dh install --before build
 	dh_auto_build
 	dh install --after test
+	mv debian/tmp/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
+	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
+	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
 	touch install-standart
 
 #Build python bindings for all python versions
@@ -62,9 +65,6 @@ install: install-standart $(PYVERS:%=install-%)
 
 binary-arch: install
 	dh_strip --dbg-package=libawn0-dbg
-	mv debian/tmp/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
-	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
-	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
 	dh binary-arch --after test
 
 binary-indep: install
