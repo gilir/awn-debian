@@ -56,7 +56,8 @@ clean: unpatch
 	dh clean
 
 install-%:
-	$(MAKE) -C build-$*/bindings/python install DESTDIR=$(CURDIR)/debian/tmp-$*
+	$(MAKE) -C build-$*/libawn install DESTDIR=$(CURDIR)/debian/tmp-$*
+	$(MAKE) -C build-$*/bindings install DESTDIR=$(CURDIR)/debian/tmp-$*
 	dh_install --sourcedir=debian/tmp-$*
 	rm -rf $(CURDIR)/debian/*/debian
 	dh_pysupport
