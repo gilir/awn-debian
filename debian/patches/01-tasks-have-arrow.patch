@@ -1,6 +1,7 @@
-=== modified file 'data/awn.schema-ini.in'
---- data/awn.schema-ini.in	2009-01-31 17:08:34 +0000
-+++ data/awn.schema-ini.in	2009-02-01 11:04:32 +0000
+Index: avant-window-navigator/data/awn.schema-ini.in
+===================================================================
+--- avant-window-navigator.orig/data/awn.schema-ini.in	2009-04-25 01:13:49.000000000 +0200
++++ avant-window-navigator/data/awn.schema-ini.in	2009-04-25 01:13:59.000000000 +0200
 @@ -154,7 +154,7 @@
  description = The offset between the arrows and the launchers.
  [app/tasks_have_arrows]
@@ -10,4 +11,3 @@
  description = Determines whether tasks also have arrows beneath them.
  [app/name_change_notify]
  type = bool
-
