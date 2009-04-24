@@ -15,6 +15,7 @@ avant-window-navigator (0.3.2-2) UNRELEASED; urgency=low
    - Build depends on quilt.
    - Add Vcs fields.
    - Move libawn-dbg section to debug.
+   - Bump Standards-Version to 3.8.1 (no change needed).
   * debian/rules:
    - Rewrite to drop the use of cdbs and build python bindings for all versions 
      of python.

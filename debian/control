@@ -20,7 +20,7 @@ Build-Depends: 	debhelper (>= 7),
 		doc-base,
 		valac (>= 0.5.4),
 		python-elementtree | python (>= 2.5)
-Standards-Version: 3.8.0
+Standards-Version: 3.8.1
 Homepage: https://launchpad.net/avant-window-navigator/
 Vcs-Git: git://github.com/gilir/awn-debian.git
 Vcs-Browser: http://github.com/gilir/awn-debian/tree
