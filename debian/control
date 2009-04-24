@@ -118,7 +118,7 @@ Description: Vala bindings for avant-window-navigator library
  to create and use Vala applets for avant-window-navigator.
 
 Package: libawn0-dbg
-Section: libs
+Section: debug
 Priority: extra
 Architecture: any
 Depends: 	libawn0 (= ${binary:Version}),
