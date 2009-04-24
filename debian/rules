@@ -60,6 +60,7 @@ install-%:
 	dh_install --sourcedir=debian/tmp-$*
 	rm -rf $(CURDIR)/debian/*/debian
 	dh_pysupport
+	dh_fixperms
 
 install: install-standart $(PYVERS:%=install-%)
 
