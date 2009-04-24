@@ -28,8 +28,10 @@ avant-window-navigator (0.3.2-2) UNRELEASED; urgency=low
    - Bump to 7.
   * debian/*.manpages:
    - Add for avant-window-navigator and awn-manager.
+  * debian/README.source
+   - Replace since the package use quilt.
 
- -- Julien Lavergne <julien.lavergne@gmail.com>  Fri, 17 Apr 2009 22:37:03 +0200
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Sat, 25 Apr 2009 00:56:50 +0200
 
 avant-window-navigator (0.3.2-1) unstable; urgency=low
 
