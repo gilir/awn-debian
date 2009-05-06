@@ -1,3 +1,5 @@
+#Set the behavior to "change to active desktop" when a window of a different workspace is selected.
+
 Index: avant-window-navigator/data/awn.schema-ini.in
 ===================================================================
 --- avant-window-navigator.orig/data/awn.schema-ini.in	2009-04-25 01:12:12.000000000 +0200

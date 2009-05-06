@@ -1,3 +1,5 @@
+#Add by default an arrow when tasks are active
+
 Index: avant-window-navigator/data/awn.schema-ini.in
 ===================================================================
 --- avant-window-navigator.orig/data/awn.schema-ini.in	2009-04-25 01:13:49.000000000 +0200
