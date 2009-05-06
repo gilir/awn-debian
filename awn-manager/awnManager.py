@@ -177,7 +177,7 @@ class AwnManager:
     def about(self, button):
         self.about = gtk.AboutDialog()
         self.about.set_name(_("Avant Window Navigator"))
-        version = '0.3.2'
+        version = '0.3.2.1'
         extra_version = ''
         if len(extra_version) > 0:
             version += extra_version
