@@ -1,3 +1,94 @@
+2009-05-04  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	* awn-applet-activation/Makefile.am:
+	* src/Makefile.am:
+	Fixes for make distcheck.
+
+2009-05-01  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	* libawn/awn-icons.c:
+	Add a missing function.
+	Make sure the added function are static.
+	Whitespace fixes.
+
+2009-04-30  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	* libawn/awn-icons.c:
+	Fix typo in the last commit.
+
+2008-04-29  Rodney Cryderman  <rcryderman@gmail.com>
+
+	* libawn/awn-icons.c:
+
+	Unescape URIs of icons.  Spaces in filenames should be ok now.
+
+2009-04-19  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	* configure.in:
+	Update LINGUAS.
+
+2009-04-18  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	* configure.in:
+	* debian/changelog:
+	Version bump to 0.3.2.1.
+
+2009-04-18  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	* configure.in:
+	Fix typo in flag help entry.
+
+2009-04-03  Julien Lavergne  <julien.lavergne@gmail.com>
+
+	reviewed by: moonbeam_
+
+	* src/awn-task-manager.c:
+	Use g_strcmp0 instead of strcmp to avoid crash (see bug #352950)
+
+2009-04-03  Julien Lavergne <julien.lavergne@gmail.com>
+
+	reviewed by: mhr3
+
+	* libawn/awn-plug.c:
+	Comment size_changed signal, not used and can cause some crashes (see bug #351433)
+
+2009-03-28  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	* configure.in:
+	Version bump to 0.3.3.
+
+2009-03-04  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	reviewed by: Julien Lavergne <julien.lavergne@gmail.com>
+
+	* debian/control:
+	Update dependencies.
+
+2009-03-03  Mark Lee  <avant-wn@lazymalevolence.com>
+
+	patch by: foolish (Fedora) and AdamW (RedHat/Mandriva) on IRC (freenode)
+
+	* bindings/python/Makefile.am:
+	Fix installation of the Python bindings on 64bit systems.
+
+2009-03-02  Julien Lavergne <julien.lavergne@gmail.com>
+
+	* debian/python-awn-trunk.install:
+	Fix FTBFS in Jaunty
+
+2009-02-10  Julien Lavergne <julien.lavergne@gmail.com>
+
+	* debian/control:
+	Fix typo in previous commit.
+
+2009-02-09  Julien Lavergne <julien.lavergne@gmail.com>
+
+	* debian/awn-applets-migration.1:
+	* debian/changelog:
+	* debian/control:
+	Backport some fixes from Debian packaging.
+	Bump the version.
+
 2009-02-08  Michal Hruby <michal.mhr@gmail.com>
 
 	* configure.in:

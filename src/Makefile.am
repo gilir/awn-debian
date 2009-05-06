@@ -4,6 +4,7 @@ INCLUDES =				\
 	$(DOCK_CFLAGS)			\
 	-DDATADIR=\""$(datadir)"\"	\
 	-DLOCALEDIR=\""$(datadir)/locale"\"	\
+	-I$(top_srcdir)			\
 	-I$(top_srcdir)/libawn		\
 	$(NULL)
 
