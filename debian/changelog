@@ -33,6 +33,8 @@ avant-window-navigator (0.3.2.1-1) unstable; urgency=low
    - Replace since the package use quilt.
   * debian/patches
    - Switch to use quilt.
+  * debian/preinst
+   - add preinst maintainer script to clean after pycentral.
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Wed, 06 May 2009 09:54:52 +0200
 

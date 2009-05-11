@@ -1,0 +1,10 @@
+#!/bin/sh
+# TODO: remove this file after releasing Squeeze
+if [ "$1" = upgrade ]
+then
+	if dpkg --compare-versions "$2" lt 0.3.2.1-1; then
+		pycentral pkgremove python-awn
+	fi
+fi
+
+#DEBHELPER#
