@@ -35,7 +35,7 @@ install-standart:
 	touch install-standart
 
 #Build python bindings for all python versions
-build-%/configure-stamp: patch
+build-%/configure-stamp: $(QUILT_STAMPFN)
 	dh_testdir
 	mkdir -p build-$*
 	cd build-$* && \
