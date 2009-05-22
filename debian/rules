@@ -18,7 +18,7 @@ configure_flags += \
 #Standart build
 build-standart: build-standart-stamp
 
-build-standart-stamp: patch
+build-standart-stamp: $(QUILT_STAMPFN)
 	dh_testdir
 	dh_auto_configure -- 	$(configure_flags)
 	dh_auto_build
