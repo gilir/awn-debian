@@ -1,3 +1,10 @@
+avant-window-navigator (0.3.2.1-2) unstable; urgency=low
+
+  * debian/control: Use XB-Python-Version to avoid breakage during upgrade 
+    and use current python version.
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Sat, 23 May 2009 22:23:41 +0200
+
 avant-window-navigator (0.3.2.1-1) unstable; urgency=low
 
   * New Upstream Version.
