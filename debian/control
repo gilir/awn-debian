@@ -24,7 +24,7 @@ Standards-Version: 3.8.1
 Homepage: https://launchpad.net/avant-window-navigator/
 Vcs-Git: git://github.com/gilir/awn-debian.git
 Vcs-Browser: http://github.com/gilir/awn-debian/tree
-XS-Python-Version: >= 2.5
+XS-Python-Version: >= 2.4
 
 Package: avant-window-navigator
 Architecture: any
@@ -104,7 +104,6 @@ Depends:	libawn0 (= ${binary:Version}),
 		${python:Depends},
 		python-gtk2
 Provides: ${python:Provides}
-XB-Python-Version: ${python:Versions}
 Description: Python bindings for avant-window-navigator library 
  This library is used by avant-window-navigator. It provides Python bindings 
  to create and use Python applets for avant-window-navigator.

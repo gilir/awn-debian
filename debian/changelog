@@ -1,8 +1,7 @@
 avant-window-navigator (0.3.2.1-2) unstable; urgency=medium
 
-  * debian/control: Use X{B,S}-Python-Version to avoid breakage during upgrade
-    and use current python version. (Closes: #530274)
-  * debian/pyversions: Set to 2.5- to depends only on python 2.5.
+  * debian/control: Use XS-Python-Version to avoid breakage during upgrade
+    (Closes: #530274)
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Sat, 23 May 2009 22:23:41 +0200
 
