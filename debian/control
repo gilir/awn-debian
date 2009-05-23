@@ -24,6 +24,7 @@ Standards-Version: 3.8.1
 Homepage: https://launchpad.net/avant-window-navigator/
 Vcs-Git: git://github.com/gilir/awn-debian.git
 Vcs-Browser: http://github.com/gilir/awn-debian/tree
+XS-Python-Version: >= 2.5
 
 Package: avant-window-navigator
 Architecture: any
