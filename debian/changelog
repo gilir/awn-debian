@@ -1,7 +1,7 @@
-avant-window-navigator (0.3.2.1-3) unstable; urgency=low
+avant-window-navigator (0.3.2.1-3) unstable; urgency=medium
 
   * Rename preinst to python-awn.preinst to use it only on python-awn binary,
-    really Closes: #530274 
+    really Closes: #530274
   * debian/control: Remove XS-Python-Version.
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Wed, 27 May 2009 20:23:57 +0200
