@@ -15,16 +15,12 @@ configure_flags += \
 			LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
 
 
-#Standart build
-build-standart: build-standart-stamp
-
-build-standart-stamp: $(QUILT_STAMPFN)
+build: $(QUILT_STAMPFN)
 	dh_testdir
 	dh_auto_configure -- 	$(configure_flags)
 	dh_auto_build
-	touch build-standart-stamp
 
-install-standart:
+install:
 	dh_testroot
 	dh install --before build
 	dh_auto_build
@@ -32,38 +28,10 @@ install-standart:
 	mv debian/tmp/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
 	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
 	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
-	touch install-standart
-
-#Build python bindings for all python versions
-build-%/configure-stamp: $(QUILT_STAMPFN)
-	dh_testdir
-	mkdir -p build-$*
-	cd build-$* && \
-		PYTHON=/usr/bin/python$* CFLAGS="$(CFLAGS)" \
-			$(CURDIR)/configure $(configure_flags)
-	touch $@
-
-build-%/build-stamp: build-%/configure-stamp
-	dh_testdir
-	$(MAKE) -C build-$*/libawn
-	$(MAKE) -C build-$*/bindings
-	touch $@
-
-build: $(PYVERS:%=build-%/build-stamp) build-standart
 
 clean: unpatch
-	rm -rf build-* debian/tmp-* install-standart
+	rm -rf build-* debian/tmp-*
 	dh clean
-
-install-%:
-	$(MAKE) -C build-$*/libawn install DESTDIR=$(CURDIR)/debian/tmp-$*
-	$(MAKE) -C build-$*/bindings install DESTDIR=$(CURDIR)/debian/tmp-$*
-	dh_install --sourcedir=debian/tmp-$*
-	rm -rf $(CURDIR)/debian/*/debian
-	dh_pysupport
-	dh_fixperms
-
-install: install-standart $(PYVERS:%=install-%)
 
 binary-arch: install
 	dh_strip --dbg-package=libawn0-dbg
