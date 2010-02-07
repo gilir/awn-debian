@@ -17,8 +17,7 @@ Build-Depends: 	debhelper (>= 7),
 		python-cairo-dev,
 		gtk-doc-tools, 
 		doc-base,
-		valac (>= 0.5.4),
-		libssl-dev
+		valac (>= 0.5.4)
 Standards-Version: 3.8.4
 Homepage: https://launchpad.net/avant-window-navigator/
 Vcs-Git: git://github.com/gilir/awn-debian.git

@@ -3,9 +3,7 @@ avant-window-navigator (0.3.2.1-5) unstable; urgency=medium
   * Urgency set to medium to fix RC bug (#566995).
   * debian/patches/10_correct_execption.patch
    - Don't crash when raising exception. (Closes: #562549)
-  * debian/control: 
-   - Add build dependency on libssl-dev to fix a FTBFS because of missing
-     -lssl at link time.
+  * debian/control:
    - Add depends on python-glade2 for awn-manager, as it used glade for the UI.
      (Closes: #568253).
    - Remove python-elementtree from Build-Depends, only depend on
