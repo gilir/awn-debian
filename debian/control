@@ -3,7 +3,6 @@ Section: gnome
 Priority: optional
 Maintainer: Julien Lavergne <julien.lavergne@gmail.com>
 Build-Depends: 	debhelper (>= 7),
-		quilt,
 		intltool,
 		libwnck-dev,
 		libgnome2-dev,

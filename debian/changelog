@@ -11,6 +11,10 @@ avant-window-navigator (0.3.2.1-5) UNRELEASED; urgency=medium
    - Remove python-elementtree from Build-Depends, only depend on
      python-all-dev as elementtree is already part of stdlib (Closes: #566995).
      Thanks Luca Falavigna for the patch.
+  * Switch to dpkg-source 3.0 (quilt) format
+   - Remove build-depends on quilt.
+   - Remove README.source for the usage of quilt.
+   - Remove usage of quilt in debian/rules. 
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sun, 07 Feb 2010 12:48:26 +0100
 

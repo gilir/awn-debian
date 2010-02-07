@@ -1,8 +1,6 @@
 #!/usr/bin/make -f
 #DH_VERBOSE=1
 
-include /usr/share/quilt/quilt.make
-
 PYVERS=$(shell pyversions -vs)
 
 configure_flags += \
@@ -15,7 +13,7 @@ configure_flags += \
 			LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
 
 build: build-stamp
-build-stamp: $(QUILT_STAMPFN)
+build-stamp:
 	dh_testdir
 	dh_auto_configure -- 	$(configure_flags)
 	dh_auto_build
@@ -32,7 +30,7 @@ install-stamp:
 	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
 	touch install-stamp
 
-clean: unpatch
+clean:
 	rm -rf build-* debian/tmp-*
 	dh clean
 
