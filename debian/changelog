@@ -1,5 +1,6 @@
-avant-window-navigator (0.3.2.1-5) UNRELEASED; urgency=low
+avant-window-navigator (0.3.2.1-5) UNRELEASED; urgency=medium
 
+  * Urgency set to medium to fix RC bug (#566995).
   * debian/patches/10_correct_execption.patch
    - Don't crash when raising exception. (Closes: #562549)
   * debian/control: 
