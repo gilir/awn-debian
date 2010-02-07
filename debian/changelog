@@ -1,4 +1,4 @@
-avant-window-navigator (0.3.2.1-5) UNRELEASED; urgency=medium
+avant-window-navigator (0.3.2.1-5) unstable; urgency=medium
 
   * Urgency set to medium to fix RC bug (#566995).
   * debian/patches/10_correct_execption.patch
@@ -17,7 +17,7 @@ avant-window-navigator (0.3.2.1-5) UNRELEASED; urgency=medium
    - Remove README.source for the usage of quilt.
    - Remove usage of quilt in debian/rules. 
 
- -- Julien Lavergne <gilir@ubuntu.com>  Sun, 07 Feb 2010 12:48:26 +0100
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 07 Feb 2010 13:41:53 +0100
 
 avant-window-navigator (0.3.2.1-4) unstable; urgency=low
 
