@@ -90,7 +90,8 @@ Depends:	${python:Depends},
 		gnome-menus,
 		librsvg2-common,
 		python-awn,
-		python-xdg
+		python-xdg,
+		python-glade2
 Description: A preferences manager for avant-window-navigator
  Awn-Manager provides a simple way to configure avant-window-navigator.
  You can manage preferences, themes, applets and launchers.

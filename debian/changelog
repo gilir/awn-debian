@@ -5,6 +5,8 @@ avant-window-navigator (0.3.2.1-5) UNRELEASED; urgency=low
   * debian/control: 
    - added build dependency on libssl-dev to fix a FTBFS because of missing
      -lssl at link time.
+   - Add python-glade2 depends for awn-manager, as it used glade for the UI.
+     (Closes: #568253).
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sun, 07 Feb 2010 12:48:26 +0100
 
