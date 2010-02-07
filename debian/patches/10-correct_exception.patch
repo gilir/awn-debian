@@ -1,0 +1,56 @@
+Index: avant-window-navigator-0.3.2.1/awn-manager/awnPreferences.py
+===================================================================
+--- avant-window-navigator-0.3.2.1.orig/awn-manager/awnPreferences.py	2009-10-15 00:00:21.000000000 +0200
++++ avant-window-navigator-0.3.2.1/awn-manager/awnPreferences.py	2009-10-15 00:01:49.000000000 +0200
+@@ -177,13 +177,13 @@
+     def load_color(self, group, key, colorbut, show_opacity_scale = True):
+         try:
+             color, alpha = make_color(self.client.get_string(group, key))
++            colorbut.set_color(color)
++            if show_opacity_scale:
++                colorbut.set_alpha(alpha)
++            else:
++                colorbut.set_use_alpha(False)
+         except TypeError:
+-            raise "\nKey: [%s]%s isn't set.\nRestarting AWN usually solves this issue\n" % (group, key)
+-        colorbut.set_color(color)
+-        if show_opacity_scale:
+-            colorbut.set_alpha(alpha)
+-        else:
+-            colorbut.set_use_alpha(False)
++            print "\nKey: [%s]%s isn't set.\nRestarting AWN usually solves this issue\n" % (group, key)
+ 
+     def reload_color(self, entry, (colorbut,show_opacity_scale)):
+         self.load_color(entry['group'], entry['key'], colorbut, show_opacity_scale)
+@@ -201,10 +201,10 @@
+     def load_scale(self, group, key, scale):
+         try:
+             val = self.client.get_float(group, key)
++            val = 100 - (val * 100)
++            scale.set_value(val)
+         except TypeError:
+-            raise "\nKey: [%s]%s isn't set.\nRestarting AWN usually solves this issue\n" % (group, key)
+-        val = 100 - (val * 100)
+-        scale.set_value(val)
++            print "\nKey: [%s]%s isn't set.\nRestarting AWN usually solves this issue\n" % (group, key)
+ 
+     def reload_scale(self, entry, scale):
+         self.load_scale(entry['group'], entry['key'], scale)
+@@ -226,7 +226,7 @@
+         try:
+             spin.set_value(self.client.get_float(group, key))
+         except TypeError:
+-            raise "\nKey: [%s]%s isn't set.\nRestarting AWN usually solves this issue\n" % (group, key)
++            print "\nKey: [%s]%s isn't set.\nRestarting AWN usually solves this issue\n" % (group, key)
+         except gobject.GError, err:
+             spin.set_value(float(self.client.get_int(group, key)))
+ 
+@@ -265,7 +265,7 @@
+             elif(filename != "~"):
+                 self.client.set_string(group, key, "~")
+         except TypeError:
+-            raise "\nKey: [%s]%s isn't set.\nRestarting AWN usually solves this issue\n" % (group, key)
++            print "\nKey: [%s]%s isn't set.\nRestarting AWN usually solves this issue\n" % (group, key)
+ 
+     def reload_chooser(self, entry, chooser):
+         self.load_chooser(entry['group'], entry['key'], chooser)

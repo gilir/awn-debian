@@ -1,3 +1,10 @@
+avant-window-navigator (0.3.2.1-5) UNRELEASED; urgency=low
+
+  * debian/patches/10_correct_execption.patch
+   - Don't crash when raising exception. (Closes: #562549)
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 07 Feb 2010 12:48:26 +0100
+
 avant-window-navigator (0.3.2.1-4) unstable; urgency=low
 
   * debian/rules: Build python-awn for only 1 version of python.
