@@ -1,4 +1,5 @@
 00-wm-behavior.patch
 01-tasks-have-arrow.patch
+02-ftbfs-python-2.6.patch
 03-python-import.patch
 10-correct_exception.patch
