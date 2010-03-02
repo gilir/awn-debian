@@ -1,7 +1,7 @@
 avant-window-navigator (0.3.2.1-6) unstable; urgency=medium
 
   * debian/patches/02-ftbfs-python-2.6.patch: Remove LOCALMODLIBS in configure
-    and m4 to avoid uncessary linking with -lssl. (Closes: #571150)
+    and m4 to avoid unnecessary linking with -lssl. (Closes: #571150)
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Tue, 02 Mar 2010 00:11:24 +0100
 
