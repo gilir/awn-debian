@@ -33,13 +33,13 @@ Architecture: any
 Depends: 	${shlibs:Depends},
 		${misc:Depends},
 		avant-window-navigator-data (>= ${source:Version}),
-		awn-settings (>= ${source:Version}),
 		libdesktop-agnostic-vfs,
         libdesktop-agnostic-fdo,
         libdesktop-agnostic-cfg,
         dbus-x11
 Recommends:	awn-applets-python-core,
 		awn-applets-c-core,
+		awn-settings (>= ${source:Version}),
 		metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0)
 Description: A MacOS X like panel for GNOME
  The avant-window-navigator is a MacOS X like panel for the GNOME Desktop
@@ -95,7 +95,11 @@ Depends:	${python:Depends},
 		librsvg2-common,
 		python-awn,
 		python-xdg,
-		python-glade2
+		python-glade2,
+		avant-window-navigator,
+		python-desktop-agnostic,
+		bzr,
+		python-dbus
 Description: A preferences manager for avant-window-navigator
  awn-settings provides a simple way to configure avant-window-navigator.
  You can manage preferences, themes, applets and launchers.
