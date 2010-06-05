@@ -29,6 +29,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Replace vala depends by vala-desktop-agnostic for vala-awn.
    - Add Conflicts/Replaces to replace separator applets which is in core now.
    - Add mutter as another composite manager.
+   - Use space instead of tabulation.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 

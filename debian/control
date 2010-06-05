@@ -2,27 +2,27 @@ Source: avant-window-navigator
 Section: gnome
 Priority: optional
 Maintainer: Julien Lavergne <julien.lavergne@gmail.com>
-Build-Depends: 	debhelper (>= 7.0.50~),
-		intltool,
-		libwnck-dev (>= 2.22),
-		libgtk2.0-dev (>= 2.12.0),
-		libglib2.0-dev (>= 2.16.0),
-		libdbus-glib-1-dev,
-		libxcomposite-dev,
-		libxdamage-dev,
-		libgtop2-dev,
-		python-support (>= 0.7.0),
-		python-all-dev (>= 2.5),
-		python-gtk2-dev (>= 2.12),
-		python-cairo-dev,
-		gconf2,
-		libdesktop-agnostic-dev,
-		libdesktop-agnostic-bin,
-		python-desktop-agnostic,
-		vala-desktop-agnostic,
-		gtk-doc-tools, 
-		doc-base,
-		valac (>= 0.5.4)
+Build-Depends: debhelper (>= 7.0.50~),
+               intltool,
+               libwnck-dev (>= 2.22),
+               libgtk2.0-dev (>= 2.12.0),
+               libglib2.0-dev (>= 2.16.0),
+               libdbus-glib-1-dev,
+               libxcomposite-dev,
+               libxdamage-dev,
+               libgtop2-dev,
+               python-support (>= 0.7.0),
+               python-all-dev (>= 2.5),
+               python-gtk2-dev (>= 2.12),
+               python-cairo-dev,
+               gconf2,
+               libdesktop-agnostic-dev,
+               libdesktop-agnostic-bin,
+               python-desktop-agnostic,
+               vala-desktop-agnostic,
+               gtk-doc-tools, 
+               doc-base,
+               valac (>= 0.5.4)
 Standards-Version: 3.8.4
 Homepage: https://launchpad.net/avant-window-navigator/
 Vcs-Git: git://github.com/gilir/awn-debian.git
@@ -30,17 +30,17 @@ Vcs-Browser: http://github.com/gilir/awn-debian/tree
 
 Package: avant-window-navigator
 Architecture: any
-Depends: 	${shlibs:Depends},
-		${misc:Depends},
-		avant-window-navigator-data (>= ${source:Version}),
-		libdesktop-agnostic-vfs,
-        libdesktop-agnostic-fdo,
-        libdesktop-agnostic-cfg,
-        dbus-x11
-Recommends:	awn-applets-python-core,
-		awn-applets-c-core,
-		awn-settings (>= ${source:Version}),
-		metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0) | mutter
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         avant-window-navigator-data (>= ${source:Version}),
+         libdesktop-agnostic-vfs,
+         libdesktop-agnostic-fdo,
+         libdesktop-agnostic-cfg,
+         dbus-x11
+Recommends: awn-applets-python-core,
+            awn-applets-c-core,
+            awn-settings (>= ${source:Version}),
+            metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0) | mutter
 Conflicts: awn-applets-c-core (<<  0.3.9~bzr1890)
 Replaces: awn-applets-c-core (<<  0.3.9~bzr1890)
 Description: A MacOS X like panel for GNOME
@@ -51,7 +51,7 @@ Description: A MacOS X like panel for GNOME
 
 Package: avant-window-navigator-data
 Architecture: all
-Depends: 	${misc:Depends}
+Depends: ${misc:Depends}
 Conflicts: avant-window-navigator (<= 0.2.1-dfsg1-1)
 Replaces: avant-window-navigator (<= 0.2.1-dfsg1-1)
 Description: Common files for avant-window-navigator
@@ -60,9 +60,9 @@ Description: Common files for avant-window-navigator
 Package: libawn1
 Section: libs
 Architecture: any
-Depends: 	${shlibs:Depends},
-		${misc:Depends}
-Suggests: 	metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0) | mutter
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Suggests: metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0) | mutter
 Description: library for avant-window-navigator
  This library is used by avant-window-navigator and its applets. It provides 
  functions to create the bar and the applets.
@@ -70,8 +70,8 @@ Description: library for avant-window-navigator
 Package: libawn-doc
 Section: doc
 Architecture: all
-Depends:	libawn1 (>= ${source:Version}),
-		${misc:Depends}
+Depends: libawn1 (>= ${source:Version}),
+         ${misc:Depends}
 Description: library for avant-window-navigator - documentation files
  This package contains documentation for avant-window-navigator and its library
  libawn to develop applets or the bar.
@@ -79,29 +79,29 @@ Description: library for avant-window-navigator - documentation files
 Package: libawn-dev
 Section: libdevel
 Architecture: any
-Depends:	libawn1 (= ${binary:Version}),
-		${shlibs:Depends},
-		${misc:Depends},
-		libdesktop-agnostic-dev,
-		libgtk2.0-dev,
-		libdbus-glib-1-dev
+Depends: libawn1 (= ${binary:Version}),
+         ${shlibs:Depends},
+         ${misc:Depends},
+         libdesktop-agnostic-dev,
+         libgtk2.0-dev,
+         libdbus-glib-1-dev
 Description: library for avant-window-navigator - development files
  This package provides the include files and static library for the
  avant-window-navigator library functions.
 
 Package: awn-settings
 Architecture: all
-Depends:	${python:Depends}, 
-		${misc:Depends},
-		gnome-menus,
-		librsvg2-common,
-		python-awn,
-		python-xdg,
-		python-glade2,
-		avant-window-navigator,
-		python-desktop-agnostic,
-		bzr,
-		python-dbus
+Depends: ${python:Depends}, 
+         ${misc:Depends},
+         gnome-menus,
+         librsvg2-common,
+         python-awn,
+         python-xdg,
+         python-glade2,
+         avant-window-navigator,
+         python-desktop-agnostic,
+         bzr,
+         python-dbus
 Description: A preferences manager for avant-window-navigator
  awn-settings provides a simple way to configure avant-window-navigator.
  You can manage preferences, themes, applets and launchers.
@@ -109,11 +109,11 @@ Description: A preferences manager for avant-window-navigator
 Package: python-awn
 Section: python
 Architecture: any
-Depends:	libawn1 (= ${binary:Version}),
-		${shlibs:Depends},
-		${misc:Depends},
-		${python:Depends},
-		python-gtk2
+Depends: libawn1 (= ${binary:Version}),
+         ${shlibs:Depends},
+         ${misc:Depends},
+         ${python:Depends},
+         python-gtk2
 Provides: ${python:Provides}
 Description: Python bindings for avant-window-navigator library 
  This library is used by avant-window-navigator. It provides Python bindings 
@@ -121,10 +121,10 @@ Description: Python bindings for avant-window-navigator library
 
 Package: vala-awn
 Architecture: all
-Depends: 	libawn1 (>= ${source:Version}),
-		${shlibs:Depends}, 
-		${misc:Depends},
-		vala-desktop-agnostic
+Depends: libawn1 (>= ${source:Version}),
+         ${shlibs:Depends}, 
+         ${misc:Depends},
+         vala-desktop-agnostic
 Description: Vala bindings for avant-window-navigator library 
  This library is used by avant-window-navigator. It provides Vala bindings 
  to create and use Vala applets for avant-window-navigator.
@@ -133,8 +133,8 @@ Package: libawn1-dbg
 Section: debug
 Priority: extra
 Architecture: any
-Depends: 	libawn1 (= ${binary:Version}),
-		${misc:Depends}
+Depends: libawn1 (= ${binary:Version}),
+         ${misc:Depends}
 Description: library for avant-window-navigator - debug package
  This library is used by avant-window-navigator and its applets. It provides 
  functions to create the bar and the applets.
