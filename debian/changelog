@@ -42,6 +42,8 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
   * debian/awn-manager.install
    - Rename to awn-settings.install
    - Update installed files.
+  * debian/awn-applet*.1 && debian/avant-window-navigator.manpages
+   - Update manpages.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 

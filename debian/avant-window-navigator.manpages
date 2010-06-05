@@ -1,3 +1,2 @@
 debian/avant-window-navigator.1 
-debian/awn-applet-activation.1 
-debian/awn-autostart.1
+debian/awn-applet.1 
