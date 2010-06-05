@@ -122,7 +122,7 @@ Architecture: all
 Depends: 	libawn1 (>= ${source:Version}),
 		${shlibs:Depends}, 
 		${misc:Depends},
-		valac (>= 0.5.4)
+		vala-desktop-agnostic
 Description: Vala bindings for avant-window-navigator library 
  This library is used by avant-window-navigator. It provides Vala bindings 
  to create and use Vala applets for avant-window-navigator.

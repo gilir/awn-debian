@@ -26,6 +26,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
      avant-window-navigator.
    - Add depends on avant-window-navigator, python-desktop-agnostic, bzr and
      python-dbus for awn-settings.
+   - Replace vala depends by vala-desktop-agnostic for vala-awn.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
