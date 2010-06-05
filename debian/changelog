@@ -30,6 +30,10 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Add Conflicts/Replaces to replace separator applets which is in core now.
    - Add mutter as another composite manager.
    - Use space instead of tabulation.
+  * debian/rules:
+   - Rewrite with overrides.
+   - Remove awn.wrapper.
+   - Bump libawn SONAME.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 

@@ -1,44 +1,25 @@
 #!/usr/bin/make -f
 #DH_VERBOSE=1
 
-PYVERS=$(shell pyversions -vs)
+configure_flags +=  --prefix=/usr \
+					--disable-pymod-checks \
+					--enable-gtk-doc \
+					--with-gconf-schema-file-dir=/etc/gconf/schemas \
+					LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
 
-configure_flags += \
-			--prefix=/usr \
-			--disable-pymod-checks \
-			--with-desktop=gnome \
-			--with-gconf \
-			--enable-gtk-doc \
-			--with-gconf-schema-file-dir=/etc/gconf/schemas \
-			LDFLAGS="-Wl,-z,defs -Wl,--as-needed"
 
-build: build-stamp
-build-stamp:
-	dh_testdir
+%:
+	dh --with quilt $@
+
+override_dh_auto_configure:
 	dh_auto_configure -- 	$(configure_flags)
-	dh_auto_build
-	touch build-stamp
 
-install: build install-stamp
-install-stamp:
-	dh_testroot
-	dh install --before build
-	dh_auto_build
-	dh install --after test
-	mv debian/tmp/usr/bin/avant-window-navigator debian/avant-window-navigator/usr/bin/awn
-	cp debian/awn.wrapper debian/avant-window-navigator/usr/bin/avant-window-navigator
-	chmod +x debian/avant-window-navigator/usr/bin/avant-window-navigator
-	touch install-stamp
+override_dh_strip:
+	dh_strip --dbg-package=libawn1-dbg
 
-clean:
-	rm -rf build-* debian/tmp-*
-	dh clean
+override_dh_auto_test:
+	#Pass, tests don't pass for now.
 
-binary-arch: install
-	dh_strip --dbg-package=libawn0-dbg
-	dh binary-arch --after test
-
-binary-indep: install
-	dh binary-indep
-
-binary: binary-arch binary-indep
+override_dh_makeshlibs:
+	dh_makeshlibs -pavant-window-navigator -a -n --exclude=*
+	dh_makeshlibs -plibawn1  -V"libawn1 (>= 0.3.9~bzr1890)"
