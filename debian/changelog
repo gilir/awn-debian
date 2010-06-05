@@ -39,6 +39,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Use space instead of tabulation.
    - Add Conflicts on awn-manager for awn-settings (LP: #507822)
    - Add depends on python-desktop-agnostic for python-awn.
+   - Add mention of Awn in the description.
   * debian/rules:
    - Rewrite with overrides.
    - Remove awn.wrapper.
