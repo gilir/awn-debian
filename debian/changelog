@@ -39,6 +39,8 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Install core applets
   * debian/awn.wrapper & debian/avant-window-navigator.links:
    - Dropped, previous configuration is incompatible
+  * debian/awn-manager.install
+   - Rename to awn-settings.install
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
