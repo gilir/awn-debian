@@ -5,6 +5,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Add an option to go under the panel. Closes: #474228
   * debian/patches:
    - 10_correct_exception.patch: Dropped, problem fixed in the new version.
+   - 00-wm-behavior.patch and 01-tasks-have-arrow.patch: Merged upstream.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
