@@ -1,4 +1,4 @@
-libawn.so.0 libawn0 #MINVER#
+libawn.so.1 libawn1 #MINVER#
  SPOTLIGHT_PIXBUF@Base 0.3~bzr489
  _awn_icons_dialog_response@Base 0.3~bzr489
  _theme_changed@Base 0.3~bzr489
