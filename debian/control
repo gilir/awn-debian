@@ -33,7 +33,7 @@ Architecture: any
 Depends: 	${shlibs:Depends},
 		${misc:Depends},
 		avant-window-navigator-data (>= ${source:Version}),
-		awn-manager (>= ${source:Version}),
+		awn-settings (>= ${source:Version}),
 		libdesktop-agnostic-vfs,
         libdesktop-agnostic-fdo,
         libdesktop-agnostic-cfg,
@@ -88,7 +88,7 @@ Description: library for avant-window-navigator - development files
  This package provides the include files and static library for the
  avant-window-navigator library functions.
 
-Package: awn-manager
+Package: awn-settings
 Architecture: all
 Depends:	${python:Depends}, 
 		${misc:Depends},
@@ -98,7 +98,7 @@ Depends:	${python:Depends},
 		python-xdg,
 		python-glade2
 Description: A preferences manager for avant-window-navigator
- Awn-Manager provides a simple way to configure avant-window-navigator.
+ awn-settings provides a simple way to configure avant-window-navigator.
  You can manage preferences, themes, applets and launchers.
 
 Package: python-awn
