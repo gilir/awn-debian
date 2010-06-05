@@ -49,6 +49,9 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Remove unused manpages.
   * debian/python-awn:
    - Update to the new location.
+  * debian/README.Debian:
+   - Mention that real transparency is not needed.
+   - Add mutter in the list of composite managers.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
