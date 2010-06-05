@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnDialog</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch02.html" title="Base Components">
+<link rel="prev" href="libawn-awn-config.html" title="awn-config">
+<link rel="next" href="AwnEffects.html" title="AwnEffects">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="api-reference.html" title="Part I. API Reference">
+<link rel="chapter" href="ch01.html" title="Applets">
+<link rel="chapter" href="ch02.html" title="Base Components">
+<link rel="chapter" href="ch03.html" title="Icons">
+<link rel="chapter" href="ch04.html" title="Icon Overlays">
+<link rel="chapter" href="ch05.html" title="Utilities">
+<link rel="index" href="index-all.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libawn-awn-config.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="AwnEffects.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AwnDialog.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AwnDialog.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AwnDialog.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AwnDialog.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#AwnDialog.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="AwnDialog">
+<a name="AwnDialog"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AwnDialog.top_of_page"></a>AwnDialog</span></h2>
+<p>AwnDialog</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="AwnDialog.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="AwnDialog.html#AwnDialogPrivate" title="AwnDialogPrivate">AwnDialogPrivate</a>;
+                    <a class="link" href="AwnDialog.html#AwnDialog-struct" title="AwnDialog">AwnDialog</a>;
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*          <a class="link" href="AwnDialog.html#awn-dialog-new" title="awn_dialog_new ()">awn_dialog_new</a>                      (void);
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*          <a class="link" href="AwnDialog.html#awn-dialog-new-for-widget" title="awn_dialog_new_for_widget ()">awn_dialog_new_for_widget</a>           (<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *widget);
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*          <a class="link" href="AwnDialog.html#awn-dialog-new-for-widget-with-applet" title="awn_dialog_new_for_widget_with_applet ()">awn_dialog_new_for_widget_with_applet</a>
+                                                        (<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *widget,
+                                                         <a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);
+void                <a class="link" href="AwnDialog.html#awn-dialog-set-padding" title="awn_dialog_set_padding ()">awn_dialog_set_padding</a>              (<a class="link" href="AwnDialog.html" title="AwnDialog">AwnDialog</a> *dialog,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> padding);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="AwnDialog.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html"
+>GtkObject</a>
+               +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>
+                     +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html"
+>GtkContainer</a>
+                           +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkBin.html"
+>GtkBin</a>
+                                 +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"
+>GtkWindow</a>
+                                       +----AwnDialog
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="AwnDialog.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnDialog implements
+ AtkImplementorIface and  <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-gtkbuildable.html#GtkBuildable"
+>GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="AwnDialog.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnDialog.html#AwnDialog--anchor" title='The "anchor" property'>anchor</a>"                   <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*            : Write
+  "<a class="link" href="AwnDialog.html#AwnDialog--anchor-applet" title='The "anchor-applet" property'>anchor-applet</a>"            <a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a>*            : Write
+  "<a class="link" href="AwnDialog.html#AwnDialog--anchored" title='The "anchored" property'>anchored</a>"                 <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--border" title='The "border" property'>border</a>"                   DesktopAgnosticColor*  : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--dialog-bg" title='The "dialog-bg" property'>dialog-bg</a>"                DesktopAgnosticColor*  : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--effects-hilight" title='The "effects-hilight" property'>effects-hilight</a>"          <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--hide-on-esc" title='The "hide-on-esc" property'>hide-on-esc</a>"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--hide-on-unfocus" title='The "hide-on-unfocus" property'>hide-on-unfocus</a>"          <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--hilight" title='The "hilight" property'>hilight</a>"                  DesktopAgnosticColor*  : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--position" title='The "position" property'>position</a>"                 <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
+>GtkPositionType</a>       : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--title-bg" title='The "title-bg" property'>title-bg</a>"                 DesktopAgnosticColor*  : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--window-offset" title='The "window-offset" property'>window-offset</a>"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct
+  "<a class="link" href="AwnDialog.html#AwnDialog--window-padding" title='The "window-padding" property'>window-padding</a>"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="AwnDialog.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="AwnDialog.details"></a><h2>Details</h2>
+<div class="refsect2" title="AwnDialogPrivate">
+<a name="AwnDialogPrivate"></a><h3>AwnDialogPrivate</h3>
+<pre class="programlisting">typedef struct _AwnDialogPrivate AwnDialogPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="AwnDialog">
+<a name="AwnDialog-struct"></a><h3>AwnDialog</h3>
+<pre class="programlisting">typedef struct _AwnDialog AwnDialog;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="awn_dialog_new ()">
+<a name="awn-dialog-new"></a><h3>awn_dialog_new ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*          awn_dialog_new                      (void);</pre>
+<p>
+Creates a new toplevel window.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new dialog.  Caller is responsible for freeing the memory when
+the dialog is no longer being used.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_dialog_new_for_widget ()">
+<a name="awn-dialog-new-for-widget"></a><h3>awn_dialog_new_for_widget ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*          awn_dialog_new_for_widget           (<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *widget);</pre>
+<p>
+Creates a new toplevel window that is "attached" to the <em class="parameter"><code>widget</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td> The widget to which to associate the dialog.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new dialog.  Caller is responsible for freeing the memory when
+the dialog is no longer being used.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_dialog_new_for_widget_with_applet ()">
+<a name="awn-dialog-new-for-widget-with-applet"></a><h3>awn_dialog_new_for_widget_with_applet ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*          awn_dialog_new_for_widget_with_applet
+                                                        (<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *widget,
+                                                         <a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);</pre>
+<p>
+Creates a new toplevel window that is "attached" to the <em class="parameter"><code>widget</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td> The widget to which to associate the dialog.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td> AwnApplet associated with <em class="parameter"><code>widget</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new dialog.  Caller is responsible for freeing the memory when
+the dialog is no longer being used.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_dialog_set_padding ()">
+<a name="awn-dialog-set-padding"></a><h3>awn_dialog_set_padding ()</h3>
+<pre class="programlisting">void                awn_dialog_set_padding              (<a class="link" href="AwnDialog.html" title="AwnDialog">AwnDialog</a> *dialog,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> padding);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="AwnDialog.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "anchor" property'>
+<a name="AwnDialog--anchor"></a><h3>The <code class="literal">"anchor"</code> property</h3>
+<pre class="programlisting">  "anchor"                   <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*            : Write</pre>
+<p>Widget this window is attached to.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "anchor-applet" property'>
+<a name="AwnDialog--anchor-applet"></a><h3>The <code class="literal">"anchor-applet"</code> property</h3>
+<pre class="programlisting">  "anchor-applet"            <a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a>*            : Write</pre>
+<p>AwnApplet this window is attached to.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "anchored" property'>
+<a name="AwnDialog--anchored"></a><h3>The <code class="literal">"anchored"</code> property</h3>
+<pre class="programlisting">  "anchored"                 <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>Moves the window together with it's anchor widget.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "border" property'>
+<a name="AwnDialog--border"></a><h3>The <code class="literal">"border"</code> property</h3>
+<pre class="programlisting">  "border"                   DesktopAgnosticColor*  : Read / Write / Construct</pre>
+<p>Border color.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "dialog-bg" property'>
+<a name="AwnDialog--dialog-bg"></a><h3>The <code class="literal">"dialog-bg"</code> property</h3>
+<pre class="programlisting">  "dialog-bg"                DesktopAgnosticColor*  : Read / Write / Construct</pre>
+<p>Dialog background color.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "effects-hilight" property'>
+<a name="AwnDialog--effects-hilight"></a><h3>The <code class="literal">"effects-hilight"</code> property</h3>
+<pre class="programlisting">  "effects-hilight"          <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>Sets the anchored widget active when dialog is focused and the anchor implements AwnOverlayable interface.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "hide-on-esc" property'>
+<a name="AwnDialog--hide-on-esc"></a><h3>The <code class="literal">"hide-on-esc"</code> property</h3>
+<pre class="programlisting">  "hide-on-esc"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>Hides the window when escape key is pressed.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "hide-on-unfocus" property'>
+<a name="AwnDialog--hide-on-unfocus"></a><h3>The <code class="literal">"hide-on-unfocus"</code> property</h3>
+<pre class="programlisting">  "hide-on-unfocus"          <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>Whether to hide the dialog when it's no longer active.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "hilight" property'>
+<a name="AwnDialog--hilight"></a><h3>The <code class="literal">"hilight"</code> property</h3>
+<pre class="programlisting">  "hilight"                  DesktopAgnosticColor*  : Read / Write / Construct</pre>
+<p>Internal border color.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "position" property'>
+<a name="AwnDialog--position"></a><h3>The <code class="literal">"position"</code> property</h3>
+<pre class="programlisting">  "position"                 <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
+>GtkPositionType</a>       : Read / Write / Construct</pre>
+<p>The position of the window.</p>
+<p>Default value: GTK_POS_BOTTOM</p>
+</div>
+<hr>
+<div class="refsect2" title='The "title-bg" property'>
+<a name="AwnDialog--title-bg"></a><h3>The <code class="literal">"title-bg"</code> property</h3>
+<pre class="programlisting">  "title-bg"                 DesktopAgnosticColor*  : Read / Write / Construct</pre>
+<p>Background color for dialog's title.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "window-offset" property'>
+<a name="AwnDialog--window-offset"></a><h3>The <code class="literal">"window-offset"</code> property</h3>
+<pre class="programlisting">  "window-offset"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct</pre>
+<p>The offset from window border.</p>
+<p>Default value: 15</p>
+</div>
+<hr>
+<div class="refsect2" title='The "window-padding" property'>
+<a name="AwnDialog--window-padding"></a><h3>The <code class="literal">"window-padding"</code> property</h3>
+<pre class="programlisting">  "window-padding"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct</pre>
+<p>The padding from window border.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 15</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

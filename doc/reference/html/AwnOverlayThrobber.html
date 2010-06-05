@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnOverlayThrobber</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch04.html" title="Icon Overlays">
+<link rel="prev" href="AwnOverlayText.html" title="AwnOverlayText">
+<link rel="next" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="api-reference.html" title="Part I. API Reference">
+<link rel="chapter" href="ch01.html" title="Applets">
+<link rel="chapter" href="ch02.html" title="Base Components">
+<link rel="chapter" href="ch03.html" title="Icons">
+<link rel="chapter" href="ch04.html" title="Icon Overlays">
+<link rel="chapter" href="ch05.html" title="Utilities">
+<link rel="index" href="index-all.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnOverlayText.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="AwnOverlayPixbuf.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AwnOverlayThrobber.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AwnOverlayThrobber.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AwnOverlayThrobber.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AwnOverlayThrobber.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="AwnOverlayThrobber">
+<a name="AwnOverlayThrobber"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AwnOverlayThrobber.top_of_page"></a>AwnOverlayThrobber</span></h2>
+<p>AwnOverlayThrobber — Throbber overlay.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1" title="Stability Level">
+<a name="AwnOverlayThrobber.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="AwnOverlayThrobber.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;libawn/libawn.h&gt;
+
+                    <a class="link" href="AwnOverlayThrobber.html#AwnOverlayThrobber-struct" title="AwnOverlayThrobber">AwnOverlayThrobber</a>;
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*          <a class="link" href="AwnOverlayThrobber.html#awn-overlay-throbber-new" title="awn_overlay_throbber_new ()">awn_overlay_throbber_new</a>            (void);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="AwnOverlayThrobber.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a>
+               +----AwnOverlayThrobber
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="AwnOverlayThrobber.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnOverlayThrobber.html#AwnOverlayThrobber--scale" title='The "scale" property'>scale</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>               : Read / Write / Construct
+  "<a class="link" href="AwnOverlayThrobber.html#AwnOverlayThrobber--timeout" title='The "timeout" property'>timeout</a>"                  <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="AwnOverlayThrobber.description"></a><h2>Description</h2>
+<p>
+Throbber overlay used with <span class="type">AwnOverlaidIcon</span>.</p>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="AwnOverlayThrobber.details"></a><h2>Details</h2>
+<div class="refsect2" title="AwnOverlayThrobber">
+<a name="AwnOverlayThrobber-struct"></a><h3>AwnOverlayThrobber</h3>
+<pre class="programlisting">typedef struct _AwnOverlayThrobber AwnOverlayThrobber;</pre>
+<p>
+Throbber overlay used with <span class="type">AwnOverlaidIcon</span>.</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="awn_overlay_throbber_new ()">
+<a name="awn-overlay-throbber-new"></a><h3>awn_overlay_throbber_new ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>*          awn_overlay_throbber_new            (void);</pre>
+<p>
+Creates a new instance of <a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber"><span class="type">AwnOverlayThrobber</span></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an instance of <a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber"><span class="type">AwnOverlayThrobber</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="AwnOverlayThrobber.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "scale" property'>
+<a name="AwnOverlayThrobber--scale"></a><h3>The <code class="literal">"scale"</code> property</h3>
+<pre class="programlisting">  "scale"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>               : Read / Write / Construct</pre>
+<p>
+Determines the size of the <a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber"><span class="type">AwnOverlayThrobber</span></a> scaled against the dimensions
+of the <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.   A scale of 0.5 would result in an overlay that covers
+25% of the Icon.</p>
+<p>
+</p>
+<p>Allowed values: [0.01,1]</p>
+<p>Default value: 0.6</p>
+</div>
+<hr>
+<div class="refsect2" title='The "timeout" property'>
+<a name="AwnOverlayThrobber--timeout"></a><h3>The <code class="literal">"timeout"</code> property</h3>
+<pre class="programlisting">  "timeout"                  <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write / Construct</pre>
+<p>
+The time in milliseconds between throbber updates.</p>
+<p>
+</p>
+<p>Allowed values: [50,10000]</p>
+<p>Default value: 100</p>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="AwnOverlayThrobber.see-also"></a><h2>See Also</h2>
+#AwnOverlaidIcon, <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>, <span class="type">AwnOverlayIcon</span>, <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a>,
+<a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf"><span class="type">AwnOverlayPixbuf</span></a>, <a class="link" href="AwnOverlayPixbufFile.html" title="AwnOverlayPixbufFile"><span class="type">AwnOverlayPixbufFile</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

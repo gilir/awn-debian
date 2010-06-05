@@ -1,0 +1,945 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnIcon</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch03.html" title="Icons">
+<link rel="prev" href="ch03.html" title="Icons">
+<link rel="next" href="AwnThemedIcon.html" title="AwnThemedIcon">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="api-reference.html" title="Part I. API Reference">
+<link rel="chapter" href="ch01.html" title="Applets">
+<link rel="chapter" href="ch02.html" title="Base Components">
+<link rel="chapter" href="ch03.html" title="Icons">
+<link rel="chapter" href="ch04.html" title="Icon Overlays">
+<link rel="chapter" href="ch05.html" title="Utilities">
+<link rel="index" href="index-all.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch03.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="AwnThemedIcon.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AwnIcon.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AwnIcon.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AwnIcon.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AwnIcon.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#AwnIcon.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#AwnIcon.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="AwnIcon">
+<a name="AwnIcon"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AwnIcon.top_of_page"></a>AwnIcon</span></h2>
+<p>AwnIcon</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="AwnIcon.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="AwnIcon.html#AwnIconPrivate" title="AwnIconPrivate">AwnIconPrivate</a>;
+                    <a class="link" href="AwnIcon.html#AwnIcon-struct" title="AwnIcon">AwnIcon</a>;
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *         <a class="link" href="AwnIcon.html#awn-icon-new" title="awn_icon_new ()">awn_icon_new</a>                        (void);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-pos-type" title="awn_icon_set_pos_type ()">awn_icon_set_pos_type</a>               (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
+>GtkPositionType</a> position);
+<a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
+>GtkPositionType</a>     <a class="link" href="AwnIcon.html#awn-icon-get-pos-type" title="awn_icon_get_pos_type ()">awn_icon_get_pos_type</a>               (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-offset" title="awn_icon_set_offset ()">awn_icon_set_offset</a>                 (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> offset);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="AwnIcon.html#awn-icon-get-offset" title="awn_icon_get_offset ()">awn_icon_get_offset</a>                 (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-effect" title="awn_icon_set_effect ()">awn_icon_set_effect</a>                 (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a class="link" href="AwnEffects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-from-pixbuf" title="awn_icon_set_from_pixbuf ()">awn_icon_set_from_pixbuf</a>            (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *pixbuf);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-from-context" title="awn_icon_set_from_context ()">awn_icon_set_from_context</a>           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *ctx);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-from-surface" title="awn_icon_set_from_surface ()">awn_icon_set_from_surface</a>           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-surface.html#cairo-surface-t"
+>cairo_surface_t</a> *surface);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-custom-paint" title="awn_icon_set_custom_paint ()">awn_icon_set_custom_paint</a>           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> height);
+<a class="link" href="AwnTooltip.html" title="AwnTooltip">AwnTooltip</a>*         <a class="link" href="AwnIcon.html#awn-icon-get-tooltip" title="awn_icon_get_tooltip ()">awn_icon_get_tooltip</a>                (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-tooltip-text" title="awn_icon_set_tooltip_text ()">awn_icon_set_tooltip_text</a>           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *text);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="AwnIcon.html#awn-icon-get-tooltip-text" title="awn_icon_get_tooltip_text ()">awn_icon_get_tooltip_text</a>           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-is-active" title="awn_icon_set_is_active ()">awn_icon_set_is_active</a>              (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_active);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="AwnIcon.html#awn-icon-get-is-active" title="awn_icon_get_is_active ()">awn_icon_get_is_active</a>              (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-indicator-count" title="awn_icon_set_indicator_count ()">awn_icon_set_indicator_count</a>        (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> count);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="AwnIcon.html#awn-icon-get-indicator-count" title="awn_icon_get_indicator_count ()">awn_icon_get_indicator_count</a>        (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="AwnIcon.html#awn-icon-get-hover-effects" title="awn_icon_get_hover_effects ()">awn_icon_get_hover_effects</a>          (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+void                <a class="link" href="AwnIcon.html#awn-icon-set-hover-effects" title="awn_icon_set_hover_effects ()">awn_icon_set_hover_effects</a>          (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> enable);
+void                <a class="link" href="AwnIcon.html#awn-icon-clicked" title="awn_icon_clicked ()">awn_icon_clicked</a>                    (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+void                <a class="link" href="AwnIcon.html#awn-icon-middle-clicked" title="awn_icon_middle_clicked ()">awn_icon_middle_clicked</a>             (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="AwnIcon.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html"
+>GtkObject</a>
+               +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>
+                     +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkDrawingArea.html"
+>GtkDrawingArea</a>
+                           +----AwnIcon
+                                 +----<a class="link" href="AwnThemedIcon.html" title="AwnThemedIcon">AwnThemedIcon</a>
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="AwnIcon.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnIcon implements
+ AtkImplementorIface,  <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-gtkbuildable.html#GtkBuildable"
+>GtkBuildable</a> and  <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="AwnIcon.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnIcon.html#AwnIcon--bind-effects" title='The "bind-effects" property'>bind-effects</a>"             <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct Only
+  "<a class="link" href="AwnIcon.html#AwnIcon--icon-height" title='The "icon-height" property'>icon-height</a>"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write
+  "<a class="link" href="AwnIcon.html#AwnIcon--icon-width" title='The "icon-width" property'>icon-width</a>"               <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write
+  "<a class="link" href="AwnIcon.html#AwnIcon--long-press-timeout" title='The "long-press-timeout" property'>long-press-timeout</a>"       <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="AwnIcon.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnIcon.html#AwnIcon-clicked" title='The "clicked" signal'>clicked</a>"                                        : Run First / Action
+  "<a class="link" href="AwnIcon.html#AwnIcon-context-menu-popup" title='The "context-menu-popup" signal'>context-menu-popup</a>"                             : Run First / Action
+  "<a class="link" href="AwnIcon.html#AwnIcon-long-press" title='The "long-press" signal'>long-press</a>"                                     : Run First / Action
+  "<a class="link" href="AwnIcon.html#AwnIcon-middle-clicked" title='The "middle-clicked" signal'>middle-clicked</a>"                                 : Run First / Action
+  "<a class="link" href="AwnIcon.html#AwnIcon-size-changed" title='The "size-changed" signal'>size-changed</a>"                                   : Run First
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="AwnIcon.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="AwnIcon.details"></a><h2>Details</h2>
+<div class="refsect2" title="AwnIconPrivate">
+<a name="AwnIconPrivate"></a><h3>AwnIconPrivate</h3>
+<pre class="programlisting">typedef struct _AwnIconPrivate AwnIconPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="AwnIcon">
+<a name="AwnIcon-struct"></a><h3>AwnIcon</h3>
+<pre class="programlisting">typedef struct _AwnIcon AwnIcon;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_new ()">
+<a name="awn-icon-new"></a><h3>awn_icon_new ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *         awn_icon_new                        (void);</pre>
+<p>
+Creates new <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> newly created <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_pos_type ()">
+<a name="awn-icon-set-pos-type"></a><h3>awn_icon_set_pos_type ()</h3>
+<pre class="programlisting">void                awn_icon_set_pos_type               (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
+>GtkPositionType</a> position);</pre>
+<p>
+Sets position of the icon.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td> position of the icon.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_get_pos_type ()">
+<a name="awn-icon-get-pos-type"></a><h3>awn_icon_get_pos_type ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
+>GtkPositionType</a>     awn_icon_get_pos_type               (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>current position type set for the icon.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_offset ()">
+<a name="awn-icon-set-offset"></a><h3>awn_icon_set_offset ()</h3>
+<pre class="programlisting">void                awn_icon_set_offset                 (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> offset);</pre>
+<p>
+Sets offset of the icon.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td> new offset for the icon.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_get_offset ()">
+<a name="awn-icon-get-offset"></a><h3>awn_icon_get_offset ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                awn_icon_get_offset                 (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>current offset set for the icon.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_effect ()">
+<a name="awn-icon-set-effect"></a><h3>awn_icon_set_effect ()</h3>
+<pre class="programlisting">void                awn_icon_set_effect                 (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a class="link" href="AwnEffects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect);</pre>
+<p>
+Sets effect on the icon. Note that the effect will loop until
+<a class="link" href="AwnEffects.html#awn-effects-stop" title="awn_effects_stop ()"><code class="function">awn_effects_stop()</code></a> is called.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td> <a class="link" href="AwnEffects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> to start looping.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_from_pixbuf ()">
+<a name="awn-icon-set-from-pixbuf"></a><h3>awn_icon_set_from_pixbuf ()</h3>
+<pre class="programlisting">void                awn_icon_set_from_pixbuf            (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *pixbuf);</pre>
+<p>
+Sets the icon from the given pixbuf. Note that a copy of the pixbuf is made.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td> a <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+><span class="type">GdkPixbuf</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_from_context ()">
+<a name="awn-icon-set-from-context"></a><h3>awn_icon_set_from_context ()</h3>
+<pre class="programlisting">void                awn_icon_set_from_context           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *ctx);</pre>
+<p>
+Extracts the icon from the cairo surface associated with given cairo
+context. Note that the surface is only referenced, so any later changes
+made to it will change the icon as well
+(after a call to <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html#gtk-widget-queue-draw"
+><code class="function">gtk_widget_queue_draw()</code></a>).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+><span class="type">cairo_t</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_from_surface ()">
+<a name="awn-icon-set-from-surface"></a><h3>awn_icon_set_from_surface ()</h3>
+<pre class="programlisting">void                awn_icon_set_from_surface           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-surface.html#cairo-surface-t"
+>cairo_surface_t</a> *surface);</pre>
+<p>
+Sets the icon from the given cairo surface. Note that the surface is only
+referenced, so any later changes made to it will change the icon as well
+(after a call to <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html#gtk-widget-queue-draw"
+><code class="function">gtk_widget_queue_draw()</code></a>).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/cairo/cairo-surface.html#cairo-surface-t"
+><span class="type">cairo_surface_t</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_custom_paint ()">
+<a name="awn-icon-set-custom-paint"></a><h3>awn_icon_set_custom_paint ()</h3>
+<pre class="programlisting">void                awn_icon_set_custom_paint           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> height);</pre>
+<p>
+Prepares the icon for custom painting (by overriding
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html#GtkWidget-expose-event"
+><span class="type">"expose-event"</span></a>). Sets proper size requisition, tooltip position,
+parameters for <a class="link" href="AwnEffects.html" title="AwnEffects"><span class="type">AwnEffects</span></a> and may emit size changed signal.
+</p>
+<p>
+</p>
+<div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+ If there's already an icon set, it is not freed, so if you later disconnect
+ from the <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html#GtkWidget-expose-event"
+><span class="type">"expose-event"</span></a>, a second call to
+ <a class="link" href="AwnIcon.html#awn-icon-set-custom-paint" title="awn_icon_set_custom_paint ()"><code class="function">awn_icon_set_custom_paint()</code></a> with the original dimensions of the icon will
+ restore the icon.
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td> new width of the icon.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td> new height of the icon.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_get_tooltip ()">
+<a name="awn-icon-get-tooltip"></a><h3>awn_icon_get_tooltip ()</h3>
+<pre class="programlisting"><a class="link" href="AwnTooltip.html" title="AwnTooltip">AwnTooltip</a>*         awn_icon_get_tooltip                (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+Gets the <a class="link" href="AwnTooltip.html" title="AwnTooltip"><span class="type">AwnTooltip</span></a> associated with this icon.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> tooltip widget.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_tooltip_text ()">
+<a name="awn-icon-set-tooltip-text"></a><h3>awn_icon_set_tooltip_text ()</h3>
+<pre class="programlisting">void                awn_icon_set_tooltip_text           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *text);</pre>
+<p>
+Sets tooltip message.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td> tooltip message.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_get_tooltip_text ()">
+<a name="awn-icon-get-tooltip-text"></a><h3>awn_icon_get_tooltip_text ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_icon_get_tooltip_text           (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+Gets the message currently set for the associated <a class="link" href="AwnTooltip.html" title="AwnTooltip"><span class="type">AwnTooltip</span></a>. The caller
+is responsible for freeing the string.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> currently used message by the associated <a class="link" href="AwnTooltip.html" title="AwnTooltip"><span class="type">AwnTooltip</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_is_active ()">
+<a name="awn-icon-set-is-active"></a><h3>awn_icon_set_is_active ()</h3>
+<pre class="programlisting">void                awn_icon_set_is_active              (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_active);</pre>
+<p>
+Sets whether the icon is active (if it is paints a rectangle around the icon
+by default).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_active</code></em> :</span></p></td>
+<td> value.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_get_is_active ()">
+<a name="awn-icon-get-is-active"></a><h3>awn_icon_get_is_active ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            awn_icon_get_is_active              (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+Gets whether the icon is active.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the icon is active, FALSE otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_indicator_count ()">
+<a name="awn-icon-set-indicator-count"></a><h3>awn_icon_set_indicator_count ()</h3>
+<pre class="programlisting">void                awn_icon_set_indicator_count        (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> count);</pre>
+<p>
+Paints an indicator (or multiple) on the border of icon.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
+<td> indicator count.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_get_indicator_count ()">
+<a name="awn-icon-get-indicator-count"></a><h3>awn_icon_get_indicator_count ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                awn_icon_get_indicator_count        (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+Gets number of indicators set for this icon.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td> an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> number of indicators.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_get_hover_effects ()">
+<a name="awn-icon-get-hover-effects"></a><h3>awn_icon_get_hover_effects ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            awn_icon_get_hover_effects          (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_set_hover_effects ()">
+<a name="awn-icon-set-hover-effects"></a><h3>awn_icon_set_hover_effects ()</h3>
+<pre class="programlisting">void                awn_icon_set_hover_effects          (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> enable);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_clicked ()">
+<a name="awn-icon-clicked"></a><h3>awn_icon_clicked ()</h3>
+<pre class="programlisting">void                awn_icon_clicked                    (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_middle_clicked ()">
+<a name="awn-icon-middle-clicked"></a><h3>awn_icon_middle_clicked ()</h3>
+<pre class="programlisting">void                awn_icon_middle_clicked             (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *icon);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="AwnIcon.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "bind-effects" property'>
+<a name="AwnIcon--bind-effects"></a><h3>The <code class="literal">"bind-effects"</code> property</h3>
+<pre class="programlisting">  "bind-effects"             <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct Only</pre>
+<p>If set to true, will load and bind effect property values from config client.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "icon-height" property'>
+<a name="AwnIcon--icon-height"></a><h3>The <code class="literal">"icon-height"</code> property</h3>
+<pre class="programlisting">  "icon-height"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write</pre>
+<p>Current icon height.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "icon-width" property'>
+<a name="AwnIcon--icon-width"></a><h3>The <code class="literal">"icon-width"</code> property</h3>
+<pre class="programlisting">  "icon-width"               <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write</pre>
+<p>Current icon width.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "long-press-timeout" property'>
+<a name="AwnIcon--long-press-timeout"></a><h3>The <code class="literal">"long-press-timeout"</code> property</h3>
+<pre class="programlisting">  "long-press-timeout"       <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write / Construct</pre>
+<p>Timeout after which long-press signal is emit.</p>
+<p>Allowed values: [250,10000]</p>
+<p>Default value: 750</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="AwnIcon.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "clicked" signal'>
+<a name="AwnIcon-clicked"></a><h3>The <code class="literal">"clicked"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *awnicon,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data)      : Run First / Action</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "context-menu-popup" signal'>
+<a name="AwnIcon-context-menu-popup"></a><h3>The <code class="literal">"context-menu-popup"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a>  *awnicon,
+                                                        <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"
+>GdkEvent</a> *event,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>  user_data)      : Run First / Action</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "long-press" signal'>
+<a name="AwnIcon-long-press"></a><h3>The <code class="literal">"long-press"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *awnicon,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data)      : Run First / Action</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "middle-clicked" signal'>
+<a name="AwnIcon-middle-clicked"></a><h3>The <code class="literal">"middle-clicked"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *awnicon,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data)      : Run First / Action</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "size-changed" signal'>
+<a name="AwnIcon-size-changed"></a><h3>The <code class="literal">"size-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *awnicon,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data)      : Run First</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

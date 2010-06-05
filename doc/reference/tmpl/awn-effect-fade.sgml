@@ -1,0 +1,55 @@
+<!-- ##### SECTION Title ##### -->
+awn-effect-fade
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION fade_out_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION fading_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION fading_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION fading_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+

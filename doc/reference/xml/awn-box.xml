@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnBox">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnBox.top_of_page">AwnBox</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnBox</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="AwnBox.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="AwnBoxPrivate">AwnBoxPrivate</link>;
+                    <link linkend="AwnBox-struct">AwnBox</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="awn-box-new">awn_box_new</link>                         (<link linkend="GtkOrientation">GtkOrientation</link> orient);
+<link linkend="void">void</link>                <link linkend="awn-box-set-orientation">awn_box_set_orientation</link>             (<link linkend="AwnBox">AwnBox</link> *box,
+                                                         <link linkend="GtkOrientation">GtkOrientation</link> orient);
+<link linkend="void">void</link>                <link linkend="awn-box-set-orientation-from-pos-type">awn_box_set_orientation_from_pos_type</link>
+                                                        (<link linkend="AwnBox">AwnBox</link> *box,
+                                                         <link linkend="GtkPositionType">GtkPositionType</link> pos_type);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnBox.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----AwnBox
+                                       +----<link linkend="AwnIconBox">AwnIconBox</link>
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnBox.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+AwnBox implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link> and  <link linkend="GtkOrientable">GtkOrientable</link>.</para>
+</refsect1>
+
+
+
+
+
+<refsect1 id="AwnBox.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnBox.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnBoxPrivate" role="struct">
+<title>AwnBoxPrivate</title>
+<indexterm zone="AwnBoxPrivate"><primary sortas="AwnBoxPrivate">AwnBoxPrivate</primary></indexterm><programlisting>typedef struct _AwnBoxPrivate AwnBoxPrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnBox-struct" role="struct">
+<title>AwnBox</title>
+<indexterm zone="AwnBox-struct"><primary sortas="AwnBox">AwnBox</primary></indexterm><programlisting>typedef struct _AwnBox AwnBox;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="awn-box-new" role="function">
+<title>awn_box_new ()</title>
+<indexterm zone="awn-box-new"><primary sortas="awn_box_new">awn_box_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         awn_box_new                         (<link linkend="GtkOrientation">GtkOrientation</link> orient);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>orient</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-box-set-orientation" role="function">
+<title>awn_box_set_orientation ()</title>
+<indexterm zone="awn-box-set-orientation"><primary sortas="awn_box_set_orientation">awn_box_set_orientation</primary></indexterm><programlisting><link linkend="void">void</link>                awn_box_set_orientation             (<link linkend="AwnBox">AwnBox</link> *box,
+                                                         <link linkend="GtkOrientation">GtkOrientation</link> orient);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>box</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>orient</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-box-set-orientation-from-pos-type" role="function">
+<title>awn_box_set_orientation_from_pos_type ()</title>
+<indexterm zone="awn-box-set-orientation-from-pos-type"><primary sortas="awn_box_set_orientation_from_pos_type">awn_box_set_orientation_from_pos_type</primary></indexterm><programlisting><link linkend="void">void</link>                awn_box_set_orientation_from_pos_type
+                                                        (<link linkend="AwnBox">AwnBox</link> *box,
+                                                         <link linkend="GtkPositionType">GtkPositionType</link> pos_type);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>box</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pos_type</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

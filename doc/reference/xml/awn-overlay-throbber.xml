@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnOverlayThrobber">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnOverlayThrobber.top_of_page">AwnOverlayThrobber</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnOverlayThrobber</refname>
+<refpurpose>Throbber overlay.</refpurpose>
+</refnamediv>
+<refsect1 id="AwnOverlayThrobber.stability-level">
+<title>Stability Level</title>
+Unstable, unless otherwise indicated
+</refsect1>
+
+<refsynopsisdiv id="AwnOverlayThrobber.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+#include &lt;libawn/libawn.h&gt;
+
+                    <link linkend="AwnOverlayThrobber-struct">AwnOverlayThrobber</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="awn-overlay-throbber-new">awn_overlay_throbber_new</link>            (void);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnOverlayThrobber.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="AwnOverlay">AwnOverlay</link>
+               +----AwnOverlayThrobber
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="AwnOverlayThrobber.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="AwnOverlayThrobber--scale">scale</link>&quot;                    <link linkend="gdouble">gdouble</link>               : Read / Write / Construct
+  &quot;<link linkend="AwnOverlayThrobber--timeout">timeout</link>&quot;                  <link linkend="guint">guint</link>                 : Read / Write / Construct
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnOverlayThrobber.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Throbber overlay used with <link linkend="AwnOverlaidIcon"><type>AwnOverlaidIcon</type></link>.</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnOverlayThrobber.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnOverlayThrobber-struct" role="struct">
+<title>AwnOverlayThrobber</title>
+<indexterm zone="AwnOverlayThrobber-struct"><primary sortas="AwnOverlayThrobber">AwnOverlayThrobber</primary></indexterm><programlisting>typedef struct _AwnOverlayThrobber AwnOverlayThrobber;</programlisting>
+<para>
+Throbber overlay used with <link linkend="AwnOverlaidIcon"><type>AwnOverlaidIcon</type></link>.</para>
+<para>
+</para></refsect2>
+<refsect2 id="awn-overlay-throbber-new" role="function">
+<title>awn_overlay_throbber_new ()</title>
+<indexterm zone="awn-overlay-throbber-new"><primary sortas="awn_overlay_throbber_new">awn_overlay_throbber_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          awn_overlay_throbber_new            (void);</programlisting>
+<para>
+Creates a new instance of <link linkend="AwnOverlayThrobber"><type>AwnOverlayThrobber</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> an instance of <link linkend="AwnOverlayThrobber"><type>AwnOverlayThrobber</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="AwnOverlayThrobber.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="AwnOverlayThrobber--scale" role="property"><title>The <literal>&quot;scale&quot;</literal> property</title>
+<indexterm zone="AwnOverlayThrobber--scale"><primary sortas="AwnOverlayThrobber:scale">AwnOverlayThrobber:scale</primary></indexterm><programlisting>  &quot;scale&quot;                    <link linkend="gdouble">gdouble</link>               : Read / Write / Construct</programlisting>
+<para>
+Determines the size of the <link linkend="AwnOverlayThrobber"><type>AwnOverlayThrobber</type></link> scaled against the dimensions
+of the <link linkend="AwnIcon"><type>AwnIcon</type></link>.   A scale of 0.5 would result in an overlay that covers
+25% of the Icon.</para>
+<para>
+</para><para>Allowed values: [0.01,1]</para>
+<para>Default value: 0.6</para>
+</refsect2>
+<refsect2 id="AwnOverlayThrobber--timeout" role="property"><title>The <literal>&quot;timeout&quot;</literal> property</title>
+<indexterm zone="AwnOverlayThrobber--timeout"><primary sortas="AwnOverlayThrobber:timeout">AwnOverlayThrobber:timeout</primary></indexterm><programlisting>  &quot;timeout&quot;                  <link linkend="guint">guint</link>                 : Read / Write / Construct</programlisting>
+<para>
+The time in milliseconds between throbber updates.</para>
+<para>
+</para><para>Allowed values: [50,10000]</para>
+<para>Default value: 100</para>
+</refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="AwnOverlayThrobber.see-also">
+<title>See Also</title>
+#AwnOverlaidIcon, <link linkend="AwnOverlay"><type>AwnOverlay</type></link>, <link linkend="AwnOverlayIcon"><type>AwnOverlayIcon</type></link>, <link linkend="AwnOverlayText"><type>AwnOverlayText</type></link>,
+<link linkend="AwnOverlayPixbuf"><type>AwnOverlayPixbuf</type></link>, <link linkend="AwnOverlayPixbufFile"><type>AwnOverlayPixbufFile</type></link>
+</refsect1>
+
+</refentry>

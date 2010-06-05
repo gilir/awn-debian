@@ -1,0 +1,232 @@
+<!-- ##### SECTION Title ##### -->
+AwnThemedIcon
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT AwnThemedIconPrivate ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT AwnThemedIcon ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnThemedIcon:applet-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnThemedIcon:drag-and-drop ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnThemedIcon:rotate ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION awn_themed_icon_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_set_state ##### -->
+<para>
+
+</para>
+
+@icon: 
+@state: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_get_state ##### -->
+<para>
+
+</para>
+
+@icon: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_set_size ##### -->
+<para>
+
+</para>
+
+@icon: 
+@size: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_get_size ##### -->
+<para>
+
+</para>
+
+@icon: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_get_default_theme_name ##### -->
+<para>
+
+</para>
+
+@icon: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_set_info ##### -->
+<para>
+
+</para>
+
+@icon: 
+@applet_name: 
+@uid: 
+@states: 
+@icon_names: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_set_info_simple ##### -->
+<para>
+
+</para>
+
+@icon: 
+@applet_name: 
+@uid: 
+@icon_name: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_set_info_append ##### -->
+<para>
+
+</para>
+
+@icon: 
+@state: 
+@icon_name: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_set_applet_info ##### -->
+<para>
+
+</para>
+
+@icon: 
+@applet_name: 
+@uid: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_override_gtk_theme ##### -->
+<para>
+
+</para>
+
+@icon: 
+@theme_name: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_get_icon_at_size ##### -->
+<para>
+
+</para>
+
+@icon: 
+@size: 
+@state: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_clear_icons ##### -->
+<para>
+
+</para>
+
+@icon: 
+@scope: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_clear_info ##### -->
+<para>
+
+</para>
+
+@icon: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_preload_icon ##### -->
+<para>
+
+</para>
+
+@icon: 
+@state: 
+@size: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_get_awn_theme ##### -->
+<para>
+
+</para>
+
+@icon: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_create_custom_icon_item ##### -->
+<para>
+
+</para>
+
+@icon: 
+@icon_name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_create_remove_custom_icon_item ##### -->
+<para>
+
+</para>
+
+@icon: 
+@icon_name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_themed_icon_drag_data_received ##### -->
+<para>
+
+</para>
+
+@widget: 
+@context: 
+@x: 
+@y: 
+@selection_data: 
+@info: 
+@evt_time: 
+
+

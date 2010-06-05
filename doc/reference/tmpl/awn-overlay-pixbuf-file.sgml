@@ -1,0 +1,39 @@
+<!-- ##### SECTION Title ##### -->
+AwnOverlayPixbufFile
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT AwnOverlayPixbufFile ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnOverlayPixbufFile:file-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION awn_overlay_pixbuf_file_new ##### -->
+<para>
+
+</para>
+
+@file_name: 
+@Returns: 
+
+

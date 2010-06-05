@@ -1,0 +1,58 @@
+<!-- ##### SECTION Title ##### -->
+AwnBox
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT AwnBoxPrivate ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT AwnBox ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION awn_box_new ##### -->
+<para>
+
+</para>
+
+@orient: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_box_set_orientation ##### -->
+<para>
+
+</para>
+
+@box: 
+@orient: 
+
+
+<!-- ##### FUNCTION awn_box_set_orientation_from_pos_type ##### -->
+<para>
+
+</para>
+
+@box: 
+@pos_type: 
+
+

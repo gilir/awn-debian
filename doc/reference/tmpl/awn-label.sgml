@@ -1,0 +1,53 @@
+<!-- ##### SECTION Title ##### -->
+AwnLabel
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT AwnLabel ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnLabel:font-mode ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnLabel:text-color ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnLabel:text-outline-color ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnLabel:text-outline-width ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION awn_label_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

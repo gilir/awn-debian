@@ -1,0 +1,43 @@
+<!-- ##### SECTION Title ##### -->
+AwnOverlayThrobber
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT AwnOverlayThrobber ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnOverlayThrobber:scale ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnOverlayThrobber:timeout ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION awn_overlay_throbber_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

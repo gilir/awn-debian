@@ -1,0 +1,95 @@
+<!-- ##### SECTION Title ##### -->
+awn-effects-ops-helpers
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION paint_arrow_triangle ##### -->
+<para>
+
+</para>
+
+@cr: 
+@size: 
+@count: 
+
+
+<!-- ##### FUNCTION paint_arrow_dot ##### -->
+<para>
+
+</para>
+
+@cr: 
+@size: 
+@count: 
+@r: 
+@g: 
+@b: 
+
+
+<!-- ##### FUNCTION lighten_component ##### -->
+<para>
+
+</para>
+
+@cur_value: 
+@amount: 
+@absolute: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lighten_surface ##### -->
+<para>
+
+</para>
+
+@src: 
+@surface_width: 
+@surface_height: 
+@amount: 
+@absolute: 
+
+
+<!-- ##### FUNCTION darken_surface ##### -->
+<para>
+
+</para>
+
+@src: 
+@surface_width: 
+@surface_height: 
+
+
+<!-- ##### FUNCTION blur_surface_shadow ##### -->
+<para>
+
+</para>
+
+@src: 
+@surface_width: 
+@surface_height: 
+@radius: 
+
+
+<!-- ##### FUNCTION surface_saturate ##### -->
+<para>
+
+</para>
+
+@icon_srfc: 
+@saturation: 
+
+

@@ -8,18 +8,53 @@
 /* enumerations from "awn-defines.h" */
 #include "awn-defines.h"
 GType
-awn_orientation_get_type(void) {
+awn_applet_flags_get_type(void) {
+  static GType enum_type_id = 0;
+  if (G_UNLIKELY (!enum_type_id))
+    {
+      static const GFlagsValue values[] = {
+        { AWN_APPLET_FLAGS_NONE, "AWN_APPLET_FLAGS_NONE", "flags-none" },
+        { AWN_APPLET_EXPAND_MINOR, "AWN_APPLET_EXPAND_MINOR", "expand-minor" },
+        { AWN_APPLET_EXPAND_MAJOR, "AWN_APPLET_EXPAND_MAJOR", "expand-major" },
+        { AWN_APPLET_IS_EXPANDER, "AWN_APPLET_IS_EXPANDER", "is-expander" },
+        { AWN_APPLET_IS_SEPARATOR, "AWN_APPLET_IS_SEPARATOR", "is-separator" },
+        { AWN_APPLET_HAS_SHAPE_MASK, "AWN_APPLET_HAS_SHAPE_MASK", "has-shape-mask" },
+        { AWN_APPLET_DOCKLET_HANDLES_POSITION_CHANGE, "AWN_APPLET_DOCKLET_HANDLES_POSITION_CHANGE", "docklet-handles-position-change" },
+        { AWN_APPLET_DOCKLET_CLOSE_ON_MOUSE_OUT, "AWN_APPLET_DOCKLET_CLOSE_ON_MOUSE_OUT", "docklet-close-on-mouse-out" },
+        { 0, NULL, NULL }
+      };
+      enum_type_id = g_flags_register_static("AwnAppletFlags", values);
+    }
+  return enum_type_id;
+}
+GType
+awn_applet_license_get_type(void) {
   static GType enum_type_id = 0;
   if (G_UNLIKELY (!enum_type_id))
     {
       static const GEnumValue values[] = {
-        { AWN_ORIENTATION_BOTTOM, "AWN_ORIENTATION_BOTTOM", "bottom" },
-        { AWN_ORIENTATION_TOP, "AWN_ORIENTATION_TOP", "top" },
-        { AWN_ORIENTATION_RIGHT, "AWN_ORIENTATION_RIGHT", "right" },
-        { AWN_ORIENTATION_LEFT, "AWN_ORIENTATION_LEFT", "left" },
+        { AWN_APPLET_LICENSE_GPLV2, "AWN_APPLET_LICENSE_GPLV2", "gplv2" },
+        { AWN_APPLET_LICENSE_GPLV3, "AWN_APPLET_LICENSE_GPLV3", "gplv3" },
+        { AWN_APPLET_LICENSE_LGPLV2_1, "AWN_APPLET_LICENSE_LGPLV2_1", "lgplv2-1" },
+        { AWN_APPLET_LICENSE_LGPLV3, "AWN_APPLET_LICENSE_LGPLV3", "lgplv3" },
         { 0, NULL, NULL }
       };
-      enum_type_id = g_enum_register_static("AwnOrientation", values);
+      enum_type_id = g_enum_register_static("AwnAppletLicense", values);
+    }
+  return enum_type_id;
+}
+GType
+awn_path_type_get_type(void) {
+  static GType enum_type_id = 0;
+  if (G_UNLIKELY (!enum_type_id))
+    {
+      static const GEnumValue values[] = {
+        { AWN_PATH_LINEAR, "AWN_PATH_LINEAR", "linear" },
+        { AWN_PATH_ELLIPSE, "AWN_PATH_ELLIPSE", "ellipse" },
+        { AWN_PATH_LAST, "AWN_PATH_LAST", "last" },
+        { 0, NULL, NULL }
+      };
+      enum_type_id = g_enum_register_static("AwnPathType", values);
     }
   return enum_type_id;
 }
@@ -30,7 +65,7 @@ awn_cairo_round_corners_get_type(void) {
   static GType enum_type_id = 0;
   if (G_UNLIKELY (!enum_type_id))
     {
-      static const GEnumValue values[] = {
+      static const GFlagsValue values[] = {
         { ROUND_NONE, "ROUND_NONE", "none" },
         { ROUND_TOP_LEFT, "ROUND_TOP_LEFT", "top-left" },
         { ROUND_TOP_RIGHT, "ROUND_TOP_RIGHT", "top-right" },
@@ -43,60 +78,7 @@ awn_cairo_round_corners_get_type(void) {
         { ROUND_ALL, "ROUND_ALL", "all" },
         { 0, NULL, NULL }
       };
-      enum_type_id = g_enum_register_static("AwnCairoRoundCorners", values);
-    }
-  return enum_type_id;
-}
-/* enumerations from "awn-config-client.h" */
-#include "awn-config-client.h"
-GType
-awn_config_value_type_get_type(void) {
-  static GType enum_type_id = 0;
-  if (G_UNLIKELY (!enum_type_id))
-    {
-      static const GEnumValue values[] = {
-        { AWN_CONFIG_VALUE_TYPE_NULL, "AWN_CONFIG_VALUE_TYPE_NULL", "null" },
-        { AWN_CONFIG_VALUE_TYPE_BOOL, "AWN_CONFIG_VALUE_TYPE_BOOL", "bool" },
-        { AWN_CONFIG_VALUE_TYPE_FLOAT, "AWN_CONFIG_VALUE_TYPE_FLOAT", "float" },
-        { AWN_CONFIG_VALUE_TYPE_INT, "AWN_CONFIG_VALUE_TYPE_INT", "int" },
-        { AWN_CONFIG_VALUE_TYPE_STRING, "AWN_CONFIG_VALUE_TYPE_STRING", "string" },
-        { AWN_CONFIG_VALUE_TYPE_LIST_BOOL, "AWN_CONFIG_VALUE_TYPE_LIST_BOOL", "list-bool" },
-        { AWN_CONFIG_VALUE_TYPE_LIST_FLOAT, "AWN_CONFIG_VALUE_TYPE_LIST_FLOAT", "list-float" },
-        { AWN_CONFIG_VALUE_TYPE_LIST_INT, "AWN_CONFIG_VALUE_TYPE_LIST_INT", "list-int" },
-        { AWN_CONFIG_VALUE_TYPE_LIST_STRING, "AWN_CONFIG_VALUE_TYPE_LIST_STRING", "list-string" },
-        { 0, NULL, NULL }
-      };
-      enum_type_id = g_enum_register_static("AwnConfigValueType", values);
-    }
-  return enum_type_id;
-}
-GType
-awn_config_list_type_get_type(void) {
-  static GType enum_type_id = 0;
-  if (G_UNLIKELY (!enum_type_id))
-    {
-      static const GEnumValue values[] = {
-        { AWN_CONFIG_CLIENT_LIST_TYPE_BOOL, "AWN_CONFIG_CLIENT_LIST_TYPE_BOOL", "bool" },
-        { AWN_CONFIG_CLIENT_LIST_TYPE_FLOAT, "AWN_CONFIG_CLIENT_LIST_TYPE_FLOAT", "float" },
-        { AWN_CONFIG_CLIENT_LIST_TYPE_INT, "AWN_CONFIG_CLIENT_LIST_TYPE_INT", "int" },
-        { AWN_CONFIG_CLIENT_LIST_TYPE_STRING, "AWN_CONFIG_CLIENT_LIST_TYPE_STRING", "string" },
-        { 0, NULL, NULL }
-      };
-      enum_type_id = g_enum_register_static("AwnConfigListType", values);
-    }
-  return enum_type_id;
-}
-GType
-awn_config_backend_get_type(void) {
-  static GType enum_type_id = 0;
-  if (G_UNLIKELY (!enum_type_id))
-    {
-      static const GEnumValue values[] = {
-        { AWN_CONFIG_CLIENT_GCONF, "AWN_CONFIG_CLIENT_GCONF", "gconf" },
-        { AWN_CONFIG_CLIENT_GKEYFILE, "AWN_CONFIG_CLIENT_GKEYFILE", "gkeyfile" },
-        { 0, NULL, NULL }
-      };
-      enum_type_id = g_enum_register_static("AwnConfigBackend", values);
+      enum_type_id = g_flags_register_static("AwnCairoRoundCorners", values);
     }
   return enum_type_id;
 }
@@ -110,14 +92,49 @@ awn_effect_get_type(void) {
       static const GEnumValue values[] = {
         { AWN_EFFECT_NONE, "AWN_EFFECT_NONE", "none" },
         { AWN_EFFECT_OPENING, "AWN_EFFECT_OPENING", "opening" },
-        { AWN_EFFECT_LAUNCHING, "AWN_EFFECT_LAUNCHING", "launching" },
-        { AWN_EFFECT_HOVER, "AWN_EFFECT_HOVER", "hover" },
-        { AWN_EFFECT_ATTENTION, "AWN_EFFECT_ATTENTION", "attention" },
         { AWN_EFFECT_CLOSING, "AWN_EFFECT_CLOSING", "closing" },
+        { AWN_EFFECT_HOVER, "AWN_EFFECT_HOVER", "hover" },
+        { AWN_EFFECT_LAUNCHING, "AWN_EFFECT_LAUNCHING", "launching" },
+        { AWN_EFFECT_ATTENTION, "AWN_EFFECT_ATTENTION", "attention" },
         { AWN_EFFECT_DESATURATE, "AWN_EFFECT_DESATURATE", "desaturate" },
         { 0, NULL, NULL }
       };
       enum_type_id = g_enum_register_static("AwnEffect", values);
+    }
+  return enum_type_id;
+}
+/* enumerations from "awn-overlay.h" */
+#include "awn-overlay.h"
+GType
+awn_overlay_align_get_type(void) {
+  static GType enum_type_id = 0;
+  if (G_UNLIKELY (!enum_type_id))
+    {
+      static const GEnumValue values[] = {
+        { AWN_OVERLAY_ALIGN_CENTRE, "AWN_OVERLAY_ALIGN_CENTRE", "centre" },
+        { AWN_OVERLAY_ALIGN_LEFT, "AWN_OVERLAY_ALIGN_LEFT", "left" },
+        { AWN_OVERLAY_ALIGN_RIGHT, "AWN_OVERLAY_ALIGN_RIGHT", "right" },
+        { 0, NULL, NULL }
+      };
+      enum_type_id = g_enum_register_static("AwnOverlayAlign", values);
+    }
+  return enum_type_id;
+}
+/* enumerations from "anims/awn-effects-shared.h" */
+#include "anims/awn-effects-shared.h"
+GType
+awn_arrow_type_get_type(void) {
+  static GType enum_type_id = 0;
+  if (G_UNLIKELY (!enum_type_id))
+    {
+      static const GEnumValue values[] = {
+        { AWN_ARROW_TYPE_CUSTOM, "AWN_ARROW_TYPE_CUSTOM", "custom" },
+        { AWN_ARROW_TYPE_1, "AWN_ARROW_TYPE_1", "1" },
+        { AWN_ARROW_TYPE_2, "AWN_ARROW_TYPE_2", "2" },
+        { AWN_ARROW_TYPE_LAST, "AWN_ARROW_TYPE_LAST", "last" },
+        { 0, NULL, NULL }
+      };
+      enum_type_id = g_enum_register_static("AwnArrowType", values);
     }
   return enum_type_id;
 }
@@ -148,58 +165,6 @@ awn_effect_sequence_get_type(void) {
         { 0, NULL, NULL }
       };
       enum_type_id = g_enum_register_static("AwnEffectSequence", values);
-    }
-  return enum_type_id;
-}
-/* enumerations from "awn-vfs.h" */
-#include "awn-vfs.h"
-GType
-awn_vfs_monitor_event_get_type(void) {
-  static GType enum_type_id = 0;
-  if (G_UNLIKELY (!enum_type_id))
-    {
-      static const GEnumValue values[] = {
-        { AWN_VFS_MONITOR_EVENT_CHANGED, "AWN_VFS_MONITOR_EVENT_CHANGED", "changed" },
-        { AWN_VFS_MONITOR_EVENT_CREATED, "AWN_VFS_MONITOR_EVENT_CREATED", "created" },
-        { AWN_VFS_MONITOR_EVENT_DELETED, "AWN_VFS_MONITOR_EVENT_DELETED", "deleted" },
-        { 0, NULL, NULL }
-      };
-      enum_type_id = g_enum_register_static("AwnVfsMonitorEvent", values);
-    }
-  return enum_type_id;
-}
-GType
-awn_vfs_monitor_type_get_type(void) {
-  static GType enum_type_id = 0;
-  if (G_UNLIKELY (!enum_type_id))
-    {
-      static const GEnumValue values[] = {
-        { AWN_VFS_MONITOR_FILE, "AWN_VFS_MONITOR_FILE", "file" },
-        { AWN_VFS_MONITOR_DIRECTORY, "AWN_VFS_MONITOR_DIRECTORY", "directory" },
-        { 0, NULL, NULL }
-      };
-      enum_type_id = g_enum_register_static("AwnVfsMonitorType", values);
-    }
-  return enum_type_id;
-}
-/* enumerations from "awn-effects-shared.h" */
-#include "awn-effects-shared.h"
-GType
-awn_effect_priority_get_type(void) {
-  static GType enum_type_id = 0;
-  if (G_UNLIKELY (!enum_type_id))
-    {
-      static const GEnumValue values[] = {
-        { AWN_EFFECT_PRIORITY_HIGHEST, "AWN_EFFECT_PRIORITY_HIGHEST", "highest" },
-        { AWN_EFFECT_PRIORITY_HIGH, "AWN_EFFECT_PRIORITY_HIGH", "high" },
-        { AWN_EFFECT_PRIORITY_ABOVE_NORMAL, "AWN_EFFECT_PRIORITY_ABOVE_NORMAL", "above-normal" },
-        { AWN_EFFECT_PRIORITY_NORMAL, "AWN_EFFECT_PRIORITY_NORMAL", "normal" },
-        { AWN_EFFECT_PRIORITY_BELOW_NORMAL, "AWN_EFFECT_PRIORITY_BELOW_NORMAL", "below-normal" },
-        { AWN_EFFECT_PRIORITY_LOW, "AWN_EFFECT_PRIORITY_LOW", "low" },
-        { AWN_EFFECT_PRIORITY_LOWEST, "AWN_EFFECT_PRIORITY_LOWEST", "lowest" },
-        { 0, NULL, NULL }
-      };
-      enum_type_id = g_enum_register_static("AwnEffectPriority", values);
     }
   return enum_type_id;
 }

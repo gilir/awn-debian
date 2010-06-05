@@ -1,157 +1,383 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
-<book xmlns="http://www.devhelp.net/book" title="libawn Reference Manual" link="index.html" author="" name="libawn" version="2" language="c">
+<book xmlns="http://www.devhelp.net/book" title="Awn Reference Manual" link="index.html" author="" name="libawn" version="2" language="c">
   <chapters>
-    <sub name="Table of Contents" link="ch01.html">
-      <sub name="AwnAppletDialog" link="AwnAppletDialog.html"/>
-      <sub name="AwnAppletSimple" link="AwnAppletSimple.html"/>
-      <sub name="AwnPlug" link="AwnPlug.html"/>
-      <sub name="AwnTitle" link="AwnTitle.html"/>
-      <sub name="AwnApplet" link="AwnApplet.html"/>
-      <sub name="awn-vfs" link="libawn-awn-vfs.html"/>
-      <sub name="awn-settings" link="libawn-awn-settings.html"/>
-      <sub name="awn-config-client" link="libawn-awn-config-client.html"/>
-      <sub name="awn-defines" link="libawn-awn-defines.html"/>
-      <sub name="awn-desktop-item" link="libawn-awn-desktop-item.html"/>
-      <sub name="awn-effects" link="libawn-awn-effects.html"/>
-      <sub name="awn-cairo-utils" link="libawn-awn-cairo-utils.html"/>
+    <sub name="API Reference" link="api-reference.html">
+      <sub name="Applets" link="ch01.html">
+        <sub name="AwnApplet" link="AwnApplet.html"/>
+        <sub name="AwnAppletSimple" link="AwnAppletSimple.html"/>
+      </sub>
+      <sub name="Base Components" link="ch02.html">
+        <sub name="AwnBox" link="AwnBox.html"/>
+        <sub name="awn-config" link="libawn-awn-config.html"/>
+        <sub name="AwnDialog" link="AwnDialog.html"/>
+        <sub name="AwnEffects" link="AwnEffects.html"/>
+        <sub name="AwnImage" link="AwnImage.html"/>
+        <sub name="AwnLabel" link="AwnLabel.html"/>
+        <sub name="AwnTooltip" link="AwnTooltip.html"/>
+        <sub name="awn-overlayable" link="libawn-awn-overlayable.html"/>
+      </sub>
+      <sub name="Icons" link="ch03.html">
+        <sub name="AwnIcon" link="AwnIcon.html"/>
+        <sub name="AwnThemedIcon" link="AwnThemedIcon.html"/>
+        <sub name="AwnIconBox" link="AwnIconBox.html"/>
+      </sub>
+      <sub name="Icon Overlays" link="ch04.html">
+        <sub name="awn-overlay" link="libawn-awn-overlay.html"/>
+        <sub name="AwnOverlayThemedIcon" link="AwnOverlayThemedIcon.html"/>
+        <sub name="AwnOverlayText" link="AwnOverlayText.html"/>
+        <sub name="AwnOverlayThrobber" link="AwnOverlayThrobber.html"/>
+        <sub name="AwnOverlayPixbuf" link="AwnOverlayPixbuf.html"/>
+        <sub name="AwnOverlayPixbufFile" link="AwnOverlayPixbufFile.html"/>
+        <sub name="AwnOverlayProgress" link="AwnOverlayProgress.html"/>
+        <sub name="AwnOverlayProgressCircle" link="AwnOverlayProgressCircle.html"/>
+      </sub>
+      <sub name="Utilities" link="ch05.html">
+        <sub name="AwnAlignment" link="AwnAlignment.html"/>
+        <sub name="awn-defines" link="libawn-awn-defines.html"/>
+        <sub name="awn-cairo-utils" link="libawn-awn-cairo-utils.html"/>
+        <sub name="awn-utils" link="libawn-awn-utils.html"/>
+      </sub>
     </sub>
   </chapters>
   <functions>
-    <keyword type="struct" name="AwnAppletDialogPrivate" link="AwnAppletDialog.html#AwnAppletDialogPrivate"/>
-    <keyword type="struct" name="AwnAppletDialog" link="AwnAppletDialog.html#AwnAppletDialog-struct"/>
-    <keyword type="function" name="awn_applet_dialog_new ()" link="AwnAppletDialog.html#awn-applet-dialog-new"/>
-    <keyword type="function" name="awn_applet_dialog_position_reset ()" link="AwnAppletDialog.html#awn-applet-dialog-position-reset"/>
-    <keyword type="struct" name="AwnAppletSimplePrivate" link="AwnAppletSimple.html#AwnAppletSimplePrivate"/>
-    <keyword type="struct" name="AwnAppletSimple" link="AwnAppletSimple.html#AwnAppletSimple-struct"/>
-    <keyword type="function" name="awn_applet_simple_new ()" link="AwnAppletSimple.html#awn-applet-simple-new"/>
-    <keyword type="function" name="awn_applet_simple_set_icon ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon"/>
-    <keyword type="function" name="awn_applet_simple_set_temp_icon ()" link="AwnAppletSimple.html#awn-applet-simple-set-temp-icon"/>
-    <keyword type="function" name="awn_applet_simple_get_effects ()" link="AwnAppletSimple.html#awn-applet-simple-get-effects"/>
-    <keyword type="struct" name="AwnPlugPrivate" link="AwnPlug.html#AwnPlugPrivate"/>
-    <keyword type="struct" name="AwnPlug" link="AwnPlug.html#AwnPlug-struct"/>
-    <keyword type="function" name="awn_plug_new ()" link="AwnPlug.html#awn-plug-new"/>
-    <keyword type="function" name="awn_plug_construct ()" link="AwnPlug.html#awn-plug-construct"/>
-    <keyword type="signal" name="The &quot;applet-deleted&quot; signal" link="AwnPlug.html#AwnPlug-applet-deleted"/>
-    <keyword type="struct" name="AwnTitlePrivate" link="AwnTitle.html#AwnTitlePrivate"/>
-    <keyword type="struct" name="AwnTitle" link="AwnTitle.html#AwnTitle-struct"/>
-    <keyword type="function" name="awn_title_get_default ()" link="AwnTitle.html#awn-title-get-default"/>
-    <keyword type="function" name="awn_title_show ()" link="AwnTitle.html#awn-title-show"/>
-    <keyword type="function" name="awn_title_hide ()" link="AwnTitle.html#awn-title-hide"/>
     <keyword type="struct" name="AwnAppletPrivate" link="AwnApplet.html#AwnAppletPrivate"/>
     <keyword type="struct" name="AwnApplet" link="AwnApplet.html#AwnApplet-struct"/>
     <keyword type="function" name="AwnAppletInitFunc ()" link="AwnApplet.html#AwnAppletInitFunc"/>
     <keyword type="function" name="AwnAppletInitPFunc ()" link="AwnApplet.html#AwnAppletInitPFunc"/>
     <keyword type="function" name="awn_applet_new ()" link="AwnApplet.html#awn-applet-new"/>
-    <keyword type="function" name="awn_applet_get_orientation ()" link="AwnApplet.html#awn-applet-get-orientation"/>
-    <keyword type="function" name="awn_applet_get_height ()" link="AwnApplet.html#awn-applet-get-height"/>
+    <keyword type="function" name="awn_applet_get_canonical_name ()" link="AwnApplet.html#awn-applet-get-canonical-name"/>
+    <keyword type="function" name="awn_applet_get_pos_type ()" link="AwnApplet.html#awn-applet-get-pos-type"/>
+    <keyword type="function" name="awn_applet_set_pos_type ()" link="AwnApplet.html#awn-applet-set-pos-type"/>
+    <keyword type="function" name="awn_applet_get_path_type ()" link="AwnApplet.html#awn-applet-get-path-type"/>
+    <keyword type="function" name="awn_applet_set_path_type ()" link="AwnApplet.html#awn-applet-set-path-type"/>
+    <keyword type="function" name="awn_applet_get_offset ()" link="AwnApplet.html#awn-applet-get-offset"/>
+    <keyword type="function" name="awn_applet_get_offset_at ()" link="AwnApplet.html#awn-applet-get-offset-at"/>
+    <keyword type="function" name="awn_applet_set_offset ()" link="AwnApplet.html#awn-applet-set-offset"/>
+    <keyword type="function" name="awn_applet_get_size ()" link="AwnApplet.html#awn-applet-get-size"/>
+    <keyword type="function" name="awn_applet_set_size ()" link="AwnApplet.html#awn-applet-set-size"/>
+    <keyword type="function" name="awn_applet_get_uid ()" link="AwnApplet.html#awn-applet-get-uid"/>
+    <keyword type="function" name="awn_applet_set_uid ()" link="AwnApplet.html#awn-applet-set-uid"/>
+    <keyword type="function" name="awn_applet_get_behavior ()" link="AwnApplet.html#awn-applet-get-behavior"/>
+    <keyword type="function" name="awn_applet_set_behavior ()" link="AwnApplet.html#awn-applet-set-behavior"/>
     <keyword type="function" name="awn_applet_create_default_menu ()" link="AwnApplet.html#awn-applet-create-default-menu"/>
-    <keyword type="property" name="The &quot;height&quot; property" link="AwnApplet.html#AwnApplet--height"/>
-    <keyword type="property" name="The &quot;orient&quot; property" link="AwnApplet.html#AwnApplet--orient"/>
+    <keyword type="function" name="awn_applet_inhibit_autohide ()" link="AwnApplet.html#awn-applet-inhibit-autohide"/>
+    <keyword type="function" name="awn_applet_uninhibit_autohide ()" link="AwnApplet.html#awn-applet-uninhibit-autohide"/>
+    <keyword type="function" name="awn_applet_docklet_request ()" link="AwnApplet.html#awn-applet-docklet-request"/>
+    <keyword type="function" name="awn_applet_create_pref_item ()" link="AwnApplet.html#awn-applet-create-pref-item"/>
+    <keyword type="function" name="awn_applet_create_about_item ()" link="AwnApplet.html#awn-applet-create-about-item"/>
+    <keyword type="function" name="awn_applet_create_about_item_simple ()" link="AwnApplet.html#awn-applet-create-about-item-simple"/>
+    <keyword type="property" name="The &quot;canonical-name&quot; property" link="AwnApplet.html#AwnApplet--canonical-name"/>
+    <keyword type="property" name="The &quot;display-name&quot; property" link="AwnApplet.html#AwnApplet--display-name"/>
+    <keyword type="property" name="The &quot;max-size&quot; property" link="AwnApplet.html#AwnApplet--max-size"/>
+    <keyword type="property" name="The &quot;offset&quot; property" link="AwnApplet.html#AwnApplet--offset"/>
+    <keyword type="property" name="The &quot;offset-modifier&quot; property" link="AwnApplet.html#AwnApplet--offset-modifier"/>
+    <keyword type="property" name="The &quot;panel-id&quot; property" link="AwnApplet.html#AwnApplet--panel-id"/>
+    <keyword type="property" name="The &quot;panel-xid&quot; property" link="AwnApplet.html#AwnApplet--panel-xid"/>
+    <keyword type="property" name="The &quot;path-type&quot; property" link="AwnApplet.html#AwnApplet--path-type"/>
+    <keyword type="property" name="The &quot;position&quot; property" link="AwnApplet.html#AwnApplet--position"/>
+    <keyword type="property" name="The &quot;quit-on-delete&quot; property" link="AwnApplet.html#AwnApplet--quit-on-delete"/>
+    <keyword type="property" name="The &quot;show-all-on-embed&quot; property" link="AwnApplet.html#AwnApplet--show-all-on-embed"/>
+    <keyword type="property" name="The &quot;size&quot; property" link="AwnApplet.html#AwnApplet--size"/>
     <keyword type="property" name="The &quot;uid&quot; property" link="AwnApplet.html#AwnApplet--uid"/>
     <keyword type="signal" name="The &quot;applet-deleted&quot; signal" link="AwnApplet.html#AwnApplet-applet-deleted"/>
-    <keyword type="signal" name="The &quot;height-changed&quot; signal" link="AwnApplet.html#AwnApplet-height-changed"/>
-    <keyword type="signal" name="The &quot;orientation-changed&quot; signal" link="AwnApplet.html#AwnApplet-orientation-changed"/>
-    <keyword type="typedef" name="AwnVfsMonitor" link="libawn-awn-vfs.html#AwnVfsMonitor"/>
-    <keyword type="enum" name="enum AwnVfsMonitorEvent" link="libawn-awn-vfs.html#AwnVfsMonitorEvent"/>
-    <keyword type="enum" name="enum AwnVfsMonitorType" link="libawn-awn-vfs.html#AwnVfsMonitorType"/>
-    <keyword type="function" name="AwnVfsMonitorFunc ()" link="libawn-awn-vfs.html#AwnVfsMonitorFunc"/>
-    <keyword type="function" name="awn_vfs_monitor_add ()" link="libawn-awn-vfs.html#awn-vfs-monitor-add"/>
-    <keyword type="function" name="awn_vfs_monitor_emit ()" link="libawn-awn-vfs.html#awn-vfs-monitor-emit"/>
-    <keyword type="function" name="awn_vfs_monitor_remove ()" link="libawn-awn-vfs.html#awn-vfs-monitor-remove"/>
-    <keyword type="function" name="awn_vfs_init ()" link="libawn-awn-vfs.html#awn-vfs-init"/>
-    <keyword type="function" name="awn_vfs_get_pathlist_from_string ()" link="libawn-awn-vfs.html#awn-vfs-get-pathlist-from-string"/>
-    <keyword type="function" name="awn_settings_new ()" link="libawn-awn-settings.html#awn-settings-new"/>
-    <keyword type="function" name="awn_get_settings ()" link="libawn-awn-settings.html#awn-get-settings"/>
-    <keyword type="struct" name="AwnConfigClient" link="libawn-awn-config-client.html#AwnConfigClient"/>
-    <keyword type="macro" name="AWN_CONFIG_CLIENT()" link="libawn-awn-config-client.html#AWN-CONFIG-CLIENT--CAPS"/>
-    <keyword type="struct" name="AwnConfigClientNotifyEntry" link="libawn-awn-config-client.html#AwnConfigClientNotifyEntry"/>
-    <keyword type="function" name="AwnConfigClientNotifyFunc ()" link="libawn-awn-config-client.html#AwnConfigClientNotifyFunc"/>
-    <keyword type="macro" name="AWN_CONFIG_CLIENT_DEFAULT_GROUP" link="libawn-awn-config-client.html#AWN-CONFIG-CLIENT-DEFAULT-GROUP--CAPS"/>
-    <keyword type="enum" name="enum AwnConfigValueType" link="libawn-awn-config-client.html#AwnConfigValueType"/>
-    <keyword type="enum" name="enum AwnConfigListType" link="libawn-awn-config-client.html#AwnConfigListType"/>
-    <keyword type="function" name="awn_config_client_new ()" link="libawn-awn-config-client.html#awn-config-client-new"/>
-    <keyword type="function" name="awn_config_client_new_for_applet ()" link="libawn-awn-config-client.html#awn-config-client-new-for-applet"/>
-    <keyword type="function" name="awn_config_client_clear ()" link="libawn-awn-config-client.html#awn-config-client-clear"/>
-    <keyword type="function" name="awn_config_client_ensure_group ()" link="libawn-awn-config-client.html#awn-config-client-ensure-group"/>
-    <keyword type="function" name="awn_config_client_notify_add ()" link="libawn-awn-config-client.html#awn-config-client-notify-add"/>
-    <keyword type="function" name="awn_config_client_entry_exists ()" link="libawn-awn-config-client.html#awn-config-client-entry-exists"/>
-    <keyword type="function" name="awn_config_client_get_bool ()" link="libawn-awn-config-client.html#awn-config-client-get-bool"/>
-    <keyword type="function" name="awn_config_client_set_bool ()" link="libawn-awn-config-client.html#awn-config-client-set-bool"/>
-    <keyword type="function" name="awn_config_client_get_float ()" link="libawn-awn-config-client.html#awn-config-client-get-float"/>
-    <keyword type="function" name="awn_config_client_set_float ()" link="libawn-awn-config-client.html#awn-config-client-set-float"/>
-    <keyword type="function" name="awn_config_client_get_int ()" link="libawn-awn-config-client.html#awn-config-client-get-int"/>
-    <keyword type="function" name="awn_config_client_set_int ()" link="libawn-awn-config-client.html#awn-config-client-set-int"/>
-    <keyword type="function" name="awn_config_client_get_string ()" link="libawn-awn-config-client.html#awn-config-client-get-string"/>
-    <keyword type="function" name="awn_config_client_set_string ()" link="libawn-awn-config-client.html#awn-config-client-set-string"/>
-    <keyword type="function" name="awn_config_client_get_list ()" link="libawn-awn-config-client.html#awn-config-client-get-list"/>
-    <keyword type="function" name="awn_config_client_set_list ()" link="libawn-awn-config-client.html#awn-config-client-set-list"/>
-    <keyword type="macro" name="AWN_GCONF_PATH" link="libawn-awn-defines.html#AWN-GCONF-PATH--CAPS"/>
-    <keyword type="macro" name="AWN_APPLET_GCONF_PATH" link="libawn-awn-defines.html#AWN-APPLET-GCONF-PATH--CAPS"/>
+    <keyword type="signal" name="The &quot;flags-changed&quot; signal" link="AwnApplet.html#AwnApplet-flags-changed"/>
+    <keyword type="signal" name="The &quot;menu-creation&quot; signal" link="AwnApplet.html#AwnApplet-menu-creation"/>
+    <keyword type="signal" name="The &quot;offset-changed&quot; signal" link="AwnApplet.html#AwnApplet-offset-changed"/>
+    <keyword type="signal" name="The &quot;origin-changed&quot; signal" link="AwnApplet.html#AwnApplet-origin-changed"/>
+    <keyword type="signal" name="The &quot;panel-configure-event&quot; signal" link="AwnApplet.html#AwnApplet-panel-configure-event"/>
+    <keyword type="signal" name="The &quot;position-changed&quot; signal" link="AwnApplet.html#AwnApplet-position-changed"/>
+    <keyword type="signal" name="The &quot;size-changed&quot; signal" link="AwnApplet.html#AwnApplet-size-changed"/>
+    <keyword type="struct" name="AwnAppletSimplePrivate" link="AwnAppletSimple.html#AwnAppletSimplePrivate"/>
+    <keyword type="struct" name="AwnAppletSimple" link="AwnAppletSimple.html#AwnAppletSimple-struct"/>
+    <keyword type="function" name="awn_applet_simple_new ()" link="AwnAppletSimple.html#awn-applet-simple-new"/>
+    <keyword type="function" name="awn_applet_simple_set_icon_pixbuf ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-pixbuf"/>
+    <keyword type="function" name="awn_applet_simple_set_icon_context ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-context"/>
+    <keyword type="function" name="awn_applet_simple_set_icon_surface ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-surface"/>
+    <keyword type="function" name="awn_applet_simple_set_icon_name ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-name"/>
+    <keyword type="function" name="awn_applet_simple_set_icon_info ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-info"/>
+    <keyword type="function" name="awn_applet_simple_set_icon_state ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-state"/>
+    <keyword type="function" name="awn_applet_simple_set_tooltip_text ()" link="AwnAppletSimple.html#awn-applet-simple-set-tooltip-text"/>
+    <keyword type="function" name="awn_applet_simple_get_tooltip_text ()" link="AwnAppletSimple.html#awn-applet-simple-get-tooltip-text"/>
+    <keyword type="function" name="awn_applet_simple_set_message ()" link="AwnAppletSimple.html#awn-applet-simple-set-message"/>
+    <keyword type="function" name="awn_applet_simple_get_message ()" link="AwnAppletSimple.html#awn-applet-simple-get-message"/>
+    <keyword type="function" name="awn_applet_simple_set_progress ()" link="AwnAppletSimple.html#awn-applet-simple-set-progress"/>
+    <keyword type="function" name="awn_applet_simple_get_progress ()" link="AwnAppletSimple.html#awn-applet-simple-get-progress"/>
+    <keyword type="function" name="awn_applet_simple_get_icon ()" link="AwnAppletSimple.html#awn-applet-simple-get-icon"/>
+    <keyword type="function" name="awn_applet_simple_set_effect ()" link="AwnAppletSimple.html#awn-applet-simple-set-effect"/>
+    <keyword type="signal" name="The &quot;clicked&quot; signal" link="AwnAppletSimple.html#AwnAppletSimple-clicked"/>
+    <keyword type="signal" name="The &quot;context-menu-popup&quot; signal" link="AwnAppletSimple.html#AwnAppletSimple-context-menu-popup"/>
+    <keyword type="signal" name="The &quot;middle-clicked&quot; signal" link="AwnAppletSimple.html#AwnAppletSimple-middle-clicked"/>
+    <keyword type="struct" name="AwnBoxPrivate" link="AwnBox.html#AwnBoxPrivate"/>
+    <keyword type="struct" name="AwnBox" link="AwnBox.html#AwnBox-struct"/>
+    <keyword type="function" name="awn_box_new ()" link="AwnBox.html#awn-box-new"/>
+    <keyword type="function" name="awn_box_set_orientation ()" link="AwnBox.html#awn-box-set-orientation"/>
+    <keyword type="function" name="awn_box_set_orientation_from_pos_type ()" link="AwnBox.html#awn-box-set-orientation-from-pos-type"/>
+    <keyword type="function" name="awn_config_get_default ()" link="libawn-awn-config.html#awn-config-get-default"/>
+    <keyword type="function" name="awn_config_get_default_for_applet ()" link="libawn-awn-config.html#awn-config-get-default-for-applet"/>
+    <keyword type="function" name="awn_config_get_default_for_applet_by_info ()" link="libawn-awn-config.html#awn-config-get-default-for-applet-by-info"/>
+    <keyword type="function" name="awn_config_free ()" link="libawn-awn-config.html#awn-config-free"/>
+    <keyword type="struct" name="AwnDialogPrivate" link="AwnDialog.html#AwnDialogPrivate"/>
+    <keyword type="struct" name="AwnDialog" link="AwnDialog.html#AwnDialog-struct"/>
+    <keyword type="function" name="awn_dialog_new ()" link="AwnDialog.html#awn-dialog-new"/>
+    <keyword type="function" name="awn_dialog_new_for_widget ()" link="AwnDialog.html#awn-dialog-new-for-widget"/>
+    <keyword type="function" name="awn_dialog_new_for_widget_with_applet ()" link="AwnDialog.html#awn-dialog-new-for-widget-with-applet"/>
+    <keyword type="function" name="awn_dialog_set_padding ()" link="AwnDialog.html#awn-dialog-set-padding"/>
+    <keyword type="property" name="The &quot;anchor&quot; property" link="AwnDialog.html#AwnDialog--anchor"/>
+    <keyword type="property" name="The &quot;anchor-applet&quot; property" link="AwnDialog.html#AwnDialog--anchor-applet"/>
+    <keyword type="property" name="The &quot;anchored&quot; property" link="AwnDialog.html#AwnDialog--anchored"/>
+    <keyword type="property" name="The &quot;border&quot; property" link="AwnDialog.html#AwnDialog--border"/>
+    <keyword type="property" name="The &quot;dialog-bg&quot; property" link="AwnDialog.html#AwnDialog--dialog-bg"/>
+    <keyword type="property" name="The &quot;effects-hilight&quot; property" link="AwnDialog.html#AwnDialog--effects-hilight"/>
+    <keyword type="property" name="The &quot;hide-on-esc&quot; property" link="AwnDialog.html#AwnDialog--hide-on-esc"/>
+    <keyword type="property" name="The &quot;hide-on-unfocus&quot; property" link="AwnDialog.html#AwnDialog--hide-on-unfocus"/>
+    <keyword type="property" name="The &quot;hilight&quot; property" link="AwnDialog.html#AwnDialog--hilight"/>
+    <keyword type="property" name="The &quot;position&quot; property" link="AwnDialog.html#AwnDialog--position"/>
+    <keyword type="property" name="The &quot;title-bg&quot; property" link="AwnDialog.html#AwnDialog--title-bg"/>
+    <keyword type="property" name="The &quot;window-offset&quot; property" link="AwnDialog.html#AwnDialog--window-offset"/>
+    <keyword type="property" name="The &quot;window-padding&quot; property" link="AwnDialog.html#AwnDialog--window-padding"/>
+    <keyword type="enum" name="enum AwnEffect" link="AwnEffects.html#AwnEffect"/>
+    <keyword type="struct" name="AwnEffectsPrivate" link="AwnEffects.html#AwnEffectsPrivate"/>
+    <keyword type="struct" name="AwnEffects" link="AwnEffects.html#AwnEffects-struct"/>
+    <keyword type="function" name="awn_effects_new_for_widget ()" link="AwnEffects.html#awn-effects-new-for-widget"/>
+    <keyword type="function" name="awn_effects_start ()" link="AwnEffects.html#awn-effects-start"/>
+    <keyword type="function" name="awn_effects_stop ()" link="AwnEffects.html#awn-effects-stop"/>
+    <keyword type="function" name="awn_effects_start_ex ()" link="AwnEffects.html#awn-effects-start-ex"/>
+    <keyword type="function" name="awn_effects_set_icon_size ()" link="AwnEffects.html#awn-effects-set-icon-size"/>
+    <keyword type="function" name="awn_effects_cairo_create ()" link="AwnEffects.html#awn-effects-cairo-create"/>
+    <keyword type="function" name="awn_effects_cairo_create_clipped ()" link="AwnEffects.html#awn-effects-cairo-create-clipped"/>
+    <keyword type="function" name="awn_effects_cairo_destroy ()" link="AwnEffects.html#awn-effects-cairo-destroy"/>
+    <keyword type="function" name="awn_effects_add_overlay ()" link="AwnEffects.html#awn-effects-add-overlay"/>
+    <keyword type="function" name="awn_effects_remove_overlay ()" link="AwnEffects.html#awn-effects-remove-overlay"/>
+    <keyword type="function" name="awn_effects_get_overlays ()" link="AwnEffects.html#awn-effects-get-overlays"/>
+    <keyword type="function" name="awn_effects_redraw ()" link="AwnEffects.html#awn-effects-redraw"/>
+    <keyword type="function" name="awn_effects_main_effect_loop ()" link="AwnEffects.html#awn-effects-main-effect-loop"/>
+    <keyword type="function" name="awn_effects_emit_anim_start ()" link="AwnEffects.html#awn-effects-emit-anim-start"/>
+    <keyword type="function" name="awn_effects_emit_anim_end ()" link="AwnEffects.html#awn-effects-emit-anim-end"/>
+    <keyword type="property" name="The &quot;active&quot; property" link="AwnEffects.html#AwnEffects--active"/>
+    <keyword type="property" name="The &quot;active-rect-color&quot; property" link="AwnEffects.html#AwnEffects--active-rect-color"/>
+    <keyword type="property" name="The &quot;active-rect-outline&quot; property" link="AwnEffects.html#AwnEffects--active-rect-outline"/>
+    <keyword type="property" name="The &quot;arrow-png&quot; property" link="AwnEffects.html#AwnEffects--arrow-png"/>
+    <keyword type="property" name="The &quot;arrows-count&quot; property" link="AwnEffects.html#AwnEffects--arrows-count"/>
+    <keyword type="property" name="The &quot;border-clip&quot; property" link="AwnEffects.html#AwnEffects--border-clip"/>
+    <keyword type="property" name="The &quot;custom-active-png&quot; property" link="AwnEffects.html#AwnEffects--custom-active-png"/>
+    <keyword type="property" name="The &quot;depressed&quot; property" link="AwnEffects.html#AwnEffects--depressed"/>
+    <keyword type="property" name="The &quot;dot-color&quot; property" link="AwnEffects.html#AwnEffects--dot-color"/>
+    <keyword type="property" name="The &quot;effects&quot; property" link="AwnEffects.html#AwnEffects--effects"/>
+    <keyword type="property" name="The &quot;icon-alpha&quot; property" link="AwnEffects.html#AwnEffects--icon-alpha"/>
+    <keyword type="property" name="The &quot;icon-offset&quot; property" link="AwnEffects.html#AwnEffects--icon-offset"/>
+    <keyword type="property" name="The &quot;indirect-paint&quot; property" link="AwnEffects.html#AwnEffects--indirect-paint"/>
+    <keyword type="property" name="The &quot;make-shadow&quot; property" link="AwnEffects.html#AwnEffects--make-shadow"/>
+    <keyword type="property" name="The &quot;no-clear&quot; property" link="AwnEffects.html#AwnEffects--no-clear"/>
+    <keyword type="property" name="The &quot;position&quot; property" link="AwnEffects.html#AwnEffects--position"/>
+    <keyword type="property" name="The &quot;progress&quot; property" link="AwnEffects.html#AwnEffects--progress"/>
+    <keyword type="property" name="The &quot;reflection-alpha&quot; property" link="AwnEffects.html#AwnEffects--reflection-alpha"/>
+    <keyword type="property" name="The &quot;reflection-offset&quot; property" link="AwnEffects.html#AwnEffects--reflection-offset"/>
+    <keyword type="property" name="The &quot;reflection-visible&quot; property" link="AwnEffects.html#AwnEffects--reflection-visible"/>
+    <keyword type="property" name="The &quot;spotlight-png&quot; property" link="AwnEffects.html#AwnEffects--spotlight-png"/>
+    <keyword type="property" name="The &quot;widget&quot; property" link="AwnEffects.html#AwnEffects--widget"/>
+    <keyword type="signal" name="The &quot;animation-end&quot; signal" link="AwnEffects.html#AwnEffects-animation-end"/>
+    <keyword type="signal" name="The &quot;animation-start&quot; signal" link="AwnEffects.html#AwnEffects-animation-start"/>
+    <keyword type="struct" name="AwnImagePrivate" link="AwnImage.html#AwnImagePrivate"/>
+    <keyword type="struct" name="AwnImage" link="AwnImage.html#AwnImage-struct"/>
+    <keyword type="function" name="awn_image_new ()" link="AwnImage.html#awn-image-new"/>
+    <keyword type="struct" name="AwnLabel" link="AwnLabel.html#AwnLabel-struct"/>
+    <keyword type="function" name="awn_label_new ()" link="AwnLabel.html#awn-label-new"/>
+    <keyword type="property" name="The &quot;font-mode&quot; property" link="AwnLabel.html#AwnLabel--font-mode"/>
+    <keyword type="property" name="The &quot;text-color&quot; property" link="AwnLabel.html#AwnLabel--text-color"/>
+    <keyword type="property" name="The &quot;text-outline-color&quot; property" link="AwnLabel.html#AwnLabel--text-outline-color"/>
+    <keyword type="property" name="The &quot;text-outline-width&quot; property" link="AwnLabel.html#AwnLabel--text-outline-width"/>
+    <keyword type="struct" name="AwnTooltipPrivate" link="AwnTooltip.html#AwnTooltipPrivate"/>
+    <keyword type="struct" name="AwnTooltip" link="AwnTooltip.html#AwnTooltip-struct"/>
+    <keyword type="function" name="awn_tooltip_new_for_widget ()" link="AwnTooltip.html#awn-tooltip-new-for-widget"/>
+    <keyword type="function" name="awn_tooltip_set_text ()" link="AwnTooltip.html#awn-tooltip-set-text"/>
+    <keyword type="function" name="awn_tooltip_get_text ()" link="AwnTooltip.html#awn-tooltip-get-text"/>
+    <keyword type="function" name="awn_tooltip_set_focus_widget ()" link="AwnTooltip.html#awn-tooltip-set-focus-widget"/>
+    <keyword type="function" name="awn_tooltip_set_font_name ()" link="AwnTooltip.html#awn-tooltip-set-font-name"/>
+    <keyword type="function" name="awn_tooltip_set_font_color ()" link="AwnTooltip.html#awn-tooltip-set-font-color"/>
+    <keyword type="function" name="awn_tooltip_set_background_color ()" link="AwnTooltip.html#awn-tooltip-set-background-color"/>
+    <keyword type="function" name="awn_tooltip_set_delay ()" link="AwnTooltip.html#awn-tooltip-set-delay"/>
+    <keyword type="function" name="awn_tooltip_get_delay ()" link="AwnTooltip.html#awn-tooltip-get-delay"/>
+    <keyword type="function" name="awn_tooltip_update_position ()" link="AwnTooltip.html#awn-tooltip-update-position"/>
+    <keyword type="function" name="awn_tooltip_set_position_hint ()" link="AwnTooltip.html#awn-tooltip-set-position-hint"/>
+    <keyword type="property" name="The &quot;delay&quot; property" link="AwnTooltip.html#AwnTooltip--delay"/>
+    <keyword type="property" name="The &quot;focus-widget&quot; property" link="AwnTooltip.html#AwnTooltip--focus-widget"/>
+    <keyword type="property" name="The &quot;offset&quot; property" link="AwnTooltip.html#AwnTooltip--offset"/>
+    <keyword type="property" name="The &quot;smart-behavior&quot; property" link="AwnTooltip.html#AwnTooltip--smart-behavior"/>
+    <keyword type="property" name="The &quot;toggle-on-click&quot; property" link="AwnTooltip.html#AwnTooltip--toggle-on-click"/>
+    <keyword type="property" name="The &quot;tooltip-bg-color&quot; property" link="AwnTooltip.html#AwnTooltip--tooltip-bg-color"/>
+    <keyword type="property" name="The &quot;tooltip-font-color&quot; property" link="AwnTooltip.html#AwnTooltip--tooltip-font-color"/>
+    <keyword type="property" name="The &quot;tooltip-font-name&quot; property" link="AwnTooltip.html#AwnTooltip--tooltip-font-name"/>
+    <keyword type="property" name="The &quot;tooltip-outline-color&quot; property" link="AwnTooltip.html#AwnTooltip--tooltip-outline-color"/>
+    <keyword type="macro" name="AWN_OVERLAYABLE_GET_INTERFACE()" link="libawn-awn-overlayable.html#AWN-OVERLAYABLE-GET-INTERFACE--CAPS"/>
+    <keyword type="struct" name="AwnOverlayable" link="libawn-awn-overlayable.html#AwnOverlayable-struct"/>
+    <keyword type="struct" name="AwnOverlayableIface" link="libawn-awn-overlayable.html#AwnOverlayableIface"/>
+    <keyword type="function" name="awn_overlayable_get_effects ()" link="libawn-awn-overlayable.html#awn-overlayable-get-effects"/>
+    <keyword type="function" name="awn_overlayable_add_overlay ()" link="libawn-awn-overlayable.html#awn-overlayable-add-overlay"/>
+    <keyword type="function" name="awn_overlayable_remove_overlay ()" link="libawn-awn-overlayable.html#awn-overlayable-remove-overlay"/>
+    <keyword type="function" name="awn_overlayable_get_overlays ()" link="libawn-awn-overlayable.html#awn-overlayable-get-overlays"/>
+    <keyword type="struct" name="AwnIconPrivate" link="AwnIcon.html#AwnIconPrivate"/>
+    <keyword type="struct" name="AwnIcon" link="AwnIcon.html#AwnIcon-struct"/>
+    <keyword type="function" name="awn_icon_new ()" link="AwnIcon.html#awn-icon-new"/>
+    <keyword type="function" name="awn_icon_set_pos_type ()" link="AwnIcon.html#awn-icon-set-pos-type"/>
+    <keyword type="function" name="awn_icon_get_pos_type ()" link="AwnIcon.html#awn-icon-get-pos-type"/>
+    <keyword type="function" name="awn_icon_set_offset ()" link="AwnIcon.html#awn-icon-set-offset"/>
+    <keyword type="function" name="awn_icon_get_offset ()" link="AwnIcon.html#awn-icon-get-offset"/>
+    <keyword type="function" name="awn_icon_set_effect ()" link="AwnIcon.html#awn-icon-set-effect"/>
+    <keyword type="function" name="awn_icon_set_from_pixbuf ()" link="AwnIcon.html#awn-icon-set-from-pixbuf"/>
+    <keyword type="function" name="awn_icon_set_from_context ()" link="AwnIcon.html#awn-icon-set-from-context"/>
+    <keyword type="function" name="awn_icon_set_from_surface ()" link="AwnIcon.html#awn-icon-set-from-surface"/>
+    <keyword type="function" name="awn_icon_set_custom_paint ()" link="AwnIcon.html#awn-icon-set-custom-paint"/>
+    <keyword type="function" name="awn_icon_get_tooltip ()" link="AwnIcon.html#awn-icon-get-tooltip"/>
+    <keyword type="function" name="awn_icon_set_tooltip_text ()" link="AwnIcon.html#awn-icon-set-tooltip-text"/>
+    <keyword type="function" name="awn_icon_get_tooltip_text ()" link="AwnIcon.html#awn-icon-get-tooltip-text"/>
+    <keyword type="function" name="awn_icon_set_is_active ()" link="AwnIcon.html#awn-icon-set-is-active"/>
+    <keyword type="function" name="awn_icon_get_is_active ()" link="AwnIcon.html#awn-icon-get-is-active"/>
+    <keyword type="function" name="awn_icon_set_indicator_count ()" link="AwnIcon.html#awn-icon-set-indicator-count"/>
+    <keyword type="function" name="awn_icon_get_indicator_count ()" link="AwnIcon.html#awn-icon-get-indicator-count"/>
+    <keyword type="function" name="awn_icon_get_hover_effects ()" link="AwnIcon.html#awn-icon-get-hover-effects"/>
+    <keyword type="function" name="awn_icon_set_hover_effects ()" link="AwnIcon.html#awn-icon-set-hover-effects"/>
+    <keyword type="function" name="awn_icon_clicked ()" link="AwnIcon.html#awn-icon-clicked"/>
+    <keyword type="function" name="awn_icon_middle_clicked ()" link="AwnIcon.html#awn-icon-middle-clicked"/>
+    <keyword type="property" name="The &quot;bind-effects&quot; property" link="AwnIcon.html#AwnIcon--bind-effects"/>
+    <keyword type="property" name="The &quot;icon-height&quot; property" link="AwnIcon.html#AwnIcon--icon-height"/>
+    <keyword type="property" name="The &quot;icon-width&quot; property" link="AwnIcon.html#AwnIcon--icon-width"/>
+    <keyword type="property" name="The &quot;long-press-timeout&quot; property" link="AwnIcon.html#AwnIcon--long-press-timeout"/>
+    <keyword type="signal" name="The &quot;clicked&quot; signal" link="AwnIcon.html#AwnIcon-clicked"/>
+    <keyword type="signal" name="The &quot;context-menu-popup&quot; signal" link="AwnIcon.html#AwnIcon-context-menu-popup"/>
+    <keyword type="signal" name="The &quot;long-press&quot; signal" link="AwnIcon.html#AwnIcon-long-press"/>
+    <keyword type="signal" name="The &quot;middle-clicked&quot; signal" link="AwnIcon.html#AwnIcon-middle-clicked"/>
+    <keyword type="signal" name="The &quot;size-changed&quot; signal" link="AwnIcon.html#AwnIcon-size-changed"/>
+    <keyword type="struct" name="AwnThemedIconPrivate" link="AwnThemedIcon.html#AwnThemedIconPrivate"/>
+    <keyword type="struct" name="AwnThemedIcon" link="AwnThemedIcon.html#AwnThemedIcon-struct"/>
+    <keyword type="function" name="awn_themed_icon_new ()" link="AwnThemedIcon.html#awn-themed-icon-new"/>
+    <keyword type="function" name="awn_themed_icon_set_state ()" link="AwnThemedIcon.html#awn-themed-icon-set-state"/>
+    <keyword type="function" name="awn_themed_icon_get_state ()" link="AwnThemedIcon.html#awn-themed-icon-get-state"/>
+    <keyword type="function" name="awn_themed_icon_set_size ()" link="AwnThemedIcon.html#awn-themed-icon-set-size"/>
+    <keyword type="function" name="awn_themed_icon_get_size ()" link="AwnThemedIcon.html#awn-themed-icon-get-size"/>
+    <keyword type="function" name="awn_themed_icon_get_default_theme_name ()" link="AwnThemedIcon.html#awn-themed-icon-get-default-theme-name"/>
+    <keyword type="function" name="awn_themed_icon_set_info ()" link="AwnThemedIcon.html#awn-themed-icon-set-info"/>
+    <keyword type="function" name="awn_themed_icon_set_info_simple ()" link="AwnThemedIcon.html#awn-themed-icon-set-info-simple"/>
+    <keyword type="function" name="awn_themed_icon_set_info_append ()" link="AwnThemedIcon.html#awn-themed-icon-set-info-append"/>
+    <keyword type="function" name="awn_themed_icon_set_applet_info ()" link="AwnThemedIcon.html#awn-themed-icon-set-applet-info"/>
+    <keyword type="function" name="awn_themed_icon_override_gtk_theme ()" link="AwnThemedIcon.html#awn-themed-icon-override-gtk-theme"/>
+    <keyword type="function" name="awn_themed_icon_get_icon_at_size ()" link="AwnThemedIcon.html#awn-themed-icon-get-icon-at-size"/>
+    <keyword type="function" name="awn_themed_icon_clear_icons ()" link="AwnThemedIcon.html#awn-themed-icon-clear-icons"/>
+    <keyword type="function" name="awn_themed_icon_clear_info ()" link="AwnThemedIcon.html#awn-themed-icon-clear-info"/>
+    <keyword type="function" name="awn_themed_icon_preload_icon ()" link="AwnThemedIcon.html#awn-themed-icon-preload-icon"/>
+    <keyword type="function" name="awn_themed_icon_get_awn_theme ()" link="AwnThemedIcon.html#awn-themed-icon-get-awn-theme"/>
+    <keyword type="function" name="awn_themed_icon_create_custom_icon_item ()" link="AwnThemedIcon.html#awn-themed-icon-create-custom-icon-item"/>
+    <keyword type="function" name="awn_themed_icon_create_remove_custom_icon_item ()" link="AwnThemedIcon.html#awn-themed-icon-create-remove-custom-icon-item"/>
+    <keyword type="function" name="awn_themed_icon_drag_data_received ()" link="AwnThemedIcon.html#awn-themed-icon-drag-data-received"/>
+    <keyword type="property" name="The &quot;applet-name&quot; property" link="AwnThemedIcon.html#AwnThemedIcon--applet-name"/>
+    <keyword type="property" name="The &quot;drag-and-drop&quot; property" link="AwnThemedIcon.html#AwnThemedIcon--drag-and-drop"/>
+    <keyword type="property" name="The &quot;rotate&quot; property" link="AwnThemedIcon.html#AwnThemedIcon--rotate"/>
+    <keyword type="struct" name="AwnIconBoxPrivate" link="AwnIconBox.html#AwnIconBoxPrivate"/>
+    <keyword type="struct" name="AwnIconBox" link="AwnIconBox.html#AwnIconBox-struct"/>
+    <keyword type="function" name="awn_icon_box_new ()" link="AwnIconBox.html#awn-icon-box-new"/>
+    <keyword type="function" name="awn_icon_box_new_for_applet ()" link="AwnIconBox.html#awn-icon-box-new-for-applet"/>
+    <keyword type="function" name="awn_icon_box_set_pos_type ()" link="AwnIconBox.html#awn-icon-box-set-pos-type"/>
+    <keyword type="function" name="awn_icon_box_set_offset ()" link="AwnIconBox.html#awn-icon-box-set-offset"/>
+    <keyword type="property" name="The &quot;applet&quot; property" link="AwnIconBox.html#AwnIconBox--applet"/>
+    <keyword type="struct" name="AwnOverlay" link="libawn-awn-overlay.html#AwnOverlay-struct"/>
+    <keyword type="function" name="render ()" link="libawn-awn-overlay.html#render"/>
+    <keyword type="enum" name="enum AwnOverlayAlign" link="libawn-awn-overlay.html#AwnOverlayAlign"/>
+    <keyword type="function" name="awn_overlay_new ()" link="libawn-awn-overlay.html#awn-overlay-new"/>
+    <keyword type="function" name="awn_overlay_render ()" link="libawn-awn-overlay.html#awn-overlay-render"/>
+    <keyword type="function" name="awn_overlay_move_to ()" link="libawn-awn-overlay.html#awn-overlay-move-to"/>
+    <keyword type="function" name="awn_overlay_get_apply_effects ()" link="libawn-awn-overlay.html#awn-overlay-get-apply-effects"/>
+    <keyword type="function" name="awn_overlay_set_apply_effects ()" link="libawn-awn-overlay.html#awn-overlay-set-apply-effects"/>
+    <keyword type="function" name="awn_overlay_get_use_source_op ()" link="libawn-awn-overlay.html#awn-overlay-get-use-source-op"/>
+    <keyword type="function" name="awn_overlay_set_use_source_op ()" link="libawn-awn-overlay.html#awn-overlay-set-use-source-op"/>
+    <keyword type="property" name="The &quot;active&quot; property" link="libawn-awn-overlay.html#AwnOverlay--active"/>
+    <keyword type="property" name="The &quot;align&quot; property" link="libawn-awn-overlay.html#AwnOverlay--align"/>
+    <keyword type="property" name="The &quot;apply-effects&quot; property" link="libawn-awn-overlay.html#AwnOverlay--apply-effects"/>
+    <keyword type="property" name="The &quot;gravity&quot; property" link="libawn-awn-overlay.html#AwnOverlay--gravity"/>
+    <keyword type="property" name="The &quot;use-source-op&quot; property" link="libawn-awn-overlay.html#AwnOverlay--use-source-op"/>
+    <keyword type="property" name="The &quot;x-adj&quot; property" link="libawn-awn-overlay.html#AwnOverlay--x-adj"/>
+    <keyword type="property" name="The &quot;x-override&quot; property" link="libawn-awn-overlay.html#AwnOverlay--x-override"/>
+    <keyword type="property" name="The &quot;y-adj&quot; property" link="libawn-awn-overlay.html#AwnOverlay--y-adj"/>
+    <keyword type="property" name="The &quot;y-override&quot; property" link="libawn-awn-overlay.html#AwnOverlay--y-override"/>
+    <keyword type="struct" name="AwnOverlayThemedIcon" link="AwnOverlayThemedIcon.html#AwnOverlayThemedIcon-struct"/>
+    <keyword type="function" name="awn_overlay_themed_icon_new ()" link="AwnOverlayThemedIcon.html#awn-overlay-themed-icon-new"/>
+    <keyword type="property" name="The &quot;alpha&quot; property" link="AwnOverlayThemedIcon.html#AwnOverlayThemedIcon--alpha"/>
+    <keyword type="property" name="The &quot;icon-name&quot; property" link="AwnOverlayThemedIcon.html#AwnOverlayThemedIcon--icon-name"/>
+    <keyword type="property" name="The &quot;scale&quot; property" link="AwnOverlayThemedIcon.html#AwnOverlayThemedIcon--scale"/>
+    <keyword type="struct" name="AwnOverlayText" link="AwnOverlayText.html#AwnOverlayText-struct"/>
+    <keyword type="function" name="awn_overlay_text_new ()" link="AwnOverlayText.html#awn-overlay-text-new"/>
+    <keyword type="function" name="awn_overlay_text_get_size ()" link="AwnOverlayText.html#awn-overlay-text-get-size"/>
+    <keyword type="property" name="The &quot;font-mode&quot; property" link="AwnOverlayText.html#AwnOverlayText--font-mode"/>
+    <keyword type="property" name="The &quot;font-sizing&quot; property" link="AwnOverlayText.html#AwnOverlayText--font-sizing"/>
+    <keyword type="property" name="The &quot;text&quot; property" link="AwnOverlayText.html#AwnOverlayText--text"/>
+    <keyword type="property" name="The &quot;text-color&quot; property" link="AwnOverlayText.html#AwnOverlayText--text-color"/>
+    <keyword type="property" name="The &quot;text-color-astr&quot; property" link="AwnOverlayText.html#AwnOverlayText--text-color-astr"/>
+    <keyword type="property" name="The &quot;text-outline-color&quot; property" link="AwnOverlayText.html#AwnOverlayText--text-outline-color"/>
+    <keyword type="property" name="The &quot;text-outline-color-astr&quot; property" link="AwnOverlayText.html#AwnOverlayText--text-outline-color-astr"/>
+    <keyword type="property" name="The &quot;text-outline-width&quot; property" link="AwnOverlayText.html#AwnOverlayText--text-outline-width"/>
+    <keyword type="struct" name="AwnOverlayThrobber" link="AwnOverlayThrobber.html#AwnOverlayThrobber-struct"/>
+    <keyword type="function" name="awn_overlay_throbber_new ()" link="AwnOverlayThrobber.html#awn-overlay-throbber-new"/>
+    <keyword type="property" name="The &quot;scale&quot; property" link="AwnOverlayThrobber.html#AwnOverlayThrobber--scale"/>
+    <keyword type="property" name="The &quot;timeout&quot; property" link="AwnOverlayThrobber.html#AwnOverlayThrobber--timeout"/>
+    <keyword type="struct" name="AwnOverlayPixbuf" link="AwnOverlayPixbuf.html#AwnOverlayPixbuf-struct"/>
+    <keyword type="function" name="awn_overlay_pixbuf_new ()" link="AwnOverlayPixbuf.html#awn-overlay-pixbuf-new"/>
+    <keyword type="function" name="awn_overlay_pixbuf_new_with_pixbuf ()" link="AwnOverlayPixbuf.html#awn-overlay-pixbuf-new-with-pixbuf"/>
+    <keyword type="property" name="The &quot;alpha&quot; property" link="AwnOverlayPixbuf.html#AwnOverlayPixbuf--alpha"/>
+    <keyword type="property" name="The &quot;pixbuf&quot; property" link="AwnOverlayPixbuf.html#AwnOverlayPixbuf--pixbuf"/>
+    <keyword type="property" name="The &quot;scale&quot; property" link="AwnOverlayPixbuf.html#AwnOverlayPixbuf--scale"/>
+    <keyword type="struct" name="AwnOverlayPixbufFile" link="AwnOverlayPixbufFile.html#AwnOverlayPixbufFile-struct"/>
+    <keyword type="function" name="awn_overlay_pixbuf_file_new ()" link="AwnOverlayPixbufFile.html#awn-overlay-pixbuf-file-new"/>
+    <keyword type="property" name="The &quot;file-name&quot; property" link="AwnOverlayPixbufFile.html#AwnOverlayPixbufFile--file-name"/>
+    <keyword type="struct" name="AwnOverlayProgress" link="AwnOverlayProgress.html#AwnOverlayProgress-struct"/>
+    <keyword type="function" name="awn_overlay_progress_new ()" link="AwnOverlayProgress.html#awn-overlay-progress-new"/>
+    <keyword type="property" name="The &quot;percent-complete&quot; property" link="AwnOverlayProgress.html#AwnOverlayProgress--percent-complete"/>
+    <keyword type="struct" name="AwnOverlayProgressCircle" link="AwnOverlayProgressCircle.html#AwnOverlayProgressCircle-struct"/>
+    <keyword type="function" name="awn_overlay_progress_circle_new ()" link="AwnOverlayProgressCircle.html#awn-overlay-progress-circle-new"/>
+    <keyword type="property" name="The &quot;background-color&quot; property" link="AwnOverlayProgressCircle.html#AwnOverlayProgressCircle--background-color"/>
+    <keyword type="property" name="The &quot;foreground-color&quot; property" link="AwnOverlayProgressCircle.html#AwnOverlayProgressCircle--foreground-color"/>
+    <keyword type="property" name="The &quot;outline-color&quot; property" link="AwnOverlayProgressCircle.html#AwnOverlayProgressCircle--outline-color"/>
+    <keyword type="property" name="The &quot;scale&quot; property" link="AwnOverlayProgressCircle.html#AwnOverlayProgressCircle--scale"/>
+    <keyword type="struct" name="AwnAlignmentPrivate" link="AwnAlignment.html#AwnAlignmentPrivate"/>
+    <keyword type="struct" name="AwnAlignment" link="AwnAlignment.html#AwnAlignment-struct"/>
+    <keyword type="function" name="awn_alignment_new_for_applet ()" link="AwnAlignment.html#awn-alignment-new-for-applet"/>
+    <keyword type="function" name="awn_alignment_get_offset_modifier ()" link="AwnAlignment.html#awn-alignment-get-offset-modifier"/>
+    <keyword type="function" name="awn_alignment_set_offset_modifier ()" link="AwnAlignment.html#awn-alignment-set-offset-modifier"/>
+    <keyword type="property" name="The &quot;applet&quot; property" link="AwnAlignment.html#AwnAlignment--applet"/>
+    <keyword type="property" name="The &quot;offset-modifier&quot; property" link="AwnAlignment.html#AwnAlignment--offset-modifier"/>
+    <keyword type="property" name="The &quot;offset-multiplier&quot; property" link="AwnAlignment.html#AwnAlignment--offset-multiplier"/>
+    <keyword type="property" name="The &quot;scale&quot; property" link="AwnAlignment.html#AwnAlignment--scale"/>
     <keyword type="macro" name="AWN_MAX_HEIGHT" link="libawn-awn-defines.html#AWN-MAX-HEIGHT--CAPS"/>
     <keyword type="macro" name="AWN_MIN_HEIGHT" link="libawn-awn-defines.html#AWN-MIN-HEIGHT--CAPS"/>
-    <keyword type="enum" name="enum AwnOrientation" link="libawn-awn-defines.html#AwnOrientation"/>
-    <keyword type="struct" name="AwnDesktopItem" link="libawn-awn-desktop-item.html#AwnDesktopItem"/>
-    <keyword type="macro" name="AWN_DESKTOP_ITEM()" link="libawn-awn-desktop-item.html#AWN-DESKTOP-ITEM--CAPS"/>
-    <keyword type="function" name="awn_desktop_item_new ()" link="libawn-awn-desktop-item.html#awn-desktop-item-new"/>
-    <keyword type="function" name="awn_desktop_item_copy ()" link="libawn-awn-desktop-item.html#awn-desktop-item-copy"/>
-    <keyword type="function" name="awn_desktop_item_get_filename ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-filename"/>
-    <keyword type="function" name="awn_desktop_item_get_item_type ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-item-type"/>
-    <keyword type="function" name="awn_desktop_item_set_item_type ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-item-type"/>
-    <keyword type="function" name="awn_desktop_item_get_icon ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-icon"/>
-    <keyword type="function" name="awn_desktop_item_set_icon ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-icon"/>
-    <keyword type="function" name="awn_desktop_item_get_name ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-name"/>
-    <keyword type="function" name="awn_desktop_item_set_name ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-name"/>
-    <keyword type="function" name="awn_desktop_item_get_exec ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-exec"/>
-    <keyword type="function" name="awn_desktop_item_set_exec ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-exec"/>
-    <keyword type="function" name="awn_desktop_item_get_string ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-string"/>
-    <keyword type="function" name="awn_desktop_item_set_string ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-string"/>
-    <keyword type="function" name="awn_desktop_item_get_localestring ()" link="libawn-awn-desktop-item.html#awn-desktop-item-get-localestring"/>
-    <keyword type="function" name="awn_desktop_item_set_localestring ()" link="libawn-awn-desktop-item.html#awn-desktop-item-set-localestring"/>
-    <keyword type="function" name="awn_desktop_item_exists ()" link="libawn-awn-desktop-item.html#awn-desktop-item-exists"/>
-    <keyword type="function" name="awn_desktop_item_launch ()" link="libawn-awn-desktop-item.html#awn-desktop-item-launch"/>
-    <keyword type="function" name="awn_desktop_item_save ()" link="libawn-awn-desktop-item.html#awn-desktop-item-save"/>
-    <keyword type="enum" name="enum AwnEffect" link="libawn-awn-effects.html#AwnEffect"/>
-    <keyword type="struct" name="AwnEffects" link="libawn-awn-effects.html#AwnEffects"/>
-    <keyword type="function" name="awn_effects_new ()" link="libawn-awn-effects.html#awn-effects-new"/>
-    <keyword type="function" name="awn_effects_new_for_widget ()" link="libawn-awn-effects.html#awn-effects-new-for-widget"/>
-    <keyword type="function" name="awn_effects_free ()" link="libawn-awn-effects.html#awn-effects-free"/>
-    <keyword type="function" name="awn_effects_finalize ()" link="libawn-awn-effects.html#awn-effects-finalize"/>
-    <keyword type="function" name="awn_effects_register ()" link="libawn-awn-effects.html#awn-effects-register"/>
-    <keyword type="function" name="awn_effects_unregister ()" link="libawn-awn-effects.html#awn-effects-unregister"/>
-    <keyword type="function" name="awn_effects_start ()" link="libawn-awn-effects.html#awn-effects-start"/>
-    <keyword type="function" name="awn_effects_stop ()" link="libawn-awn-effects.html#awn-effects-stop"/>
-    <keyword type="function" name="awn_effects_set_title ()" link="libawn-awn-effects.html#awn-effects-set-title"/>
-    <keyword type="function" name="awn_effects_start_ex ()" link="libawn-awn-effects.html#awn-effects-start-ex"/>
-    <keyword type="function" name="awn_effects_draw_background ()" link="libawn-awn-effects.html#awn-effects-draw-background"/>
-    <keyword type="function" name="awn_effects_draw_icons ()" link="libawn-awn-effects.html#awn-effects-draw-icons"/>
-    <keyword type="function" name="awn_effects_draw_icons_cairo ()" link="libawn-awn-effects.html#awn-effects-draw-icons-cairo"/>
-    <keyword type="function" name="awn_effects_draw_foreground ()" link="libawn-awn-effects.html#awn-effects-draw-foreground"/>
-    <keyword type="function" name="awn_effects_draw_set_window_size ()" link="libawn-awn-effects.html#awn-effects-draw-set-window-size"/>
-    <keyword type="function" name="awn_effects_draw_set_icon_size ()" link="libawn-awn-effects.html#awn-effects-draw-set-icon-size"/>
-    <keyword type="function" name="awn_effects_reflection_off ()" link="libawn-awn-effects.html#awn-effects-reflection-off"/>
-    <keyword type="function" name="awn_effects_reflection_on ()" link="libawn-awn-effects.html#awn-effects-reflection-on"/>
-    <keyword type="function" name="awn_effects_set_offset_cut ()" link="libawn-awn-effects.html#awn-effects-set-offset-cut"/>
+    <keyword type="enum" name="enum AwnAppletFlags" link="libawn-awn-defines.html#AwnAppletFlags"/>
+    <keyword type="enum" name="enum AwnAppletLicense" link="libawn-awn-defines.html#AwnAppletLicense"/>
+    <keyword type="enum" name="enum AwnPathType" link="libawn-awn-defines.html#AwnPathType"/>
+    <keyword type="macro" name="AWN_PANEL_ID_DEFAULT" link="libawn-awn-defines.html#AWN-PANEL-ID-DEFAULT--CAPS"/>
+    <keyword type="macro" name="AWN_FONT_SIZE_EXTRA_SMALL" link="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-SMALL--CAPS"/>
+    <keyword type="macro" name="AWN_FONT_SIZE_SMALL" link="libawn-awn-defines.html#AWN-FONT-SIZE-SMALL--CAPS"/>
+    <keyword type="macro" name="AWN_FONT_SIZE_MEDIUM" link="libawn-awn-defines.html#AWN-FONT-SIZE-MEDIUM--CAPS"/>
+    <keyword type="macro" name="AWN_FONT_SIZE_LARGE" link="libawn-awn-defines.html#AWN-FONT-SIZE-LARGE--CAPS"/>
+    <keyword type="macro" name="AWN_FONT_SIZE_EXTRA_LARGE" link="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-LARGE--CAPS"/>
     <keyword type="enum" name="enum AwnCairoRoundCorners" link="libawn-awn-cairo-utils.html#AwnCairoRoundCorners"/>
     <keyword type="function" name="awn_cairo_rounded_rect ()" link="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect"/>
-    <keyword type="function" name="awn_cairo_string_to_color ()" link="libawn-awn-cairo-utils.html#awn-cairo-string-to-color"/>
-    <keyword type="constant" name="AWN_VFS_MONITOR_EVENT_CHANGED" link="libawn-awn-vfs.html#AWN-VFS-MONITOR-EVENT-CHANGED--CAPS"/>
-    <keyword type="constant" name="AWN_VFS_MONITOR_EVENT_CREATED" link="libawn-awn-vfs.html#AWN-VFS-MONITOR-EVENT-CREATED--CAPS"/>
-    <keyword type="constant" name="AWN_VFS_MONITOR_EVENT_DELETED" link="libawn-awn-vfs.html#AWN-VFS-MONITOR-EVENT-DELETED--CAPS"/>
-    <keyword type="constant" name="AWN_VFS_MONITOR_FILE" link="libawn-awn-vfs.html#AWN-VFS-MONITOR-FILE--CAPS"/>
-    <keyword type="constant" name="AWN_VFS_MONITOR_DIRECTORY" link="libawn-awn-vfs.html#AWN-VFS-MONITOR-DIRECTORY--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_NULL" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-NULL--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_BOOL" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-BOOL--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_FLOAT" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-FLOAT--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_INT" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-INT--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_STRING" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-STRING--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_LIST_BOOL" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-LIST-BOOL--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_LIST_FLOAT" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-LIST-FLOAT--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_LIST_INT" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-LIST-INT--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_VALUE_TYPE_LIST_STRING" link="libawn-awn-config-client.html#AWN-CONFIG-VALUE-TYPE-LIST-STRING--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_CLIENT_LIST_TYPE_BOOL" link="libawn-awn-config-client.html#AWN-CONFIG-CLIENT-LIST-TYPE-BOOL--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_CLIENT_LIST_TYPE_FLOAT" link="libawn-awn-config-client.html#AWN-CONFIG-CLIENT-LIST-TYPE-FLOAT--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_CLIENT_LIST_TYPE_INT" link="libawn-awn-config-client.html#AWN-CONFIG-CLIENT-LIST-TYPE-INT--CAPS"/>
-    <keyword type="constant" name="AWN_CONFIG_CLIENT_LIST_TYPE_STRING" link="libawn-awn-config-client.html#AWN-CONFIG-CLIENT-LIST-TYPE-STRING--CAPS"/>
+    <keyword type="function" name="awn_cairo_rounded_rect_shadow ()" link="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect-shadow"/>
+    <keyword type="function" name="awn_cairo_set_source_color ()" link="libawn-awn-cairo-utils.html#awn-cairo-set-source-color"/>
+    <keyword type="function" name="awn_cairo_set_source_color_with_alpha_multiplier ()" link="libawn-awn-cairo-utils.html#awn-cairo-set-source-color-with-alpha-multiplier"/>
+    <keyword type="function" name="awn_cairo_set_source_color_with_multipliers ()" link="libawn-awn-cairo-utils.html#awn-cairo-set-source-color-with-multipliers"/>
+    <keyword type="function" name="awn_cairo_pattern_add_color_stop_color ()" link="libawn-awn-cairo-utils.html#awn-cairo-pattern-add-color-stop-color"/>
+    <keyword type="function" name="awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier ()" link="libawn-awn-cairo-utils.html#awn-cairo-pattern-add-color-stop-color-with-alpha-multiplier"/>
+    <keyword type="function" name="awn_utils_ensure_transparent_bg ()" link="libawn-awn-utils.html#awn-utils-ensure-transparent-bg"/>
+    <keyword type="function" name="awn_utils_make_transparent_bg ()" link="libawn-awn-utils.html#awn-utils-make-transparent-bg"/>
+    <keyword type="function" name="awn_utils_get_offset_modifier_by_path_type ()" link="libawn-awn-utils.html#awn-utils-get-offset-modifier-by-path-type"/>
+    <keyword type="function" name="awn_utils_gslist_to_gvaluearray ()" link="libawn-awn-utils.html#awn-utils-gslist-to-gvaluearray"/>
+    <keyword type="function" name="awn_utils_show_menu_images ()" link="libawn-awn-utils.html#awn-utils-show-menu-images"/>
+    <keyword type="constant" name="AWN_OVERLAY_ALIGN_CENTRE" link="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-CENTRE--CAPS"/>
+    <keyword type="constant" name="AWN_OVERLAY_ALIGN_LEFT" link="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-LEFT--CAPS"/>
+    <keyword type="constant" name="AWN_OVERLAY_ALIGN_RIGHT" link="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-RIGHT--CAPS"/>
+    <keyword type="constant" name="AWN_APPLET_LICENSE_GPLV2" link="libawn-awn-defines.html#AWN-APPLET-LICENSE-GPLV2--CAPS"/>
+    <keyword type="constant" name="AWN_APPLET_LICENSE_GPLV3" link="libawn-awn-defines.html#AWN-APPLET-LICENSE-GPLV3--CAPS"/>
+    <keyword type="constant" name="AWN_APPLET_LICENSE_LGPLV2_1" link="libawn-awn-defines.html#AWN-APPLET-LICENSE-LGPLV2-1--CAPS"/>
+    <keyword type="constant" name="AWN_APPLET_LICENSE_LGPLV3" link="libawn-awn-defines.html#AWN-APPLET-LICENSE-LGPLV3--CAPS"/>
+    <keyword type="constant" name="AWN_PATH_LINEAR" link="libawn-awn-defines.html#AWN-PATH-LINEAR--CAPS"/>
+    <keyword type="constant" name="AWN_PATH_ELLIPSE" link="libawn-awn-defines.html#AWN-PATH-ELLIPSE--CAPS"/>
+    <keyword type="constant" name="AWN_PATH_LAST" link="libawn-awn-defines.html#AWN-PATH-LAST--CAPS"/>
   </functions>
 </book>

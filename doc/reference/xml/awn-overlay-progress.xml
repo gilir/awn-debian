@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnOverlayProgress">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnOverlayProgress.top_of_page">AwnOverlayProgress</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnOverlayProgress</refname>
+<refpurpose>Progress overlay for use with <link linkend="AwnIcon"><type>AwnIcon</type></link>.</refpurpose>
+</refnamediv>
+<refsect1 id="AwnOverlayProgress.stability-level">
+<title>Stability Level</title>
+Unstable, unless otherwise indicated
+</refsect1>
+
+<refsynopsisdiv id="AwnOverlayProgress.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+#include &lt;libawn/libawn.h&gt;
+
+                    <link linkend="AwnOverlayProgress-struct">AwnOverlayProgress</link>;
+<link linkend="AwnOverlayProgress">AwnOverlayProgress</link>* <link linkend="awn-overlay-progress-new">awn_overlay_progress_new</link>            (void);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnOverlayProgress.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="AwnOverlay">AwnOverlay</link>
+               +----AwnOverlayProgress
+                     +----<link linkend="AwnOverlayProgressCircle">AwnOverlayProgressCircle</link>
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="AwnOverlayProgress.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="AwnOverlayProgress--percent-complete">percent-complete</link>&quot;         <link linkend="gdouble">gdouble</link>               : Read / Write / Construct
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnOverlayProgress.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Progress overlay used with <link linkend="AwnIcon"><type>AwnIcon</type></link>.  This is an abstract type.</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnOverlayProgress.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnOverlayProgress-struct" role="struct">
+<title>AwnOverlayProgress</title>
+<indexterm zone="AwnOverlayProgress-struct"><primary sortas="AwnOverlayProgress">AwnOverlayProgress</primary></indexterm><programlisting>typedef struct _AwnOverlayProgress AwnOverlayProgress;</programlisting>
+<para>
+Progress overlay used with <link linkend="AwnIcon"><type>AwnIcon</type></link>.  This is an abstract type.</para>
+<para>
+</para></refsect2>
+<refsect2 id="awn-overlay-progress-new" role="function">
+<title>awn_overlay_progress_new ()</title>
+<indexterm zone="awn-overlay-progress-new"><primary sortas="awn_overlay_progress_new">awn_overlay_progress_new</primary></indexterm><programlisting><link linkend="AwnOverlayProgress">AwnOverlayProgress</link>* awn_overlay_progress_new            (void);</programlisting>
+<para>
+Creates a new instance of <link linkend="AwnOverlayProgress"><type>AwnOverlayProgress</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> an instance of <link linkend="AwnOverlayProgress"><type>AwnOverlayProgress</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="AwnOverlayProgress.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="AwnOverlayProgress--percent-complete" role="property"><title>The <literal>&quot;percent-complete&quot;</literal> property</title>
+<indexterm zone="AwnOverlayProgress--percent-complete"><primary sortas="AwnOverlayProgress:percent-complete">AwnOverlayProgress:percent-complete</primary></indexterm><programlisting>  &quot;percent-complete&quot;         <link linkend="gdouble">gdouble</link>               : Read / Write / Construct</programlisting>
+<para>
+A property of type double.  Set to the completion percentage for the overlay.</para>
+<para>
+</para><para>Allowed values: [0,100]</para>
+<para>Default value: 0</para>
+</refsect2>
+</refsect1>
+
+
+
+<refsect1 id="AwnOverlayProgress.see-also">
+<title>See Also</title>
+#AwnEffects, <link linkend="AwnOverlay"><type>AwnOverlay</type></link>, <link linkend="AwnOverlayThemedIcon"><type>AwnOverlayThemedIcon</type></link>, <link linkend="AwnOverlayThrobber"><type>AwnOverlayThrobber</type></link>,
+<link linkend="AwnOverlayPixbuf"><type>AwnOverlayPixbuf</type></link>, <link linkend="AwnOverlayPixbufFile"><type>AwnOverlayPixbufFile</type></link>, <link linkend="AwnIcon"><type>AwnIcon</type></link>
+</refsect1>
+
+</refentry>

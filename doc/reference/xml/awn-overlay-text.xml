@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnOverlayText">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnOverlayText.top_of_page">AwnOverlayText</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnOverlayText</refname>
+<refpurpose>Text overlay for use with <link linkend="AwnIcon"><type>AwnIcon</type></link>.</refpurpose>
+</refnamediv>
+<refsect1 id="AwnOverlayText.stability-level">
+<title>Stability Level</title>
+Unstable, unless otherwise indicated
+</refsect1>
+
+<refsynopsisdiv id="AwnOverlayText.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+#include &lt;libawn/libawn.h&gt;
+
+                    <link linkend="AwnOverlayText-struct">AwnOverlayText</link>;
+<link linkend="AwnOverlayText">AwnOverlayText</link>*     <link linkend="awn-overlay-text-new">awn_overlay_text_new</link>                (void);
+<link linkend="void">void</link>                <link linkend="awn-overlay-text-get-size">awn_overlay_text_get_size</link>           (<link linkend="AwnOverlayText">AwnOverlayText</link> *overlay,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *widget,
+                                                         <link linkend="gchar">gchar</link> *text,
+                                                         <link linkend="gint">gint</link> size,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnOverlayText.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="AwnOverlay">AwnOverlay</link>
+               +----AwnOverlayText
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="AwnOverlayText.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="AwnOverlayText--font-mode">font-mode</link>&quot;                <link linkend="gint">gint</link>                  : Read / Write
+  &quot;<link linkend="AwnOverlayText--font-sizing">font-sizing</link>&quot;              <link linkend="gdouble">gdouble</link>               : Read / Write / Construct
+  &quot;<link linkend="AwnOverlayText--text">text</link>&quot;                     <link linkend="gchar">gchar</link>*                : Read / Write / Construct
+  &quot;<link linkend="AwnOverlayText--text-color">text-color</link>&quot;               <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write
+  &quot;<link linkend="AwnOverlayText--text-color-astr">text-color-astr</link>&quot;          <link linkend="gchar">gchar</link>*                : Read / Write
+  &quot;<link linkend="AwnOverlayText--text-outline-color">text-outline-color</link>&quot;       <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write
+  &quot;<link linkend="AwnOverlayText--text-outline-color-astr">text-outline-color-astr</link>&quot;  <link linkend="gchar">gchar</link>*                : Read / Write
+  &quot;<link linkend="AwnOverlayText--text-outline-width">text-outline-width</link>&quot;       <link linkend="gdouble">gdouble</link>               : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnOverlayText.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Text overlay used with <link linkend="AwnIcon"><type>AwnIcon</type></link>.</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnOverlayText.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnOverlayText-struct" role="struct">
+<title>AwnOverlayText</title>
+<indexterm zone="AwnOverlayText-struct"><primary sortas="AwnOverlayText">AwnOverlayText</primary></indexterm><programlisting>typedef struct _AwnOverlayText AwnOverlayText;</programlisting>
+<para>
+Text overlay used with <link linkend="AwnIcon"><type>AwnIcon</type></link>.</para>
+<para>
+</para></refsect2>
+<refsect2 id="awn-overlay-text-new" role="function">
+<title>awn_overlay_text_new ()</title>
+<indexterm zone="awn-overlay-text-new"><primary sortas="awn_overlay_text_new">awn_overlay_text_new</primary></indexterm><programlisting><link linkend="AwnOverlayText">AwnOverlayText</link>*     awn_overlay_text_new                (void);</programlisting>
+<para>
+Creates a new instance of <link linkend="AwnOverlayText"><type>AwnOverlayText</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> an instance of <link linkend="AwnOverlayText"><type>AwnOverlayText</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-overlay-text-get-size" role="function">
+<title>awn_overlay_text_get_size ()</title>
+<indexterm zone="awn-overlay-text-get-size"><primary sortas="awn_overlay_text_get_size">awn_overlay_text_get_size</primary></indexterm><programlisting><link linkend="void">void</link>                awn_overlay_text_get_size           (<link linkend="AwnOverlayText">AwnOverlayText</link> *overlay,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *widget,
+                                                         <link linkend="gchar">gchar</link> *text,
+                                                         <link linkend="gint">gint</link> size,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>overlay</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>widget</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="AwnOverlayText.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="AwnOverlayText--font-mode" role="property"><title>The <literal>&quot;font-mode&quot;</literal> property</title>
+<indexterm zone="AwnOverlayText--font-mode"><primary sortas="AwnOverlayText:font-mode">AwnOverlayText:font-mode</primary></indexterm><programlisting>  &quot;font-mode&quot;                <link linkend="gint">gint</link>                  : Read / Write</programlisting>
+<para>Font Mode.</para><para>Allowed values: [0,2]</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="AwnOverlayText--font-sizing" role="property"><title>The <literal>&quot;font-sizing&quot;</literal> property</title>
+<indexterm zone="AwnOverlayText--font-sizing"><primary sortas="AwnOverlayText:font-sizing">AwnOverlayText:font-sizing</primary></indexterm><programlisting>  &quot;font-sizing&quot;              <link linkend="gdouble">gdouble</link>               : Read / Write / Construct</programlisting>
+<para>
+The Absolute font size as defined for use with <link linkend="PangoFontDescription"><type>PangoFontDescription</type></link> at
+<link linkend="PANGO-SCALE--CAPS"><literal>PANGO_SCALE</literal></link> at an <link linkend="AwnIcon"><type>AwnIcon</type></link> height of 48 pixels.  The following standard 
+awn font sizes are predefined:  <link linkend="AWN-FONT-SIZE-EXTRA-SMALL--CAPS"><literal>AWN_FONT_SIZE_EXTRA_SMALL</literal></link>, 
+<link linkend="AWN-FONT-SIZE-SMALL--CAPS"><literal>AWN_FONT_SIZE_SMALL</literal></link>, <link linkend="AWN-FONT-SIZE-MEDIUM--CAPS"><literal>AWN_FONT_SIZE_MEDIUM</literal></link>, <link linkend="AWN-FONT-SIZE-LARGE--CAPS"><literal>AWN_FONT_SIZE_LARGE</literal></link>, 
+<link linkend="AWN-FONT-SIZE-EXTRA-LARGE--CAPS"><literal>AWN_FONT_SIZE_EXTRA_LARGE</literal></link>.  The default size is <link linkend="AWN-FONT-SIZE-MEDIUM--CAPS"><literal>AWN_FONT_SIZE_MEDIUM</literal></link>.  
+Standard doubles can be used but all attempts should be made to use one of 
+the standard awn font sizes.</para>
+<para>
+</para><para>Allowed values: [1,100]</para>
+<para>Default value: 12</para>
+</refsect2>
+<refsect2 id="AwnOverlayText--text" role="property"><title>The <literal>&quot;text&quot;</literal> property</title>
+<indexterm zone="AwnOverlayText--text"><primary sortas="AwnOverlayText:text">AwnOverlayText:text</primary></indexterm><programlisting>  &quot;text&quot;                     <link linkend="gchar">gchar</link>*                : Read / Write / Construct</programlisting>
+<para>
+The text to display as a string.</para>
+<para>
+</para><para>Default value: ""</para>
+</refsect2>
+<refsect2 id="AwnOverlayText--text-color" role="property"><title>The <literal>&quot;text-color&quot;</literal> property</title>
+<indexterm zone="AwnOverlayText--text-color"><primary sortas="AwnOverlayText:text-color">AwnOverlayText:text-color</primary></indexterm><programlisting>  &quot;text-color&quot;               <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write</programlisting>
+<para>
+Text color to use as a <link linkend="DesktopAgnosticColor"><type>DesktopAgnosticColor</type></link>.  The default value is <link linkend="NULL--CAPS"><literal>NULL</literal></link>.
+If NULL then the current GTK+ Themes foreground <link linkend="GTK-ACTIVE-STATE--CAPS"><type>GTK_ACTIVE_STATE</type></link> color 
+will be used.</para>
+<para>
+</para></refsect2>
+<refsect2 id="AwnOverlayText--text-color-astr" role="property"><title>The <literal>&quot;text-color-astr&quot;</literal> property</title>
+<indexterm zone="AwnOverlayText--text-color-astr"><primary sortas="AwnOverlayText:text-color-astr">AwnOverlayText:text-color-astr</primary></indexterm><programlisting>  &quot;text-color-astr&quot;          <link linkend="gchar">gchar</link>*                : Read / Write</programlisting>
+<para>Text color as string.</para><para>Default value: ""</para>
+</refsect2>
+<refsect2 id="AwnOverlayText--text-outline-color" role="property"><title>The <literal>&quot;text-outline-color&quot;</literal> property</title>
+<indexterm zone="AwnOverlayText--text-outline-color"><primary sortas="AwnOverlayText:text-outline-color">AwnOverlayText:text-outline-color</primary></indexterm><programlisting>  &quot;text-outline-color&quot;       <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write</programlisting>
+<para>Text Outline Colour.</para></refsect2>
+<refsect2 id="AwnOverlayText--text-outline-color-astr" role="property"><title>The <literal>&quot;text-outline-color-astr&quot;</literal> property</title>
+<indexterm zone="AwnOverlayText--text-outline-color-astr"><primary sortas="AwnOverlayText:text-outline-color-astr">AwnOverlayText:text-outline-color-astr</primary></indexterm><programlisting>  &quot;text-outline-color-astr&quot;  <link linkend="gchar">gchar</link>*                : Read / Write</programlisting>
+<para>Text outline color as string.</para><para>Default value: ""</para>
+</refsect2>
+<refsect2 id="AwnOverlayText--text-outline-width" role="property"><title>The <literal>&quot;text-outline-width&quot;</literal> property</title>
+<indexterm zone="AwnOverlayText--text-outline-width"><primary sortas="AwnOverlayText:text-outline-width">AwnOverlayText:text-outline-width</primary></indexterm><programlisting>  &quot;text-outline-width&quot;       <link linkend="gdouble">gdouble</link>               : Read / Write</programlisting>
+<para>Text Outline Width.</para><para>Allowed values: [0,10]</para>
+<para>Default value: 2.5</para>
+</refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="AwnOverlayText.see-also">
+<title>See Also</title>
+#AwnEffects, <link linkend="AwnOverlay"><type>AwnOverlay</type></link>, <link linkend="AwnOverlayThemedIcon"><type>AwnOverlayThemedIcon</type></link>, <link linkend="AwnOverlayThrobber"><type>AwnOverlayThrobber</type></link>,
+<link linkend="AwnOverlayPixbuf"><type>AwnOverlayPixbuf</type></link>, <link linkend="AwnOverlayPixbufFile"><type>AwnOverlayPixbufFile</type></link>, <link linkend="AwnIcon"><type>AwnIcon</type></link>
+</refsect1>
+
+</refentry>

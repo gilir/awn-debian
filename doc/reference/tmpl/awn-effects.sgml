@@ -1,5 +1,5 @@
 <!-- ##### SECTION Title ##### -->
-awn-effects
+AwnEffects
 
 <!-- ##### SECTION Short_Description ##### -->
 
@@ -24,68 +24,149 @@ awn-effects
 
 @AWN_EFFECT_NONE: 
 @AWN_EFFECT_OPENING: 
-@AWN_EFFECT_LAUNCHING: 
-@AWN_EFFECT_HOVER: 
-@AWN_EFFECT_ATTENTION: 
 @AWN_EFFECT_CLOSING: 
+@AWN_EFFECT_HOVER: 
+@AWN_EFFECT_LAUNCHING: 
+@AWN_EFFECT_ATTENTION: 
 @AWN_EFFECT_DESATURATE: 
+
+<!-- ##### STRUCT AwnEffectsPrivate ##### -->
+<para>
+
+</para>
+
 
 <!-- ##### STRUCT AwnEffects ##### -->
 <para>
 
 </para>
 
-@self: 
-@focus_window: 
-@settings: 
-@title: 
-@get_title: 
-@effect_queue: 
-@icon_width: 
-@icon_height: 
-@window_width: 
-@window_height: 
-@effect_lock: 
-@current_effect: 
-@direction: 
-@count: 
-@x_offset: 
-@y_offset: 
-@curve_offset: 
-@delta_width: 
-@delta_height: 
-@clip_region: 
-@rotate_degrees: 
-@alpha: 
-@spotlight_alpha: 
-@saturation: 
-@glow_amount: 
-@icon_depth: 
-@icon_depth_direction: 
-@hover: 
-@clip: 
-@flip: 
-@spotlight: 
-@do_reflections: 
-@do_offset_cut: 
-@enter_notify: 
-@leave_notify: 
-@timer_id: 
-@icon_ctx: 
-@reflect_ctx: 
-@op_list: 
-@pad1: 
-@pad2: 
-@pad3: 
-@pad4: 
 
-<!-- ##### FUNCTION awn_effects_new ##### -->
+<!-- ##### SIGNAL AwnEffects::animation-end ##### -->
 <para>
 
 </para>
 
-@Returns: 
+@awneffects: the object which received the signal.
+@arg1: 
 
+<!-- ##### SIGNAL AwnEffects::animation-start ##### -->
+<para>
+
+</para>
+
+@awneffects: the object which received the signal.
+@arg1: 
+
+<!-- ##### ARG AwnEffects:active ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:active-rect-color ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:active-rect-outline ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:arrow-png ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:arrows-count ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:border-clip ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:custom-active-png ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:depressed ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:dot-color ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:effects ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:icon-alpha ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:icon-offset ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:indirect-paint ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:make-shadow ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:no-clear ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:position ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:progress ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:reflection-alpha ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:reflection-offset ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:reflection-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:spotlight-png ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnEffects:widget ##### -->
+<para>
+
+</para>
 
 <!-- ##### FUNCTION awn_effects_new_for_widget ##### -->
 <para>
@@ -94,39 +175,6 @@ awn-effects
 
 @widget: 
 @Returns: 
-
-
-<!-- ##### FUNCTION awn_effects_free ##### -->
-<para>
-
-</para>
-
-@fx: 
-
-
-<!-- ##### FUNCTION awn_effects_finalize ##### -->
-<para>
-
-</para>
-
-@fx: 
-
-
-<!-- ##### FUNCTION awn_effects_register ##### -->
-<para>
-
-</para>
-
-@fx: 
-@obj: 
-
-
-<!-- ##### FUNCTION awn_effects_unregister ##### -->
-<para>
-
-</para>
-
-@fx: 
 
 
 <!-- ##### FUNCTION awn_effects_start ##### -->
@@ -147,16 +195,6 @@ awn-effects
 @effect: 
 
 
-<!-- ##### FUNCTION awn_effects_set_title ##### -->
-<para>
-
-</para>
-
-@fx: 
-@title: 
-@title_func: 
-
-
 <!-- ##### FUNCTION awn_effects_start_ex ##### -->
 <para>
 
@@ -164,72 +202,42 @@ awn-effects
 
 @fx: 
 @effect: 
-@start: 
-@stop: 
 @max_loops: 
+@signal_start: 
+@signal_end: 
 
 
-<!-- ##### FUNCTION awn_effects_draw_background ##### -->
-<para>
-
-</para>
-
-@Param1: 
-@Param2: 
-
-
-<!-- ##### FUNCTION awn_effects_draw_icons ##### -->
-<para>
-
-</para>
-
-@Param1: 
-@Param2: 
-@Param3: 
-@Param4: 
-
-
-<!-- ##### FUNCTION awn_effects_draw_icons_cairo ##### -->
+<!-- ##### FUNCTION awn_effects_set_icon_size ##### -->
 <para>
 
 </para>
 
 @fx: 
-@cr: 
-@Param3: 
-@Param4: 
+@width: 
+@height: 
+@requestSize: 
 
 
-<!-- ##### FUNCTION awn_effects_draw_foreground ##### -->
+<!-- ##### FUNCTION awn_effects_cairo_create ##### -->
 <para>
 
 </para>
 
-@Param1: 
-@Param2: 
+@fx: 
+@Returns: 
 
 
-<!-- ##### FUNCTION awn_effects_draw_set_window_size ##### -->
+<!-- ##### FUNCTION awn_effects_cairo_create_clipped ##### -->
 <para>
 
 </para>
 
-@Param1: 
-@Param2: 
-@Param3: 
+@fx: 
+@event: 
+@Returns: 
 
 
-<!-- ##### FUNCTION awn_effects_draw_set_icon_size ##### -->
-<para>
-
-</para>
-
-@Param1: 
-@Param2: 
-@Param3: 
-
-
-<!-- ##### FUNCTION awn_effects_reflection_off ##### -->
+<!-- ##### FUNCTION awn_effects_cairo_destroy ##### -->
 <para>
 
 </para>
@@ -237,7 +245,34 @@ awn-effects
 @fx: 
 
 
-<!-- ##### FUNCTION awn_effects_reflection_on ##### -->
+<!-- ##### FUNCTION awn_effects_add_overlay ##### -->
+<para>
+
+</para>
+
+@fx: 
+@overlay: 
+
+
+<!-- ##### FUNCTION awn_effects_remove_overlay ##### -->
+<para>
+
+</para>
+
+@fx: 
+@overlay: 
+
+
+<!-- ##### FUNCTION awn_effects_get_overlays ##### -->
+<para>
+
+</para>
+
+@fx: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_redraw ##### -->
 <para>
 
 </para>
@@ -245,12 +280,29 @@ awn-effects
 @fx: 
 
 
-<!-- ##### FUNCTION awn_effects_set_offset_cut ##### -->
+<!-- ##### FUNCTION awn_effects_main_effect_loop ##### -->
 <para>
 
 </para>
 
 @fx: 
-@cut: 
+
+
+<!-- ##### FUNCTION awn_effects_emit_anim_start ##### -->
+<para>
+
+</para>
+
+@fx: 
+@effect: 
+
+
+<!-- ##### FUNCTION awn_effects_emit_anim_end ##### -->
+<para>
+
+</para>
+
+@fx: 
+@effect: 
 
 

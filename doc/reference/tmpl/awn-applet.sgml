@@ -35,9 +35,8 @@ AwnApplet
 </para>
 
 @awnapplet: the object which received the signal.
-@arg1: 
 
-<!-- ##### SIGNAL AwnApplet::height-changed ##### -->
+<!-- ##### SIGNAL AwnApplet::flags-changed ##### -->
 <para>
 
 </para>
@@ -45,7 +44,7 @@ AwnApplet
 @awnapplet: the object which received the signal.
 @arg1: 
 
-<!-- ##### SIGNAL AwnApplet::orientation-changed ##### -->
+<!-- ##### SIGNAL AwnApplet::menu-creation ##### -->
 <para>
 
 </para>
@@ -53,12 +52,102 @@ AwnApplet
 @awnapplet: the object which received the signal.
 @arg1: 
 
-<!-- ##### ARG AwnApplet:height ##### -->
+<!-- ##### SIGNAL AwnApplet::offset-changed ##### -->
 <para>
 
 </para>
 
-<!-- ##### ARG AwnApplet:orient ##### -->
+@awnapplet: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL AwnApplet::origin-changed ##### -->
+<para>
+
+</para>
+
+@awnapplet: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL AwnApplet::panel-configure-event ##### -->
+<para>
+
+</para>
+
+@awnapplet: the object which received the signal.
+@event: 
+
+<!-- ##### SIGNAL AwnApplet::position-changed ##### -->
+<para>
+
+</para>
+
+@awnapplet: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL AwnApplet::size-changed ##### -->
+<para>
+
+</para>
+
+@awnapplet: the object which received the signal.
+@arg1: 
+
+<!-- ##### ARG AwnApplet:canonical-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:display-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:max-size ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:offset ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:offset-modifier ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:panel-id ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:panel-xid ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:path-type ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:position ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:quit-on-delete ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:show-all-on-embed ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnApplet:size ##### -->
 <para>
 
 </para>
@@ -82,9 +171,9 @@ AwnApplet
 
 </para>
 
+@canonical_name: 
 @uid: 
-@orient: 
-@height: 
+@panel_id: 
 @Returns: 
 
 
@@ -93,13 +182,13 @@ AwnApplet
 
 </para>
 
+@canonical_name: 
 @uid: 
-@orient: 
-@height: 
+@panel_id: 
 @Returns: 
 
 
-<!-- ##### FUNCTION awn_applet_get_orientation ##### -->
+<!-- ##### FUNCTION awn_applet_get_canonical_name ##### -->
 <para>
 
 </para>
@@ -108,13 +197,123 @@ AwnApplet
 @Returns: 
 
 
-<!-- ##### FUNCTION awn_applet_get_height ##### -->
+<!-- ##### FUNCTION awn_applet_get_pos_type ##### -->
 <para>
 
 </para>
 
 @applet: 
 @Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_set_pos_type ##### -->
+<para>
+
+</para>
+
+@applet: 
+@position: 
+
+
+<!-- ##### FUNCTION awn_applet_get_path_type ##### -->
+<para>
+
+</para>
+
+@applet: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_set_path_type ##### -->
+<para>
+
+</para>
+
+@applet: 
+@path: 
+
+
+<!-- ##### FUNCTION awn_applet_get_offset ##### -->
+<para>
+
+</para>
+
+@applet: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_get_offset_at ##### -->
+<para>
+
+</para>
+
+@applet: 
+@x: 
+@y: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_set_offset ##### -->
+<para>
+
+</para>
+
+@applet: 
+@offset: 
+
+
+<!-- ##### FUNCTION awn_applet_get_size ##### -->
+<para>
+
+</para>
+
+@applet: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_set_size ##### -->
+<para>
+
+</para>
+
+@applet: 
+@size: 
+
+
+<!-- ##### FUNCTION awn_applet_get_uid ##### -->
+<para>
+
+</para>
+
+@applet: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_set_uid ##### -->
+<para>
+
+</para>
+
+@applet: 
+@uid: 
+
+
+<!-- ##### FUNCTION awn_applet_get_behavior ##### -->
+<para>
+
+</para>
+
+@applet: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_set_behavior ##### -->
+<para>
+
+</para>
+
+@applet: 
+@flags: 
 
 
 <!-- ##### FUNCTION awn_applet_create_default_menu ##### -->
@@ -123,6 +322,77 @@ AwnApplet
 </para>
 
 @applet: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_inhibit_autohide ##### -->
+<para>
+
+</para>
+
+@applet: 
+@reason: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_uninhibit_autohide ##### -->
+<para>
+
+</para>
+
+@applet: 
+@cookie: 
+
+
+<!-- ##### FUNCTION awn_applet_docklet_request ##### -->
+<para>
+
+</para>
+
+@applet: 
+@min_size: 
+@shrink: 
+@expand: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_create_pref_item ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_create_about_item ##### -->
+<para>
+
+</para>
+
+@applet: 
+@copyright: 
+@license: 
+@version: 
+@comments: 
+@website: 
+@website_label: 
+@icon_name: 
+@translator_credits: 
+@authors: 
+@artists: 
+@documenters: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_applet_create_about_item_simple ##### -->
+<para>
+
+</para>
+
+@applet: 
+@copyright: 
+@license: 
+@version: 
 @Returns: 
 
 

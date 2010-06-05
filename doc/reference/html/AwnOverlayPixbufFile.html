@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnOverlayPixbufFile</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch04.html" title="Icon Overlays">
+<link rel="prev" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf">
+<link rel="next" href="AwnOverlayProgress.html" title="AwnOverlayProgress">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="api-reference.html" title="Part I. API Reference">
+<link rel="chapter" href="ch01.html" title="Applets">
+<link rel="chapter" href="ch02.html" title="Base Components">
+<link rel="chapter" href="ch03.html" title="Icons">
+<link rel="chapter" href="ch04.html" title="Icon Overlays">
+<link rel="chapter" href="ch05.html" title="Utilities">
+<link rel="index" href="index-all.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnOverlayPixbuf.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="AwnOverlayProgress.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AwnOverlayPixbufFile.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AwnOverlayPixbufFile.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AwnOverlayPixbufFile.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AwnOverlayPixbufFile.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="AwnOverlayPixbufFile">
+<a name="AwnOverlayPixbufFile"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AwnOverlayPixbufFile.top_of_page"></a>AwnOverlayPixbufFile</span></h2>
+<p>AwnOverlayPixbufFile — An subclass of <a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf"><span class="type">AwnOverlayPixbuf</span></a> to overlay a <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+><span class="type">GdkPixbuf</span></a> 
+loaded from a Filename.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1" title="Stability Level">
+<a name="AwnOverlayPixbufFile.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="AwnOverlayPixbufFile.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;libawn/libawn.h&gt;
+
+                    <a class="link" href="AwnOverlayPixbufFile.html#AwnOverlayPixbufFile-struct" title="AwnOverlayPixbufFile">AwnOverlayPixbufFile</a>;
+<a class="link" href="AwnOverlayPixbufFile.html" title="AwnOverlayPixbufFile">AwnOverlayPixbufFile</a>* <a class="link" href="AwnOverlayPixbufFile.html#awn-overlay-pixbuf-file-new" title="awn_overlay_pixbuf_file_new ()">awn_overlay_pixbuf_file_new</a>       (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *file_name);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="AwnOverlayPixbufFile.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a>
+               +----<a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf">AwnOverlayPixbuf</a>
+                     +----AwnOverlayPixbufFile
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="AwnOverlayPixbufFile.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnOverlayPixbufFile.html#AwnOverlayPixbufFile--file-name" title='The "file-name" property'>file-name</a>"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="AwnOverlayPixbufFile.description"></a><h2>Description</h2>
+<p>
+Overlay a <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+><span class="type">GdkPixbuf</span></a>, loaded using the filename provided, on an 
+<span class="type">AwnOverlaidIcon</span>.  You probably should _NOT_ be using this object.  You 
+should, probably, be using <a class="link" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon"><span class="type">AwnOverlayThemedIcon</span></a>.</p>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="AwnOverlayPixbufFile.details"></a><h2>Details</h2>
+<div class="refsect2" title="AwnOverlayPixbufFile">
+<a name="AwnOverlayPixbufFile-struct"></a><h3>AwnOverlayPixbufFile</h3>
+<pre class="programlisting">typedef struct _AwnOverlayPixbufFile AwnOverlayPixbufFile;</pre>
+<p>
+Overlay a <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+><span class="type">GdkPixbuf</span></a>, loaded using the filename provided, on an 
+<span class="type">AwnOverlaidIcon</span>.  You probably should _NOT_ be using this object.  You 
+should, probably, be using <a class="link" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon"><span class="type">AwnOverlayThemedIcon</span></a>.</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="awn_overlay_pixbuf_file_new ()">
+<a name="awn-overlay-pixbuf-file-new"></a><h3>awn_overlay_pixbuf_file_new ()</h3>
+<pre class="programlisting"><a class="link" href="AwnOverlayPixbufFile.html" title="AwnOverlayPixbufFile">AwnOverlayPixbufFile</a>* awn_overlay_pixbuf_file_new       (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *file_name);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="AwnOverlayPixbufFile.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "file-name" property'>
+<a name="AwnOverlayPixbufFile--file-name"></a><h3>The <code class="literal">"file-name"</code> property</h3>
+<pre class="programlisting">  "file-name"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct</pre>
+<p>File Name.</p>
+<p>Default value: ""</p>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="AwnOverlayPixbufFile.see-also"></a><h2>See Also</h2>
+#AwnOverlay, <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a>, <a class="link" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon"><span class="type">AwnOverlayThemedIcon</span></a>, 
+<a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber"><span class="type">AwnOverlayThrobber</span></a>, <a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf"><span class="type">AwnOverlayPixbuf</span></a>, <a class="link" href="AwnEffects.html" title="AwnEffects"><span class="type">AwnEffects</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

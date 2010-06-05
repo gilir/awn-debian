@@ -1,0 +1,77 @@
+<!-- ##### SECTION Title ##### -->
+awn-overlayable
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO AWN_OVERLAYABLE_GET_INTERFACE ##### -->
+<para>
+
+</para>
+
+@inst: 
+
+
+<!-- ##### STRUCT AwnOverlayable ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT AwnOverlayableIface ##### -->
+<para>
+
+</para>
+
+@parent: 
+@get_effects: 
+
+<!-- ##### FUNCTION awn_overlayable_get_effects ##### -->
+<para>
+
+</para>
+
+@self: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_overlayable_add_overlay ##### -->
+<para>
+
+</para>
+
+@self: 
+@overlay: 
+
+
+<!-- ##### FUNCTION awn_overlayable_remove_overlay ##### -->
+<para>
+
+</para>
+
+@self: 
+@overlay: 
+
+
+<!-- ##### FUNCTION awn_overlayable_get_overlays ##### -->
+<para>
+
+</para>
+
+@self: 
+@Returns: 
+
+

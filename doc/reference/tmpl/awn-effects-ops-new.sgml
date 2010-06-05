@@ -1,0 +1,233 @@
+<!-- ##### SECTION Title ##### -->
+awn-effects-ops-new
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION awn_effects_get_base_coords ##### -->
+<para>
+
+</para>
+
+@fx: 
+@x: 
+@y: 
+
+
+<!-- ##### FUNCTION awn_effects_pre_op_clear ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_pre_op_clip ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_pre_op_translate ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_pre_op_scale ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_pre_op_rotate ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_pre_op_flip ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_clip ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_saturate ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_glow ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_depth ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_shadow ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_spotlight ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_alpha ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_reflection ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_active ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_arrow ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effects_post_op_progress ##### -->
+<para>
+
+</para>
+
+@fx: 
+@cr: 
+@ds: 
+@user_data: 
+@Returns: 
+
+

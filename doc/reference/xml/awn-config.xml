@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libawn-awn-config">
+<refmeta>
+<refentrytitle role="top_of_page" id="libawn-awn-config.top_of_page">awn-config</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>awn-config</refname>
+<refpurpose>Convenience functions for handling dock/applet
+configuration.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libawn-awn-config.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="DesktopAgnosticConfigClient">DesktopAgnosticConfigClient</link>* <link linkend="awn-config-get-default">awn_config_get_default</link>     (<link linkend="gint">gint</link> panel_id,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="DesktopAgnosticConfigClient">DesktopAgnosticConfigClient</link>* <link linkend="awn-config-get-default-for-applet">awn_config_get_default_for_applet</link>
+                                                        (<link linkend="AwnApplet">AwnApplet</link> *applet,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="DesktopAgnosticConfigClient">DesktopAgnosticConfigClient</link>* <link linkend="awn-config-get-default-for-applet-by-info">awn_config_get_default_for_applet_by_info</link>
+                                                        (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *uid,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="void">void</link>                <link linkend="awn-config-free">awn_config_free</link>                     (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libawn-awn-config.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions used by the dock, applets, and preferences dialogs to
+associate configuration options with the first two categories. Also
+handles their memory management.</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libawn-awn-config.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="awn-config-get-default" role="function">
+<title>awn_config_get_default ()</title>
+<indexterm zone="awn-config-get-default"><primary sortas="awn_config_get_default">awn_config_get_default</primary></indexterm><programlisting><link linkend="DesktopAgnosticConfigClient">DesktopAgnosticConfigClient</link>* awn_config_get_default     (<link linkend="gint">gint</link> panel_id,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Looks up or creates a configuration client that is associated with the
+panel specified.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>panel_id</parameter>&#160;:</term>
+<listitem><simpara> The ID of the panel that is associated with the configuration
+client.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> The address of the <link linkend="GError"><type>GError</type></link> object, if an error occurs.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A borrowed reference to a configuration client object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-config-get-default-for-applet" role="function">
+<title>awn_config_get_default_for_applet ()</title>
+<indexterm zone="awn-config-get-default-for-applet"><primary sortas="awn_config_get_default_for_applet">awn_config_get_default_for_applet</primary></indexterm><programlisting><link linkend="DesktopAgnosticConfigClient">DesktopAgnosticConfigClient</link>* awn_config_get_default_for_applet
+                                                        (<link linkend="AwnApplet">AwnApplet</link> *applet,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Looks up or creates a configuration client that is associated with the
+given applet.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>applet</parameter>&#160;:</term>
+<listitem><simpara> The applet.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> The address of the <link linkend="GError"><type>GError</type></link> object, if an error occurs.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A borrowed reference to the configuration client associated with
+the applet specified via the metadata.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-config-get-default-for-applet-by-info" role="function">
+<title>awn_config_get_default_for_applet_by_info ()</title>
+<indexterm zone="awn-config-get-default-for-applet-by-info"><primary sortas="awn_config_get_default_for_applet_by_info">awn_config_get_default_for_applet_by_info</primary></indexterm><programlisting><link linkend="DesktopAgnosticConfigClient">DesktopAgnosticConfigClient</link>* awn_config_get_default_for_applet_by_info
+                                                        (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *uid,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Looks up or creates a configuration client that is associated with the
+canonical name of an applet and an optional UID.
+Should only be used by code where the <link linkend="AwnApplet"><type>AwnApplet</type></link> object is not present,
+such as the dock's preferences dialog.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&#160;:</term>
+<listitem><simpara> The canonical applet name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>uid</parameter>&#160;:</term>
+<listitem><simpara> The UID of the applet (may not be <link linkend="NULL--CAPS"><literal>NULL</literal></link>).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> The address of the <link linkend="GError"><type>GError</type></link> object, if an error occurs.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A borrowed reference to the configuration client associated with
+the applet specified via the metadata.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-config-free" role="function">
+<title>awn_config_free ()</title>
+<indexterm zone="awn-config-free"><primary sortas="awn_config_free">awn_config_free</primary></indexterm><programlisting><link linkend="void">void</link>                awn_config_free                     (void);</programlisting>
+<para>
+Properly frees all of the config clients in the cache.
+</para>
+<para>
+Should be called on dock shutdown.</para>
+<para>
+</para></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="libawn-awn-config.see-also">
+<title>See Also</title>
+#DesktopAgnosticConfigClient
+</refsect1>
+
+</refentry>

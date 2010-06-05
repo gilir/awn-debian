@@ -1,0 +1,64 @@
+<!-- ##### SECTION Title ##### -->
+awn-effect-glow
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION glow_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION glow_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION glow_closing_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION glow_attention_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION glow_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+

@@ -1,3 +1,876 @@
+<!-- ##### SECTION ./tmpl/awn-config-bridge.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-config-bridge.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-config-bridge.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-config-bridge.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-config-bridge.sgml:Title ##### -->
+AwnConfigBridge
+
+
+<!-- ##### SECTION ./tmpl/awn-config-client.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-config-client.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-config-client.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-config-client.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-config-client.sgml:Title ##### -->
+awn-config-client
+
+
+<!-- ##### SECTION ./tmpl/awn-desktop-item.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-desktop-item.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-desktop-item.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-desktop-item.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-desktop-item.sgml:Title ##### -->
+awn-desktop-item
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-bounce.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-bounce.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-bounce.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-bounce.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-bounce.sgml:Title ##### -->
+awn-effect-bounce
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-desaturate.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-desaturate.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-desaturate.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-desaturate.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-desaturate.sgml:Title ##### -->
+awn-effect-desaturate
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-fade.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-fade.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-fade.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-fade.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-fade.sgml:Title ##### -->
+awn-effect-fade
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-glow.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-glow.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-glow.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-glow.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-glow.sgml:Title ##### -->
+awn-effect-glow
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-simple.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-simple.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-simple.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-simple.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-simple.sgml:Title ##### -->
+awn-effect-simple
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight.sgml:Title ##### -->
+awn-effect-spotlight
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight3d.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight3d.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight3d.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight3d.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-spotlight3d.sgml:Title ##### -->
+awn-effect-spotlight3d
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-squish.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-squish.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-squish.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-squish.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-squish.sgml:Title ##### -->
+awn-effect-squish
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-turn.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-turn.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-turn.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-turn.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-turn.sgml:Title ##### -->
+awn-effect-turn
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-zoom.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-zoom.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-zoom.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-zoom.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effect-zoom.sgml:Title ##### -->
+awn-effect-zoom
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-ops-helpers.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-ops-helpers.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-ops-helpers.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-ops-helpers.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-ops-helpers.sgml:Title ##### -->
+awn-effects-ops-helpers
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-shared.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-shared.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-shared.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-shared.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-effects-shared.sgml:Title ##### -->
+awn-effects-shared
+
+
+<!-- ##### SECTION ./tmpl/awn-enum-types.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-enum-types.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-enum-types.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-enum-types.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-enum-types.sgml:Title ##### -->
+awn-enum-types
+
+
+<!-- ##### SECTION ./tmpl/awn-vfs.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-vfs.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/awn-vfs.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-vfs.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/awn-vfs.sgml:Title ##### -->
+awn-vfs
+
+
+<!-- ##### SECTION ./tmpl/egg-enum-types.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/egg-enum-types.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/egg-enum-types.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/egg-enum-types.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/egg-enum-types.sgml:Title ##### -->
+egg-enum-types
+
+
+<!-- ##### SECTION ./tmpl/eggdesktopfile.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/eggdesktopfile.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/eggdesktopfile.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/eggdesktopfile.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/eggdesktopfile.sgml:Title ##### -->
+eggdesktopfile
+
+
+<!-- ##### SECTION ./tmpl/gseal-transition.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/gseal-transition.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/gseal-transition.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/gseal-transition.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/gseal-transition.sgml:Title ##### -->
+gseal-transition
+
+
+<!-- ##### SECTION ./tmpl/libawn-marshal.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/libawn-marshal.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/libawn-marshal.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/libawn-marshal.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/libawn-marshal.sgml:Title ##### -->
+libawn-marshal
+
+
+<!-- ##### SECTION ./tmpl/libawn.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/libawn.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/libawn.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/libawn.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/libawn.sgml:Title ##### -->
+libawn
+
+
+<!-- ##### SECTION ./tmpl/stamp-awn-enum-types.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/stamp-awn-enum-types.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/stamp-awn-enum-types.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/stamp-awn-enum-types.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/stamp-awn-enum-types.sgml:Title ##### -->
+stamp-awn-enum-types
+
+
+<!-- ##### SECTION ./tmpl/stamp-egg-enum-types.sgml:Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/stamp-egg-enum-types.sgml:See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION ./tmpl/stamp-egg-enum-types.sgml:Short_Description ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/stamp-egg-enum-types.sgml:Stability_Level ##### -->
+
+
+
+<!-- ##### SECTION ./tmpl/stamp-egg-enum-types.sgml:Title ##### -->
+stamp-egg-enum-types
+
+
+<!-- ##### MACRO AWN_ANIMATION_INIT ##### -->
+<para>
+
+</para>
+
+@anim: 
+
+<!-- ##### MACRO AWN_APPLET_GCONF_PATH ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_CONFIG_CLIENT ##### -->
+<para>
+
+</para>
+
+@obj: 
+
+<!-- ##### MACRO AWN_CONFIG_CLIENT_DEFAULT_GROUP ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_DESKTOP_ITEM ##### -->
+<para>
+
+</para>
+
+@obj: 
+
+<!-- ##### MACRO AWN_EFFECT_ORIENT_BOTTOM ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_EFFECT_ORIENT_LEFT ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_EFFECT_ORIENT_RIGHT ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_EFFECT_ORIENT_TOP ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_GCONF_PATH ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_RGBA_SCALE_FACTOR ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_APPLET_FLAGS ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_APPLET_LICENSE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_ARROW_TYPE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_CAIRO_ROUND_CORNERS ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_CONFIG_BACKEND ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_CONFIG_CLIENT ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_CONFIG_LIST_TYPE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_CONFIG_VALUE_TYPE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_DESKTOP_ITEM ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_EFFECT ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_EFFECT_SEQUENCE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_ORIENTATION ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_OVERLAY_ALIGN ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_PATH_TYPE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_VFS_MONITOR_EVENT ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO AWN_TYPE_VFS_MONITOR_TYPE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL AwnApplet::orientation-changed ##### -->
+<para>
+
+</para>
+
+@awnapplet: the object which received the signal.
+@arg1: 
+
+<!-- ##### ARG AwnApplet:orient ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnApplet:single-instance ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL AwnAppletSimple::long-press ##### -->
+<para>
+
+</para>
+
+@awnappletsimple: the object which received the signal.
+
+<!-- ##### ENUM AwnArrowType ##### -->
+<para>
+
+</para>
+
+@AWN_ARROW_TYPE_CUSTOM: 
+@AWN_ARROW_TYPE_1: 
+@AWN_ARROW_TYPE_2: 
+@AWN_ARROW_TYPE_LAST: 
+
+<!-- ##### ENUM AwnConfigBackend ##### -->
+<para>
+
+</para>
+
+@AWN_CONFIG_CLIENT_GCONF: 
+@AWN_CONFIG_CLIENT_GKEYFILE: 
+
+<!-- ##### STRUCT AwnConfigBridge ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT AwnConfigBridgePrivate ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT AwnConfigClient ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### USER_FUNCTION AwnConfigClientNotifyFunc ##### -->
+<para>
+
+</para>
+
+@entry: 
+@data: 
+
+<!-- ##### ENUM AwnConfigListType ##### -->
+<para>
+
+</para>
+
+@AWN_CONFIG_CLIENT_LIST_TYPE_BOOL: 
+@AWN_CONFIG_CLIENT_LIST_TYPE_FLOAT: 
+@AWN_CONFIG_CLIENT_LIST_TYPE_INT: 
+@AWN_CONFIG_CLIENT_LIST_TYPE_STRING: 
+
+<!-- ##### ENUM AwnConfigValueType ##### -->
+<para>
+
+</para>
+
+@AWN_CONFIG_VALUE_TYPE_NULL: 
+@AWN_CONFIG_VALUE_TYPE_BOOL: 
+@AWN_CONFIG_VALUE_TYPE_FLOAT: 
+@AWN_CONFIG_VALUE_TYPE_INT: 
+@AWN_CONFIG_VALUE_TYPE_STRING: 
+@AWN_CONFIG_VALUE_TYPE_LIST_BOOL: 
+@AWN_CONFIG_VALUE_TYPE_LIST_FLOAT: 
+@AWN_CONFIG_VALUE_TYPE_LIST_INT: 
+@AWN_CONFIG_VALUE_TYPE_LIST_STRING: 
+
+<!-- ##### STRUCT AwnDesktopItem ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnDialog:ghistep1 ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnDialog:ghistep2 ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnDialog:gstep1 ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnDialog:gstep2 ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnDialog:orient ##### -->
+<para>
+
+</para>
+
+
 <!-- ##### ENUM AwnEffectSequence ##### -->
 <para>
 
@@ -22,187 +895,1719 @@
 @AWN_EFFECT_SPOTLIGHT_TREMBLE_DOWN: 
 @AWN_EFFECT_SPOTLIGHT_OFF: 
 
-<!-- ##### USER_FUNCTION AwnEventNotify ##### -->
+<!-- ##### ARG AwnEffects:label ##### -->
 <para>
 
 </para>
 
-@Param1: 
 
-<!-- ##### STRUCT AwnSettings ##### -->
+<!-- ##### ARG AwnEffects:orientation ##### -->
 <para>
 
 </para>
 
-@icon_theme: 
-@bar: 
-@window: 
-@title: 
-@appman: 
-@hot: 
-@task_width: 
+
+<!-- ##### STRUCT AwnEffectsAnimation ##### -->
+<para>
+
+</para>
+
+@effects: 
+@this_effect: 
+@max_loops: 
+@signal_start: 
+@signal_end: 
+
+<!-- ##### ARG AwnImage:label ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM AwnOrientation ##### -->
+<para>
+
+</para>
+
+@AWN_ORIENTATION_TOP: 
+@AWN_ORIENTATION_RIGHT: 
+@AWN_ORIENTATION_BOTTOM: 
+@AWN_ORIENTATION_LEFT: 
+
+<!-- ##### ARG AwnOverlayThemedIcon:icon ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnOverlayThemedIcon:icon-state ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnOverlayThrobber:icon ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnTooltip:focus ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT AwnVfsMonitor ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM AwnVfsMonitorEvent ##### -->
+<para>
+
+</para>
+
+@AWN_VFS_MONITOR_EVENT_CHANGED: 
+@AWN_VFS_MONITOR_EVENT_CREATED: 
+@AWN_VFS_MONITOR_EVENT_DELETED: 
+
+<!-- ##### USER_FUNCTION AwnVfsMonitorFunc ##### -->
+<para>
+
+</para>
+
 @monitor: 
-@force_monitor: 
-@monitor_height: 
-@monitor_width: 
-@panel_mode: 
-@auto_hide: 
-@hidden: 
-@hiding: 
-@auto_hide_delay: 
-@keep_below: 
-@bar_height: 
-@bar_angle: 
-@bar_pos: 
-@no_bar_resize_ani: 
-@rounded_corners: 
-@corner_radius: 
-@render_pattern: 
-@expand_bar: 
-@pattern_uri: 
-@pattern_alpha: 
-@g_step_1: 
-@g_step_2: 
-@g_histep_1: 
-@g_histep_2: 
-@border_color: 
-@hilight_color: 
-@show_separator: 
-@sep_color: 
-@show_all_windows: 
-@launchers: 
-@use_png: 
-@active_png: 
-@arrow_color: 
-@arrow_offset: 
-@tasks_have_arrows: 
-@name_change_notify: 
-@alpha_effect: 
-@icon_effect: 
-@icon_alpha: 
-@reflection_alpha_mult: 
-@frame_rate: 
-@icon_depth_on: 
-@icon_offset: 
-@text_color: 
-@shadow_color: 
-@background: 
-@font_face: 
-@btest: 
-@ftest: 
-@stest: 
-@ctest: 
-@ltest: 
-@bar_width: 
-@curviness: 
-@curves_symmetry: 
+@monitor_path: 
+@event_path: 
+@event: 
+@user_data: 
 
-<!-- ##### USER_FUNCTION AwnTitleCallback ##### -->
+<!-- ##### ENUM AwnVfsMonitorType ##### -->
 <para>
 
 </para>
 
-@Param1: 
+@AWN_VFS_MONITOR_FILE: 
+@AWN_VFS_MONITOR_DIRECTORY: 
+
+<!-- ##### MACRO EGG_DESKTOP_FILE ##### -->
+<para>
+
+</para>
+
+@obj: 
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_ERROR ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_GROUP ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_CATEGORIES ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_COMMENT ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_EXEC ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_GENERIC_NAME ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_HIDDEN ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_ICON ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_MIME_TYPE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_NAME ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_NOT_SHOW_IN ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_NO_DISPLAY ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_ONLY_SHOW_IN ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_PATH ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_STARTUP_NOTIFY ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_STARTUP_WM_CLASS ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_TERMINAL ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_TRY_EXEC ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_TYPE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_URL ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_DESKTOP_FILE_KEY_VERSION ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_TYPE_DESKTOP_FILE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_TYPE_DESKTOP_FILE_ERROR ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_TYPE_DESKTOP_FILE_LAUNCH_OPTION ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO EGG_TYPE_DESKTOP_FILE_TYPE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT EggDesktopFile ##### -->
+<para>
+
+</para>
+
+@key_file: 
+@source: 
+@name: 
+@icon: 
+@type: 
+@document_code: 
+
+<!-- ##### ENUM EggDesktopFileError ##### -->
+<para>
+
+</para>
+
+@EGG_DESKTOP_FILE_ERROR_INVALID: 
+@EGG_DESKTOP_FILE_ERROR_NOT_LAUNCHABLE: 
+@EGG_DESKTOP_FILE_ERROR_UNRECOGNIZED_OPTION: 
+
+<!-- ##### ENUM EggDesktopFileLaunchOption ##### -->
+<para>
+
+</para>
+
+@EGG_DESKTOP_FILE_LAUNCH_CLEARENV: 
+@EGG_DESKTOP_FILE_LAUNCH_PUTENV: 
+@EGG_DESKTOP_FILE_LAUNCH_SCREEN: 
+@EGG_DESKTOP_FILE_LAUNCH_WORKSPACE: 
+@EGG_DESKTOP_FILE_LAUNCH_DIRECTORY: 
+@EGG_DESKTOP_FILE_LAUNCH_TIME: 
+@EGG_DESKTOP_FILE_LAUNCH_FLAGS: 
+@EGG_DESKTOP_FILE_LAUNCH_SETUP_FUNC: 
+@EGG_DESKTOP_FILE_LAUNCH_RETURN_PID: 
+@EGG_DESKTOP_FILE_LAUNCH_RETURN_STDIN_PIPE: 
+@EGG_DESKTOP_FILE_LAUNCH_RETURN_STDOUT_PIPE: 
+@EGG_DESKTOP_FILE_LAUNCH_RETURN_STDERR_PIPE: 
+@EGG_DESKTOP_FILE_LAUNCH_RETURN_STARTUP_ID: 
+
+<!-- ##### ENUM EggDesktopFileType ##### -->
+<para>
+
+</para>
+
+@EGG_DESKTOP_FILE_TYPE_UNRECOGNIZED: 
+@EGG_DESKTOP_FILE_TYPE_APPLICATION: 
+@EGG_DESKTOP_FILE_TYPE_LINK: 
+@EGG_DESKTOP_FILE_TYPE_DIRECTORY: 
+
+<!-- ##### FUNCTION awn_applet_flags_get_type ##### -->
+<para>
+
+</para>
+
 @Returns: 
 
-<!-- ##### FUNCTION awn_config_set_window_to_update ##### -->
+<!-- ##### FUNCTION awn_applet_get_flags ##### -->
 <para>
 
 </para>
 
-@window: 
+@applet: 
+@Returns: 
 
-<!-- ##### FUNCTION awn_draw_background ##### -->
+<!-- ##### FUNCTION awn_applet_get_orientation ##### -->
 <para>
 
 </para>
 
-@Param1: 
-@Param2: 
+@applet: 
+@Returns: 
 
-<!-- ##### FUNCTION awn_draw_foreground ##### -->
+<!-- ##### FUNCTION awn_applet_license_get_type ##### -->
 <para>
 
 </para>
 
-@Param1: 
-@Param2: 
+@Returns: 
 
-<!-- ##### FUNCTION awn_draw_icons ##### -->
+<!-- ##### FUNCTION awn_applet_set_flags ##### -->
 <para>
 
 </para>
 
-@Param1: 
-@Param2: 
-@Param3: 
-@Param4: 
+@applet: 
+@flags: 
 
-<!-- ##### FUNCTION awn_draw_set_icon_size ##### -->
+<!-- ##### FUNCTION awn_applet_set_orientation ##### -->
 <para>
 
 </para>
 
-@Param1: 
-@Param2: 
-@Param3: 
+@applet: 
+@orient: 
 
-<!-- ##### FUNCTION awn_draw_set_window_size ##### -->
+<!-- ##### FUNCTION awn_applet_set_panel_window_id ##### -->
 <para>
 
 </para>
 
-@Param1: 
-@Param2: 
-@Param3: 
+@applet: 
+@anid: 
 
-<!-- ##### FUNCTION awn_effect_start ##### -->
+<!-- ##### FUNCTION awn_applet_simple_create_about_item ##### -->
 <para>
 
 </para>
 
-@fx: 
-@effect: 
+@applet: 
+@copyright: 
+@license: 
+@version: 
+@Returns: 
 
-<!-- ##### FUNCTION awn_effect_start_ex ##### -->
+<!-- ##### FUNCTION awn_arrow_type_get_type ##### -->
 <para>
 
 </para>
 
-@fx: 
-@effect: 
-@start: 
-@stop: 
-@max_loops: 
+@Returns: 
 
-<!-- ##### FUNCTION awn_effect_stop ##### -->
+<!-- ##### FUNCTION awn_cairo_round_corners_get_type ##### -->
 <para>
 
 </para>
 
-@fx: 
-@effect: 
+@Returns: 
 
-<!-- ##### FUNCTION awn_effects_init ##### -->
+<!-- ##### FUNCTION awn_config_backend_get_type ##### -->
 <para>
 
 </para>
 
-@obj: 
-@fx: 
+@Returns: 
 
-<!-- ##### FUNCTION awn_register_effects ##### -->
+<!-- ##### FUNCTION awn_config_bridge_bind ##### -->
 <para>
 
 </para>
 
-@obj: 
-@fx: 
+@bridge: 
+@client: 
+@group: 
+@key: 
+@object: 
+@prop_name: 
 
-<!-- ##### FUNCTION awn_unregister_effects ##### -->
+<!-- ##### FUNCTION awn_config_bridge_bind_list ##### -->
 <para>
 
 </para>
 
-@fx: 
+@bridge: 
+@client: 
+@group: 
+@key: 
+@list_type: 
+@object: 
+@prop_name: 
+
+<!-- ##### FUNCTION awn_config_bridge_get_default ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_clear ##### -->
+<para>
+
+</para>
+
+@client: 
+@err: 
+
+<!-- ##### FUNCTION awn_config_client_ensure_group ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+
+<!-- ##### FUNCTION awn_config_client_entry_exists ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_free ##### -->
+<para>
+
+</para>
+
+@client: 
+
+<!-- ##### FUNCTION awn_config_client_get_bool ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@err: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_get_float ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@err: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_get_int ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@err: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_get_list ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@type: 
+@err: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_get_string ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@err: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_get_value_type ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@err: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_key_lock ##### -->
+<para>
+
+</para>
+
+@fd: 
+@operation: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_key_lock_close ##### -->
+<para>
+
+</para>
+
+@fd: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_key_lock_open ##### -->
+<para>
+
+</para>
+
+@group: 
+@key: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_load_defaults_from_schema ##### -->
+<para>
+
+</para>
+
+@client: 
+@err: 
+
+<!-- ##### FUNCTION awn_config_client_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_new_for_applet ##### -->
+<para>
+
+</para>
+
+@name: 
+@uid: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_notify_add ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@cb: 
+@user_data: 
+
+<!-- ##### FUNCTION awn_config_client_query_backend ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_client_set_bool ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@value: 
+@err: 
+
+<!-- ##### FUNCTION awn_config_client_set_float ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@value: 
+@err: 
+
+<!-- ##### FUNCTION awn_config_client_set_int ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@value: 
+@err: 
+
+<!-- ##### FUNCTION awn_config_client_set_list ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@type: 
+@value: 
+@err: 
+
+<!-- ##### FUNCTION awn_config_client_set_string ##### -->
+<para>
+
+</para>
+
+@client: 
+@group: 
+@key: 
+@value: 
+@err: 
+
+<!-- ##### FUNCTION awn_config_list_type_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_config_value_type_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_copy ##### -->
+<para>
+
+</para>
+
+@item: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_exists ##### -->
+<para>
+
+</para>
+
+@item: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_free ##### -->
+<para>
+
+</para>
+
+@item: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_exec ##### -->
+<para>
+
+</para>
+
+@item: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_filename ##### -->
+<para>
+
+</para>
+
+@item: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_icon ##### -->
+<para>
+
+</para>
+
+@item: 
+@size: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_icon_name ##### -->
+<para>
+
+</para>
+
+@item: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_item_type ##### -->
+<para>
+
+</para>
+
+@item: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_localestring ##### -->
+<para>
+
+</para>
+
+@item: 
+@key: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_name ##### -->
+<para>
+
+</para>
+
+@item: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_string ##### -->
+<para>
+
+</para>
+
+@item: 
+@key: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_launch ##### -->
+<para>
+
+</para>
+
+@item: 
+@documents: 
+@err: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_new ##### -->
+<para>
+
+</para>
+
+@filename: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_desktop_item_save ##### -->
+<para>
+
+</para>
+
+@item: 
+@new_filname: 
+@err: 
+
+<!-- ##### FUNCTION awn_desktop_item_set_exec ##### -->
+<para>
+
+</para>
+
+@item: 
+@exec: 
+
+<!-- ##### FUNCTION awn_desktop_item_set_icon_name ##### -->
+<para>
+
+</para>
+
+@item: 
+@icon: 
+
+<!-- ##### FUNCTION awn_desktop_item_set_item_type ##### -->
+<para>
+
+</para>
+
+@item: 
+@item_type: 
+
+<!-- ##### FUNCTION awn_desktop_item_set_localestring ##### -->
+<para>
+
+</para>
+
+@item: 
+@key: 
+@locale: 
+@value: 
+
+<!-- ##### FUNCTION awn_desktop_item_set_name ##### -->
+<para>
+
+</para>
+
+@item: 
+@name: 
+
+<!-- ##### FUNCTION awn_desktop_item_set_string ##### -->
+<para>
+
+</para>
+
+@item: 
+@key: 
+@value: 
+
+<!-- ##### FUNCTION awn_effect_check_max_loops ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_effect_check_top_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@stopped: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_effect_emit_anim_end ##### -->
+<para>
+
+</para>
+
+@anim: 
+
+<!-- ##### FUNCTION awn_effect_emit_anim_start ##### -->
+<para>
+
+</para>
+
+@anim: 
+
+<!-- ##### FUNCTION awn_effect_force_timeout ##### -->
+<para>
+
+</para>
+
+@anim: 
+@timeout: 
+@func: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_effect_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_effect_handle_repeating ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_effect_sequence_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_effect_suspend_animation ##### -->
+<para>
+
+</para>
+
+@anim: 
+@func: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_icon_box_set_orientation ##### -->
+<para>
+
+</para>
+
+@icon_box: 
+@orient: 
+
+<!-- ##### FUNCTION awn_icon_get_click_event ##### -->
+<para>
+
+</para>
+
+@icon: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_icon_get_message ##### -->
+<para>
+
+</para>
+
+@icon: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_icon_get_progress ##### -->
+<para>
+
+</para>
+
+@icon: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_icon_set_message ##### -->
+<para>
+
+</para>
+
+@icon: 
+@message: 
+
+<!-- ##### FUNCTION awn_icon_set_orientation ##### -->
+<para>
+
+</para>
+
+@icon: 
+@orient: 
+
+<!-- ##### FUNCTION awn_icon_set_progress ##### -->
+<para>
+
+</para>
+
+@icon: 
+@progress: 
+
+<!-- ##### FUNCTION awn_image_get_overlay_text ##### -->
+<para>
+
+</para>
+
+@image: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_image_new_with_label ##### -->
+<para>
+
+</para>
+
+@label: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_image_set_label ##### -->
+<para>
+
+</para>
+
+@image: 
+@label: 
+
+<!-- ##### FUNCTION awn_orientation_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_overlay_align_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_path_type_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_vfs_get_pathlist_from_string ##### -->
+<para>
+
+</para>
+
+@paths: 
+@err: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_vfs_init ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION awn_vfs_monitor_add ##### -->
+<para>
+
+</para>
+
+@path: 
+@monitor_type: 
+@callback: 
+@user_data: 
+@Returns: 
+
+<!-- ##### FUNCTION awn_vfs_monitor_emit ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@path: 
+@event: 
+
+<!-- ##### FUNCTION awn_vfs_monitor_event_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION awn_vfs_monitor_remove ##### -->
+<para>
+
+</para>
+
+@monitor: 
+
+<!-- ##### FUNCTION awn_vfs_monitor_type_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION blur_surface_shadow ##### -->
+<para>
+
+</para>
+
+@src: 
+@surface_width: 
+@surface_height: 
+@radius: 
+
+<!-- ##### FUNCTION bounce_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_squish_attention_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_squish_closing_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_squish_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_squish_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_squish_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION bounce_squish_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION darken_surface ##### -->
+<para>
+
+</para>
+
+@src: 
+@surface_width: 
+@surface_height: 
+
+<!-- ##### FUNCTION desaturate_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION desaturate_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_accepts_documents ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_accepts_multiple ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_accepts_uris ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_can_launch ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@desktop_environment: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_copy ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_error_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_error_quark ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_free ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+
+<!-- ##### FUNCTION egg_desktop_file_get_desktop_file_type ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_get_icon ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_get_key_file ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_get_name ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_get_source ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_launch ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@documents: 
+@error: 
+@Varargs: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_launch_option_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_new ##### -->
+<para>
+
+</para>
+
+@desktop_file_path: 
+@error: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_new_from_data_dirs ##### -->
+<para>
+
+</para>
+
+@desktop_file_path: 
+@error: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_new_from_key_file ##### -->
+<para>
+
+</para>
+
+@desktop: 
+@source: 
+@error: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_parse_exec ##### -->
+<para>
+
+</para>
+
+@desktop_file: 
+@documents: 
+@error: 
+@Returns: 
+
+<!-- ##### FUNCTION egg_desktop_file_type_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION egg_get_desktop_file ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+<!-- ##### FUNCTION egg_set_desktop_file ##### -->
+<para>
+
+</para>
+
+@desktop_file_path: 
+
+<!-- ##### FUNCTION fade_out_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION fading_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION fading_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION fading_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION glow_attention_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION glow_closing_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION glow_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION glow_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION glow_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### MACRO gtk_selection_data_get_data ##### -->
+<para>
+
+</para>
+
+@x: 
+
+<!-- ##### MACRO gtk_selection_data_get_length ##### -->
+<para>
+
+</para>
+
+@x: 
+
+<!-- ##### MACRO gtk_socket_get_plug_window ##### -->
+<para>
+
+</para>
+
+@x: 
+
+<!-- ##### MACRO gtk_widget_get_window ##### -->
+<para>
+
+</para>
+
+@x: 
+
+<!-- ##### FUNCTION libawn_marshal_VOID__STRING_STRING_BOXED ##### -->
+<para>
+
+</para>
+
+@closure: 
+@return_value: 
+@n_param_values: 
+@param_values: 
+@invocation_hint: 
+@marshal_data: 
+
+<!-- ##### FUNCTION lighten_component ##### -->
+<para>
+
+</para>
+
+@cur_value: 
+@amount: 
+@absolute: 
+@Returns: 
+
+<!-- ##### FUNCTION lighten_surface ##### -->
+<para>
+
+</para>
+
+@src: 
+@surface_width: 
+@surface_height: 
+@amount: 
+@absolute: 
+
+<!-- ##### FUNCTION paint_arrow_dot ##### -->
+<para>
+
+</para>
+
+@cr: 
+@size: 
+@count: 
+@r: 
+@g: 
+@b: 
+
+<!-- ##### FUNCTION paint_arrow_triangle ##### -->
+<para>
+
+</para>
+
+@cr: 
+@size: 
+@count: 
+
+<!-- ##### FUNCTION simple_attention_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION simple_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight3D_closing_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight3D_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight3D_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight3D_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight3D_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight_closing_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight_half_fade_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION spotlight_init ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION spotlight_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION surface_saturate ##### -->
+<para>
+
+</para>
+
+@icon_srfc: 
+@saturation: 
+
+<!-- ##### FUNCTION turn_closing_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION turn_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION turn_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION turn_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION turn_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION zoom_attention_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION zoom_closing_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION zoom_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION zoom_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+<!-- ##### FUNCTION zoom_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
 
