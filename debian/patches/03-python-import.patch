@@ -1,17 +1,17 @@
 # Hardcode python location to avoid rebuilding package when the python version change.
 
-Index: avant-window-navigator/awn-manager/awnManager.py.in
+Index: avant-window-navigator-0.3.9/awn-settings/awnSettings.py.in
 ===================================================================
---- avant-window-navigator.orig/awn-manager/awnManager.py.in	2009-04-25 01:14:56.000000000 +0200
-+++ avant-window-navigator/awn-manager/awnManager.py.in	2009-04-25 01:15:03.000000000 +0200
-@@ -22,8 +22,8 @@
- 
- import sys, os, os.path, time
+--- avant-window-navigator-0.3.9.orig/awn-settings/awnSettings.py.in	2010-01-10 15:25:44.000000000 +0100
++++ avant-window-navigator-0.3.9/awn-settings/awnSettings.py.in	2010-01-10 15:25:59.000000000 +0100
+@@ -26,8 +26,8 @@
+ import time
+ import pwd
  
 -PLAT_PKG = '@PY_PLAT_PKG@'
 -SITE_PKG = '@PY_SITE_PKG@'
 +PLAT_PKG = '/usr/lib/python'+sys.version[0:3]+'/site-packages'
 +SITE_PKG = '/usr/lib/python'+sys.version[0:3]+'/site-packages'
- AWN_MANAGER_DIR = os.path.join('@PKGDATADIR@', 'awn-manager')
- sys.path = [AWN_MANAGER_DIR] + sys.path
+ AWN_SETTINGS_DIR = os.path.join('@PKGDATADIR@', 'awn-settings')
+ sys.path = [AWN_SETTINGS_DIR] + sys.path
  if PLAT_PKG not in sys.path:

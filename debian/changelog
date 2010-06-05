@@ -6,6 +6,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
   * debian/patches:
    - 10_correct_exception.patch: Dropped, problem fixed in the new version.
    - 00-wm-behavior.patch and 01-tasks-have-arrow.patch: Merged upstream.
+   - 03-python-import.patch: Refresh.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
