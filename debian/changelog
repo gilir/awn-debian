@@ -46,6 +46,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Update manpages.
   * debian/awn-manager.*
    - Rename awn-manager to awn-settings.
+   - Remove unused manpages.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
