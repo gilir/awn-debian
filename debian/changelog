@@ -1,3 +1,9 @@
+avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
+
 avant-window-navigator (0.3.2.1-6) unstable; urgency=medium
 
   * debian/patches/02-ftbfs-python-2.6.patch: Remove LOCALMODLIBS in configure
