@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnTooltip">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnTooltip.top_of_page">AwnTooltip</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnTooltip</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="AwnTooltip.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="AwnTooltipPrivate">AwnTooltipPrivate</link>;
+                    <link linkend="AwnTooltip-struct">AwnTooltip</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="awn-tooltip-new-for-widget">awn_tooltip_new_for_widget</link>          (<link linkend="GtkWidget">GtkWidget</link> *widget);
+<link linkend="void">void</link>                <link linkend="awn-tooltip-set-text">awn_tooltip_set_text</link>                (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         const <link linkend="gchar">gchar</link> *text);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-tooltip-get-text">awn_tooltip_get_text</link>                (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip);
+<link linkend="void">void</link>                <link linkend="awn-tooltip-set-focus-widget">awn_tooltip_set_focus_widget</link>        (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *widget);
+<link linkend="void">void</link>                <link linkend="awn-tooltip-set-font-name">awn_tooltip_set_font_name</link>           (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         const <link linkend="gchar">gchar</link> *font_name);
+<link linkend="void">void</link>                <link linkend="awn-tooltip-set-font-color">awn_tooltip_set_font_color</link>          (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *font_color);
+<link linkend="void">void</link>                <link linkend="awn-tooltip-set-background-color">awn_tooltip_set_background_color</link>    (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *bg_color);
+<link linkend="void">void</link>                <link linkend="awn-tooltip-set-delay">awn_tooltip_set_delay</link>               (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="gint">gint</link> msecs);
+<link linkend="gint">gint</link>                <link linkend="awn-tooltip-get-delay">awn_tooltip_get_delay</link>               (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip);
+<link linkend="void">void</link>                <link linkend="awn-tooltip-update-position">awn_tooltip_update_position</link>         (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip);
+<link linkend="void">void</link>                <link linkend="awn-tooltip-set-position-hint">awn_tooltip_set_position_hint</link>       (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="GtkPositionType">GtkPositionType</link> position,
+                                                         <link linkend="gint">gint</link> size);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnTooltip.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkWindow">GtkWindow</link>
+                                       +----AwnTooltip
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnTooltip.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+AwnTooltip implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="AwnTooltip.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="AwnTooltip--delay">delay</link>&quot;                    <link linkend="gint">gint</link>                  : Read / Write / Construct
+  &quot;<link linkend="AwnTooltip--focus-widget">focus-widget</link>&quot;             <link linkend="GtkWidget">GtkWidget</link>*            : Read / Write
+  &quot;<link linkend="AwnTooltip--offset">offset</link>&quot;                   <link linkend="gint">gint</link>                  : Read / Write / Construct
+  &quot;<link linkend="AwnTooltip--smart-behavior">smart-behavior</link>&quot;           <link linkend="gboolean">gboolean</link>              : Read / Write / Construct
+  &quot;<link linkend="AwnTooltip--toggle-on-click">toggle-on-click</link>&quot;          <link linkend="gboolean">gboolean</link>              : Read / Write / Construct
+  &quot;<link linkend="AwnTooltip--tooltip-bg-color">tooltip-bg-color</link>&quot;         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write / Construct
+  &quot;<link linkend="AwnTooltip--tooltip-font-color">tooltip-font-color</link>&quot;       <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write / Construct
+  &quot;<link linkend="AwnTooltip--tooltip-font-name">tooltip-font-name</link>&quot;        <link linkend="gchar">gchar</link>*                : Read / Write / Construct
+  &quot;<link linkend="AwnTooltip--tooltip-outline-color">tooltip-outline-color</link>&quot;    <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write / Construct
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnTooltip.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnTooltip.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnTooltipPrivate" role="struct">
+<title>AwnTooltipPrivate</title>
+<indexterm zone="AwnTooltipPrivate"><primary sortas="AwnTooltipPrivate">AwnTooltipPrivate</primary></indexterm><programlisting>typedef struct _AwnTooltipPrivate AwnTooltipPrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnTooltip-struct" role="struct">
+<title>AwnTooltip</title>
+<indexterm zone="AwnTooltip-struct"><primary sortas="AwnTooltip">AwnTooltip</primary></indexterm><programlisting>typedef struct _AwnTooltip AwnTooltip;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="awn-tooltip-new-for-widget" role="function">
+<title>awn_tooltip_new_for_widget ()</title>
+<indexterm zone="awn-tooltip-new-for-widget"><primary sortas="awn_tooltip_new_for_widget">awn_tooltip_new_for_widget</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         awn_tooltip_new_for_widget          (<link linkend="GtkWidget">GtkWidget</link> *widget);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-set-text" role="function">
+<title>awn_tooltip_set_text ()</title>
+<indexterm zone="awn-tooltip-set-text"><primary sortas="awn_tooltip_set_text">awn_tooltip_set_text</primary></indexterm><programlisting><link linkend="void">void</link>                awn_tooltip_set_text                (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         const <link linkend="gchar">gchar</link> *text);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-get-text" role="function">
+<title>awn_tooltip_get_text ()</title>
+<indexterm zone="awn-tooltip-get-text"><primary sortas="awn_tooltip_get_text">awn_tooltip_get_text</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_tooltip_get_text                (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-set-focus-widget" role="function">
+<title>awn_tooltip_set_focus_widget ()</title>
+<indexterm zone="awn-tooltip-set-focus-widget"><primary sortas="awn_tooltip_set_focus_widget">awn_tooltip_set_focus_widget</primary></indexterm><programlisting><link linkend="void">void</link>                awn_tooltip_set_focus_widget        (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *widget);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>widget</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-set-font-name" role="function">
+<title>awn_tooltip_set_font_name ()</title>
+<indexterm zone="awn-tooltip-set-font-name"><primary sortas="awn_tooltip_set_font_name">awn_tooltip_set_font_name</primary></indexterm><programlisting><link linkend="void">void</link>                awn_tooltip_set_font_name           (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         const <link linkend="gchar">gchar</link> *font_name);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>font_name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-set-font-color" role="function">
+<title>awn_tooltip_set_font_color ()</title>
+<indexterm zone="awn-tooltip-set-font-color"><primary sortas="awn_tooltip_set_font_color">awn_tooltip_set_font_color</primary></indexterm><programlisting><link linkend="void">void</link>                awn_tooltip_set_font_color          (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *font_color);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>font_color</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-set-background-color" role="function">
+<title>awn_tooltip_set_background_color ()</title>
+<indexterm zone="awn-tooltip-set-background-color"><primary sortas="awn_tooltip_set_background_color">awn_tooltip_set_background_color</primary></indexterm><programlisting><link linkend="void">void</link>                awn_tooltip_set_background_color    (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *bg_color);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>bg_color</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-set-delay" role="function">
+<title>awn_tooltip_set_delay ()</title>
+<indexterm zone="awn-tooltip-set-delay"><primary sortas="awn_tooltip_set_delay">awn_tooltip_set_delay</primary></indexterm><programlisting><link linkend="void">void</link>                awn_tooltip_set_delay               (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="gint">gint</link> msecs);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msecs</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-get-delay" role="function">
+<title>awn_tooltip_get_delay ()</title>
+<indexterm zone="awn-tooltip-get-delay"><primary sortas="awn_tooltip_get_delay">awn_tooltip_get_delay</primary></indexterm><programlisting><link linkend="gint">gint</link>                awn_tooltip_get_delay               (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-update-position" role="function">
+<title>awn_tooltip_update_position ()</title>
+<indexterm zone="awn-tooltip-update-position"><primary sortas="awn_tooltip_update_position">awn_tooltip_update_position</primary></indexterm><programlisting><link linkend="void">void</link>                awn_tooltip_update_position         (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-tooltip-set-position-hint" role="function">
+<title>awn_tooltip_set_position_hint ()</title>
+<indexterm zone="awn-tooltip-set-position-hint"><primary sortas="awn_tooltip_set_position_hint">awn_tooltip_set_position_hint</primary></indexterm><programlisting><link linkend="void">void</link>                awn_tooltip_set_position_hint       (<link linkend="AwnTooltip">AwnTooltip</link> *tooltip,
+                                                         <link linkend="GtkPositionType">GtkPositionType</link> position,
+                                                         <link linkend="gint">gint</link> size);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>tooltip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="AwnTooltip.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="AwnTooltip--delay" role="property"><title>The <literal>&quot;delay&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--delay"><primary sortas="AwnTooltip:delay">AwnTooltip:delay</primary></indexterm><programlisting>  &quot;delay&quot;                    <link linkend="gint">gint</link>                  : Read / Write / Construct</programlisting>
+<para>Delay.</para><para>Allowed values: &gt;= 0</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="AwnTooltip--focus-widget" role="property"><title>The <literal>&quot;focus-widget&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--focus-widget"><primary sortas="AwnTooltip:focus-widget">AwnTooltip:focus-widget</primary></indexterm><programlisting>  &quot;focus-widget&quot;             <link linkend="GtkWidget">GtkWidget</link>*            : Read / Write</programlisting>
+<para>Widget to focus on.</para></refsect2>
+<refsect2 id="AwnTooltip--offset" role="property"><title>The <literal>&quot;offset&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--offset"><primary sortas="AwnTooltip:offset">AwnTooltip:offset</primary></indexterm><programlisting>  &quot;offset&quot;                   <link linkend="gint">gint</link>                  : Read / Write / Construct</programlisting>
+<para>Icon Offset.</para><para>Allowed values: &gt;= 0</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="AwnTooltip--smart-behavior" role="property"><title>The <literal>&quot;smart-behavior&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--smart-behavior"><primary sortas="AwnTooltip:smart-behavior">AwnTooltip:smart-behavior</primary></indexterm><programlisting>  &quot;smart-behavior&quot;           <link linkend="gboolean">gboolean</link>              : Read / Write / Construct</programlisting>
+<para>Will show the tooltip on enter-notify-event and hide on leave-notify-event.</para><para>Default value: TRUE</para>
+</refsect2>
+<refsect2 id="AwnTooltip--toggle-on-click" role="property"><title>The <literal>&quot;toggle-on-click&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--toggle-on-click"><primary sortas="AwnTooltip:toggle-on-click">AwnTooltip:toggle-on-click</primary></indexterm><programlisting>  &quot;toggle-on-click&quot;          <link linkend="gboolean">gboolean</link>              : Read / Write / Construct</programlisting>
+<para>Toggles tooltip visibility on click.</para><para>Default value: TRUE</para>
+</refsect2>
+<refsect2 id="AwnTooltip--tooltip-bg-color" role="property"><title>The <literal>&quot;tooltip-bg-color&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--tooltip-bg-color"><primary sortas="AwnTooltip:tooltip-bg-color">AwnTooltip:tooltip-bg-color</primary></indexterm><programlisting>  &quot;tooltip-bg-color&quot;         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write / Construct</programlisting>
+<para>Tooltip Background Color.</para></refsect2>
+<refsect2 id="AwnTooltip--tooltip-font-color" role="property"><title>The <literal>&quot;tooltip-font-color&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--tooltip-font-color"><primary sortas="AwnTooltip:tooltip-font-color">AwnTooltip:tooltip-font-color</primary></indexterm><programlisting>  &quot;tooltip-font-color&quot;       <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write / Construct</programlisting>
+<para>Tooltip Font Color.</para></refsect2>
+<refsect2 id="AwnTooltip--tooltip-font-name" role="property"><title>The <literal>&quot;tooltip-font-name&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--tooltip-font-name"><primary sortas="AwnTooltip:tooltip-font-name">AwnTooltip:tooltip-font-name</primary></indexterm><programlisting>  &quot;tooltip-font-name&quot;        <link linkend="gchar">gchar</link>*                : Read / Write / Construct</programlisting>
+<para>Tooltip Font Name.</para><para>Default value: "Sans 8"</para>
+</refsect2>
+<refsect2 id="AwnTooltip--tooltip-outline-color" role="property"><title>The <literal>&quot;tooltip-outline-color&quot;</literal> property</title>
+<indexterm zone="AwnTooltip--tooltip-outline-color"><primary sortas="AwnTooltip:tooltip-outline-color">AwnTooltip:tooltip-outline-color</primary></indexterm><programlisting>  &quot;tooltip-outline-color&quot;    <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link>*  : Read / Write / Construct</programlisting>
+<para>Tooltip Outline Color.</para></refsect2>
+</refsect1>
+
+
+
+
+</refentry>

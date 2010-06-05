@@ -17,20 +17,6 @@ awn-defines
 <!-- ##### SECTION Stability_Level ##### -->
 
 
-<!-- ##### MACRO AWN_GCONF_PATH ##### -->
-<para>
-
-</para>
-
-
-
-<!-- ##### MACRO AWN_APPLET_GCONF_PATH ##### -->
-<para>
-
-</para>
-
-
-
 <!-- ##### MACRO AWN_MAX_HEIGHT ##### -->
 <para>
 
@@ -45,13 +31,78 @@ awn-defines
 
 
 
-<!-- ##### ENUM AwnOrientation ##### -->
+<!-- ##### ENUM AwnAppletFlags ##### -->
 <para>
 
 </para>
 
-@AWN_ORIENTATION_BOTTOM: 
-@AWN_ORIENTATION_TOP: 
-@AWN_ORIENTATION_RIGHT: 
-@AWN_ORIENTATION_LEFT: 
+@AWN_APPLET_FLAGS_NONE: 
+@AWN_APPLET_EXPAND_MINOR: 
+@AWN_APPLET_EXPAND_MAJOR: 
+@AWN_APPLET_IS_EXPANDER: 
+@AWN_APPLET_IS_SEPARATOR: 
+@AWN_APPLET_HAS_SHAPE_MASK: 
+@AWN_APPLET_DOCKLET_HANDLES_POSITION_CHANGE: 
+@AWN_APPLET_DOCKLET_CLOSE_ON_MOUSE_OUT: 
+
+<!-- ##### ENUM AwnAppletLicense ##### -->
+<para>
+
+</para>
+
+@AWN_APPLET_LICENSE_GPLV2: 
+@AWN_APPLET_LICENSE_GPLV3: 
+@AWN_APPLET_LICENSE_LGPLV2_1: 
+@AWN_APPLET_LICENSE_LGPLV3: 
+
+<!-- ##### ENUM AwnPathType ##### -->
+<para>
+
+</para>
+
+@AWN_PATH_LINEAR: 
+@AWN_PATH_ELLIPSE: 
+@AWN_PATH_LAST: 
+
+<!-- ##### MACRO AWN_PANEL_ID_DEFAULT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO AWN_FONT_SIZE_EXTRA_SMALL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO AWN_FONT_SIZE_SMALL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO AWN_FONT_SIZE_MEDIUM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO AWN_FONT_SIZE_LARGE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO AWN_FONT_SIZE_EXTRA_LARGE ##### -->
+<para>
+
+</para>
+
+
 

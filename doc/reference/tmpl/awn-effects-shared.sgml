@@ -1,0 +1,202 @@
+<!-- ##### SECTION Title ##### -->
+awn-effects-shared
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO AWN_EFFECT_ORIENT_TOP ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO AWN_EFFECT_ORIENT_RIGHT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO AWN_EFFECT_ORIENT_BOTTOM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO AWN_EFFECT_ORIENT_LEFT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM AwnArrowType ##### -->
+<para>
+
+</para>
+
+@AWN_ARROW_TYPE_CUSTOM: 
+@AWN_ARROW_TYPE_1: 
+@AWN_ARROW_TYPE_2: 
+@AWN_ARROW_TYPE_LAST: 
+
+<!-- ##### STRUCT AwnEffectsAnimation ##### -->
+<para>
+
+</para>
+
+@effects: 
+@this_effect: 
+@max_loops: 
+@signal_start: 
+@signal_end: 
+
+<!-- ##### STRUCT AwnEffectsPrivate ##### -->
+<para>
+
+</para>
+
+@effect_queue: 
+@overlays: 
+@sleeping_func: 
+@icon_width: 
+@icon_height: 
+@window_width: 
+@window_height: 
+@effect_lock: 
+@current_effect: 
+@direction: 
+@count: 
+@side_offset: 
+@top_offset: 
+@curve_offset: 
+@width_mod: 
+@height_mod: 
+@clip_region: 
+@rotate_degrees: 
+@alpha: 
+@spotlight_alpha: 
+@saturation: 
+@glow_amount: 
+@icon_depth: 
+@icon_depth_direction: 
+@arrow_type: 
+@clip: 
+@flip: 
+@spotlight: 
+@simple_rect: 
+@timer_id: 
+@already_exposed: 
+
+<!-- ##### ENUM AwnEffectSequence ##### -->
+<para>
+
+</para>
+
+@AWN_EFFECT_DIR_NONE: 
+@AWN_EFFECT_DIR_STOP: 
+@AWN_EFFECT_DIR_DOWN: 
+@AWN_EFFECT_DIR_UP: 
+@AWN_EFFECT_DIR_LEFT: 
+@AWN_EFFECT_DIR_RIGHT: 
+@AWN_EFFECT_SQUISH_DOWN: 
+@AWN_EFFECT_SQUISH_DOWN2: 
+@AWN_EFFECT_SQUISH_UP: 
+@AWN_EFFECT_SQUISH_UP2: 
+@AWN_EFFECT_TURN_1: 
+@AWN_EFFECT_TURN_2: 
+@AWN_EFFECT_TURN_3: 
+@AWN_EFFECT_TURN_4: 
+@AWN_EFFECT_SPOTLIGHT_ON: 
+@AWN_EFFECT_SPOTLIGHT_TREMBLE_UP: 
+@AWN_EFFECT_SPOTLIGHT_TREMBLE_DOWN: 
+@AWN_EFFECT_SPOTLIGHT_OFF: 
+
+<!-- ##### MACRO AWN_ANIMATION_INIT ##### -->
+<para>
+
+</para>
+
+@anim: 
+
+
+<!-- ##### FUNCTION awn_effect_check_top_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@stopped: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effect_handle_repeating ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effect_check_max_loops ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effect_suspend_animation ##### -->
+<para>
+
+</para>
+
+@anim: 
+@func: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effect_force_timeout ##### -->
+<para>
+
+</para>
+
+@anim: 
+@timeout: 
+@func: 
+@Returns: 
+
+
+<!-- ##### FUNCTION awn_effect_emit_anim_start ##### -->
+<para>
+
+</para>
+
+@anim: 
+
+
+<!-- ##### FUNCTION awn_effect_emit_anim_end ##### -->
+<para>
+
+</para>
+
+@anim: 
+
+

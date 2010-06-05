@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnIconBox</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch03.html" title="Icons">
+<link rel="prev" href="AwnThemedIcon.html" title="AwnThemedIcon">
+<link rel="next" href="ch04.html" title="Icon Overlays">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="api-reference.html" title="Part I. API Reference">
+<link rel="chapter" href="ch01.html" title="Applets">
+<link rel="chapter" href="ch02.html" title="Base Components">
+<link rel="chapter" href="ch03.html" title="Icons">
+<link rel="chapter" href="ch04.html" title="Icon Overlays">
+<link rel="chapter" href="ch05.html" title="Utilities">
+<link rel="index" href="index-all.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnThemedIcon.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="ch04.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AwnIconBox.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AwnIconBox.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AwnIconBox.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AwnIconBox.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#AwnIconBox.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="AwnIconBox">
+<a name="AwnIconBox"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AwnIconBox.top_of_page"></a>AwnIconBox</span></h2>
+<p>AwnIconBox</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="AwnIconBox.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="AwnIconBox.html#AwnIconBoxPrivate" title="AwnIconBoxPrivate">AwnIconBoxPrivate</a>;
+                    <a class="link" href="AwnIconBox.html#AwnIconBox-struct" title="AwnIconBox">AwnIconBox</a>;
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *         <a class="link" href="AwnIconBox.html#awn-icon-box-new" title="awn_icon_box_new ()">awn_icon_box_new</a>                    (void);
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *         <a class="link" href="AwnIconBox.html#awn-icon-box-new-for-applet" title="awn_icon_box_new_for_applet ()">awn_icon_box_new_for_applet</a>         (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);
+void                <a class="link" href="AwnIconBox.html#awn-icon-box-set-pos-type" title="awn_icon_box_set_pos_type ()">awn_icon_box_set_pos_type</a>           (<a class="link" href="AwnIconBox.html" title="AwnIconBox">AwnIconBox</a> *icon_box,
+                                                         <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
+>GtkPositionType</a> position);
+void                <a class="link" href="AwnIconBox.html#awn-icon-box-set-offset" title="awn_icon_box_set_offset ()">awn_icon_box_set_offset</a>             (<a class="link" href="AwnIconBox.html" title="AwnIconBox">AwnIconBox</a> *icon_box,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> offset);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="AwnIconBox.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html"
+>GtkObject</a>
+               +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>
+                     +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html"
+>GtkContainer</a>
+                           +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkBox.html"
+>GtkBox</a>
+                                 +----<a class="link" href="AwnBox.html" title="AwnBox">AwnBox</a>
+                                       +----AwnIconBox
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="AwnIconBox.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnIconBox implements
+ AtkImplementorIface,  <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-gtkbuildable.html#GtkBuildable"
+>GtkBuildable</a> and  <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Orientable.html#GtkOrientable"
+>GtkOrientable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="AwnIconBox.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnIconBox.html#AwnIconBox--applet" title='The "applet" property'>applet</a>"                   <a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a>*            : Write / Construct Only
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="AwnIconBox.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="AwnIconBox.details"></a><h2>Details</h2>
+<div class="refsect2" title="AwnIconBoxPrivate">
+<a name="AwnIconBoxPrivate"></a><h3>AwnIconBoxPrivate</h3>
+<pre class="programlisting">typedef struct _AwnIconBoxPrivate AwnIconBoxPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="AwnIconBox">
+<a name="AwnIconBox-struct"></a><h3>AwnIconBox</h3>
+<pre class="programlisting">typedef struct _AwnIconBox AwnIconBox;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_box_new ()">
+<a name="awn-icon-box-new"></a><h3>awn_icon_box_new ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *         awn_icon_box_new                    (void);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_box_new_for_applet ()">
+<a name="awn-icon-box-new-for-applet"></a><h3>awn_icon_box_new_for_applet ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *         awn_icon_box_new_for_applet         (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_box_set_pos_type ()">
+<a name="awn-icon-box-set-pos-type"></a><h3>awn_icon_box_set_pos_type ()</h3>
+<pre class="programlisting">void                awn_icon_box_set_pos_type           (<a class="link" href="AwnIconBox.html" title="AwnIconBox">AwnIconBox</a> *icon_box,
+                                                         <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
+>GtkPositionType</a> position);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_box</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_icon_box_set_offset ()">
+<a name="awn-icon-box-set-offset"></a><h3>awn_icon_box_set_offset ()</h3>
+<pre class="programlisting">void                awn_icon_box_set_offset             (<a class="link" href="AwnIconBox.html" title="AwnIconBox">AwnIconBox</a> *icon_box,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> offset);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_box</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="AwnIconBox.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "applet" property'>
+<a name="AwnIconBox--applet"></a><h3>The <code class="literal">"applet"</code> property</h3>
+<pre class="programlisting">  "applet"                   <a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a>*            : Write / Construct Only</pre>
+<p>AwnApplet from which offset and position properties are read.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

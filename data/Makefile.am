@@ -1,20 +1,20 @@
 APP_ICON_NAME = avant-window-navigator
+DESKTOP_BASENAME = avant-window-navigator
+desktopdir = $(datarootdir)/applications
 include $(top_srcdir)/Makefile.app-icons
-
-SUBDIRS =		\
-        active		\
-        default-theme	\
-        $(NULL)
-
-# desktop file
-
-desktopdir   = $(datadir)/applications
-desktop_DATA = avant-window-navigator.desktop
-@INTLTOOL_DESKTOP_RULE@
+include $(top_srcdir)/Makefile.desktop-files
+include $(top_srcdir)/Makefile.shave
+include $(top_srcdir)/Makefile.schemas
 
 icons = avant-window-navigator-24.png avant-window-navigator-32.png
 
 # icon-related
+
+# I have no idea where else to put it.
+fallbackicondir = $(datadir)/icons/hicolor/scalable/apps
+fallbackicon_DATA = \
+	awn-window-fallback.svg \
+	$(NULL)
 
 install-icons:
 	mkdir -p $(DESTDIR)$(datadir)/icons/hicolor/24x24/apps
@@ -34,39 +34,15 @@ update-icon-cache:
 		echo "***   $(gtk_update_icon_cache)"; \
 	fi
 
-text_DATA = \
-	index.theme
+dist_pkg_DATA = \
+	awn-themed-icon.ui \
+	index.theme 
 
-textdir = $(pkgdatadir)
+pkgdir = $(pkgdatadir)
 
 # config-related
 
-if USE_GCONF
-schemasdir       = @GCONF_SCHEMA_FILE_DIR@
-schemas_in_files = awn.schemas.in awn-applets-shared.schemas.in
-schemas_DATA = $(schemas_in_files:.schemas.in=.schemas)
-
-awn.schemas.in: awn.schema-ini
-	$(top_srcdir)/data/awn-schema-to-gconf $< $@
-
-awn-applets-shared.schemas.in: shared.schema-ini
-	$(top_srcdir)/data/awn-schema-to-gconf $< $@ shared
-
-@INTLTOOL_SCHEMAS_RULE@
-
-if GCONF_SCHEMAS_INSTALL
-install-gconf-schemas: $(schemas_DATA)
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(schemas_DATA)
-else
-install-gconf-schemas:
-endif
-else
-install-gconf-schemas:
-endif
-schemadir = $(pkgdatadir)/schemas
-schema_DATA = awn.schema-ini shared.schema-ini
-
-dist_bin_SCRIPTS = awn-schema-to-gconf awn-autostart awn-applets-migration
+schema_in_files = avant-window-navigator.schema-ini.in
 
 # global
 
@@ -76,8 +52,13 @@ uninstall-local:
 	rm -f $(DESTDIR)$(datadir)/icons/hicolor/24x24/apps/avant-window-navigator.png
 	rm -f $(DESTDIR)$(datadir)/icons/hicolor/32x32/apps/avant-window-navigator.png
 
-EXTRA_DIST += $(icons) $(text_DATA) $(desktop_DATA).in.in awn.schema-ini shared.schema-ini
+EXTRA_DIST += \
+	$(icons) \
+	$(text_DATA) \
+	$(desktop_DATA:.desktop=.desktop.in) \
+	$(schema_in_files:.schema-ini.in=.schema-ini.in.in) \
+	active/spotlight_png_inline.c \
+	awn-window-fallback.svg \
+	$(NULL)
 
-CLEANFILES = $(desktop_DATA) $(desktop_DATA).in
-
-DISTCLEANFILES = awn.schemas.in awn.schemas awn-applets-shared.schemas.in awn-applets-shared.schemas 
+CLEANFILES += $(schemas_DATA) $(schema_in_DATA) $(schema_DATA)

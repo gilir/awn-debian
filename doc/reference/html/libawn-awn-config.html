@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>awn-config</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch02.html" title="Base Components">
+<link rel="prev" href="AwnBox.html" title="AwnBox">
+<link rel="next" href="AwnDialog.html" title="AwnDialog">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="api-reference.html" title="Part I. API Reference">
+<link rel="chapter" href="ch01.html" title="Applets">
+<link rel="chapter" href="ch02.html" title="Base Components">
+<link rel="chapter" href="ch03.html" title="Icons">
+<link rel="chapter" href="ch04.html" title="Icon Overlays">
+<link rel="chapter" href="ch05.html" title="Utilities">
+<link rel="index" href="index-all.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnBox.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="AwnDialog.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libawn-awn-config.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libawn-awn-config.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="awn-config">
+<a name="libawn-awn-config"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libawn-awn-config.top_of_page"></a>awn-config</span></h2>
+<p>awn-config — Convenience functions for handling dock/applet
+configuration.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libawn-awn-config.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+DesktopAgnosticConfigClient* <a class="link" href="libawn-awn-config.html#awn-config-get-default" title="awn_config_get_default ()">awn_config_get_default</a>     (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> panel_id,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+DesktopAgnosticConfigClient* <a class="link" href="libawn-awn-config.html#awn-config-get-default-for-applet" title="awn_config_get_default_for_applet ()">awn_config_get_default_for_applet</a>
+                                                        (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+DesktopAgnosticConfigClient* <a class="link" href="libawn-awn-config.html#awn-config-get-default-for-applet-by-info" title="awn_config_get_default_for_applet_by_info ()">awn_config_get_default_for_applet_by_info</a>
+                                                        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *uid,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+void                <a class="link" href="libawn-awn-config.html#awn-config-free" title="awn_config_free ()">awn_config_free</a>                     (void);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libawn-awn-config.description"></a><h2>Description</h2>
+<p>
+Functions used by the dock, applets, and preferences dialogs to
+associate configuration options with the first two categories. Also
+handles their memory management.</p>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libawn-awn-config.details"></a><h2>Details</h2>
+<div class="refsect2" title="awn_config_get_default ()">
+<a name="awn-config-get-default"></a><h3>awn_config_get_default ()</h3>
+<pre class="programlisting">DesktopAgnosticConfigClient* awn_config_get_default     (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> panel_id,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Looks up or creates a configuration client that is associated with the
+panel specified.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>panel_id</code></em> :</span></p></td>
+<td> The ID of the panel that is associated with the configuration
+client.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> The address of the <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a> object, if an error occurs.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A borrowed reference to a configuration client object.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_config_get_default_for_applet ()">
+<a name="awn-config-get-default-for-applet"></a><h3>awn_config_get_default_for_applet ()</h3>
+<pre class="programlisting">DesktopAgnosticConfigClient* awn_config_get_default_for_applet
+                                                        (<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a> *applet,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Looks up or creates a configuration client that is associated with the
+given applet.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td> The applet.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> The address of the <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a> object, if an error occurs.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A borrowed reference to the configuration client associated with
+the applet specified via the metadata.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_config_get_default_for_applet_by_info ()">
+<a name="awn-config-get-default-for-applet-by-info"></a><h3>awn_config_get_default_for_applet_by_info ()</h3>
+<pre class="programlisting">DesktopAgnosticConfigClient* awn_config_get_default_for_applet_by_info
+                                                        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *uid,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Looks up or creates a configuration client that is associated with the
+canonical name of an applet and an optional UID.
+Should only be used by code where the <a class="link" href="AwnApplet.html" title="AwnApplet"><span class="type">AwnApplet</span></a> object is not present,
+such as the dock's preferences dialog.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> The canonical applet name.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uid</code></em> :</span></p></td>
+<td> The UID of the applet (may not be <code class="literal">NULL</code>).
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> The address of the <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a> object, if an error occurs.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A borrowed reference to the configuration client associated with
+the applet specified via the metadata.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_config_free ()">
+<a name="awn-config-free"></a><h3>awn_config_free ()</h3>
+<pre class="programlisting">void                awn_config_free                     (void);</pre>
+<p>
+Properly frees all of the config clients in the cache.
+</p>
+<p>
+Should be called on dock shutdown.</p>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="libawn-awn-config.see-also"></a><h2>See Also</h2>
+#DesktopAgnosticConfigClient
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

@@ -23,12 +23,27 @@ awn-desktop-item
 </para>
 
 
+<!-- ##### MACRO AWN_TYPE_DESKTOP_ITEM ##### -->
+<para>
+
+</para>
+
+
+
 <!-- ##### MACRO AWN_DESKTOP_ITEM ##### -->
 <para>
 
 </para>
 
 @obj: 
+
+
+<!-- ##### FUNCTION awn_desktop_item_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
 
 
 <!-- ##### FUNCTION awn_desktop_item_new ##### -->
@@ -76,23 +91,32 @@ awn-desktop-item
 @item_type: 
 
 
-<!-- ##### FUNCTION awn_desktop_item_get_icon ##### -->
+<!-- ##### FUNCTION awn_desktop_item_get_icon_name ##### -->
 <para>
 
 </para>
 
 @item: 
-@icon_theme: 
 @Returns: 
 
 
-<!-- ##### FUNCTION awn_desktop_item_set_icon ##### -->
+<!-- ##### FUNCTION awn_desktop_item_set_icon_name ##### -->
 <para>
 
 </para>
 
 @item: 
 @icon: 
+
+
+<!-- ##### FUNCTION awn_desktop_item_get_icon ##### -->
+<para>
+
+</para>
+
+@item: 
+@size: 
+@Returns: 
 
 
 <!-- ##### FUNCTION awn_desktop_item_get_name ##### -->
@@ -198,7 +222,15 @@ awn-desktop-item
 </para>
 
 @item: 
-@new_filename: 
+@new_filname: 
 @err: 
+
+
+<!-- ##### FUNCTION awn_desktop_item_free ##### -->
+<para>
+
+</para>
+
+@item: 
 
 

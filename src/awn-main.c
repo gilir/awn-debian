@@ -27,16 +27,19 @@
 #include <unistd.h>
 
 #include <gtk/gtk.h>
+#include <libintl.h>
 
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-bindings.h>
 
-#include <libawn/awn-vfs.h>
+#include <libdesktop-agnostic/vfs.h>
 
 #include "awn-app.h"
 #include "awn-defines.h"
 
 static gboolean version = FALSE;
+static gboolean is_startup = FALSE;
+static gint startup_delay = 5;
 
 GOptionEntry entries[] = 
 {
@@ -45,6 +48,18 @@ GOptionEntry entries[] =
     0, G_OPTION_ARG_NONE, 
     &version, 
     "Prints the version number", NULL 
+  },
+  {
+    "startup", 0,
+    0, G_OPTION_ARG_NONE,
+    &is_startup,
+    "Hint the panel that this is start of the session", NULL
+  },
+  {
+    "startup-delay", 0,
+    0, G_OPTION_ARG_INT,
+    &startup_delay,
+    "Number of seconds to wait before starting", NULL
   },
   { 
     NULL 
@@ -55,12 +70,12 @@ GOptionEntry entries[] =
 gint 
 main (gint argc, gchar *argv[])
 {
-  AwnApp *app;
-  GOptionContext *context;
+  AwnApp          *app;
+  GOptionContext  *context;
   DBusGConnection *connection;
-  DBusGProxy *proxy;
-  GError *error = NULL;
-  guint32 ret;
+  DBusGProxy      *proxy;
+  GError          *error = NULL;
+  guint32          ret;
  
   context = g_option_context_new ("- Avant Window Navigator " VERSION);
   g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
@@ -81,7 +96,14 @@ main (gint argc, gchar *argv[])
   dbus_g_thread_init ();
   g_type_init ();
   gtk_init (&argc, &argv);
-  awn_vfs_init ();
+
+  desktop_agnostic_vfs_init (&error);
+  if (error)
+  {
+    g_critical ("Error initializing VFS subsystem: %s", error->message);
+    g_error_free (error);
+    return EXIT_FAILURE;
+  }
 
   /* Single instance checking; first get the D-Bus connection */
   connection = dbus_g_bus_get (DBUS_BUS_SESSION, &error);
@@ -105,22 +127,44 @@ main (gint argc, gchar *argv[])
     g_warning ("There was an error requesting the D-Bus name:%s\n",
                error->message);
     g_error_free (error);
+    g_object_unref (proxy); 
+    dbus_g_connection_unref (connection);  
     return EXIT_FAILURE;
   }
   /* Check the returned value */
   if (ret != DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER)
   {
     g_warning ("Another instance of Awn is running\n");
+    g_object_unref (proxy); 
     dbus_g_connection_unref (connection);
     return EXIT_SUCCESS;
   }
 
+  if (is_startup) sleep (startup_delay);
+
+  /* Set localization stuff */
+  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+  textdomain (GETTEXT_PACKAGE);
+
   /* Launch Awn */
   app = awn_app_get_default ();
+  dbus_g_connection_register_g_object (connection, 
+                                       AWN_DBUS_APP_PATH,
+                                       G_OBJECT (app));
 
   gtk_main ();
 
-  g_object_unref (G_OBJECT (app));
-	
+  g_object_unref (app);
+  g_object_unref (proxy);
+  dbus_g_connection_unref (connection);
+
+  desktop_agnostic_vfs_shutdown (&error);
+  if (error)
+  {
+    g_critical ("Error shutting down VFS subsystem: %s", error->message);
+    g_error_free (error);
+    return EXIT_FAILURE;
+  }
+
   return EXIT_SUCCESS;
 }

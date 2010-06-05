@@ -3,23 +3,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AwnAppletSimple</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
-<link rel="start" href="index.html" title="libawn Reference Manual">
-<link rel="up" href="ch01.html" title="Table of Contents">
-<link rel="prev" href="AwnAppletDialog.html" title="AwnAppletDialog">
-<link rel="next" href="AwnPlug.html" title="AwnPlug">
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch01.html" title="Applets">
+<link rel="prev" href="AwnApplet.html" title="AwnApplet">
+<link rel="next" href="ch02.html" title="Base Components">
 <meta name="generator" content="GTK-Doc V1.11 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="chapter" href="ch01.html" title="Table of Contents">
+<link rel="part" href="api-reference.html" title="Part I. API Reference">
+<link rel="chapter" href="ch01.html" title="Applets">
+<link rel="chapter" href="ch02.html" title="Base Components">
+<link rel="chapter" href="ch03.html" title="Icons">
+<link rel="chapter" href="ch04.html" title="Icon Overlays">
+<link rel="chapter" href="ch05.html" title="Utilities">
+<link rel="index" href="index-all.html" title="Index">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="AwnAppletDialog.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="AwnApplet.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">libawn Reference Manual</th>
-<td><a accesskey="n" href="AwnPlug.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#AwnAppletSimple.synopsis" class="shortcut">Top</a>
@@ -29,9 +35,11 @@
                 <a href="#AwnAppletSimple.object-hierarchy" class="shortcut">Object Hierarchy</a>
                  | 
                 <a href="#AwnAppletSimple.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#AwnAppletSimple.signals" class="shortcut">Signals</a>
 </td></tr>
 </table>
-<div class="refentry" lang="en">
+<div class="refentry" title="AwnAppletSimple">
 <a name="AwnAppletSimple"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
@@ -40,125 +48,179 @@
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsynopsisdiv">
+<div class="refsynopsisdiv" title="Synopsis">
 <a name="AwnAppletSimple.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">
                     <a class="link" href="AwnAppletSimple.html#AwnAppletSimplePrivate" title="AwnAppletSimplePrivate">AwnAppletSimplePrivate</a>;
                     <a class="link" href="AwnAppletSimple.html#AwnAppletSimple-struct" title="AwnAppletSimple">AwnAppletSimple</a>;
 <a
-href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
 >GtkWidget</a> *         <a class="link" href="AwnAppletSimple.html#awn-applet-simple-new" title="awn_applet_simple_new ()">awn_applet_simple_new</a>               (const <a
-href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *canonical_name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
 >gchar</a> *uid,
                                                          <a
-href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
->gint</a> orient,
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> panel_id);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon-pixbuf" title="awn_applet_simple_set_icon_pixbuf ()">awn_applet_simple_set_icon_pixbuf</a>   (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
                                                          <a
-href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
->gint</a> height);
-void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon" title="awn_applet_simple_set_icon ()">awn_applet_simple_set_icon</a>          (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *simple,
-                                                         <a
-href="/usr/share/gtk-doc/html/goffice-0.6/goffice-06-gog-renderer.html#GdkPixbuf"
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
 >GdkPixbuf</a> *pixbuf);
-void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-temp-icon" title="awn_applet_simple_set_temp_icon ()">awn_applet_simple_set_temp_icon</a>     (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *simple,
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon-context" title="awn_applet_simple_set_icon_context ()">awn_applet_simple_set_icon_context</a>  (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
                                                          <a
-href="/usr/share/gtk-doc/html/goffice-0.6/goffice-06-gog-renderer.html#GdkPixbuf"
->GdkPixbuf</a> *pixbuf);
-<a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *        <a class="link" href="AwnAppletSimple.html#awn-applet-simple-get-effects" title="awn_applet_simple_get_effects ()">awn_applet_simple_get_effects</a>       (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *simple);
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *cr);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon-surface" title="awn_applet_simple_set_icon_surface ()">awn_applet_simple_set_icon_surface</a>  (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-surface.html#cairo-surface-t"
+>cairo_surface_t</a> *surface);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon-name" title="awn_applet_simple_set_icon_name ()">awn_applet_simple_set_icon_name</a>     (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *icon_name);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon-info" title="awn_applet_simple_set_icon_info ()">awn_applet_simple_set_icon_info</a>     (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Boxed-Types.html#GStrv"
+>GStrv</a> states,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Boxed-Types.html#GStrv"
+>GStrv</a> icon_names);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon-state" title="awn_applet_simple_set_icon_state ()">awn_applet_simple_set_icon_state</a>    (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *state);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-tooltip-text" title="awn_applet_simple_set_tooltip_text ()">awn_applet_simple_set_tooltip_text</a>  (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *text);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="AwnAppletSimple.html#awn-applet-simple-get-tooltip-text" title="awn_applet_simple_get_tooltip_text ()">awn_applet_simple_get_tooltip_text</a>  (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-message" title="awn_applet_simple_set_message ()">awn_applet_simple_set_message</a>       (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *message);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="AwnAppletSimple.html#awn-applet-simple-get-message" title="awn_applet_simple_get_message ()">awn_applet_simple_get_message</a>       (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-progress" title="awn_applet_simple_set_progress ()">awn_applet_simple_set_progress</a>      (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> progress);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>              <a class="link" href="AwnAppletSimple.html#awn-applet-simple-get-progress" title="awn_applet_simple_get_progress ()">awn_applet_simple_get_progress</a>      (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet);
+<a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *           <a class="link" href="AwnAppletSimple.html#awn-applet-simple-get-icon" title="awn_applet_simple_get_icon ()">awn_applet_simple_get_icon</a>          (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet);
+void                <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-effect" title="awn_applet_simple_set_effect ()">awn_applet_simple_set_effect</a>        (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         <a class="link" href="AwnEffects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect);
 </pre>
 </div>
-<div class="refsect1" lang="en">
+<div class="refsect1" title="Object Hierarchy">
 <a name="AwnAppletSimple.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
   <a
-href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
 >GObject</a>
    +----<a
-href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
 >GInitiallyUnowned</a>
          +----<a
-href="/usr/share/gtk-doc/html/gtk/GtkObject.html"
+href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html"
 >GtkObject</a>
                +----<a
-href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
 >GtkWidget</a>
                      +----<a
-href="/usr/share/gtk-doc/html/gtk/GtkContainer.html"
+href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html"
 >GtkContainer</a>
                            +----<a
-href="/usr/share/gtk-doc/html/gtk/GtkBin.html"
+href="http://library.gnome.org/devel/gtk/unstable/GtkBin.html"
 >GtkBin</a>
                                  +----<a
-href="/usr/share/gtk-doc/html/gtk/GtkEventBox.html"
->GtkEventBox</a>
-                                       +----<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a>
-                                             +----AwnAppletSimple
+href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"
+>GtkWindow</a>
+                                       +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkPlug.html"
+>GtkPlug</a>
+                                             +----<a class="link" href="AwnApplet.html" title="AwnApplet">AwnApplet</a>
+                                                   +----AwnAppletSimple
 </pre>
 </div>
-<div class="refsect1" lang="en">
+<div class="refsect1" title="Implemented Interfaces">
 <a name="AwnAppletSimple.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
 <p>
 AwnAppletSimple implements
- AtkImplementorIface and  <a
-href="/usr/share/gtk-doc/html/gtk/gtk-gtkbuildable.html#GtkBuildable"
->GtkBuildable</a>.</p>
+ AtkImplementorIface,  <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-gtkbuildable.html#GtkBuildable"
+>GtkBuildable</a> and  <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a>.</p>
 </div>
-<div class="refsect1" lang="en">
+<div class="refsect1" title="Signals">
+<a name="AwnAppletSimple.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="AwnAppletSimple.html#AwnAppletSimple-clicked" title='The "clicked" signal'>clicked</a>"                                        : Run First / Action
+  "<a class="link" href="AwnAppletSimple.html#AwnAppletSimple-context-menu-popup" title='The "context-menu-popup" signal'>context-menu-popup</a>"                             : Run First / Action
+  "<a class="link" href="AwnAppletSimple.html#AwnAppletSimple-middle-clicked" title='The "middle-clicked" signal'>middle-clicked</a>"                                 : Run First / Action
+</pre>
+</div>
+<div class="refsect1" title="Description">
 <a name="AwnAppletSimple.description"></a><h2>Description</h2>
 <p>
 </p>
 </div>
-<div class="refsect1" lang="en">
+<div class="refsect1" title="Details">
 <a name="AwnAppletSimple.details"></a><h2>Details</h2>
-<div class="refsect2" lang="en">
+<div class="refsect2" title="AwnAppletSimplePrivate">
 <a name="AwnAppletSimplePrivate"></a><h3>AwnAppletSimplePrivate</h3>
 <pre class="programlisting">typedef struct _AwnAppletSimplePrivate AwnAppletSimplePrivate;</pre>
 <p>
 </p>
 </div>
 <hr>
-<div class="refsect2" lang="en">
+<div class="refsect2" title="AwnAppletSimple">
 <a name="AwnAppletSimple-struct"></a><h3>AwnAppletSimple</h3>
 <pre class="programlisting">typedef struct _AwnAppletSimple AwnAppletSimple;</pre>
 <p>
 </p>
 </div>
 <hr>
-<div class="refsect2" lang="en">
+<div class="refsect2" title="awn_applet_simple_new ()">
 <a name="awn-applet-simple-new"></a><h3>awn_applet_simple_new ()</h3>
 <pre class="programlisting"><a
-href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
 >GtkWidget</a> *         awn_applet_simple_new               (const <a
-href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *canonical_name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
 >gchar</a> *uid,
                                                          <a
-href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
->gint</a> orient,
-                                                         <a
-href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
->gint</a> height);</pre>
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> panel_id);</pre>
 <p>
 Creates a new <a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple"><span class="type">AwnAppletSimple</span></a> object.  This applet will have awn-effects
-effects applied to its icon automatically if <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon" title="awn_applet_simple_set_icon ()"><code class="function">awn_applet_simple_set_icon()</code></a> or
-<a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-temp-icon" title="awn_applet_simple_set_temp_icon ()"><code class="function">awn_applet_simple_set_temp_icon()</code></a> are used to specify the applet icon.</p>
+effects applied to its icon automatically if <code class="function">awn_applet_simple_set_icon()</code> or
+<code class="function">awn_applet_simple_set_temp_icon()</code> are used to specify the applet icon.</p>
 <p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
+<td><p><span class="term"><em class="parameter"><code>canonical_name</code></em> :</span></p></td>
+<td> The canonical name of the applet (see
+<a class="link" href="AwnApplet.html#AwnApplet--canonical-name" title='The "canonical-name" property'><span class="type">"canonical-name"</span></a>).
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><em class="parameter"><code>uid</code></em> :</span></p></td>
 <td> The unique identifier of the instance of the applet on the dock.
 </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>orient</code></em> :</span></p></td>
-<td> The orientation of the applet - see <a class="link" href="libawn-awn-defines.html#AwnOrientation" title="enum AwnOrientation"><span class="type">AwnOrientation</span></a>.
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
-<td> The height of the applet.
+<td><p><span class="term"><em class="parameter"><code>panel_id</code></em> :</span></p></td>
+<td> The ID of the panel to connect to.
 </td>
 </tr>
 <tr>
@@ -170,87 +232,438 @@ effects applied to its icon automatically if <a class="link" href="AwnAppletSimp
 </table></div>
 </div>
 <hr>
-<div class="refsect2" lang="en">
-<a name="awn-applet-simple-set-icon"></a><h3>awn_applet_simple_set_icon ()</h3>
-<pre class="programlisting">void                awn_applet_simple_set_icon          (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *simple,
+<div class="refsect2" title="awn_applet_simple_set_icon_pixbuf ()">
+<a name="awn-applet-simple-set-icon-pixbuf"></a><h3>awn_applet_simple_set_icon_pixbuf ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_icon_pixbuf   (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
                                                          <a
-href="/usr/share/gtk-doc/html/goffice-0.6/goffice-06-gog-renderer.html#GdkPixbuf"
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
 >GdkPixbuf</a> *pixbuf);</pre>
-<p>
-Sets the applet icon to the pixbuf provided as an argument.  A private copy
-of the pixbuf argument is made by <a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon" title="awn_applet_simple_set_icon ()"><code class="function">awn_applet_simple_set_icon()</code></a> and the
-original argument is left unchanged.  The caller retains ownership of pixbuf
-and is required to unref it when it is no longer required.</p>
 <p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
-<td> The applet whose icon is being set.
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
-<td> The pixbuf image to use as the icon.
+<td>
 </td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" lang="en">
-<a name="awn-applet-simple-set-temp-icon"></a><h3>awn_applet_simple_set_temp_icon ()</h3>
-<pre class="programlisting">void                awn_applet_simple_set_temp_icon     (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *simple,
+<div class="refsect2" title="awn_applet_simple_set_icon_context ()">
+<a name="awn-applet-simple-set-icon-context"></a><h3>awn_applet_simple_set_icon_context ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_icon_context  (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
                                                          <a
-href="/usr/share/gtk-doc/html/goffice-0.6/goffice-06-gog-renderer.html#GdkPixbuf"
->GdkPixbuf</a> *pixbuf);</pre>
-<p>
-A convenience function that sets the applet icon to the pixbuf provided as an
-argument.  A private copy of the pixbuf argument is made by the function, and
-the argument is unreferenced.  The caller should not reference pixbuf after
-calling this function.  If the pixbuf needs to be retained, then
-<a class="link" href="AwnAppletSimple.html#awn-applet-simple-set-icon" title="awn_applet_simple_set_icon ()"><code class="function">awn_applet_simple_set_icon()</code></a> should be used.</p>
+href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
+>cairo_t</a> *cr);</pre>
 <p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
-<td> The applet whose icon is being set.
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
 </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
-<td> The pixbuf image to use as the icon.
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>
 </td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" lang="en">
-<a name="awn-applet-simple-get-effects"></a><h3>awn_applet_simple_get_effects ()</h3>
-<pre class="programlisting"><a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects">AwnEffects</a> *        awn_applet_simple_get_effects       (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *simple);</pre>
-<p>
-Retrieves the <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> object associated with the applet.</p>
+<div class="refsect2" title="awn_applet_simple_set_icon_surface ()">
+<a name="awn-applet-simple-set-icon-surface"></a><h3>awn_applet_simple_set_icon_surface ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_icon_surface  (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         <a
+href="/usr/share/gtk-doc/html/cairo/cairo-surface.html#cairo-surface-t"
+>cairo_surface_t</a> *surface);</pre>
 <p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
-<td> The applet whose properties are being queried.
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_set_icon_name ()">
+<a name="awn-applet-simple-set-icon-name"></a><h3>awn_applet_simple_set_icon_name ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_icon_name     (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *icon_name);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_set_icon_info ()">
+<a name="awn-applet-simple-set-icon-info"></a><h3>awn_applet_simple_set_icon_info ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_icon_info     (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Boxed-Types.html#GStrv"
+>GStrv</a> states,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Boxed-Types.html#GStrv"
+>GStrv</a> icon_names);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>states</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_names</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_set_icon_state ()">
+<a name="awn-applet-simple-set-icon-state"></a><h3>awn_applet_simple_set_icon_state ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_icon_state    (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *state);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_set_tooltip_text ()">
+<a name="awn-applet-simple-set-tooltip-text"></a><h3>awn_applet_simple_set_tooltip_text ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_tooltip_text  (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *text);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_get_tooltip_text ()">
+<a name="awn-applet-simple-get-tooltip-text"></a><h3>awn_applet_simple_get_tooltip_text ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_applet_simple_get_tooltip_text  (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td> a pointer to an <a class="link" href="libawn-awn-effects.html#AwnEffects" title="AwnEffects"><span class="type">AwnEffects</span></a> object associated with the
-applet.  The caller does not own this object.
+<td>
 </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_set_message ()">
+<a name="awn-applet-simple-set-message"></a><h3>awn_applet_simple_set_message ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_message       (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *message);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_get_message ()">
+<a name="awn-applet-simple-get-message"></a><h3>awn_applet_simple_get_message ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             awn_applet_simple_get_message       (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_set_progress ()">
+<a name="awn-applet-simple-set-progress"></a><h3>awn_applet_simple_set_progress ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_progress      (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> progress);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>progress</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_get_progress ()">
+<a name="awn-applet-simple-get-progress"></a><h3>awn_applet_simple_get_progress ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>              awn_applet_simple_get_progress      (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_get_icon ()">
+<a name="awn-applet-simple-get-icon"></a><h3>awn_applet_simple_get_icon ()</h3>
+<pre class="programlisting"><a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a> *           awn_applet_simple_get_icon          (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="awn_applet_simple_set_effect ()">
+<a name="awn-applet-simple-set-effect"></a><h3>awn_applet_simple_set_effect ()</h3>
+<pre class="programlisting">void                awn_applet_simple_set_effect        (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                         <a class="link" href="AwnEffects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a> effect);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="AwnAppletSimple.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "clicked" signal'>
+<a name="AwnAppletSimple-clicked"></a><h3>The <code class="literal">"clicked"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *awnappletsimple,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>         user_data)            : Run First / Action</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnappletsimple</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "context-menu-popup" signal'>
+<a name="AwnAppletSimple-context-menu-popup"></a><h3>The <code class="literal">"context-menu-popup"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *applet,
+                                                        <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"
+>GdkEvent</a>        *event,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>         user_data)      : Run First / Action</pre>
+<p>
+The ::context-menu-popup signal will be emitted when right mouse button
+is pressed on the icon.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>applet</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEventButton"
+><span class="type">GdkEventButton</span></a> which triggered this signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "middle-clicked" signal'>
+<a name="AwnAppletSimple-middle-clicked"></a><h3>The <code class="literal">"middle-clicked"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a> *awnappletsimple,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>         user_data)            : Run First / Action</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnappletsimple</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
 </tr>
 </tbody>
 </table></div>

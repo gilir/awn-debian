@@ -1,0 +1,64 @@
+<!-- ##### SECTION Title ##### -->
+awn-effect-spotlight3d
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION spotlight3D_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION spotlight3D_hover_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION spotlight3D_opening_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION spotlight3D_closing_effect ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+
+<!-- ##### FUNCTION spotlight3D_effect_finalize ##### -->
+<para>
+
+</para>
+
+@anim: 
+@Returns: 
+
+

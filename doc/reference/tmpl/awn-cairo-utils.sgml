@@ -47,12 +47,70 @@ awn-cairo-utils
 @state: 
 
 
-<!-- ##### FUNCTION awn_cairo_string_to_color ##### -->
+<!-- ##### FUNCTION awn_cairo_rounded_rect_shadow ##### -->
 <para>
 
 </para>
 
-@string: 
+@cr: 
+@rx0: 
+@ry0: 
+@width: 
+@height: 
+@radius: 
+@state: 
+@shadow_radius: 
+@shadow_alpha: 
+
+
+<!-- ##### FUNCTION awn_cairo_set_source_color ##### -->
+<para>
+
+</para>
+
+@cr: 
 @color: 
+
+
+<!-- ##### FUNCTION awn_cairo_set_source_color_with_alpha_multiplier ##### -->
+<para>
+
+</para>
+
+@cr: 
+@color: 
+@multiplier: 
+
+
+<!-- ##### FUNCTION awn_cairo_set_source_color_with_multipliers ##### -->
+<para>
+
+</para>
+
+@cr: 
+@color: 
+@color_multiplier: 
+@alpha_multiplier: 
+
+
+<!-- ##### FUNCTION awn_cairo_pattern_add_color_stop_color ##### -->
+<para>
+
+</para>
+
+@pattern: 
+@offset: 
+@color: 
+
+
+<!-- ##### FUNCTION awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier ##### -->
+<para>
+
+</para>
+
+@pattern: 
+@offset: 
+@color: 
+@multiplier: 
 
 

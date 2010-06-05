@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libawn-awn-utils">
+<refmeta>
+<refentrytitle role="top_of_page" id="libawn-awn-utils.top_of_page">awn-utils</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>awn-utils</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libawn-awn-utils.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                <link linkend="awn-utils-ensure-transparent-bg">awn_utils_ensure_transparent_bg</link>     (<link linkend="GtkWidget">GtkWidget</link> *widget);
+<link linkend="void">void</link>                <link linkend="awn-utils-make-transparent-bg">awn_utils_make_transparent_bg</link>       (<link linkend="GtkWidget">GtkWidget</link> *widget);
+<link linkend="gfloat">gfloat</link>              <link linkend="awn-utils-get-offset-modifier-by-path-type">awn_utils_get_offset_modifier_by_path_type</link>
+                                                        (<link linkend="AwnPathType">AwnPathType</link> path_type,
+                                                         <link linkend="GtkPositionType">GtkPositionType</link> position,
+                                                         <link linkend="gint">gint</link> offset,
+                                                         <link linkend="gfloat">gfloat</link> offset_modifier,
+                                                         <link linkend="gint">gint</link> pos_x,
+                                                         <link linkend="gint">gint</link> pos_y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="GValueArray">GValueArray</link>*        <link linkend="awn-utils-gslist-to-gvaluearray">awn_utils_gslist_to_gvaluearray</link>     (<link linkend="GSList">GSList</link> *list);
+<link linkend="void">void</link>                <link linkend="awn-utils-show-menu-images">awn_utils_show_menu_images</link>          (<link linkend="GtkMenu">GtkMenu</link> *menu);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libawn-awn-utils.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libawn-awn-utils.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="awn-utils-ensure-transparent-bg" role="function">
+<title>awn_utils_ensure_transparent_bg ()</title>
+<indexterm zone="awn-utils-ensure-transparent-bg"><primary sortas="awn_utils_ensure_transparent_bg">awn_utils_ensure_transparent_bg</primary></indexterm><programlisting><link linkend="void">void</link>                awn_utils_ensure_transparent_bg     (<link linkend="GtkWidget">GtkWidget</link> *widget);</programlisting>
+<para>
+Ensures that the widget has transparent background all the time
+by connecting to the GtkWidget::realize and GtkWidget::style-set signals.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&#160;:</term>
+<listitem><simpara> Widget which should have transparent background.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-utils-make-transparent-bg" role="function">
+<title>awn_utils_make_transparent_bg ()</title>
+<indexterm zone="awn-utils-make-transparent-bg"><primary sortas="awn_utils_make_transparent_bg">awn_utils_make_transparent_bg</primary></indexterm><programlisting><link linkend="void">void</link>                awn_utils_make_transparent_bg       (<link linkend="GtkWidget">GtkWidget</link> *widget);</programlisting>
+<para>
+Modifies the background pixmap on the widget to be transparent if composited
+environment is used.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&#160;:</term>
+<listitem><simpara> Widget which background will be modified.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-utils-get-offset-modifier-by-path-type" role="function">
+<title>awn_utils_get_offset_modifier_by_path_type ()</title>
+<indexterm zone="awn-utils-get-offset-modifier-by-path-type"><primary sortas="awn_utils_get_offset_modifier_by_path_type">awn_utils_get_offset_modifier_by_path_type</primary></indexterm><programlisting><link linkend="gfloat">gfloat</link>              awn_utils_get_offset_modifier_by_path_type
+                                                        (<link linkend="AwnPathType">AwnPathType</link> path_type,
+                                                         <link linkend="GtkPositionType">GtkPositionType</link> position,
+                                                         <link linkend="gint">gint</link> offset,
+                                                         <link linkend="gfloat">gfloat</link> offset_modifier,
+                                                         <link linkend="gint">gint</link> pos_x,
+                                                         <link linkend="gint">gint</link> pos_y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Computes modifier for offset value based on current path_type and position
+of a widget on the panel.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>path_type</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offset</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offset_modifier</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pos_x</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pos_y</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> Offset modifier, offset value should be multiplied by this
+modifier.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-utils-gslist-to-gvaluearray" role="function">
+<title>awn_utils_gslist_to_gvaluearray ()</title>
+<indexterm zone="awn-utils-gslist-to-gvaluearray"><primary sortas="awn_utils_gslist_to_gvaluearray">awn_utils_gslist_to_gvaluearray</primary></indexterm><programlisting><link linkend="GValueArray">GValueArray</link>*        awn_utils_gslist_to_gvaluearray     (<link linkend="GSList">GSList</link> *list);</programlisting>
+<para>
+Converts a <link linkend="GSList"><type>GSList</type></link> of strings to a <link linkend="GValueArray"><type>GValueArray</type></link>, suitable for use with a
+configuration client.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&#160;:</term>
+<listitem><simpara> The <link linkend="GSList"><type>GSList</type></link> of <link linkend="gchar"><type>gchar</type></link> pointers to convert.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A newly allocated <link linkend="GValueArray"><type>GValueArray</type></link> (the <link linkend="GValue"><type>GValue</type></link> elements and their
+         contents are also newly allocated).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-utils-show-menu-images" role="function">
+<title>awn_utils_show_menu_images ()</title>
+<indexterm zone="awn-utils-show-menu-images"><primary sortas="awn_utils_show_menu_images">awn_utils_show_menu_images</primary></indexterm><programlisting><link linkend="void">void</link>                awn_utils_show_menu_images          (<link linkend="GtkMenu">GtkMenu</link> *menu);</programlisting>
+<para>
+Set all instances <link linkend="GtkImageMenuItem"><type>GtkImageMenuItem</type></link> in the <link linkend="GtkMenu"><type>GtkMenu</type></link> are set to visible. A 
+null op for GTK+ &lt; 2.16.0</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu</parameter>&#160;:</term>
+<listitem><simpara> A GtkMenu.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

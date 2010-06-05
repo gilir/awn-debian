@@ -1,0 +1,49 @@
+<!-- ##### SECTION Title ##### -->
+AwnOverlayThemedIcon
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT AwnOverlayThemedIcon ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG AwnOverlayThemedIcon:alpha ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnOverlayThemedIcon:icon-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG AwnOverlayThemedIcon:scale ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION awn_overlay_themed_icon_new ##### -->
+<para>
+
+</para>
+
+@icon_name: 
+@Returns: 
+
+

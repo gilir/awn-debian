@@ -1,0 +1,509 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnIcon">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnIcon.top_of_page">AwnIcon</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnIcon</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="AwnIcon.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="AwnIconPrivate">AwnIconPrivate</link>;
+                    <link linkend="AwnIcon-struct">AwnIcon</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="awn-icon-new">awn_icon_new</link>                        (void);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-pos-type">awn_icon_set_pos_type</link>               (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="GtkPositionType">GtkPositionType</link> position);
+<link linkend="GtkPositionType">GtkPositionType</link>     <link linkend="awn-icon-get-pos-type">awn_icon_get_pos_type</link>               (<link linkend="AwnIcon">AwnIcon</link> *icon);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-offset">awn_icon_set_offset</link>                 (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gint">gint</link> offset);
+<link linkend="gint">gint</link>                <link linkend="awn-icon-get-offset">awn_icon_get_offset</link>                 (<link linkend="AwnIcon">AwnIcon</link> *icon);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-effect">awn_icon_set_effect</link>                 (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="AwnEffect">AwnEffect</link> effect);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-from-pixbuf">awn_icon_set_from_pixbuf</link>            (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-from-context">awn_icon_set_from_context</link>           (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="cairo-t">cairo_t</link> *ctx);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-from-surface">awn_icon_set_from_surface</link>           (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="cairo-surface-t">cairo_surface_t</link> *surface);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-custom-paint">awn_icon_set_custom_paint</link>           (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="AwnTooltip">AwnTooltip</link>*         <link linkend="awn-icon-get-tooltip">awn_icon_get_tooltip</link>                (<link linkend="AwnIcon">AwnIcon</link> *icon);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-tooltip-text">awn_icon_set_tooltip_text</link>           (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         const <link linkend="gchar">gchar</link> *text);
+<link linkend="gchar">gchar</link> *             <link linkend="awn-icon-get-tooltip-text">awn_icon_get_tooltip_text</link>           (<link linkend="AwnIcon">AwnIcon</link> *icon);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-is-active">awn_icon_set_is_active</link>              (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gboolean">gboolean</link> is_active);
+<link linkend="gboolean">gboolean</link>            <link linkend="awn-icon-get-is-active">awn_icon_get_is_active</link>              (<link linkend="AwnIcon">AwnIcon</link> *icon);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-indicator-count">awn_icon_set_indicator_count</link>        (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gint">gint</link> count);
+<link linkend="gint">gint</link>                <link linkend="awn-icon-get-indicator-count">awn_icon_get_indicator_count</link>        (<link linkend="AwnIcon">AwnIcon</link> *icon);
+<link linkend="gboolean">gboolean</link>            <link linkend="awn-icon-get-hover-effects">awn_icon_get_hover_effects</link>          (<link linkend="AwnIcon">AwnIcon</link> *icon);
+<link linkend="void">void</link>                <link linkend="awn-icon-set-hover-effects">awn_icon_set_hover_effects</link>          (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gboolean">gboolean</link> enable);
+<link linkend="void">void</link>                <link linkend="awn-icon-clicked">awn_icon_clicked</link>                    (<link linkend="AwnIcon">AwnIcon</link> *icon);
+<link linkend="void">void</link>                <link linkend="awn-icon-middle-clicked">awn_icon_middle_clicked</link>             (<link linkend="AwnIcon">AwnIcon</link> *icon);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnIcon.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkDrawingArea">GtkDrawingArea</link>
+                           +----AwnIcon
+                                 +----<link linkend="AwnThemedIcon">AwnThemedIcon</link>
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnIcon.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+AwnIcon implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link> and  <link linkend="AwnOverlayable">AwnOverlayable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="AwnIcon.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="AwnIcon--bind-effects">bind-effects</link>&quot;             <link linkend="gboolean">gboolean</link>              : Read / Write / Construct Only
+  &quot;<link linkend="AwnIcon--icon-height">icon-height</link>&quot;              <link linkend="gint">gint</link>                  : Read / Write
+  &quot;<link linkend="AwnIcon--icon-width">icon-width</link>&quot;               <link linkend="gint">gint</link>                  : Read / Write
+  &quot;<link linkend="AwnIcon--long-press-timeout">long-press-timeout</link>&quot;       <link linkend="gint">gint</link>                  : Read / Write / Construct
+</synopsis>
+</refsect1>
+
+<refsect1 id="AwnIcon.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="AwnIcon-clicked">clicked</link>&quot;                                        : Run First / Action
+  &quot;<link linkend="AwnIcon-context-menu-popup">context-menu-popup</link>&quot;                             : Run First / Action
+  &quot;<link linkend="AwnIcon-long-press">long-press</link>&quot;                                     : Run First / Action
+  &quot;<link linkend="AwnIcon-middle-clicked">middle-clicked</link>&quot;                                 : Run First / Action
+  &quot;<link linkend="AwnIcon-size-changed">size-changed</link>&quot;                                   : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="AwnIcon.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnIcon.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnIconPrivate" role="struct">
+<title>AwnIconPrivate</title>
+<indexterm zone="AwnIconPrivate"><primary sortas="AwnIconPrivate">AwnIconPrivate</primary></indexterm><programlisting>typedef struct _AwnIconPrivate AwnIconPrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnIcon-struct" role="struct">
+<title>AwnIcon</title>
+<indexterm zone="AwnIcon-struct"><primary sortas="AwnIcon">AwnIcon</primary></indexterm><programlisting>typedef struct _AwnIcon AwnIcon;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="awn-icon-new" role="function">
+<title>awn_icon_new ()</title>
+<indexterm zone="awn-icon-new"><primary sortas="awn_icon_new">awn_icon_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         awn_icon_new                        (void);</programlisting>
+<para>
+Creates new <link linkend="AwnIcon"><type>AwnIcon</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> newly created <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-pos-type" role="function">
+<title>awn_icon_set_pos_type ()</title>
+<indexterm zone="awn-icon-set-pos-type"><primary sortas="awn_icon_set_pos_type">awn_icon_set_pos_type</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_pos_type               (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="GtkPositionType">GtkPositionType</link> position);</programlisting>
+<para>
+Sets position of the icon.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&#160;:</term>
+<listitem><simpara> position of the icon.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-get-pos-type" role="function">
+<title>awn_icon_get_pos_type ()</title>
+<indexterm zone="awn-icon-get-pos-type"><primary sortas="awn_icon_get_pos_type">awn_icon_get_pos_type</primary></indexterm><programlisting><link linkend="GtkPositionType">GtkPositionType</link>     awn_icon_get_pos_type               (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>current position type set for the icon.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-offset" role="function">
+<title>awn_icon_set_offset ()</title>
+<indexterm zone="awn-icon-set-offset"><primary sortas="awn_icon_set_offset">awn_icon_set_offset</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_offset                 (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gint">gint</link> offset);</programlisting>
+<para>
+Sets offset of the icon.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offset</parameter>&#160;:</term>
+<listitem><simpara> new offset for the icon.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-get-offset" role="function">
+<title>awn_icon_get_offset ()</title>
+<indexterm zone="awn-icon-get-offset"><primary sortas="awn_icon_get_offset">awn_icon_get_offset</primary></indexterm><programlisting><link linkend="gint">gint</link>                awn_icon_get_offset                 (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>current offset set for the icon.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-effect" role="function">
+<title>awn_icon_set_effect ()</title>
+<indexterm zone="awn-icon-set-effect"><primary sortas="awn_icon_set_effect">awn_icon_set_effect</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_effect                 (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="AwnEffect">AwnEffect</link> effect);</programlisting>
+<para>
+Sets effect on the icon. Note that the effect will loop until
+<link linkend="awn-effects-stop"><function>awn_effects_stop()</function></link> is called.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>effect</parameter>&#160;:</term>
+<listitem><simpara> <link linkend="AwnEffect"><type>AwnEffect</type></link> to start looping.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-from-pixbuf" role="function">
+<title>awn_icon_set_from_pixbuf ()</title>
+<indexterm zone="awn-icon-set-from-pixbuf"><primary sortas="awn_icon_set_from_pixbuf">awn_icon_set_from_pixbuf</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_from_pixbuf            (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);</programlisting>
+<para>
+Sets the icon from the given pixbuf. Note that a copy of the pixbuf is made.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-from-context" role="function">
+<title>awn_icon_set_from_context ()</title>
+<indexterm zone="awn-icon-set-from-context"><primary sortas="awn_icon_set_from_context">awn_icon_set_from_context</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_from_context           (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="cairo-t">cairo_t</link> *ctx);</programlisting>
+<para>
+Extracts the icon from the cairo surface associated with given cairo
+context. Note that the surface is only referenced, so any later changes
+made to it will change the icon as well
+(after a call to <link linkend="gtk-widget-queue-draw"><function>gtk_widget_queue_draw()</function></link>).</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="cairo-t"><type>cairo_t</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-from-surface" role="function">
+<title>awn_icon_set_from_surface ()</title>
+<indexterm zone="awn-icon-set-from-surface"><primary sortas="awn_icon_set_from_surface">awn_icon_set_from_surface</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_from_surface           (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="cairo-surface-t">cairo_surface_t</link> *surface);</programlisting>
+<para>
+Sets the icon from the given cairo surface. Note that the surface is only
+referenced, so any later changes made to it will change the icon as well
+(after a call to <link linkend="gtk-widget-queue-draw"><function>gtk_widget_queue_draw()</function></link>).</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>surface</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="cairo-surface-t"><type>cairo_surface_t</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-custom-paint" role="function">
+<title>awn_icon_set_custom_paint ()</title>
+<indexterm zone="awn-icon-set-custom-paint"><primary sortas="awn_icon_set_custom_paint">awn_icon_set_custom_paint</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_custom_paint           (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Prepares the icon for custom painting (by overriding
+<link linkend="GtkWidget-expose-event"><type>"expose-event"</type></link>). Sets proper size requisition, tooltip position,
+parameters for <link linkend="AwnEffects"><type>AwnEffects</type></link> and may emit size changed signal.
+</para>
+<para>
+<note>
+ If there's already an icon set, it is not freed, so if you later disconnect
+ from the <link linkend="GtkWidget-expose-event"><type>"expose-event"</type></link>, a second call to
+ <link linkend="awn-icon-set-custom-paint"><function>awn_icon_set_custom_paint()</function></link> with the original dimensions of the icon will
+ restore the icon.
+</note></para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&#160;:</term>
+<listitem><simpara> new width of the icon.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara> new height of the icon.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-get-tooltip" role="function">
+<title>awn_icon_get_tooltip ()</title>
+<indexterm zone="awn-icon-get-tooltip"><primary sortas="awn_icon_get_tooltip">awn_icon_get_tooltip</primary></indexterm><programlisting><link linkend="AwnTooltip">AwnTooltip</link>*         awn_icon_get_tooltip                (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+Gets the <link linkend="AwnTooltip"><type>AwnTooltip</type></link> associated with this icon.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> tooltip widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-tooltip-text" role="function">
+<title>awn_icon_set_tooltip_text ()</title>
+<indexterm zone="awn-icon-set-tooltip-text"><primary sortas="awn_icon_set_tooltip_text">awn_icon_set_tooltip_text</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_tooltip_text           (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         const <link linkend="gchar">gchar</link> *text);</programlisting>
+<para>
+Sets tooltip message.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&#160;:</term>
+<listitem><simpara> tooltip message.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-get-tooltip-text" role="function">
+<title>awn_icon_get_tooltip_text ()</title>
+<indexterm zone="awn-icon-get-tooltip-text"><primary sortas="awn_icon_get_tooltip_text">awn_icon_get_tooltip_text</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             awn_icon_get_tooltip_text           (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+Gets the message currently set for the associated <link linkend="AwnTooltip"><type>AwnTooltip</type></link>. The caller
+is responsible for freeing the string.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> currently used message by the associated <link linkend="AwnTooltip"><type>AwnTooltip</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-is-active" role="function">
+<title>awn_icon_set_is_active ()</title>
+<indexterm zone="awn-icon-set-is-active"><primary sortas="awn_icon_set_is_active">awn_icon_set_is_active</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_is_active              (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gboolean">gboolean</link> is_active);</programlisting>
+<para>
+Sets whether the icon is active (if it is paints a rectangle around the icon
+by default).</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_active</parameter>&#160;:</term>
+<listitem><simpara> value.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-get-is-active" role="function">
+<title>awn_icon_get_is_active ()</title>
+<indexterm zone="awn-icon-get-is-active"><primary sortas="awn_icon_get_is_active">awn_icon_get_is_active</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            awn_icon_get_is_active              (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+Gets whether the icon is active.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if the icon is active, FALSE otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-indicator-count" role="function">
+<title>awn_icon_set_indicator_count ()</title>
+<indexterm zone="awn-icon-set-indicator-count"><primary sortas="awn_icon_set_indicator_count">awn_icon_set_indicator_count</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_indicator_count        (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gint">gint</link> count);</programlisting>
+<para>
+Paints an indicator (or multiple) on the border of icon.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>count</parameter>&#160;:</term>
+<listitem><simpara> indicator count.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-get-indicator-count" role="function">
+<title>awn_icon_get_indicator_count ()</title>
+<indexterm zone="awn-icon-get-indicator-count"><primary sortas="awn_icon_get_indicator_count">awn_icon_get_indicator_count</primary></indexterm><programlisting><link linkend="gint">gint</link>                awn_icon_get_indicator_count        (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+Gets number of indicators set for this icon.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="AwnIcon"><type>AwnIcon</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> number of indicators.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-get-hover-effects" role="function">
+<title>awn_icon_get_hover_effects ()</title>
+<indexterm zone="awn-icon-get-hover-effects"><primary sortas="awn_icon_get_hover_effects">awn_icon_get_hover_effects</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            awn_icon_get_hover_effects          (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-set-hover-effects" role="function">
+<title>awn_icon_set_hover_effects ()</title>
+<indexterm zone="awn-icon-set-hover-effects"><primary sortas="awn_icon_set_hover_effects">awn_icon_set_hover_effects</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_set_hover_effects          (<link linkend="AwnIcon">AwnIcon</link> *icon,
+                                                         <link linkend="gboolean">gboolean</link> enable);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enable</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-clicked" role="function">
+<title>awn_icon_clicked ()</title>
+<indexterm zone="awn-icon-clicked"><primary sortas="awn_icon_clicked">awn_icon_clicked</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_clicked                    (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-icon-middle-clicked" role="function">
+<title>awn_icon_middle_clicked ()</title>
+<indexterm zone="awn-icon-middle-clicked"><primary sortas="awn_icon_middle_clicked">awn_icon_middle_clicked</primary></indexterm><programlisting><link linkend="void">void</link>                awn_icon_middle_clicked             (<link linkend="AwnIcon">AwnIcon</link> *icon);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="AwnIcon.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="AwnIcon--bind-effects" role="property"><title>The <literal>&quot;bind-effects&quot;</literal> property</title>
+<indexterm zone="AwnIcon--bind-effects"><primary sortas="AwnIcon:bind-effects">AwnIcon:bind-effects</primary></indexterm><programlisting>  &quot;bind-effects&quot;             <link linkend="gboolean">gboolean</link>              : Read / Write / Construct Only</programlisting>
+<para>If set to true, will load and bind effect property values from config client.</para><para>Default value: TRUE</para>
+</refsect2>
+<refsect2 id="AwnIcon--icon-height" role="property"><title>The <literal>&quot;icon-height&quot;</literal> property</title>
+<indexterm zone="AwnIcon--icon-height"><primary sortas="AwnIcon:icon-height">AwnIcon:icon-height</primary></indexterm><programlisting>  &quot;icon-height&quot;              <link linkend="gint">gint</link>                  : Read / Write</programlisting>
+<para>Current icon height.</para><para>Allowed values: &gt;= 0</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="AwnIcon--icon-width" role="property"><title>The <literal>&quot;icon-width&quot;</literal> property</title>
+<indexterm zone="AwnIcon--icon-width"><primary sortas="AwnIcon:icon-width">AwnIcon:icon-width</primary></indexterm><programlisting>  &quot;icon-width&quot;               <link linkend="gint">gint</link>                  : Read / Write</programlisting>
+<para>Current icon width.</para><para>Allowed values: &gt;= 0</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="AwnIcon--long-press-timeout" role="property"><title>The <literal>&quot;long-press-timeout&quot;</literal> property</title>
+<indexterm zone="AwnIcon--long-press-timeout"><primary sortas="AwnIcon:long-press-timeout">AwnIcon:long-press-timeout</primary></indexterm><programlisting>  &quot;long-press-timeout&quot;       <link linkend="gint">gint</link>                  : Read / Write / Construct</programlisting>
+<para>Timeout after which long-press signal is emit.</para><para>Allowed values: [250,10000]</para>
+<para>Default value: 750</para>
+</refsect2>
+</refsect1>
+
+<refsect1 id="AwnIcon.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="AwnIcon-clicked" role="signal"><title>The <literal>&quot;clicked&quot;</literal> signal</title>
+<indexterm zone="AwnIcon-clicked"><primary sortas="AwnIcon::clicked">AwnIcon::clicked</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="AwnIcon">AwnIcon</link> *awnicon,
+                                                        <link linkend="gpointer">gpointer</link> user_data)      : Run First / Action</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>awnicon</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="AwnIcon-context-menu-popup" role="signal"><title>The <literal>&quot;context-menu-popup&quot;</literal> signal</title>
+<indexterm zone="AwnIcon-context-menu-popup"><primary sortas="AwnIcon::context-menu-popup">AwnIcon::context-menu-popup</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="AwnIcon">AwnIcon</link>  *awnicon,
+                                                        <link linkend="GdkEvent">GdkEvent</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>  user_data)      : Run First / Action</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>awnicon</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="AwnIcon-long-press" role="signal"><title>The <literal>&quot;long-press&quot;</literal> signal</title>
+<indexterm zone="AwnIcon-long-press"><primary sortas="AwnIcon::long-press">AwnIcon::long-press</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="AwnIcon">AwnIcon</link> *awnicon,
+                                                        <link linkend="gpointer">gpointer</link> user_data)      : Run First / Action</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>awnicon</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="AwnIcon-middle-clicked" role="signal"><title>The <literal>&quot;middle-clicked&quot;</literal> signal</title>
+<indexterm zone="AwnIcon-middle-clicked"><primary sortas="AwnIcon::middle-clicked">AwnIcon::middle-clicked</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="AwnIcon">AwnIcon</link> *awnicon,
+                                                        <link linkend="gpointer">gpointer</link> user_data)      : Run First / Action</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>awnicon</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="AwnIcon-size-changed" role="signal"><title>The <literal>&quot;size-changed&quot;</literal> signal</title>
+<indexterm zone="AwnIcon-size-changed"><primary sortas="AwnIcon::size-changed">AwnIcon::size-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="AwnIcon">AwnIcon</link> *awnicon,
+                                                        <link linkend="gpointer">gpointer</link> user_data)      : Run First</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>awnicon</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

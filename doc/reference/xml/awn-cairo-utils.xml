@@ -19,14 +19,41 @@
 <synopsis>
 enum                <link linkend="AwnCairoRoundCorners">AwnCairoRoundCorners</link>;
 <link linkend="void">void</link>                <link linkend="awn-cairo-rounded-rect">awn_cairo_rounded_rect</link>              (<link linkend="cairo-t">cairo_t</link> *cr,
-                                                         <link linkend="int">int</link> x0,
-                                                         <link linkend="int">int</link> y0,
-                                                         <link linkend="int">int</link> width,
-                                                         <link linkend="int">int</link> height,
+                                                         <link linkend="double">double</link> x0,
+                                                         <link linkend="double">double</link> y0,
+                                                         <link linkend="double">double</link> width,
+                                                         <link linkend="double">double</link> height,
                                                          <link linkend="double">double</link> radius,
                                                          <link linkend="AwnCairoRoundCorners">AwnCairoRoundCorners</link> state);
-<link linkend="void">void</link>                <link linkend="awn-cairo-string-to-color">awn_cairo_string_to_color</link>           (const <link linkend="gchar">gchar</link> *string,
-                                                         <link linkend="AwnColor">AwnColor</link> *color);
+<link linkend="void">void</link>                <link linkend="awn-cairo-rounded-rect-shadow">awn_cairo_rounded_rect_shadow</link>       (<link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="double">double</link> rx0,
+                                                         <link linkend="double">double</link> ry0,
+                                                         <link linkend="double">double</link> width,
+                                                         <link linkend="double">double</link> height,
+                                                         <link linkend="double">double</link> radius,
+                                                         <link linkend="AwnCairoRoundCorners">AwnCairoRoundCorners</link> state,
+                                                         <link linkend="double">double</link> shadow_radius,
+                                                         <link linkend="double">double</link> shadow_alpha);
+<link linkend="void">void</link>                <link linkend="awn-cairo-set-source-color">awn_cairo_set_source_color</link>          (<link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color);
+<link linkend="void">void</link>                <link linkend="awn-cairo-set-source-color-with-alpha-multiplier">awn_cairo_set_source_color_with_alpha_multiplier</link>
+                                                        (<link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color,
+                                                         <link linkend="gdouble">gdouble</link> multiplier);
+<link linkend="void">void</link>                <link linkend="awn-cairo-set-source-color-with-multipliers">awn_cairo_set_source_color_with_multipliers</link>
+                                                        (<link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color,
+                                                         <link linkend="gdouble">gdouble</link> color_multiplier,
+                                                         <link linkend="gdouble">gdouble</link> alpha_multiplier);
+<link linkend="void">void</link>                <link linkend="awn-cairo-pattern-add-color-stop-color">awn_cairo_pattern_add_color_stop_color</link>
+                                                        (<link linkend="cairo-pattern-t">cairo_pattern_t</link> *pattern,
+                                                         <link linkend="double">double</link> offset,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color);
+<link linkend="void">void</link>                <link linkend="awn-cairo-pattern-add-color-stop-color-with-alpha-multiplier">awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier</link>
+                                                        (<link linkend="cairo-pattern-t">cairo_pattern_t</link> *pattern,
+                                                         <link linkend="double">double</link> offset,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color,
+                                                         <link linkend="gdouble">gdouble</link> multiplier);
 </synopsis>
 </refsynopsisdiv>
 
@@ -51,10 +78,10 @@ enum                <link linkend="AwnCairoRoundCorners">AwnCairoRoundCorners</l
 <indexterm zone="AwnCairoRoundCorners"><primary sortas="AwnCairoRoundCorners">AwnCairoRoundCorners</primary></indexterm><programlisting>typedef enum
 {
 	ROUND_NONE		= 0,
-	ROUND_TOP_LEFT		= 1,
-	ROUND_TOP_RIGHT		= 2,
-	ROUND_BOTTOM_RIGHT	= 4,
-	ROUND_BOTTOM_LEFT	= 8,
+	ROUND_TOP_LEFT		= 1 &lt;&lt; 0,
+	ROUND_TOP_RIGHT		= 1 &lt;&lt; 1,
+	ROUND_BOTTOM_RIGHT	= 1 &lt;&lt; 2,
+	ROUND_BOTTOM_LEFT	= 1 &lt;&lt; 3,
 	ROUND_TOP		= ROUND_TOP_LEFT | ROUND_TOP_RIGHT,
 	ROUND_BOTTOM		= ROUND_BOTTOM_LEFT | ROUND_BOTTOM_RIGHT,
 	ROUND_LEFT		= ROUND_TOP_LEFT | ROUND_BOTTOM_LEFT,
@@ -67,12 +94,14 @@ enum                <link linkend="AwnCairoRoundCorners">AwnCairoRoundCorners</l
 <refsect2 id="awn-cairo-rounded-rect" role="function">
 <title>awn_cairo_rounded_rect ()</title>
 <indexterm zone="awn-cairo-rounded-rect"><primary sortas="awn_cairo_rounded_rect">awn_cairo_rounded_rect</primary></indexterm><programlisting><link linkend="void">void</link>                awn_cairo_rounded_rect              (<link linkend="cairo-t">cairo_t</link> *cr,
-                                                         <link linkend="int">int</link> x0,
-                                                         <link linkend="int">int</link> y0,
-                                                         <link linkend="int">int</link> width,
-                                                         <link linkend="int">int</link> height,
+                                                         <link linkend="double">double</link> x0,
+                                                         <link linkend="double">double</link> y0,
+                                                         <link linkend="double">double</link> width,
+                                                         <link linkend="double">double</link> height,
                                                          <link linkend="double">double</link> radius,
                                                          <link linkend="AwnCairoRoundCorners">AwnCairoRoundCorners</link> state);</programlisting>
+<para>
+Draws a rounded rectangle via cairo.</para>
 <para>
 </para><variablelist role="params">
 <varlistentry><term><parameter>cr</parameter>&#160;:</term>
@@ -97,17 +126,157 @@ enum                <link linkend="AwnCairoRoundCorners">AwnCairoRoundCorners</l
 <listitem><simpara>
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
-<refsect2 id="awn-cairo-string-to-color" role="function">
-<title>awn_cairo_string_to_color ()</title>
-<indexterm zone="awn-cairo-string-to-color"><primary sortas="awn_cairo_string_to_color">awn_cairo_string_to_color</primary></indexterm><programlisting><link linkend="void">void</link>                awn_cairo_string_to_color           (const <link linkend="gchar">gchar</link> *string,
-                                                         <link linkend="AwnColor">AwnColor</link> *color);</programlisting>
+<refsect2 id="awn-cairo-rounded-rect-shadow" role="function">
+<title>awn_cairo_rounded_rect_shadow ()</title>
+<indexterm zone="awn-cairo-rounded-rect-shadow"><primary sortas="awn_cairo_rounded_rect_shadow">awn_cairo_rounded_rect_shadow</primary></indexterm><programlisting><link linkend="void">void</link>                awn_cairo_rounded_rect_shadow       (<link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="double">double</link> rx0,
+                                                         <link linkend="double">double</link> ry0,
+                                                         <link linkend="double">double</link> width,
+                                                         <link linkend="double">double</link> height,
+                                                         <link linkend="double">double</link> radius,
+                                                         <link linkend="AwnCairoRoundCorners">AwnCairoRoundCorners</link> state,
+                                                         <link linkend="double">double</link> shadow_radius,
+                                                         <link linkend="double">double</link> shadow_alpha);</programlisting>
+<para>
+Draws a shadow for rounded rectangle via cairo.</para>
 <para>
 </para><variablelist role="params">
-<varlistentry><term><parameter>string</parameter>&#160;:</term>
+<varlistentry><term><parameter>cr</parameter>&#160;:</term>
 <listitem><simpara>
 </simpara></listitem></varlistentry>
-<varlistentry><term><parameter>color</parameter>&#160;:</term>
+<varlistentry><term><parameter>rx0</parameter>&#160;:</term>
 <listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ry0</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>radius</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>shadow_radius</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>shadow_alpha</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-cairo-set-source-color" role="function">
+<title>awn_cairo_set_source_color ()</title>
+<indexterm zone="awn-cairo-set-source-color"><primary sortas="awn_cairo_set_source_color">awn_cairo_set_source_color</primary></indexterm><programlisting><link linkend="void">void</link>                awn_cairo_set_source_color          (<link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color);</programlisting>
+<para>
+A convenience function which wraps <link linkend="cairo-set-source-rgba"><type>cairo_set_source_rgba</type></link> by using the
+values from the <parameter>color</parameter> parameter.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>cr</parameter>&#160;:</term>
+<listitem><simpara> A cairo context.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&#160;:</term>
+<listitem><simpara> The source color.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-cairo-set-source-color-with-alpha-multiplier" role="function">
+<title>awn_cairo_set_source_color_with_alpha_multiplier ()</title>
+<indexterm zone="awn-cairo-set-source-color-with-alpha-multiplier"><primary sortas="awn_cairo_set_source_color_with_alpha_multiplier">awn_cairo_set_source_color_with_alpha_multiplier</primary></indexterm><programlisting><link linkend="void">void</link>                awn_cairo_set_source_color_with_alpha_multiplier
+                                                        (<link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color,
+                                                         <link linkend="gdouble">gdouble</link> multiplier);</programlisting>
+<para>
+Similar to <link linkend="awn-cairo-set-source-color"><type>awn_cairo_set_source_color</type></link>, except for the <parameter>multiplier</parameter>
+parameter.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>cr</parameter>&#160;:</term>
+<listitem><simpara> A cairo context.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&#160;:</term>
+<listitem><simpara> The source color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>multiplier</parameter>&#160;:</term>
+<listitem><simpara> The number (between 0 and 1.0 inclusive) that the alpha value
+is multiplied by.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-cairo-set-source-color-with-multipliers" role="function">
+<title>awn_cairo_set_source_color_with_multipliers ()</title>
+<indexterm zone="awn-cairo-set-source-color-with-multipliers"><primary sortas="awn_cairo_set_source_color_with_multipliers">awn_cairo_set_source_color_with_multipliers</primary></indexterm><programlisting><link linkend="void">void</link>                awn_cairo_set_source_color_with_multipliers
+                                                        (<link linkend="cairo-t">cairo_t</link> *cr,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color,
+                                                         <link linkend="gdouble">gdouble</link> color_multiplier,
+                                                         <link linkend="gdouble">gdouble</link> alpha_multiplier);</programlisting>
+<para>
+Similar to <link linkend="awn-cairo-set-source-color-with-alpha-multiplier"><type>awn_cairo_set_source_color_with_alpha_multiplier</type></link>, except that
+there is an additional <parameter>color_multiplier</parameter> parameter.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>cr</parameter>&#160;:</term>
+<listitem><simpara> A cairo context.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&#160;:</term>
+<listitem><simpara> The source color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color_multiplier</parameter>&#160;:</term>
+<listitem><simpara> The number that the color values are multiplied by.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>alpha_multiplier</parameter>&#160;:</term>
+<listitem><simpara> The number that the alpha value is multiplied by.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-cairo-pattern-add-color-stop-color" role="function">
+<title>awn_cairo_pattern_add_color_stop_color ()</title>
+<indexterm zone="awn-cairo-pattern-add-color-stop-color"><primary sortas="awn_cairo_pattern_add_color_stop_color">awn_cairo_pattern_add_color_stop_color</primary></indexterm><programlisting><link linkend="void">void</link>                awn_cairo_pattern_add_color_stop_color
+                                                        (<link linkend="cairo-pattern-t">cairo_pattern_t</link> *pattern,
+                                                         <link linkend="double">double</link> offset,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color);</programlisting>
+<para>
+A convenience function which wraps <link linkend="cairo-pattern-add-color-stop-rgba"><type>cairo_pattern_add_color_stop_rgba</type></link> by
+using the values from the <parameter>color</parameter> parameter.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pattern</parameter>&#160;:</term>
+<listitem><simpara> A cairo pattern.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offset</parameter>&#160;:</term>
+<listitem><simpara> An offset in the range [0.0 .. 1.0].
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&#160;:</term>
+<listitem><simpara> The source color.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-cairo-pattern-add-color-stop-color-with-alpha-multiplier" role="function">
+<title>awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier ()</title>
+<indexterm zone="awn-cairo-pattern-add-color-stop-color-with-alpha-multiplier"><primary sortas="awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier">awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier</primary></indexterm><programlisting><link linkend="void">void</link>                awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier
+                                                        (<link linkend="cairo-pattern-t">cairo_pattern_t</link> *pattern,
+                                                         <link linkend="double">double</link> offset,
+                                                         <link linkend="DesktopAgnosticColor">DesktopAgnosticColor</link> *color,
+                                                         <link linkend="gdouble">gdouble</link> multiplier);</programlisting>
+<para>
+Similar to <link linkend="awn-cairo-pattern-add-color-stop-color"><type>awn_cairo_pattern_add_color_stop_color</type></link>, except for the
+<parameter>multiplier</parameter> parameter.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pattern</parameter>&#160;:</term>
+<listitem><simpara> A cairo pattern.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offset</parameter>&#160;:</term>
+<listitem><simpara> An offset in the range [0.0 .. 1.0].
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&#160;:</term>
+<listitem><simpara> The source color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>multiplier</parameter>&#160;:</term>
+<listitem><simpara> The number (between 0 and 1.0 inclusive) that the alpha value
+is multiplied by.
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="AwnAlignment">
+<refmeta>
+<refentrytitle role="top_of_page" id="AwnAlignment.top_of_page">AwnAlignment</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBAWN Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>AwnAlignment</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="AwnAlignment.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="AwnAlignmentPrivate">AwnAlignmentPrivate</link>;
+                    <link linkend="AwnAlignment-struct">AwnAlignment</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="awn-alignment-new-for-applet">awn_alignment_new_for_applet</link>        (<link linkend="AwnApplet">AwnApplet</link> *applet);
+<link linkend="gint">gint</link>                <link linkend="awn-alignment-get-offset-modifier">awn_alignment_get_offset_modifier</link>   (<link linkend="AwnAlignment">AwnAlignment</link> *alignment);
+<link linkend="void">void</link>                <link linkend="awn-alignment-set-offset-modifier">awn_alignment_set_offset_modifier</link>   (<link linkend="AwnAlignment">AwnAlignment</link> *alignment,
+                                                         <link linkend="gint">gint</link> modifier);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="AwnAlignment.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkAlignment">GtkAlignment</link>
+                                       +----AwnAlignment
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnAlignment.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+AwnAlignment implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="AwnAlignment.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="AwnAlignment--applet">applet</link>&quot;                   <link linkend="AwnApplet">AwnApplet</link>*            : Read / Write
+  &quot;<link linkend="AwnAlignment--offset-modifier">offset-modifier</link>&quot;          <link linkend="gint">gint</link>                  : Read / Write / Construct
+  &quot;<link linkend="AwnAlignment--offset-multiplier">offset-multiplier</link>&quot;        <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="AwnAlignment--scale">scale</link>&quot;                    <link linkend="gfloat">gfloat</link>                : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="AwnAlignment.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="AwnAlignment.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="AwnAlignmentPrivate" role="struct">
+<title>AwnAlignmentPrivate</title>
+<indexterm zone="AwnAlignmentPrivate"><primary sortas="AwnAlignmentPrivate">AwnAlignmentPrivate</primary></indexterm><programlisting>typedef struct _AwnAlignmentPrivate AwnAlignmentPrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="AwnAlignment-struct" role="struct">
+<title>AwnAlignment</title>
+<indexterm zone="AwnAlignment-struct"><primary sortas="AwnAlignment">AwnAlignment</primary></indexterm><programlisting>typedef struct _AwnAlignment AwnAlignment;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="awn-alignment-new-for-applet" role="function">
+<title>awn_alignment_new_for_applet ()</title>
+<indexterm zone="awn-alignment-new-for-applet"><primary sortas="awn_alignment_new_for_applet">awn_alignment_new_for_applet</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         awn_alignment_new_for_applet        (<link linkend="AwnApplet">AwnApplet</link> *applet);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>applet</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-alignment-get-offset-modifier" role="function">
+<title>awn_alignment_get_offset_modifier ()</title>
+<indexterm zone="awn-alignment-get-offset-modifier"><primary sortas="awn_alignment_get_offset_modifier">awn_alignment_get_offset_modifier</primary></indexterm><programlisting><link linkend="gint">gint</link>                awn_alignment_get_offset_modifier   (<link linkend="AwnAlignment">AwnAlignment</link> *alignment);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>alignment</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="awn-alignment-set-offset-modifier" role="function">
+<title>awn_alignment_set_offset_modifier ()</title>
+<indexterm zone="awn-alignment-set-offset-modifier"><primary sortas="awn_alignment_set_offset_modifier">awn_alignment_set_offset_modifier</primary></indexterm><programlisting><link linkend="void">void</link>                awn_alignment_set_offset_modifier   (<link linkend="AwnAlignment">AwnAlignment</link> *alignment,
+                                                         <link linkend="gint">gint</link> modifier);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>alignment</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>modifier</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="AwnAlignment.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="AwnAlignment--applet" role="property"><title>The <literal>&quot;applet&quot;</literal> property</title>
+<indexterm zone="AwnAlignment--applet"><primary sortas="AwnAlignment:applet">AwnAlignment:applet</primary></indexterm><programlisting>  &quot;applet&quot;                   <link linkend="AwnApplet">AwnApplet</link>*            : Read / Write</programlisting>
+<para>Applet from which properties are read out.</para></refsect2>
+<refsect2 id="AwnAlignment--offset-modifier" role="property"><title>The <literal>&quot;offset-modifier&quot;</literal> property</title>
+<indexterm zone="AwnAlignment--offset-modifier"><primary sortas="AwnAlignment:offset-modifier">AwnAlignment:offset-modifier</primary></indexterm><programlisting>  &quot;offset-modifier&quot;          <link linkend="gint">gint</link>                  : Read / Write / Construct</programlisting>
+<para>Offset modifier.</para><para>Default value: 0</para>
+</refsect2>
+<refsect2 id="AwnAlignment--offset-multiplier" role="property"><title>The <literal>&quot;offset-multiplier&quot;</literal> property</title>
+<indexterm zone="AwnAlignment--offset-multiplier"><primary sortas="AwnAlignment:offset-multiplier">AwnAlignment:offset-multiplier</primary></indexterm><programlisting>  &quot;offset-multiplier&quot;        <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>Offset multiplier.</para><para>Allowed values: [0,1]</para>
+<para>Default value: 1</para>
+</refsect2>
+<refsect2 id="AwnAlignment--scale" role="property"><title>The <literal>&quot;scale&quot;</literal> property</title>
+<indexterm zone="AwnAlignment--scale"><primary sortas="AwnAlignment:scale">AwnAlignment:scale</primary></indexterm><programlisting>  &quot;scale&quot;                    <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>If available space is bigger than needed for the child, how much of it to use for the child. 0.0 means none, 1.0 means all.</para><para>Allowed values: [0,1]</para>
+<para>Default value: 1</para>
+</refsect2>
+</refsect1>
+
+
+
+
+</refentry>
