@@ -40,7 +40,9 @@ Depends: 	${shlibs:Depends},
 Recommends:	awn-applets-python-core,
 		awn-applets-c-core,
 		awn-settings (>= ${source:Version}),
-		metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0)
+		metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0) | mutter
+Conflicts: awn-applets-c-core (<<  0.3.9~bzr1890)
+Replaces: awn-applets-c-core (<<  0.3.9~bzr1890)
 Description: A MacOS X like panel for GNOME
  The avant-window-navigator is a MacOS X like panel for the GNOME Desktop
  written in C.  In addition to launchers that can be dragged onto the bar, 
@@ -60,7 +62,7 @@ Section: libs
 Architecture: any
 Depends: 	${shlibs:Depends},
 		${misc:Depends}
-Suggests: 	metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2)
+Suggests: 	metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0) | mutter
 Description: library for avant-window-navigator
  This library is used by avant-window-navigator and its applets. It provides 
  functions to create the bar and the applets.

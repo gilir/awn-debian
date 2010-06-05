@@ -27,6 +27,8 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Add depends on avant-window-navigator, python-desktop-agnostic, bzr and
      python-dbus for awn-settings.
    - Replace vala depends by vala-desktop-agnostic for vala-awn.
+   - Add Conflicts/Replaces to replace separator applets which is in core now.
+   - Add mutter as another composite manager.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
