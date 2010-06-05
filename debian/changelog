@@ -52,6 +52,8 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
   * debian/README.Debian:
    - Mention that real transparency is not needed.
    - Add mutter in the list of composite managers.
+  * debian/copyright:
+   - Update copyright and licenses.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
