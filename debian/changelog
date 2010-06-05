@@ -55,6 +55,8 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Add mutter in the list of composite managers.
   * debian/copyright:
    - Update copyright and licenses.
+  * debian/libawn1.symbols: 
+   - Add missing symbol.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
