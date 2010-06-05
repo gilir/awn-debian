@@ -22,4 +22,4 @@ override_dh_auto_test:
 
 override_dh_makeshlibs:
 	dh_makeshlibs -pavant-window-navigator -a -n --exclude=*
-	dh_makeshlibs -plibawn1  -V"libawn1 (>= 0.3.9~bzr1890)"
+	dh_makeshlibs -plibawn1  -V"libawn1 (>= 0.4.0)"
