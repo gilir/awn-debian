@@ -17,6 +17,9 @@ override_dh_auto_configure:
 override_dh_strip:
 	dh_strip --dbg-package=libawn1-dbg
 
+override_dh_install:
+	dh_install --fail-missing
+
 override_dh_auto_test:
 	#Pass, tests don't pass for now.
 

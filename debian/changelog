@@ -46,6 +46,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Rewrite with overrides.
    - Remove awn.wrapper.
    - Bump libawn SONAME.
+   - Use dh_install --fail-missing.
   * debian/avant-window-navigator{,-data}.install:
    - Update installed files in core.
    - Install core applets
