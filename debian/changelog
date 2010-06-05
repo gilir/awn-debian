@@ -21,6 +21,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Depends on libdesktop-agnostic-* and dbus.
    - Bump libawn SONAME.
    - Rename awn-manager to awn-settings.
+   - libawn-dev : drop libgnome*-dev and add libdesktop-agnostic-dev depends.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 

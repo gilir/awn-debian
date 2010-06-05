@@ -80,9 +80,8 @@ Architecture: any
 Depends:	libawn1 (= ${binary:Version}),
 		${shlibs:Depends},
 		${misc:Depends},
-		libgnome2-dev,
+		libdesktop-agnostic-dev,
 		libgtk2.0-dev,
-		libgnome-desktop-dev,
 		libdbus-glib-1-dev
 Description: library for avant-window-navigator - development files
  This package provides the include files and static library for the
