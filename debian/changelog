@@ -17,6 +17,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Build-depends on gconf2, libdesktop-agnostic-dev, libdesktop-agnostic-bin,
      python-desktop-agnostic, vala-desktop-agnostic for desktop-agnostic
      support.
+   - Demote the composite manager to Recommends, Awn works without it.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
