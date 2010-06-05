@@ -8,6 +8,8 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - 00-wm-behavior.patch and 01-tasks-have-arrow.patch: Merged upstream.
    - 03-python-import.patch: Refresh.
   * Bump libawn SONAME
+  * debian/control:
+   - Add minimum requirement for libwnck-dev libgtk2.0-dev and libglib2.0-dev.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 

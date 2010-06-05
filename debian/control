@@ -4,7 +4,9 @@ Priority: optional
 Maintainer: Julien Lavergne <julien.lavergne@gmail.com>
 Build-Depends: 	debhelper (>= 7),
 		intltool,
-		libwnck-dev,
+		libwnck-dev (>= 2.22),
+		libgtk2.0-dev (>= 2.12.0),
+		libglib2.0-dev (>= 2.16.0),
 		libgnome2-dev,
 		libgnome-desktop-dev,
 		libglade2-dev,
