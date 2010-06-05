@@ -114,7 +114,8 @@ Depends: libawn1 (= ${binary:Version}),
          ${shlibs:Depends},
          ${misc:Depends},
          ${python:Depends},
-         python-gtk2
+         python-gtk2,
+         python-desktop-agnostic
 Provides: ${python:Provides}
 Description: Python bindings for avant-window-navigator library 
  This library is used by avant-window-navigator. It provides Python bindings 
