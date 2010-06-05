@@ -3,6 +3,12 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
   * New upstream release.
    - Fix icons placed outside the panel. Closes: #471661
    - Add an option to go under the panel. Closes: #474228
+   - Fix autohide behavior. LP: #130235
+   - Allow only 1 instance of Awn. LP: #258675
+   - Ensure the autostart exist before trying to delete it. LP: #334454
+   - Fix position with multiple screen. LP: #248769
+   - Fix crash when event is NULL. LP: #550541
+   - Fix crash in awn-setting when adding applet. LP: #557778
   * debian/patches:
    - 10_correct_exception.patch: Dropped, problem fixed in the new version.
    - 00-wm-behavior.patch and 01-tasks-have-arrow.patch: Merged upstream.
