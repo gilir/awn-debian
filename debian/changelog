@@ -13,6 +13,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
    - Drop build-depends on libgnome2-dev, libgnome-desktop-dev, libglade2-dev.
    - Bump build-depends for debhelper to (>= 7.0.50~) for overrides.
    - Build-depends on libgtop2-dev.
+   - Replace build-depends on python-gnome2-dev by python-gtk2-dev (>= 2.12).
 
  -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
 
