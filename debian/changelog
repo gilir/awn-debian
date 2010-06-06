@@ -1,4 +1,4 @@
-avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
+avant-window-navigator (0.4.0-1) unstable; urgency=low
 
   * New upstream release.
    - Fix icons placed outside the panel. Closes: #471661
@@ -72,7 +72,7 @@ avant-window-navigator (0.4.0-1) UNRELEASED; urgency=low
   * debian/libawn1.symbols: 
    - Add missing symbol.
 
- -- Julien Lavergne <gilir@ubuntu.com>  Sat, 05 Jun 2010 16:43:12 +0200
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Sun, 06 Jun 2010 18:06:51 +0200
 
 avant-window-navigator (0.3.2.1-6) unstable; urgency=medium
 
