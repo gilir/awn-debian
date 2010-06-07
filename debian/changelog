@@ -54,9 +54,9 @@ avant-window-navigator (0.4.0-1) unstable; urgency=low
    - Update installed files in core.
    - Install core applets
   * debian/awn.wrapper & debian/avant-window-navigator.links:
-   - Dropped, previous configuration is incompatible
+   - Dropped, previous configuration is incompatible.
   * debian/awn-manager.install
-   - Rename to awn-settings.install
+   - Rename to awn-settings.install.
    - Update installed files.
   * debian/awn-applet*.1 && debian/avant-window-navigator.manpages
    - Update manpages.
