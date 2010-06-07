@@ -17,8 +17,8 @@ avant-window-navigator (0.4.0-1) unstable; urgency=low
    - 01-bad-pointer-init.patch: From upstream, bad unitialized pointer.
   * Bump libawn SONAME
   * debian/control:
-   - Add minimum requirement for libwnck-dev libgtk2.0-dev and libglib2.0-dev
-     and valac.
+   - Add minimum requirement for libwnck-dev libgtk2.0-dev libglib2.0-dev and
+     valac.
    - Drop build-depends on libgnome2-dev, libgnome-desktop-dev, libglade2-dev.
    - Bump build-depends for debhelper to (>= 7.0.50~) for overrides.
    - Build-depends on libgtop2-dev.
