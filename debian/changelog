@@ -31,8 +31,8 @@ avant-window-navigator (0.4.0-1) unstable; urgency=low
    - Bump libawn SONAME.
    - Rename awn-manager to awn-settings.
    - libawn-dev : drop libgnome*-dev and add libdesktop-agnostic-dev depends.
-   - Replace depends on awn-manager by on awn-settings for
-     avant-window-navigator (LP: #512411).
+   - Demote depends on awn-manager by a recommends on awn-settings for
+     avant-window-navigator.
    - Add depends on avant-window-navigator, python-desktop-agnostic, bzr and
      python-dbus for awn-settings.
    - Remove depends on python-galde2 for awn-settings.

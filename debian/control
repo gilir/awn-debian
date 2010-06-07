@@ -33,13 +33,13 @@ Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
          avant-window-navigator-data (>= ${source:Version}),
-         awn-settings (>= ${source:Version}),
          libdesktop-agnostic-vfs,
          libdesktop-agnostic-fdo,
          libdesktop-agnostic-cfg,
          dbus-x11
 Recommends: awn-applets-python-core,
             awn-applets-c-core,
+            awn-settings (>= ${source:Version}),
             metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0) | mutter
 Conflicts: awn-applets-c-core (<<  0.3.9~bzr1890)
 Replaces: awn-applets-c-core (<<  0.3.9~bzr1890)
