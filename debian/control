@@ -102,6 +102,7 @@ Depends: ${python:Depends},
          bzr,
          python-dbus
 Conflicts: awn-manager
+Replaces: awn-manager
 Description: A preferences manager for avant-window-navigator
  awn-settings provides a simple way to configure avant-window-navigator.
  You can manage preferences, themes, applets and launchers.
