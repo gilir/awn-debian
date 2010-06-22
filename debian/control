@@ -137,6 +137,8 @@ Priority: extra
 Architecture: any
 Depends: libawn1 (= ${binary:Version}),
          ${misc:Depends}
+Conflicts: libawn0-dbg
+Replace: libawn0-dbg
 Description: library for avant-window-navigator - debug package
  This library is used by avant-window-navigator and its applets. It provides 
  functions to create the bar and the applets.

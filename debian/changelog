@@ -1,3 +1,12 @@
+avant-window-navigator (0.4.0-2) unstable; urgency=medium
+
+  * Set priority to medium to fix RC bug.
+  * debian/control:
+   - Add Conlicts/Replaces between libawn0-dbg and libawn1-dbg.
+     (Closes: #586031)
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Wed, 23 Jun 2010 00:13:20 +0200
+
 avant-window-navigator (0.4.0-1) unstable; urgency=low
 
   * New upstream release.
