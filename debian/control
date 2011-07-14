@@ -19,7 +19,6 @@ Build-Depends: debhelper (>= 7.0.50~),
                libdesktop-agnostic-dev (>= 0.3.92),
                libdesktop-agnostic-bin,
                python-desktop-agnostic,
-               vala-desktop-agnostic,
                gtk-doc-tools, 
                doc-base,
                valac-0.10 (>= 0.9.1) | valac
