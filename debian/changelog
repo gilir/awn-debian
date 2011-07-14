@@ -30,6 +30,8 @@ avant-window-navigator (0.4.1~bzr830-1) unstable; urgency=low
    - Remove use of LDFLAGS
   * debian/NEWS
    - Don't use asterisk.
+  * debian/avant-window-navigator.1:
+  - Fix typo.
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Thu, 14 Jul 2011 11:54:48 +0200
 
