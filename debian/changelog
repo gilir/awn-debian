@@ -1,4 +1,4 @@
-avant-window-navigator (0.4.1~bzr830-1) UNRELEASED; urgency=low
+avant-window-navigator (0.4.1~bzr830-1) unstable; urgency=low
 
   * New upstream snapshot.
   * debian/patches
@@ -19,7 +19,7 @@ avant-window-navigator (0.4.1~bzr830-1) UNRELEASED; urgency=low
   * debian/gbp.conf:
    - Add gbp configuration.
 
- -- Julien Lavergne <gilir@ubuntu.com>  Thu, 14 Jul 2011 11:12:23 +0200
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Thu, 14 Jul 2011 11:54:48 +0200
 
 avant-window-navigator (0.4.0-2.1) unstable; urgency=low
 
