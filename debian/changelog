@@ -10,6 +10,8 @@ avant-window-navigator (0.4.0-3) UNRELEASED; urgency=low
      libdesktop-agnostic-dev (Closes: #633810).
   * debian/libawn1.symbols:
    - Update with new symbols. 
+  * debian/gbp.conf:
+   - Add gbp configuration.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Thu, 14 Jul 2011 11:12:23 +0200
 
