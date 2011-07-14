@@ -16,6 +16,7 @@ avant-window-navigator (0.4.1~bzr830-1) unstable; urgency=low
      libdesktop-agnostic-dev (Closes: #633810).
    - Add DM-Upload-Allowed: yes
    - Bump build-depends on python-all-dev to >= 2.6.6-3~ for dh_python2 support
+   - Remove python-support build-depends.
   * debian/libawn1.symbols:
    - Update with new symbols. 
   * debian/gbp.conf:
