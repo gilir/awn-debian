@@ -4,6 +4,8 @@ avant-window-navigator (0.4.0-3) UNRELEASED; urgency=low
    - Update copyright years and upstream authors.
   * debian/control:
    - Build-depends on valac-0.10 (>= 0.9.1), to force stable version of Vala.
+  * debian/libawn1.symbols:
+   - Update with new symbols. 
 
  -- Julien Lavergne <gilir@ubuntu.com>  Thu, 14 Jul 2011 11:12:23 +0200
 

@@ -21,6 +21,7 @@ libawn.so.1 libawn1 #MINVER#
  awn_applet_inhibit_autohide@Base 0.4.0
  awn_applet_license_get_type@Base 0.4.0
  awn_applet_new@Base 0.4.0
+ awn_applet_popup_gtk_menu@Base 0.4.1~bzr803
  awn_applet_set_behavior@Base 0.4.0
  awn_applet_set_offset@Base 0.4.0
  awn_applet_set_path_type@Base 0.4.0
@@ -132,6 +133,7 @@ libawn.so.1 libawn1 #MINVER#
  awn_icon_get_type@Base 0.4.0
  awn_icon_middle_clicked@Base 0.4.0
  awn_icon_new@Base 0.4.0
+ awn_icon_popup_gtk_menu@Base 0.4.1~bzr803
  awn_icon_set_custom_paint@Base 0.4.0
  awn_icon_set_effect@Base 0.4.0
  awn_icon_set_from_context@Base 0.4.0
@@ -226,8 +228,10 @@ libawn.so.1 libawn1 #MINVER#
  awn_utils_get_offset_modifier_by_path_type@Base 0.4.0
  awn_utils_gslist_to_gvaluearray@Base 0.4.0
  awn_utils_make_transparent_bg@Base 0.4.0
+ awn_utils_menu_set_position_widget_relative@Base 0.4.1~bzr803
  awn_utils_show_menu_images@Base 0.4.0
  blur_surface_shadow@Base 0.4.0
+ blur_surface_shadow_rgba@Base 0.4.1~bzr803
  bounce_effect@Base 0.4.0
  bounce_effect_finalize@Base 0.4.0
  bounce_hover_effect@Base 0.4.0
