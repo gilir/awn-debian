@@ -1,6 +1,8 @@
 avant-window-navigator (0.4.1~bzr830-1) UNRELEASED; urgency=low
 
   * New upstream snapshot.
+  * debian/patches
+   - ld-no-add-needed.patch: drop, merged upstream.
   * debian/copyright:
    - Update copyright years and upstream authors.
   * debian/control:
