@@ -22,7 +22,7 @@ Build-Depends: debhelper (>= 7.0.50~),
                vala-desktop-agnostic,
                gtk-doc-tools, 
                doc-base,
-               valac (>= 0.7.9)
+               valac-0.10 (>= 0.9.1) | valac
 Standards-Version: 3.8.4
 Homepage: https://launchpad.net/avant-window-navigator/
 Vcs-Git: git://github.com/gilir/awn-debian.git
