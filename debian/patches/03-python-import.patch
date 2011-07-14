@@ -1,12 +1,12 @@
 # Hardcode python location to avoid rebuilding package when the python version change.
 
-Index: avant-window-navigator-0.3.9/awn-settings/awnSettings.py.in
+Index: git/awn-settings/awnSettings.py.in
 ===================================================================
---- avant-window-navigator-0.3.9.orig/awn-settings/awnSettings.py.in	2010-01-10 15:25:44.000000000 +0100
-+++ avant-window-navigator-0.3.9/awn-settings/awnSettings.py.in	2010-01-10 15:25:59.000000000 +0100
-@@ -26,8 +26,8 @@
- import time
+--- git.orig/awn-settings/awnSettings.py.in	2011-07-14 11:39:40.000000000 +0200
++++ git/awn-settings/awnSettings.py.in	2011-07-14 11:45:16.000000000 +0200
+@@ -27,8 +27,8 @@
  import pwd
+ import getopt
  
 -PLAT_PKG = '@PY_PLAT_PKG@'
 -SITE_PKG = '@PY_SITE_PKG@'

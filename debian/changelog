@@ -5,6 +5,7 @@ avant-window-navigator (0.4.1~bzr830-1) UNRELEASED; urgency=low
    - ld-no-add-needed.patch: drop, merged upstream.
    - 01-bad-pointer-init.patch: drop, merged upstream.
    - 02-ftbfs-python-2.6.patch: refresh.
+   - 03-python-import.patch: refresh.
   * debian/copyright:
    - Update copyright years and upstream authors.
   * debian/control:
