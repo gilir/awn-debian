@@ -77,18 +77,29 @@ struct _AwnBackground
   GdkPixbuf *pattern_original;
   cairo_surface_t *pattern;
 
+  /*  Speedup code.
+   *  We can save the bg and redraw only when properties changes
+   */
+  gboolean          cache_enabled;
+  gboolean          needs_redraw;
+  cairo_surface_t*  helper_surface;
+
+  gboolean          draw_glow;
+
   /* FIXME:
    * These two should ultimately go somewhere else (once we do multiple panels)
    */
   gboolean dialog_gtk_mode;
   gboolean gtk_theme_mode;
-  
+
   /* Appearance options -- (some are backend specific) */
   gboolean rounded_corners;
   gfloat   corner_radius;
   gint     panel_angle;
+  gint     floaty_offset;
   gfloat   curviness;
   gfloat   curves_symmetry;
+  gfloat   thickness;
 
   /* private */
   guint    changed;
@@ -129,6 +140,10 @@ struct _AwnBackgroundClass
                              GdkRectangle *area,
                              gint *strut,
                              gint *strut_start, gint *strut_end);
+                             
+  gboolean (*get_needs_redraw) (AwnBackground *bg,
+                                GtkPositionType position,
+                                GdkRectangle *area);
 
   /*< signals >*/
   void (*changed) (AwnBackground *bg);
@@ -141,6 +156,8 @@ void awn_background_draw      (AwnBackground  *bg,
                                cairo_t        *cr, 
                                GtkPositionType  position,
                                GdkRectangle   *area);
+
+void awn_background_invalidate      (AwnBackground  *bg);
 
 void awn_background_padding_request (AwnBackground *bg,
                                      GtkPositionType position,
@@ -167,6 +184,9 @@ void awn_background_get_strut_offsets (AwnBackground *bg,
                                        GdkRectangle *area,
                                        gint *strut,
                                        gint *strut_start, gint *strut_end);
+
+void awn_background_set_glow (AwnBackground  *bg, gboolean activate);
+gboolean awn_background_get_glow (AwnBackground  *bg);
 
 /* These should be "protected" (used only by derived classes) */
 void awn_background_emit_padding_changed (AwnBackground *bg);

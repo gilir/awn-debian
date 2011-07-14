@@ -60,7 +60,8 @@ struct _TaskIconPrivate
 
   /*context menu*/
   GtkWidget * menu;
-  gchar * menu_filename;
+  guint       autohide_cookie;
+  gchar *   menu_filename;
 
   gboolean draggable;
   gboolean gets_dragged;
@@ -84,7 +85,7 @@ struct _TaskIconPrivate
   /*Keep track if TaskLauncher was added through desktop file lookup
    FIXME _should_ be able to dump this by setting the task launcher visibility to false for ephemeral launchers.
    target for 0.6. */
-  guint ephemeral_count;
+  GObject   *proxy_obj;
 
   gboolean  inhibit_focus_loss;
   

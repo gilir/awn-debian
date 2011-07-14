@@ -3,20 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>awn-cairo-utils</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
 <link rel="home" href="index.html" title="Awn Reference Manual">
 <link rel="up" href="ch05.html" title="Utilities">
 <link rel="prev" href="libawn-awn-defines.html" title="awn-defines">
 <link rel="next" href="libawn-awn-utils.html" title="awn-utils">
-<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="part" href="api-reference.html" title="Part I. API Reference">
-<link rel="chapter" href="ch01.html" title="Applets">
-<link rel="chapter" href="ch02.html" title="Base Components">
-<link rel="chapter" href="ch03.html" title="Icons">
-<link rel="chapter" href="ch04.html" title="Icon Overlays">
-<link rel="chapter" href="ch05.html" title="Utilities">
-<link rel="index" href="index-all.html" title="Index">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
@@ -29,11 +22,11 @@
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#libawn-awn-cairo-utils.synopsis" class="shortcut">Top</a>
-                 | 
-                <a href="#libawn-awn-cairo-utils.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libawn-awn-cairo-utils.description" class="shortcut">Description</a>
 </td></tr>
 </table>
-<div class="refentry" title="awn-cairo-utils">
+<div class="refentry">
 <a name="libawn-awn-cairo-utils"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
@@ -42,86 +35,63 @@
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsynopsisdiv" title="Synopsis">
+<div class="refsynopsisdiv">
 <a name="libawn-awn-cairo-utils.synopsis"></a><h2>Synopsis</h2>
-<pre class="synopsis">
-enum                <a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners">AwnCairoRoundCorners</a>;
-void                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect" title="awn_cairo_rounded_rect ()">awn_cairo_rounded_rect</a>              (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         double x0,
-                                                         double y0,
-                                                         double width,
-                                                         double height,
-                                                         double radius,
-                                                         <a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners">AwnCairoRoundCorners</a> state);
-void                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect-shadow" title="awn_cairo_rounded_rect_shadow ()">awn_cairo_rounded_rect_shadow</a>       (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         double rx0,
-                                                         double ry0,
-                                                         double width,
-                                                         double height,
-                                                         double radius,
-                                                         <a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners">AwnCairoRoundCorners</a> state,
-                                                         double shadow_radius,
-                                                         double shadow_alpha);
-void                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-set-source-color" title="awn_cairo_set_source_color ()">awn_cairo_set_source_color</a>          (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         DesktopAgnosticColor *color);
-void                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-set-source-color-with-alpha-multiplier" title="awn_cairo_set_source_color_with_alpha_multiplier ()">awn_cairo_set_source_color_with_alpha_multiplier</a>
-                                                        (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         DesktopAgnosticColor *color,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a> multiplier);
-void                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-set-source-color-with-multipliers" title="awn_cairo_set_source_color_with_multipliers ()">awn_cairo_set_source_color_with_multipliers</a>
-                                                        (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         DesktopAgnosticColor *color,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a> color_multiplier,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a> alpha_multiplier);
-void                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-pattern-add-color-stop-color" title="awn_cairo_pattern_add_color_stop_color ()">awn_cairo_pattern_add_color_stop_color</a>
-                                                        (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-pattern.html#cairo-pattern-t"
->cairo_pattern_t</a> *pattern,
-                                                         double offset,
-                                                         DesktopAgnosticColor *color);
-void                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-pattern-add-color-stop-color-with-alpha-multiplier" title="awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier ()">awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier</a>
-                                                        (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-pattern.html#cairo-pattern-t"
->cairo_pattern_t</a> *pattern,
-                                                         double offset,
-                                                         DesktopAgnosticColor *color,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a> multiplier);
+<pre class="synopsis">enum                <a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners">AwnCairoRoundCorners</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect" title="awn_cairo_rounded_rect ()">awn_cairo_rounded_rect</a>              (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> radius</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners"><span class="type">AwnCairoRoundCorners</span></a> state</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect-shadow" title="awn_cairo_rounded_rect_shadow ()">awn_cairo_rounded_rect_shadow</a>       (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> rx0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> ry0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> radius</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners"><span class="type">AwnCairoRoundCorners</span></a> state</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> shadow_radius</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> shadow_alpha</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-set-source-color" title="awn_cairo_set_source_color ()">awn_cairo_set_source_color</a>          (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-set-source-color-with-alpha-multiplier" title="awn_cairo_set_source_color_with_alpha_multiplier ()">awn_cairo_set_source_color_with_alpha_multiplier</a>
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> multiplier</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-set-source-color-with-multipliers" title="awn_cairo_set_source_color_with_multipliers ()">awn_cairo_set_source_color_with_multipliers</a>
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> color_multiplier</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> alpha_multiplier</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-pattern-add-color-stop-color" title="awn_cairo_pattern_add_color_stop_color ()">awn_cairo_pattern_add_color_stop_color</a>
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-pattern-add-color-stop-color-with-alpha-multiplier" title="awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier ()">awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier</a>
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> multiplier</code></em>);
 </pre>
 </div>
-<div class="refsect1" title="Description">
+<div class="refsect1">
 <a name="libawn-awn-cairo-utils.description"></a><h2>Description</h2>
 <p>
 </p>
 </div>
-<div class="refsect1" title="Details">
+<div class="refsect1">
 <a name="libawn-awn-cairo-utils.details"></a><h2>Details</h2>
-<div class="refsect2" title="enum AwnCairoRoundCorners">
+<div class="refsect2">
 <a name="AwnCairoRoundCorners"></a><h3>enum AwnCairoRoundCorners</h3>
 <pre class="programlisting">typedef enum
 {
 	ROUND_NONE		= 0,
 	ROUND_TOP_LEFT		= 1 &lt;&lt; 0,
 	ROUND_TOP_RIGHT		= 1 &lt;&lt; 1,
-	ROUND_BOTTOM_RIGHT	= 1 &lt;&lt; 2,
-	ROUND_BOTTOM_LEFT	= 1 &lt;&lt; 3,
+	ROUND_BOTTOM_RIGHT = 1 &lt;&lt; 2,
+	ROUND_BOTTOM_LEFT = 1 &lt;&lt; 3,
 	ROUND_TOP		= ROUND_TOP_LEFT | ROUND_TOP_RIGHT,
 	ROUND_BOTTOM		= ROUND_BOTTOM_LEFT | ROUND_BOTTOM_RIGHT,
 	ROUND_LEFT		= ROUND_TOP_LEFT | ROUND_BOTTOM_LEFT,
@@ -133,321 +103,182 @@ href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble
 </p>
 </div>
 <hr>
-<div class="refsect2" title="awn_cairo_rounded_rect ()">
+<div class="refsect2">
 <a name="awn-cairo-rounded-rect"></a><h3>awn_cairo_rounded_rect ()</h3>
-<pre class="programlisting">void                awn_cairo_rounded_rect              (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         double x0,
-                                                         double y0,
-                                                         double width,
-                                                         double height,
-                                                         double radius,
-                                                         <a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners">AwnCairoRoundCorners</a> state);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_cairo_rounded_rect              (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> radius</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners"><span class="type">AwnCairoRoundCorners</span></a> state</code></em>);</pre>
 <p>
-Draws a rounded rectangle via cairo.</p>
-<p>
+Draws a rounded rectangle via cairo.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>x0</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>y0</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>radius</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>state</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_cairo_rounded_rect_shadow ()">
+<div class="refsect2">
 <a name="awn-cairo-rounded-rect-shadow"></a><h3>awn_cairo_rounded_rect_shadow ()</h3>
-<pre class="programlisting">void                awn_cairo_rounded_rect_shadow       (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         double rx0,
-                                                         double ry0,
-                                                         double width,
-                                                         double height,
-                                                         double radius,
-                                                         <a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners">AwnCairoRoundCorners</a> state,
-                                                         double shadow_radius,
-                                                         double shadow_alpha);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_cairo_rounded_rect_shadow       (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> rx0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> ry0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> radius</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-cairo-utils.html#AwnCairoRoundCorners" title="enum AwnCairoRoundCorners"><span class="type">AwnCairoRoundCorners</span></a> state</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> shadow_radius</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> shadow_alpha</code></em>);</pre>
 <p>
-Draws a shadow for rounded rectangle via cairo.</p>
-<p>
+Draws a shadow for rounded rectangle via cairo.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>rx0</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>ry0</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>radius</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>state</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>shadow_radius</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>shadow_alpha</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_cairo_set_source_color ()">
+<div class="refsect2">
 <a name="awn-cairo-set-source-color"></a><h3>awn_cairo_set_source_color ()</h3>
-<pre class="programlisting">void                awn_cairo_set_source_color          (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         DesktopAgnosticColor *color);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_cairo_set_source_color          (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>);</pre>
 <p>
-A convenience function which wraps <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-set-source-rgba"
-><span class="type">cairo_set_source_rgba</span></a> by using the
-values from the <em class="parameter"><code>color</code></em> parameter.</p>
-<p>
+A convenience function which wraps <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-set-source-rgba"><span class="type">cairo_set_source_rgba</span></a> by using the
+values from the <em class="parameter"><code>color</code></em> parameter.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
-<td> A cairo context.
-</td>
+<td>A cairo context.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
-<td> The source color.
-</td>
+<td>The source color.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_cairo_set_source_color_with_alpha_multiplier ()">
+<div class="refsect2">
 <a name="awn-cairo-set-source-color-with-alpha-multiplier"></a><h3>awn_cairo_set_source_color_with_alpha_multiplier ()</h3>
-<pre class="programlisting">void                awn_cairo_set_source_color_with_alpha_multiplier
-                                                        (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         DesktopAgnosticColor *color,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a> multiplier);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_cairo_set_source_color_with_alpha_multiplier
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> multiplier</code></em>);</pre>
 <p>
 Similar to <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-set-source-color" title="awn_cairo_set_source_color ()"><span class="type">awn_cairo_set_source_color</span></a>, except for the <em class="parameter"><code>multiplier</code></em>
-parameter.</p>
-<p>
+parameter.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
-<td> A cairo context.
-</td>
+<td>A cairo context.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
-<td> The source color.
-</td>
+<td>The source color.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>multiplier</code></em> :</span></p></td>
-<td> The number (between 0 and 1.0 inclusive) that the alpha value
-is multiplied by.
-</td>
+<td>The number (between 0 and 1.0 inclusive) that the alpha value
+is multiplied by.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_cairo_set_source_color_with_multipliers ()">
+<div class="refsect2">
 <a name="awn-cairo-set-source-color-with-multipliers"></a><h3>awn_cairo_set_source_color_with_multipliers ()</h3>
-<pre class="programlisting">void                awn_cairo_set_source_color_with_multipliers
-                                                        (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         DesktopAgnosticColor *color,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a> color_multiplier,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a> alpha_multiplier);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_cairo_set_source_color_with_multipliers
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> color_multiplier</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> alpha_multiplier</code></em>);</pre>
 <p>
 Similar to <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-set-source-color-with-alpha-multiplier" title="awn_cairo_set_source_color_with_alpha_multiplier ()"><span class="type">awn_cairo_set_source_color_with_alpha_multiplier</span></a>, except that
-there is an additional <em class="parameter"><code>color_multiplier</code></em> parameter.</p>
-<p>
+there is an additional <em class="parameter"><code>color_multiplier</code></em> parameter.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
-<td> A cairo context.
-</td>
+<td>A cairo context.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
-<td> The source color.
-</td>
+<td>The source color.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>color_multiplier</code></em> :</span></p></td>
-<td> The number that the color values are multiplied by.
-</td>
+<td>The number that the color values are multiplied by.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>alpha_multiplier</code></em> :</span></p></td>
-<td> The number that the alpha value is multiplied by.
-</td>
+<td>The number that the alpha value is multiplied by.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_cairo_pattern_add_color_stop_color ()">
+<div class="refsect2">
 <a name="awn-cairo-pattern-add-color-stop-color"></a><h3>awn_cairo_pattern_add_color_stop_color ()</h3>
-<pre class="programlisting">void                awn_cairo_pattern_add_color_stop_color
-                                                        (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-pattern.html#cairo-pattern-t"
->cairo_pattern_t</a> *pattern,
-                                                         double offset,
-                                                         DesktopAgnosticColor *color);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_cairo_pattern_add_color_stop_color
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>);</pre>
 <p>
-A convenience function which wraps <a
-href="/usr/share/gtk-doc/html/cairo/cairo-pattern.html#cairo-pattern-add-color-stop-rgba"
-><span class="type">cairo_pattern_add_color_stop_rgba</span></a> by
-using the values from the <em class="parameter"><code>color</code></em> parameter.</p>
-<p>
+A convenience function which wraps <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-add-color-stop-rgba"><span class="type">cairo_pattern_add_color_stop_rgba</span></a> by
+using the values from the <em class="parameter"><code>color</code></em> parameter.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
-<td> A cairo pattern.
-</td>
+<td>A cairo pattern.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
-<td> An offset in the range [0.0 .. 1.0].
-</td>
+<td>An offset in the range [0.0 .. 1.0].</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
-<td> The source color.
-</td>
+<td>The source color.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier ()">
+<div class="refsect2">
 <a name="awn-cairo-pattern-add-color-stop-color-with-alpha-multiplier"></a><h3>awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier ()</h3>
-<pre class="programlisting">void                awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier
-                                                        (<a
-href="/usr/share/gtk-doc/html/cairo/cairo-pattern.html#cairo-pattern-t"
->cairo_pattern_t</a> *pattern,
-                                                         double offset,
-                                                         DesktopAgnosticColor *color,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a> multiplier);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_cairo_pattern_add_color_stop_color_with_alpha_multiplier
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> multiplier</code></em>);</pre>
 <p>
 Similar to <a class="link" href="libawn-awn-cairo-utils.html#awn-cairo-pattern-add-color-stop-color" title="awn_cairo_pattern_add_color_stop_color ()"><span class="type">awn_cairo_pattern_add_color_stop_color</span></a>, except for the
-<em class="parameter"><code>multiplier</code></em> parameter.</p>
-<p>
+<em class="parameter"><code>multiplier</code></em> parameter.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
-<td> A cairo pattern.
-</td>
+<td>A cairo pattern.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
-<td> An offset in the range [0.0 .. 1.0].
-</td>
+<td>An offset in the range [0.0 .. 1.0].</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
-<td> The source color.
-</td>
+<td>The source color.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>multiplier</code></em> :</span></p></td>
-<td> The number (between 0 and 1.0 inclusive) that the alpha value
-is multiplied by.
-</td>
+<td>The number (between 0 and 1.0 inclusive) that the alpha value
+is multiplied by.</td>
 </tr>
 </tbody>
 </table></div>
@@ -456,6 +287,6 @@ is multiplied by.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.11</div>
+          Generated by GTK-Doc V1.17</div>
 </body>
 </html>

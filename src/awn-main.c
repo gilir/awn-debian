@@ -24,7 +24,6 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 #include <gtk/gtk.h>
 #include <libintl.h>
@@ -39,7 +38,7 @@
 
 static gboolean version = FALSE;
 static gboolean is_startup = FALSE;
-static gint startup_delay = 5;
+static gint startup_delay = 0;
 
 GOptionEntry entries[] = 
 {
@@ -61,16 +60,25 @@ GOptionEntry entries[] =
     &startup_delay,
     "Number of seconds to wait before starting", NULL
   },
-  { 
+  {
     NULL 
   }
 };
 
-    
+static gboolean
+startup_timeout (gpointer data)
+{
+  GMainLoop *loop = (GMainLoop*) data;
+
+  g_main_loop_quit (loop);
+
+  return FALSE;
+}
+
 gint 
 main (gint argc, gchar *argv[])
 {
-  AwnApp          *app;
+  AwnApplication  *app;
   GOptionContext  *context;
   DBusGConnection *connection;
   DBusGProxy      *proxy;
@@ -140,18 +148,39 @@ main (gint argc, gchar *argv[])
     return EXIT_SUCCESS;
   }
 
-  if (is_startup) sleep (startup_delay);
-
   /* Set localization stuff */
   bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
   textdomain (GETTEXT_PACKAGE);
 
-  /* Launch Awn */
-  app = awn_app_get_default ();
-  dbus_g_connection_register_g_object (connection, 
-                                       AWN_DBUS_APP_PATH,
-                                       G_OBJECT (app));
+  /* wait for the compositor */
+  if (is_startup)
+  {
+    GMainLoop *wait_loop = g_main_loop_new (NULL, FALSE);
+    g_timeout_add (2000 + (startup_delay * 1000), startup_timeout, wait_loop);
+    g_main_loop_run (wait_loop);
 
+    if (startup_delay == 0)
+    {
+      // wait up to 25 seconds for the compositor
+      int i = 0;
+      GdkScreen *screen = gdk_screen_get_default ();
+      while (i++ < 25)
+      {
+        if (gdk_screen_is_composited (screen))
+        {
+          break;
+        }
+        g_timeout_add (1000, startup_timeout, wait_loop);
+        g_main_loop_run (wait_loop);
+      }
+    }
+    g_main_loop_unref (wait_loop);
+  }
+
+  /* Launch Awn */
+  app = awn_application_get_default ();
+
+  g_unsetenv ("DESKTOP_AUTOSTART_ID");
   gtk_main ();
 
   g_object_unref (app);

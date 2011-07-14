@@ -1,8 +1,6 @@
 NULL = 
 
-if HAVE_VALA
 VALA_BINDINGS = bindings/vala
-endif
 
 SUBDIRS = \
 	libawn \
@@ -15,6 +13,7 @@ SUBDIRS = \
 	applets/quick-prefs \
 	applets/separator \
 	applets/taskmanager \
+	applets/simple-launcher \
 	po \
 	data \
 	tests \

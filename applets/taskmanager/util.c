@@ -101,6 +101,9 @@ typedef struct
 const gchar * blacklist[] = {"prism",
                        NULL};
 
+const gchar * no_display_override_list[] = {"nautilus.desktop",
+                                             NULL};
+
 typedef gchar *(*fn_gen_id)(const gchar *,const gchar*,const gchar*,const gchar*);
 
 
@@ -110,12 +113,21 @@ typedef gchar *(*fn_gen_id)(const gchar *,const gchar*,const gchar*,const gchar*
  */
 static DesktopMatch desktop_regexes[] = 
 {
-  {".*ooffice.*-writer.*",".*OpenOffice.*",NULL,"OpenOffice-Writer"},
-  {".*ooffice.*-draw.*",".*OpenOffice.*",NULL,"OpenOffice-Draw"},
-  {".*ooffice.*-impress.*",".*OpenOffice.*",NULL,"OpenOffice-Impress"},
-  {".*ooffice.*-calc.*",".*OpenOffice.*",NULL,"OpenOffice-Calc"},
-  {".*ooffice.*-math.*",".*OpenOffice.*",NULL,"OpenOffice-Math"},
-  {".*ooffice.*-base.*",".*OpenOffice.*",NULL,"OpenOffice-Base"},  
+  {".*eclipse","[Ee]clipse","eclipse","Eclipse"},  
+  {".*ooffice.*-writer.*",NULL,NULL,"OpenOffice-Writer"},
+  {".*ooffice.*-draw.*",NULL,NULL,"OpenOffice-Draw"},
+  {".*ooffice.*-impress.*",NULL,NULL,"OpenOffice-Impress"},
+  {".*ooffice.*-calc.*",NULL,NULL,"OpenOffice-Calc"},
+  {".*ooffice.*-math.*",NULL,NULL,"OpenOffice-Math"},
+  {".*ooffice.*-base.*",NULL,NULL,"OpenOffice-Base"},  
+
+  {".*libre.*-writer.*",NULL,NULL,"LibreOffice-Writer"},
+  {".*libre.*-draw.*",NULL,NULL,"LibreOffice-Draw"},
+  {".*libre.*-impress.*",NULL,NULL,"LibreOffice-Impress"},
+  {".*libre.*-calc.*",NULL,NULL,"LibreOffice-Calc"},
+  {".*libre.*-math.*",NULL,NULL,"LibreOffice-Math"},
+  {".*libre.*-base.*",NULL,NULL,"LibreOffice-Base"},  
+  
   {".*amsn.*","aMSN",".*amsn.*desktop.*","aMSN"},
   {".*prism-google-calendar",".*Google.*Calendar.*","prism-google-calendar","prism-google-calendar"},
   {".*prism-google-analytics",".*Google.*Analytics.*","prism-google-analytics","prism-google-analytics"},
@@ -124,7 +136,7 @@ static DesktopMatch desktop_regexes[] =
   {".*prism-google-mail",".*Google.*Mail.*","prism-google-mail","prism-google-mail"},
   {".*prism-google-reader",".*Google.*Reader.*","prism-google-reader","prism-google-reader"},
   {".*prism-google-talk",".*Google.*Talk.*","prism-google-talk","prism-google-talk"},
-  {NULL,NULL,NULL,NULL}
+  {"TERMINATOR",NULL,NULL,NULL}
 };
 
 /*
@@ -132,6 +144,8 @@ static DesktopMatch desktop_regexes[] =
  */
 static  WindowMatch window_regexes[] = 
 {
+  {".*eclipse","\\.","\\.",NULL,"Eclipse"},    
+  {NULL,"[eE]clipse","[eE]clipse",NULL,"Eclipse"},    
   /*Do not bother trying to parse an open office command line for the type of window*/
   {".*prism.*google.*calendar.*","Prism","Navigator",".*[Cc]alendar.*","prism-google-calendar"},
   {".*prism.*google.*analytics.*","Prism","Navigator",".*[Aa]nalytics.*","prism-google-analytics"},
@@ -150,6 +164,15 @@ static  WindowMatch window_regexes[] =
   {".*office.*",".*OpenOffice.*",".*VCLSalFrame.*",".*Math.*","OpenOffice-Math"},
   {".*office.*",".*OpenOffice.*",".*VCLSalFrame.*",".*Base.*","OpenOffice-Base"},
   {".*office.*",".*OpenOffice.*",".*VCLSalFrame.*","^Database.*Wizard$","OpenOffice-Base"},      
+
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Writer.*","LibreOffice-Writer"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Draw.*","LibreOffice-Draw"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Impress.*","LibreOffice-Impress"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Calc.*","LibreOffice-Calc"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Math.*","LibreOffice-Math"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Base.*","LibreOffice-Base"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*","^Database.*Wizard$","LibreOffice-Base"},      
+
   {NULL,"Amsn","amsn",".*aMSN.*","aMSN"},
   {NULL,"Chatwindow","container.*",".*Buddies.*Chat.*","aMSN"},
   {NULL,"Chatwindow","container.*",".*Untitled.*[wW]indow.*","aMSN"},
@@ -176,7 +199,7 @@ static  WindowMatch window_regexes[] =
   {NULL,"Toplevel","^dlgag$","^Add.*Group$","aMSN"},
   {NULL,"Toplevel",".*_hist$","^History.*","aMSN"},
   {NULL,"Toplevel","savecontacts","^Options$","aMSN"},
-  {NULL,NULL,NULL,NULL,NULL}
+  {"TERMINATOR",NULL,NULL,NULL,NULL}
 };
 
 /*
@@ -184,7 +207,8 @@ static  WindowMatch window_regexes[] =
  */
 static  WindowToDesktopMatch window_to_desktop_regexes[] = 
 {
-  /*Do not bother trying to parse an open office command line for the type of window*/
+  {".*eclipse.*",".*",".*","eclipse","eclipse"},
+  /*Do not bother trying to parse an open office command line for the type of window*/  
   {".*prism.*google.*calendar.*","Prism","Navigator",".*[Cc]alendar.*","prism-google-calendar"},
   {".*prism.*google.*analytics.*","Prism","Navigator",".*[Aa]nalytics.*","prism-google-analytics"},
   {".*prism.*google.*docs.*","Prism","Navigator",".*[Dd]ocs.*","prism-google-docs"},
@@ -211,6 +235,14 @@ static  WindowToDesktopMatch window_to_desktop_regexes[] =
   {".*office.*",".*OpenOffice.*",".*VCLSalFrame.*",".*Base.*","ooo-base"},  
   {".*office.*",".*OpenOffice.*",".*VCLSalFrame.*","^Database.*Wizard$","ooo-base"},
   
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Writer.*","libreoffice3-writer"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Draw.*","libreoffice3-draw"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Impress.*","libreoffice3-impress"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Calc.*","libreoffice3-calc"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Math.*","libreoffice3-math"},
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*",".*Base.*","libreoffice3-base"},  
+  {".*office.*",".*LibreOffice.*",".*VCLSalFrame.*","^Database.*Wizard$","libreoffice3-base"},
+
   {".*gimp.*",".*Gimp.*",".*gimp.*",".*GNU.*Image.*Manipulation.*Program.*","gimp"},
   {".*system-config-printer.*applet.*py.*",".*Applet.*py.*",".*applet.*",".*Print.*Status.*","redhat-manage-print-jobs"},  
   {".*amsn","Amsn","amsn",".*aMSN.*","amsn"},
@@ -220,16 +252,18 @@ static  WindowToDesktopMatch window_to_desktop_regexes[] =
   {NULL,"tvtime","TVWindow","^tvtime","net-tvtime"},
   {NULL,"VirtualBox",NULL,".*VirtualBox.*","virtualbox-ose"},
   {NULL,"VirtualBox",NULL,".*VirtualBox.*","virtualbox"},
-  {NULL,"Nautilus","nautilus",NULL,"nautilus-browser"},
-  {NULL,"Nautilus","nautilus",NULL,"nautilus-home"},
+  {NULL,"[Nn]autilus","[Nn]autilus",NULL,"nautilus"},
+  {NULL,"[Nn]autilus","[Nn]autilus",NULL,"nautilus-browser"},
+  {NULL,"[Nn]autilus","[Nn]autilus",NULL,"nautilus-home"},
   {NULL,NULL,NULL,"Moovida.*Media.*Cent.*","moovida"},
-  {NULL,NULL,NULL,NULL,NULL}
+  {"TERMINATOR",NULL,NULL,NULL,NULL}
 };
 
 static  WindowWait windows_to_wait[] = 
 {
   {".*OpenOffice.*",".*VCLSalFrame.*","^OpenOffice\\.org.*",1000},
-  {NULL,NULL,NULL,0}
+  {".*LibreOffice.*",".*VCLSalFrame.*","^LibreOffice.*",1000},
+  {"TERMINATOR",NULL,NULL,0}
 };
 
 
@@ -243,6 +277,7 @@ static  WindowWait windows_to_wait[] =
 static  IconUse icon_regexes[] = 
 {
   {NULL,".*OpenOffice.*",".*VCLSalFrame.*",NULL,USE_NEVER},
+  {NULL,".*LibreOffice.*",".*VCLSalFrame.*",NULL,USE_NEVER},
   {NULL,"Pidgin","pidgin",NULL,USE_ALWAYS},
   {".*gimp.*",".*Gimp.*",".*gimp.*",NULL,USE_ALWAYS},  
   {NULL,NULL,NULL,NULL,USE_DEFAULT}
@@ -300,9 +335,19 @@ get_special_id_from_desktop (DesktopAgnosticFDODesktopEntry * entry)
     }
     if (iter->name)
     {
-      gchar * name = desktop_agnostic_fdo_desktop_entry_get_name (entry);
+      gchar * name = NULL;
+      /*We do not want localized values*/
+      if (desktop_agnostic_fdo_desktop_entry_key_exists (entry,"Name"))
+      {
+        name = desktop_agnostic_fdo_desktop_entry_get_string (entry, "Name");
+      }
+      else
+      {
+        continue;
+      }
+        
 #ifdef DEBUG      
-      g_debug ("%s: iter->name = %s, name = %s",__func__,iter->name,name);      
+        g_debug ("%s: iter->name = %s, name = %s",__func__,iter->name,name);      
 #endif
       match = g_regex_match_simple(iter->name, name,0,0);
       g_free (name);
@@ -326,6 +371,7 @@ get_special_id_from_desktop (DesktopAgnosticFDODesktopEntry * entry)
 #endif
     return g_strdup (iter->id);
   }
+  g_assert ( g_strcmp0 (iter->exec,"TERMINATOR")==0);
   return NULL;
 }
 
@@ -333,6 +379,7 @@ get_special_id_from_desktop (DesktopAgnosticFDODesktopEntry * entry)
  Special Casing should NOT be used for anything but a last resort.  
  Other matching algororithms are NOT used if something is special cased.
 */
+
 gchar *
 get_special_id_from_window_data (gchar * cmd, gchar *res_name, gchar * class_name,const gchar *title)
 {
@@ -387,6 +434,7 @@ get_special_id_from_window_data (gchar * cmd, gchar *res_name, gchar * class_nam
 #ifdef DEBUG    
     g_debug ("%s:  Special cased Window ID: '%s'",__func__,(gchar *)iter->id);
 #endif
+
     if ( iter->id && (iter->id != generate_id_from_cmd) )
     {
       return g_strdup (iter->id);
@@ -399,6 +447,7 @@ get_special_id_from_window_data (gchar * cmd, gchar *res_name, gchar * class_nam
     }
     
   }
+  g_assert ( g_strcmp0 (iter->cmd,"TERMINATOR")==0);
   return NULL;
 }
 
@@ -417,15 +466,15 @@ get_special_desktop_from_window_data (gchar * cmd, gchar *res_name, gchar * clas
   WindowToDesktopMatch  *iter;
 #ifdef DEBUG
   g_debug ("%s: cmd = '%s', res = '%s', class = '%s', title = '%s'",__func__,cmd,res_name,class_name,title);
+  g_debug ("%p, %p", window_to_desktop_regexes,window_to_desktop_regexes->desktop);
 #endif
   for (iter = window_to_desktop_regexes; iter->desktop; iter++)
   {
     gboolean  match = TRUE;
-    
     if (iter->cmd)
     {
 #ifdef DEBUG
-      g_debug ("%s: iter->cmd = %s, cmd = %s",__func__,iter->cmd,cmd);
+      g_debug ("%s: ite 10835r->cmd = %s, cmd = %s",__func__,iter->cmd,cmd);
 #endif
       match = cmd && g_regex_match_simple(iter->cmd, cmd,0,0);
       if (!match)
@@ -463,6 +512,7 @@ get_special_desktop_from_window_data (gchar * cmd, gchar *res_name, gchar * clas
 #endif
     result = g_slist_append (result, (gchar*)iter->desktop);
   }
+  g_assert ( g_strcmp0 (iter->cmd,"TERMINATOR")==0);
   return result;
 }
 
@@ -478,6 +528,11 @@ get_special_wait_from_window_data (gchar *res_name, gchar * class_name,const gch
    TODO  optimize the regex handling.
    */
   WindowWait  *iter;
+  if (!res_name && !class_name)
+  {
+    return TRUE;
+  }
+  
   for (iter = windows_to_wait; iter->wait; iter++)
   {
     gboolean  match = TRUE;
@@ -513,6 +568,7 @@ get_special_wait_from_window_data (gchar *res_name, gchar * class_name,const gch
 #endif
     return TRUE;
   }
+  g_assert ( g_strcmp0 (iter->res_name,"TERMINATOR")==0);
   return FALSE;
 }
 
@@ -588,6 +644,22 @@ get_full_cmd_from_pid (gint pid)
   }
   g_strfreev (cmd_argv);   
   return full_cmd;
+}
+
+
+gboolean 
+check_no_display_override (const gchar * fname)
+{
+  const gchar ** iter;
+  for (iter = no_display_override_list; *iter;iter++)
+  {
+    if (g_strcmp0 (fname,*iter) == 0)
+    {
+      return TRUE;
+    }
+  }
+  return FALSE;
+
 }
 
 gboolean 
@@ -694,6 +766,7 @@ utils_gdk_pixbuf_similar_to (GdkPixbuf *i1, GdkPixbuf *i2)
 gboolean
 usable_desktop_entry (  DesktopAgnosticFDODesktopEntry * entry)
 {
+  // FIXME: add support for Link-type entries, not just Applications
   if (  !desktop_agnostic_fdo_desktop_entry_key_exists (entry, "Name")
       ||
         !desktop_agnostic_fdo_desktop_entry_key_exists (entry, "Exec") )

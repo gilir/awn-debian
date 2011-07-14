@@ -3,20 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AwnOverlayText</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
 <link rel="home" href="index.html" title="Awn Reference Manual">
 <link rel="up" href="ch04.html" title="Icon Overlays">
 <link rel="prev" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon">
 <link rel="next" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber">
-<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="part" href="api-reference.html" title="Part I. API Reference">
-<link rel="chapter" href="ch01.html" title="Applets">
-<link rel="chapter" href="ch02.html" title="Base Components">
-<link rel="chapter" href="ch03.html" title="Icons">
-<link rel="chapter" href="ch04.html" title="Icon Overlays">
-<link rel="chapter" href="ch05.html" title="Utilities">
-<link rel="index" href="index-all.html" title="Index">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
@@ -29,283 +22,188 @@
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#AwnOverlayText.synopsis" class="shortcut">Top</a>
-                 | 
-                <a href="#AwnOverlayText.description" class="shortcut">Description</a>
-                 | 
-                <a href="#AwnOverlayText.object-hierarchy" class="shortcut">Object Hierarchy</a>
-                 | 
-                <a href="#AwnOverlayText.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#AwnOverlayText.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#AwnOverlayText.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#AwnOverlayText.properties" class="shortcut">Properties</a>
 </td></tr>
 </table>
-<div class="refentry" title="AwnOverlayText">
+<div class="refentry">
 <a name="AwnOverlayText"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="AwnOverlayText.top_of_page"></a>AwnOverlayText</span></h2>
-<p>AwnOverlayText — Text overlay for use with <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.</p>
+<p>AwnOverlayText — Text overlay for use with <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsect1" title="Stability Level">
+<div class="refsect1">
 <a name="AwnOverlayText.stability-level"></a><h2>Stability Level</h2>
 Unstable, unless otherwise indicated
 </div>
-<div class="refsynopsisdiv" title="Synopsis">
+<div class="refsynopsisdiv">
 <a name="AwnOverlayText.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">
-
 #include &lt;libawn/libawn.h&gt;
 
                     <a class="link" href="AwnOverlayText.html#AwnOverlayText-struct" title="AwnOverlayText">AwnOverlayText</a>;
-<a class="link" href="AwnOverlayText.html" title="AwnOverlayText">AwnOverlayText</a>*     <a class="link" href="AwnOverlayText.html#awn-overlay-text-new" title="awn_overlay_text_new ()">awn_overlay_text_new</a>                (void);
-void                <a class="link" href="AwnOverlayText.html#awn-overlay-text-get-size" title="awn_overlay_text_get_size ()">awn_overlay_text_get_size</a>           (<a class="link" href="AwnOverlayText.html" title="AwnOverlayText">AwnOverlayText</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
->gchar</a> *text,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> size,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> *width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> *height);
+<a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="returnvalue">AwnOverlayText</span></a> *    <a class="link" href="AwnOverlayText.html#awn-overlay-text-new" title="awn_overlay_text_new ()">awn_overlay_text_new</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AwnOverlayText.html#awn-overlay-text-get-size" title="awn_overlay_text_get_size ()">awn_overlay_text_get_size</a>           (<em class="parameter"><code><a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *height</code></em>);
 </pre>
 </div>
-<div class="refsect1" title="Object Hierarchy">
+<div class="refsect1">
 <a name="AwnOverlayText.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
->GObject</a>
-   +----<a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
->GInitiallyUnowned</a>
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
          +----<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a>
                +----AwnOverlayText
 </pre>
 </div>
-<div class="refsect1" title="Properties">
+<div class="refsect1">
 <a name="AwnOverlayText.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--font-mode" title='The "font-mode" property'>font-mode</a>"                <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a>                  : Read / Write
-  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--font-sizing" title='The "font-sizing" property'>font-sizing</a>"              <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct
-  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text" title='The "text" property'>text</a>"                     <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
->gchar</a>*                : Read / Write / Construct
-  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-color" title='The "text-color" property'>text-color</a>"               DesktopAgnosticColor*  : Read / Write
-  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-color-astr" title='The "text-color-astr" property'>text-color-astr</a>"          <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
->gchar</a>*                : Read / Write
-  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-outline-color" title='The "text-outline-color" property'>text-outline-color</a>"       DesktopAgnosticColor*  : Read / Write
-  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-outline-color-astr" title='The "text-outline-color-astr" property'>text-outline-color-astr</a>"  <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
->gchar</a>*                : Read / Write
-  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-outline-width" title='The "text-outline-width" property'>text-outline-width</a>"       <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write
+  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--font-mode" title='The "font-mode" property'>font-mode</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--font-sizing" title='The "font-sizing" property'>font-sizing</a>"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct
+  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text" title='The "text" property'>text</a>"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct
+  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-color" title='The "text-color" property'>text-color</a>"               <span class="type">DesktopAgnosticColor</span>*  : Read / Write
+  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-color-astr" title='The "text-color-astr" property'>text-color-astr</a>"          <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-outline-color" title='The "text-outline-color" property'>text-outline-color</a>"       <span class="type">DesktopAgnosticColor</span>*  : Read / Write
+  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-outline-color-astr" title='The "text-outline-color-astr" property'>text-outline-color-astr</a>"  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="AwnOverlayText.html#AwnOverlayText--text-outline-width" title='The "text-outline-width" property'>text-outline-width</a>"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
 </pre>
 </div>
-<div class="refsect1" title="Description">
+<div class="refsect1">
 <a name="AwnOverlayText.description"></a><h2>Description</h2>
 <p>
-Text overlay used with <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.</p>
-<p>
+Text overlay used with <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.
 </p>
 </div>
-<div class="refsect1" title="Details">
+<div class="refsect1">
 <a name="AwnOverlayText.details"></a><h2>Details</h2>
-<div class="refsect2" title="AwnOverlayText">
+<div class="refsect2">
 <a name="AwnOverlayText-struct"></a><h3>AwnOverlayText</h3>
 <pre class="programlisting">typedef struct _AwnOverlayText AwnOverlayText;</pre>
 <p>
-Text overlay used with <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.</p>
-<p>
+Text overlay used with <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.
 </p>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_text_new ()">
+<div class="refsect2">
 <a name="awn-overlay-text-new"></a><h3>awn_overlay_text_new ()</h3>
-<pre class="programlisting"><a class="link" href="AwnOverlayText.html" title="AwnOverlayText">AwnOverlayText</a>*     awn_overlay_text_new                (void);</pre>
+<pre class="programlisting"><a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="returnvalue">AwnOverlayText</span></a> *    awn_overlay_text_new                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
-Creates a new instance of <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a>.</p>
-<p>
+Creates a new instance of <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td> an instance of <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a>.
-</td>
+<td>an instance of <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a>.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_text_get_size ()">
+<div class="refsect2">
 <a name="awn-overlay-text-get-size"></a><h3>awn_overlay_text_get_size ()</h3>
-<pre class="programlisting">void                awn_overlay_text_get_size           (<a class="link" href="AwnOverlayText.html" title="AwnOverlayText">AwnOverlayText</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
->gchar</a> *text,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> size,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> *width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> *height);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_overlay_text_get_size           (<em class="parameter"><code><a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *height</code></em>);</pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 </div>
-<div class="refsect1" title="Property Details">
+<div class="refsect1">
 <a name="AwnOverlayText.property-details"></a><h2>Property Details</h2>
-<div class="refsect2" title='The "font-mode" property'>
+<div class="refsect2">
 <a name="AwnOverlayText--font-mode"></a><h3>The <code class="literal">"font-mode"</code> property</h3>
-<pre class="programlisting">  "font-mode"                <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a>                  : Read / Write</pre>
+<pre class="programlisting">  "font-mode"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
 <p>Font Mode.</p>
 <p>Allowed values: [0,2]</p>
 <p>Default value: 0</p>
 </div>
 <hr>
-<div class="refsect2" title='The "font-sizing" property'>
+<div class="refsect2">
 <a name="AwnOverlayText--font-sizing"></a><h3>The <code class="literal">"font-sizing"</code> property</h3>
-<pre class="programlisting">  "font-sizing"              <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct</pre>
+<pre class="programlisting">  "font-sizing"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct</pre>
 <p>
-The Absolute font size as defined for use with <a
-href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription"
-><span class="type">PangoFontDescription</span></a> at
-<a
-href="/usr/share/gtk-doc/html/pango/pango-Glyph-Storage.html#PANGO-SCALE--CAPS"
-><code class="literal">PANGO_SCALE</code></a> at an <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a> height of 48 pixels.  The following standard 
-awn font sizes are predefined:  <a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-SMALL--CAPS" title="AWN_FONT_SIZE_EXTRA_SMALL"><code class="literal">AWN_FONT_SIZE_EXTRA_SMALL</code></a>, 
-<a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-SMALL--CAPS" title="AWN_FONT_SIZE_SMALL"><code class="literal">AWN_FONT_SIZE_SMALL</code></a>, <a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-MEDIUM--CAPS" title="AWN_FONT_SIZE_MEDIUM"><code class="literal">AWN_FONT_SIZE_MEDIUM</code></a>, <a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-LARGE--CAPS" title="AWN_FONT_SIZE_LARGE"><code class="literal">AWN_FONT_SIZE_LARGE</code></a>, 
-<a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-LARGE--CAPS" title="AWN_FONT_SIZE_EXTRA_LARGE"><code class="literal">AWN_FONT_SIZE_EXTRA_LARGE</code></a>.  The default size is <a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-MEDIUM--CAPS" title="AWN_FONT_SIZE_MEDIUM"><code class="literal">AWN_FONT_SIZE_MEDIUM</code></a>.  
+The Absolute font size as defined for use with <a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription"><span class="type">PangoFontDescription</span></a> at
+<a href="/usr/share/gtk-doc/html/pango/pango-Glyph-Storage.html#PANGO-SCALE:CAPS"><code class="literal">PANGO_SCALE</code></a> at an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> height of 48 pixels.  The following standard 
+awn font sizes are predefined:  <a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-SMALL:CAPS" title="AWN_FONT_SIZE_EXTRA_SMALL"><code class="literal">AWN_FONT_SIZE_EXTRA_SMALL</code></a>, 
+<a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-SMALL:CAPS" title="AWN_FONT_SIZE_SMALL"><code class="literal">AWN_FONT_SIZE_SMALL</code></a>, <a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-MEDIUM:CAPS" title="AWN_FONT_SIZE_MEDIUM"><code class="literal">AWN_FONT_SIZE_MEDIUM</code></a>, <a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-LARGE:CAPS" title="AWN_FONT_SIZE_LARGE"><code class="literal">AWN_FONT_SIZE_LARGE</code></a>, 
+<a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-LARGE:CAPS" title="AWN_FONT_SIZE_EXTRA_LARGE"><code class="literal">AWN_FONT_SIZE_EXTRA_LARGE</code></a>.  The default size is <a class="link" href="libawn-awn-defines.html#AWN-FONT-SIZE-MEDIUM:CAPS" title="AWN_FONT_SIZE_MEDIUM"><code class="literal">AWN_FONT_SIZE_MEDIUM</code></a>.  
 Standard doubles can be used but all attempts should be made to use one of 
-the standard awn font sizes.</p>
-<p>
+the standard awn font sizes.
 </p>
 <p>Allowed values: [1,100]</p>
 <p>Default value: 12</p>
 </div>
 <hr>
-<div class="refsect2" title='The "text" property'>
+<div class="refsect2">
 <a name="AwnOverlayText--text"></a><h3>The <code class="literal">"text"</code> property</h3>
-<pre class="programlisting">  "text"                     <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
->gchar</a>*                : Read / Write / Construct</pre>
+<pre class="programlisting">  "text"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct</pre>
 <p>
-The text to display as a string.</p>
-<p>
+The text to display as a string.
 </p>
 <p>Default value: ""</p>
 </div>
 <hr>
-<div class="refsect2" title='The "text-color" property'>
+<div class="refsect2">
 <a name="AwnOverlayText--text-color"></a><h3>The <code class="literal">"text-color"</code> property</h3>
-<pre class="programlisting">  "text-color"               DesktopAgnosticColor*  : Read / Write</pre>
+<pre class="programlisting">  "text-color"               <span class="type">DesktopAgnosticColor</span>*  : Read / Write</pre>
 <p>
-Text color to use as a <span class="type">DesktopAgnosticColor</span>.  The default value is <code class="literal">NULL</code>.
+Text color to use as a <span class="type">DesktopAgnosticColor</span>.  The default value is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 If NULL then the current GTK+ Themes foreground <span class="type">GTK_ACTIVE_STATE</span> color 
-will be used.</p>
-<p>
+will be used.
 </p>
 </div>
 <hr>
-<div class="refsect2" title='The "text-color-astr" property'>
+<div class="refsect2">
 <a name="AwnOverlayText--text-color-astr"></a><h3>The <code class="literal">"text-color-astr"</code> property</h3>
-<pre class="programlisting">  "text-color-astr"          <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
->gchar</a>*                : Read / Write</pre>
+<pre class="programlisting">  "text-color-astr"          <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
 <p>Text color as string.</p>
 <p>Default value: ""</p>
 </div>
 <hr>
-<div class="refsect2" title='The "text-outline-color" property'>
+<div class="refsect2">
 <a name="AwnOverlayText--text-outline-color"></a><h3>The <code class="literal">"text-outline-color"</code> property</h3>
-<pre class="programlisting">  "text-outline-color"       DesktopAgnosticColor*  : Read / Write</pre>
+<pre class="programlisting">  "text-outline-color"       <span class="type">DesktopAgnosticColor</span>*  : Read / Write</pre>
 <p>Text Outline Colour.</p>
 </div>
 <hr>
-<div class="refsect2" title='The "text-outline-color-astr" property'>
+<div class="refsect2">
 <a name="AwnOverlayText--text-outline-color-astr"></a><h3>The <code class="literal">"text-outline-color-astr"</code> property</h3>
-<pre class="programlisting">  "text-outline-color-astr"  <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
->gchar</a>*                : Read / Write</pre>
+<pre class="programlisting">  "text-outline-color-astr"  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
 <p>Text outline color as string.</p>
 <p>Default value: ""</p>
 </div>
 <hr>
-<div class="refsect2" title='The "text-outline-width" property'>
+<div class="refsect2">
 <a name="AwnOverlayText--text-outline-width"></a><h3>The <code class="literal">"text-outline-width"</code> property</h3>
-<pre class="programlisting">  "text-outline-width"       <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write</pre>
+<pre class="programlisting">  "text-outline-width"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
 <p>Text Outline Width.</p>
 <p>Allowed values: [0,10]</p>
 <p>Default value: 2.5</p>
 </div>
 </div>
-<div class="refsect1" title="See Also">
+<div class="refsect1">
 <a name="AwnOverlayText.see-also"></a><h2>See Also</h2>
-#AwnEffects, <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>, <a class="link" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon"><span class="type">AwnOverlayThemedIcon</span></a>, <a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber"><span class="type">AwnOverlayThrobber</span></a>,
-<a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf"><span class="type">AwnOverlayPixbuf</span></a>, <a class="link" href="AwnOverlayPixbufFile.html" title="AwnOverlayPixbufFile"><span class="type">AwnOverlayPixbufFile</span></a>, <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>
+<a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a>, <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>, <a class="link" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon"><span class="type">AwnOverlayThemedIcon</span></a>, <a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber"><span class="type">AwnOverlayThrobber</span></a>,
+<a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf"><span class="type">AwnOverlayPixbuf</span></a>, <a class="link" href="AwnOverlayPixbufFile.html" title="AwnOverlayPixbufFile"><span class="type">AwnOverlayPixbufFile</span></a>, <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.11</div>
+          Generated by GTK-Doc V1.17</div>
 </body>
 </html>

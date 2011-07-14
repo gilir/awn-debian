@@ -1047,15 +1047,19 @@ awn_applet_get_canonical_name (AwnApplet *applet)
  * Callback to start the settings App. See awn_applet_create_default_menu().
  */
 static gboolean
-_start_awn_settings (GtkMenuItem *menuitem, gpointer null)
+_start_awn_settings (GtkMenuItem *menuitem, gpointer data)
 {
   GError *err = NULL;
-  
-  g_spawn_command_line_async(AWN_SETTINGS_APP, &err);
+
+  gchar cmd[45];
+  gint panel_id = GPOINTER_TO_INT (data);
+  if (panel_id == 0) panel_id = 1;
+  sprintf (cmd, AWN_SETTINGS_APP " --panel-id=%d", panel_id);
+  g_spawn_command_line_async (cmd, &err);
 
   if (err)
   {
-    g_warning("Failed to start %s: %s\n", AWN_SETTINGS_APP, err->message);
+    g_warning("Failed to start %s: %s\n", cmd, err->message);
     g_error_free(err);
   }
 
@@ -1231,7 +1235,7 @@ awn_applet_create_about_item (AwnApplet         *applet,
   {
     gtk_about_dialog_set_documenters (dialog, documenters);
   }
-  item_text = g_strdup_printf ("About %s", applet_name);
+  item_text = g_strdup_printf (dgettext (GETTEXT_PACKAGE, "About %s"), applet_name);
   item = gtk_image_menu_item_new_with_label (item_text); /* FIXME Add pretty icon */
 #if GTK_CHECK_VERSION (2,16,0)	
 	g_object_set (item,"always-show-image",TRUE,NULL);  
@@ -1248,8 +1252,8 @@ awn_applet_create_about_item (AwnApplet         *applet,
                     G_CALLBACK (_cleanup_about_dialog), dialog);
   g_signal_connect_swapped (dialog, "response",
                             G_CALLBACK (gtk_widget_hide), dialog);
-  g_signal_connect_swapped (dialog, "delete-event",
-                            G_CALLBACK (gtk_widget_hide), dialog);
+  g_signal_connect (dialog, "delete-event",
+                            G_CALLBACK (gtk_widget_hide_on_delete), dialog);
   return item;
 }
 
@@ -1313,6 +1317,30 @@ _menu_hidden (AwnApplet *applet)
 }
 
 /**
+ * awn_applet_popup_gtk_menu:
+ * @icon: an #AwnApplet.
+ * @menu: a #GtkMenu to popup.
+ * @button: the mouse button which was pressed to initiate the event.
+ * @activate_time: the time at which the activation event occurred.
+ *
+ * Displays a menu relative to the applet's position.
+ */
+void
+awn_applet_popup_gtk_menu (AwnApplet *applet,
+                           GtkWidget *menu,
+                           guint      button,
+                           guint32    activate_time)
+{
+  g_return_if_fail (menu);
+  g_return_if_fail (GTK_IS_MENU (menu));
+
+  gtk_menu_popup (
+            GTK_MENU (menu), NULL, NULL, 
+            ((GtkMenuPositionFunc) awn_utils_menu_set_position_widget_relative),
+            applet, button, activate_time);
+}
+
+/**
  * awn_applet_create_default_menu:
  * @applet: An AwnApplet.
  *
@@ -1339,6 +1367,11 @@ awn_applet_create_default_menu (AwnApplet *applet)
 
   /* The preferences (awn-settings) menu item  */
   item = awn_applet_create_pref_item ();
+  g_signal_handlers_disconnect_by_func (item, _start_awn_settings, NULL);
+  g_signal_connect (item, "activate", 
+                    G_CALLBACK (_start_awn_settings),
+                    GINT_TO_POINTER (priv->panel_id));
+
   gtk_menu_shell_append (GTK_MENU_SHELL(menu), item);
 
   /* And Neil said: "Let there be customisation of thy menu" */

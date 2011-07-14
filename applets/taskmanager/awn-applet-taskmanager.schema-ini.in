@@ -38,6 +38,16 @@ type = integer
 default = 1
 _description=Desktop copy behaviour on drag and drop of desktop files. 0.. Copy all, 1.. Copy if owned by user, 2.. Do not copy.
 
+[DEFAULT/dialog_mode]
+type = integer
+default = 0
+_description=Dialog display mode. 0 = auto, 1 = standard text, 2 = kde/compiz previews.
+
+[DEFAULT/dialog_scale]
+type = float
+default = 0.3
+_description=Default dialog scale. Previews will be scaled down further as needed.
+
 [DEFAULT/enable_long_press]
 type = boolean
 default = false
@@ -51,7 +61,7 @@ _description=Enabling group of tasks.
 [DEFAULT/icon_change_behavior]
 type = integer
 default = 1
-_description= Controls the display of window icons in the Task Icon. 0) Alway display application provided window icons when window is active (except for a very few special cases). 1) Attempt to only display application provided icons when they are likely to provide useful/context info. 2) Ignore all application provide icons and only display the Lauuncher icon
+_description= Controls the display of window icons in the Task Icon. 0) Alway display application provided window icons when window is active (except for a very few special cases). 1) Attempt to only display application provided icons when they are likely to provide useful/context info. 2) Ignore all application provide icons and only display the Launcher icon
 
 [DEFAULT/icon_grouping]
 type = boolean
@@ -62,16 +72,6 @@ _description= Group icons with the same launcher, if the grouping of windows is 
 type = boolean
 default = false
 _description= Allow grouping of windows together that have different WM_CLIENT_NAME values.
-
-[DEFAULT/intellihide]
-type = boolean
-default = true
-_description=Intellihide if hide is enabled for the panel.  This will inhibit autohide of the panel if there are no intersecting windows in the relevant window list (see intellihide_mode).
-
-[DEFAULT/intellihide_mode]
-type = integer
-default = 1
-_description=How to generate the list of windows tested for intersection when Intellihide is active.  0.. use windows on active workspace, 1.. use windows of currently focused app.
 
 [DEFAULT/launcher_paths]
 type = list-string
@@ -87,6 +87,11 @@ _description=How radical matching is applied for grouping items. The value shoul
 type = integer
 default = 3
 _description=Maximum number of task indicators to show under icons. Valid range is 0..3.
+
+[DEFAULT/monitor_desktops]
+type = boolean
+default = true
+_description= Monitor desktop files. If set to false then changes to desktop files will not be reflected immediately.
 
 [DEFAULT/only_show_launchers]
 type = boolean

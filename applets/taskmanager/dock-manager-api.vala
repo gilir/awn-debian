@@ -20,7 +20,7 @@
 
 using DBus;
 
-[DBus (name="org.freedesktop.DockManager")]
+[DBus (name="net.launchpad.DockManager")]
 public interface DockManagerDBusInterface: GLib.Object
 {
   public abstract string[] get_capabilities () throws DBus.Error;
@@ -38,7 +38,7 @@ public interface DockManagerDBusInterface: GLib.Object
   public signal void item_removed (ObjectPath path);
 }
 
-[DBus (name="org.freedesktop.DockItem")]
+[DBus (name="net.launchpad.DockItem")]
 public interface DockItemDBusInterface: GLib.Object
 {
   public abstract int add_menu_item (HashTable<string, Value?> menu_hints) throws DBus.Error;
@@ -66,8 +66,8 @@ public class TaskManagerDispatcher: GLib.Object, DockManagerDBusInterface
     });
     */
 
-    var conn = Bus.get (BusType.SESSION);
-    string obj_path = "/org/freedesktop/DockManager";
+    var conn = DBus.Bus.get (DBus.BusType.SESSION);
+    string obj_path = "/net/launchpad/DockManager";
     conn.register_object (obj_path, this);
   }
 
@@ -93,6 +93,7 @@ public class TaskManagerDispatcher: GLib.Object, DockManagerDBusInterface
       "dock-item-message",
       "dock-item-progress",
       "dock-item-icon-file",
+      "menu-item-container-title",
       "menu-item-with-label",
       "menu-item-icon-name",
       "menu-item-icon-file",
@@ -193,10 +194,10 @@ public class TaskManagerDispatcher: GLib.Object, DockManagerDBusInterface
   public void 
   awn_set_visibility (string win_name, bool visible) throws DBus.Error
   {
-    HashTable<string, unowned Value?> hints;
-    hints = new HashTable<string, unowned Value?> (str_hash, str_equal);
+    HashTable<string, Value?> hints;
+    hints = new HashTable<string, Value?> (str_hash, str_equal);
     hints.insert ("visible", visible);
- 
+
     this.manager.update (win_name, hints);
   }
 
@@ -244,8 +245,8 @@ public class TaskIconDispatcher: GLib.Object, DockItemDBusInterface
   {
     this.icon = icon;
 
-    var conn = Bus.get (BusType.SESSION);
-    this.object_path = "/org/freedesktop/DockManager/Item%d".printf (counter++);
+    var conn = DBus.Bus.get (DBus.BusType.SESSION);
+    this.object_path = "/net/launchpad/DockManager/Item%d".printf (counter++);
     conn.register_object (this.object_path, this);
 
     this.emit_item_added ();
@@ -284,6 +285,7 @@ public class TaskIconDispatcher: GLib.Object, DockItemDBusInterface
   {
     Gtk.ImageMenuItem? item = null;
     Gtk.Image? image = null;
+    string? group = null;
 
     HashTableIter<string, Value?> iter =
       HashTableIter<string, Value?>(menu_hints);
@@ -302,7 +304,20 @@ public class TaskIconDispatcher: GLib.Object, DockItemDBusInterface
       }
       else if (key == "icon-file")
       {
-        image = new Gtk.Image.from_file (value.get_string ());
+        Gdk.Pixbuf pixbuf;
+        int w, h;
+        Gtk.icon_size_lookup (Gtk.IconSize.MENU, out w, out h);
+        try
+        {
+          pixbuf = new Gdk.Pixbuf.from_file_at_size (value.get_string (),
+                                                     w, h);
+          image = new Gtk.Image.from_pixbuf (pixbuf);
+        }
+        catch (GLib.Error err) { warning ("%s", err.message); }
+      }
+      else if (key == "container-title")
+      {
+        group = value.get_string ();
       }
       else if (key == "uri")
       {
@@ -313,7 +328,7 @@ public class TaskIconDispatcher: GLib.Object, DockItemDBusInterface
     if (item != null)
     {
       if (image != null) item.set_image (image);
-      int id = this.icon.add_menu_item (item);
+      int id = this.icon.add_menu_item (item,group);
       item.show ();
 
       item.activate.connect ((w) =>

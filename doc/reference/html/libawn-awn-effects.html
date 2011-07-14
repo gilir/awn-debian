@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnEffects</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch02.html" title="Base Components">
+<link rel="prev" href="libawn-awn-dialog.html" title="AwnDialog">
+<link rel="next" href="libawn-awn-image.html" title="AwnImage">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libawn-awn-dialog.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="libawn-awn-image.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libawn-awn-effects.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libawn-awn-effects.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libawn-awn-effects.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libawn-awn-effects.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#libawn-awn-effects.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libawn-awn-effects"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libawn-awn-effects.top_of_page"></a>AwnEffects</span></h2>
+<p>AwnEffects</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libawn-awn-effects.synopsis"></a><h2>Synopsis</h2>
+<a name="AwnEffects"></a><pre class="synopsis">enum                <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect">AwnEffect</a>;
+                    <a class="link" href="libawn-awn-effects.html#AwnEffectsPrivate" title="AwnEffectsPrivate">AwnEffectsPrivate</a>;
+struct              <a class="link" href="libawn-awn-effects.html#AwnEffects-struct" title="struct AwnEffects">AwnEffects</a>;
+<a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="returnvalue">AwnEffects</span></a> *        <a class="link" href="libawn-awn-effects.html#awn-effects-new-for-widget" title="awn_effects_new_for_widget ()">awn_effects_new_for_widget</a>          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-start" title="awn_effects_start ()">awn_effects_start</a>                   (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-stop" title="awn_effects_stop ()">awn_effects_stop</a>                    (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-start-ex" title="awn_effects_start_ex ()">awn_effects_start_ex</a>                (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_loops</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> signal_start</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> signal_end</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-set-icon-size" title="awn_effects_set_icon_size ()">awn_effects_set_icon_size</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> requestSize</code></em>);
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="returnvalue">cairo_t</span></a> *           <a class="link" href="libawn-awn-effects.html#awn-effects-cairo-create" title="awn_effects_cairo_create ()">awn_effects_cairo_create</a>            (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="returnvalue">cairo_t</span></a> *           <a class="link" href="libawn-awn-effects.html#awn-effects-cairo-create-clipped" title="awn_effects_cairo_create_clipped ()">awn_effects_cairo_create_clipped</a>    (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/gdk3-Event-Structures.html#GdkEventExpose"><span class="type">GdkEventExpose</span></a> *event</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-cairo-destroy" title="awn_effects_cairo_destroy ()">awn_effects_cairo_destroy</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-add-overlay" title="awn_effects_add_overlay ()">awn_effects_add_overlay</a>             (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-remove-overlay" title="awn_effects_remove_overlay ()">awn_effects_remove_overlay</a>          (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="libawn-awn-effects.html#awn-effects-get-overlays" title="awn_effects_get_overlays ()">awn_effects_get_overlays</a>            (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-redraw" title="awn_effects_redraw ()">awn_effects_redraw</a>                  (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-main-effect-loop" title="awn_effects_main_effect_loop ()">awn_effects_main_effect_loop</a>        (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-emit-anim-start" title="awn_effects_emit_anim_start ()">awn_effects_emit_anim_start</a>         (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-effects.html#awn-effects-emit-anim-end" title="awn_effects_emit_anim_end ()">awn_effects_emit_anim_end</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-effects.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----AwnEffects
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-effects.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--active" title='The "active" property'>active</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--active-rect-color" title='The "active-rect-color" property'>active-rect-color</a>"        <span class="type">DesktopAgnosticColor</span>*  : Read / Write
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--active-rect-outline" title='The "active-rect-outline" property'>active-rect-outline</a>"      <span class="type">DesktopAgnosticColor</span>*  : Read / Write
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--arrow-png" title='The "arrow-png" property'>arrow-png</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--arrows-count" title='The "arrows-count" property'>arrows-count</a>"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--border-clip" title='The "border-clip" property'>border-clip</a>"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--custom-active-png" title='The "custom-active-png" property'>custom-active-png</a>"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--depressed" title='The "depressed" property'>depressed</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--dot-color" title='The "dot-color" property'>dot-color</a>"                <span class="type">DesktopAgnosticColor</span>*  : Read / Write
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--effects" title='The "effects" property'>effects</a>"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--icon-alpha" title='The "icon-alpha" property'>icon-alpha</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--icon-offset" title='The "icon-offset" property'>icon-offset</a>"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--indirect-paint" title='The "indirect-paint" property'>indirect-paint</a>"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--make-shadow" title='The "make-shadow" property'>make-shadow</a>"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--no-clear" title='The "no-clear" property'>no-clear</a>"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--position" title='The "position" property'>position</a>"                 <a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a>       : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--progress" title='The "progress" property'>progress</a>"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--reflection-alpha" title='The "reflection-alpha" property'>reflection-alpha</a>"         <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--reflection-offset" title='The "reflection-offset" property'>reflection-offset</a>"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--reflection-visible" title='The "reflection-visible" property'>reflection-visible</a>"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--spotlight-png" title='The "spotlight-png" property'>spotlight-png</a>"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects--widget" title='The "widget" property'>widget</a>"                   <a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a>*            : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-effects.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects-animation-end" title='The "animation-end" signal'>animation-end</a>"                                  : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="libawn-awn-effects.html#AwnEffects-animation-start" title='The "animation-start" signal'>animation-start</a>"                                : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-effects.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-effects.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AwnEffect"></a><h3>enum AwnEffect</h3>
+<pre class="programlisting">typedef enum
+{
+  AWN_EFFECT_NONE = 0,
+  AWN_EFFECT_OPENING = 1,
+  AWN_EFFECT_CLOSING = 2,
+  AWN_EFFECT_HOVER = 3,
+  AWN_EFFECT_LAUNCHING = 4,
+  AWN_EFFECT_ATTENTION = 5,
+  AWN_EFFECT_DESATURATE
+} AwnEffect;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffectsPrivate"></a><h3>AwnEffectsPrivate</h3>
+<pre class="programlisting">typedef struct _AwnEffectsPrivate AwnEffectsPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects-struct"></a><h3>struct AwnEffects</h3>
+<pre class="programlisting">struct AwnEffects;</pre>
+<p>
+Class containing all necessary variables for effects state for particular widget.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-new-for-widget"></a><h3>awn_effects_new_for_widget ()</h3>
+<pre class="programlisting"><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="returnvalue">AwnEffects</span></a> *        awn_effects_new_for_widget          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);</pre>
+<p>
+Creates new <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>Managed widget, computing window width and height is based on it and
+it is also passed to <a href="http://library.gnome.org/devel/gtk/GtkWidget.html#gtk-widget-queue-draw"><code class="function">gtk_widget_queue_draw()</code></a> during the animations.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-start"></a><h3>awn_effects_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_start                   (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);</pre>
+<p>
+Start a single effect. The effect will loop until <code class="function">awn_effect_stop()</code>
+is called.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td>
+<a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> to schedule.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-stop"></a><h3>awn_effects_stop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_stop                    (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);</pre>
+<p>
+Stop a single effect.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td>
+<a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> to stop.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-start-ex"></a><h3>awn_effects_start_ex ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_start_ex                (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_loops</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> signal_start</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> signal_end</code></em>);</pre>
+<p>
+Extended effect start, which provides a way to specify maximum number of loops
+and possibility to emit signals for animation start &amp; end.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td>Effect to schedule.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_loops</code></em> :</span></p></td>
+<td>Number of maximum animation loops (0 for unlimited).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signal_start</code></em> :</span></p></td>
+<td>Determines whether the animation should emit "animation-start"
+signal when it starts.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signal_end</code></em> :</span></p></td>
+<td>Determines whether the animation should emit "animation-end"
+signal when it finishes.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-set-icon-size"></a><h3>awn_effects_set_icon_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_set_icon_size           (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> requestSize</code></em>);</pre>
+<p>
+Sets up correct offsets in managed window based on dimensions of drawn icon.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>Width of drawn icon.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>Height of drawn icon.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>requestSize</code></em> :</span></p></td>
+<td>Set to true to call gtk_widget_set_size_request
+for the managed widget.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-cairo-create"></a><h3>awn_effects_cairo_create ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="returnvalue">cairo_t</span></a> *           awn_effects_cairo_create            (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);</pre>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+ Make sure you call <a class="link" href="libawn-awn-effects.html#awn-effects-cairo-destroy" title="awn_effects_cairo_destroy ()"><code class="function">awn_effects_cairo_destroy()</code></a> on the cairo context
+ returned by this call.
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>cairo context where an icon can be drawn. (the icon should have
+dimensions specified by a previous call to <a class="link" href="libawn-awn-effects.html#awn-effects-set-icon-size" title="awn_effects_set_icon_size ()"><span class="type">awn_effects_set_icon_size</span></a>)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-cairo-create-clipped"></a><h3>awn_effects_cairo_create_clipped ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="returnvalue">cairo_t</span></a> *           awn_effects_cairo_create_clipped    (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/gdk3-Event-Structures.html#GdkEventExpose"><span class="type">GdkEventExpose</span></a> *event</code></em>);</pre>
+<p>
+Creates a Cairo context for drawing to <a class="link" href="libawn-awn-effects.html#AwnEffects--widget" title='The "widget" property'><span class="type">"widget"</span></a>. The drawing
+region will be clipped to <em class="parameter"><code>event</code></em>'s region member, and translated to its
+area member, so you can always paint the icon at coordinates [0, 0].
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+ Make sure you call <a class="link" href="libawn-awn-effects.html#awn-effects-cairo-destroy" title="awn_effects_cairo_destroy ()"><code class="function">awn_effects_cairo_destroy()</code></a> on the cairo context
+ returned by this call.
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/gdk/gdk3-Event-Structures.html#GdkEventExpose"><span class="type">GdkEventExpose</span></a> received by the widget.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>cairo context where an icon can be drawn. (the icon should have
+dimensions specified by a previous call to <a class="link" href="libawn-awn-effects.html#awn-effects-set-icon-size" title="awn_effects_set_icon_size ()"><span class="type">awn_effects_set_icon_size</span></a>)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-cairo-destroy"></a><h3>awn_effects_cairo_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_cairo_destroy           (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);</pre>
+<p>
+Finish drawing of the icon and run all post-ops.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>Pointer to <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-add-overlay"></a><h3>awn_effects_add_overlay ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_add_overlay             (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);</pre>
+<p>
+Adds an overlay to the list of rendered overlays.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>AwnEffects instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
+<td>AwnOverlay instance which should be added.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-remove-overlay"></a><h3>awn_effects_remove_overlay ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_remove_overlay          (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);</pre>
+<p>
+Removes overlay from the list of rendered overlays.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>AwnEffects instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
+<td>AwnOverlay which was previously added using
+awn_effects_add_overlay.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-get-overlays"></a><h3>awn_effects_get_overlays ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             awn_effects_get_overlays            (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>
+<a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly-allocated list of the overlays added to this effects
+instance.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-redraw"></a><h3>awn_effects_redraw ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_redraw                  (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);</pre>
+<p>
+Schedules redraw of the managed widget. Contrary to <a href="http://library.gnome.org/devel/gtk/GtkWidget.html#gtk-widget-queue-draw"><span class="type">gtk_widget_queue_draw</span></a>, 
+this function tries to minimize the area that needs to be redrawn.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>fx</code></em> :</span></p></td>
+<td>
+<a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-main-effect-loop"></a><h3>awn_effects_main_effect_loop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_main_effect_loop        (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-emit-anim-start"></a><h3>awn_effects_emit_anim_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_emit_anim_start         (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-effects-emit-anim-end"></a><h3>awn_effects_emit_anim_end ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_effects_emit_anim_end           (<em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *fx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-effects.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="AwnEffects--active"></a><h3>The <code class="literal">"active"</code> property</h3>
+<pre class="programlisting">  "active"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Determines whether to draw the active rectangle behind the icon.
+</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--active-rect-color"></a><h3>The <code class="literal">"active-rect-color"</code> property</h3>
+<pre class="programlisting">  "active-rect-color"        <span class="type">DesktopAgnosticColor</span>*  : Read / Write</pre>
+<p>Color used for painting active rectangle.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--active-rect-outline"></a><h3>The <code class="literal">"active-rect-outline"</code> property</h3>
+<pre class="programlisting">  "active-rect-outline"      <span class="type">DesktopAgnosticColor</span>*  : Read / Write</pre>
+<p>Color used for painting outline of active rectangle.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--arrow-png"></a><h3>The <code class="literal">"arrow-png"</code> property</h3>
+<pre class="programlisting">  "arrow-png"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct</pre>
+<p>Icon to draw when arrows-count is more than 0.</p>
+<p>Default value: "__awn_internal_arrow1"</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--arrows-count"></a><h3>The <code class="literal">"arrows-count"</code> property</h3>
+<pre class="programlisting">  "arrows-count"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+Determines the number of arrows drawn.
+</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--border-clip"></a><h3>The <code class="literal">"border-clip"</code> property</h3>
+<pre class="programlisting">  "border-clip"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+Determines amount of clipping of the icon edge. (suitable for offset
+on the 3D bar)
+</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--custom-active-png"></a><h3>The <code class="literal">"custom-active-png"</code> property</h3>
+<pre class="programlisting">  "custom-active-png"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct</pre>
+<p>
+Path to a custom png icon which will be painted when the property
+<a class="link" href="libawn-awn-effects.html#AwnEffects--active" title='The "active" property'><span class="type">"active"</span></a> is set to TRUE.
+</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--depressed"></a><h3>The <code class="literal">"depressed"</code> property</h3>
+<pre class="programlisting">  "depressed"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Determines whether to draw the icon slightly desaturated.
+</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--dot-color"></a><h3>The <code class="literal">"dot-color"</code> property</h3>
+<pre class="programlisting">  "dot-color"                <span class="type">DesktopAgnosticColor</span>*  : Read / Write</pre>
+<p>Color used for painting glowing dot.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--effects"></a><h3>The <code class="literal">"effects"</code> property</h3>
+<pre class="programlisting">  "effects"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+Set a bitmask to specify which kind of effects are used on the widget.
+</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--icon-alpha"></a><h3>The <code class="literal">"icon-alpha"</code> property</h3>
+<pre class="programlisting">  "icon-alpha"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write / Construct</pre>
+<p>
+Determines alpha value of the drawn icon.
+</p>
+<p>Allowed values: [0,1]</p>
+<p>Default value: 1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--icon-offset"></a><h3>The <code class="literal">"icon-offset"</code> property</h3>
+<pre class="programlisting">  "icon-offset"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+Determines offset of the icon from border of the widget's window.
+</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--indirect-paint"></a><h3>The <code class="literal">"indirect-paint"</code> property</h3>
+<pre class="programlisting">  "indirect-paint"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Determines whether transformations are applied directly to the widget, or
+to an offscreen buffer before being painted to target widget.
+Set to FALSE to improve performance, but will cause artifacts if used on
+non-transparent window.
+</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--make-shadow"></a><h3>The <code class="literal">"make-shadow"</code> property</h3>
+<pre class="programlisting">  "make-shadow"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Determines whether to draw a shadow around the icon.
+</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--no-clear"></a><h3>The <code class="literal">"no-clear"</code> property</h3>
+<pre class="programlisting">  "no-clear"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Whether the context should be cleared when painting.
+Set no-clear to FALSE to improve performace if you're using
+background of proper color on the widget.
+</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--position"></a><h3>The <code class="literal">"position"</code> property</h3>
+<pre class="programlisting">  "position"                 <a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a>       : Read / Write / Construct</pre>
+<p>
+Determines position of the widget.
+</p>
+<p>Default value: GTK_POS_BOTTOM</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--progress"></a><h3>The <code class="literal">"progress"</code> property</h3>
+<pre class="programlisting">  "progress"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write / Construct</pre>
+<p>
+Extra progress pie painted on the pie and percentage value it represents.
+Set to 1.0 to hide the progress pie.
+</p>
+<p>Allowed values: [0,1]</p>
+<p>Default value: 1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--reflection-alpha"></a><h3>The <code class="literal">"reflection-alpha"</code> property</h3>
+<pre class="programlisting">  "reflection-alpha"         <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write / Construct</pre>
+<p>
+Determines alpha value of the reflected icon.
+</p>
+<p>Allowed values: [0,1]</p>
+<p>Default value: 0.25</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--reflection-offset"></a><h3>The <code class="literal">"reflection-offset"</code> property</h3>
+<pre class="programlisting">  "reflection-offset"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+Determines offset of the reflection from the drawn icon.
+</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--reflection-visible"></a><h3>The <code class="literal">"reflection-visible"</code> property</h3>
+<pre class="programlisting">  "reflection-visible"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Determines whether the reflection is visible.
+</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--spotlight-png"></a><h3>The <code class="literal">"spotlight-png"</code> property</h3>
+<pre class="programlisting">  "spotlight-png"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct</pre>
+<p>
+Path to png icon which will be used for the spotlight effect.
+</p>
+<p>Default value: "__awn_internal_spotlight"</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects--widget"></a><h3>The <code class="literal">"widget"</code> property</h3>
+<pre class="programlisting">  "widget"                   <a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a>*            : Read / Write</pre>
+<p>
+Determines which widget is animated by this instance of <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a>.
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-effects.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="AwnEffects-animation-end"></a><h3>The <code class="literal">"animation-end"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *arg0,
+                                                        <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a>   arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+<p>
+<em class="parameter"><code>fx</code></em>: The <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance which received the signal.
+<em class="parameter"><code>effect</code></em>: Effect type which just finished.
+</p>
+<p>
+The ::animation-end signal is emitted when the animation finishes, and
+as ::animation-start signal is emitted only once for the entire
+animation (see the note in description for ::animation-start signal).
+You also have to explicitely ask AwnEffects to emit this signal using
+<a class="link" href="libawn-awn-effects.html#awn-effects-start-ex" title="awn_effects_start_ex ()"><span class="type">awn_effects_start_ex</span></a> method.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnEffects-animation-start"></a><h3>The <code class="literal">"animation-start"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> *arg0,
+                                                        <a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a>   arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+<p>
+<em class="parameter"><code>fx</code></em>: The <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance which received the signal.
+<em class="parameter"><code>effect</code></em>: Effect type which was started.
+</p>
+<p>
+The ::animation-start signal is emitted when the animation starts playing
+(ie. all other animations queued before it finish playing).
+You also have to explicitely ask AwnEffects to emit this signal using
+<a class="link" href="libawn-awn-effects.html#awn-effects-start-ex" title="awn_effects_start_ex ()"><span class="type">awn_effects_start_ex</span></a> method.
+Note: Signal is emitted only once even if another animation with higher
+ priority interrupts the animation and this animation is started again
+ later (ie. no signal on this second start).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

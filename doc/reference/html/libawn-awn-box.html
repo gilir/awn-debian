@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnBox</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch02.html" title="Base Components">
+<link rel="prev" href="ch02.html" title="Base Components">
+<link rel="next" href="libawn-awn-config.html" title="awn-config">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="libawn-awn-config.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libawn-awn-box.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libawn-awn-box.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libawn-awn-box.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libawn-awn-box.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libawn-awn-box"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libawn-awn-box.top_of_page"></a>AwnBox</span></h2>
+<p>AwnBox</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libawn-awn-box.synopsis"></a><h2>Synopsis</h2>
+<a name="AwnBox"></a><pre class="synopsis">                    <a class="link" href="libawn-awn-box.html#AwnBoxPrivate" title="AwnBoxPrivate">AwnBoxPrivate</a>;
+struct              <a class="link" href="libawn-awn-box.html#AwnBox-struct" title="struct AwnBox">AwnBox</a>;
+<a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="libawn-awn-box.html#awn-box-new" title="awn_box_new ()">awn_box_new</a>                         (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkOrientation"><span class="type">GtkOrientation</span></a> orient</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-box.html#awn-box-set-orientation" title="awn_box_set_orientation ()">awn_box_set_orientation</a>             (<em class="parameter"><code><a class="link" href="libawn-awn-box.html#AwnBox"><span class="type">AwnBox</span></a> *box</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkOrientation"><span class="type">GtkOrientation</span></a> orient</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-box.html#awn-box-set-orientation-from-pos-type" title="awn_box_set_orientation_from_pos_type ()">awn_box_set_orientation_from_pos_type</a>
+                                                        (<em class="parameter"><code><a class="link" href="libawn-awn-box.html#AwnBox"><span class="type">AwnBox</span></a> *box</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a> pos_type</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-box.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk3/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/GtkBox.html">GtkBox</a>
+                                 +----AwnBox
+                                       +----<a class="link" href="libawn-awn-icon-box.html#AwnIconBox">AwnIconBox</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-box.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnBox implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/gtk3-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-box.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-box.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AwnBoxPrivate"></a><h3>AwnBoxPrivate</h3>
+<pre class="programlisting">typedef struct _AwnBoxPrivate AwnBoxPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnBox-struct"></a><h3>struct AwnBox</h3>
+<pre class="programlisting">struct AwnBox;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-box-new"></a><h3>awn_box_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         awn_box_new                         (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkOrientation"><span class="type">GtkOrientation</span></a> orient</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-box-set-orientation"></a><h3>awn_box_set_orientation ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_box_set_orientation             (<em class="parameter"><code><a class="link" href="libawn-awn-box.html#AwnBox"><span class="type">AwnBox</span></a> *box</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkOrientation"><span class="type">GtkOrientation</span></a> orient</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-box-set-orientation-from-pos-type"></a><h3>awn_box_set_orientation_from_pos_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_box_set_orientation_from_pos_type
+                                                        (<em class="parameter"><code><a class="link" href="libawn-awn-box.html#AwnBox"><span class="type">AwnBox</span></a> *box</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a> pos_type</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

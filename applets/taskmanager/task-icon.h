@@ -83,16 +83,16 @@ gboolean        task_icon_contains_launcher (TaskIcon      *icon);
 const TaskItem  *     task_icon_get_launcher      (TaskIcon      *icon);
 
 guint           task_icon_count_items       (TaskIcon      *icon);
-guint           task_icon_count_ephemeral_items (TaskIcon * icon);
+//guint           task_icon_count_ephemeral_items (TaskIcon * icon);
 guint           task_icon_count_tasklist_windows (TaskIcon * icon);
 
-void            task_icon_increment_ephemeral_count (TaskIcon *icon);
-void            task_icon_decrement_ephemeral_count (TaskIcon *icon);
+//void            task_icon_increment_ephemeral_count (TaskIcon *icon);
+//void            task_icon_decrement_ephemeral_count (TaskIcon *icon);
 
 void            task_icon_append_item       (TaskIcon      *icon,
                                              TaskItem      *item);
-void            task_icon_append_ephemeral_item (TaskIcon      *icon,
-                                            TaskItem      *item);
+//void            task_icon_append_ephemeral_item (TaskIcon      *icon,
+//                                            TaskItem      *item);
 
 void            task_icon_remove_item       (TaskIcon      *icon,
                                              TaskItem      *item);
@@ -108,6 +108,8 @@ void            task_icon_set_draggable     (TaskIcon      *icon,
 
 GSList *        task_icon_get_items         (TaskIcon     *icon);
 
+GObject *       task_icon_get_proxy         (TaskIcon     *icon);
+
 GtkWidget *     task_icon_get_dialog        (TaskIcon     *icon);
 
 void            task_icon_set_inhibit_focus_loss (TaskIcon *icon, gboolean val);
@@ -122,9 +124,12 @@ const gchar *   task_icon_get_custom_name (TaskIcon * icon);
 
 GObject*        task_icon_get_dbus_dispatcher (TaskIcon *icon);
 
-gint            task_icon_add_menu_item(TaskIcon * icon,GtkMenuItem *);
+gint            task_icon_add_menu_item(TaskIcon * icon,GtkMenuItem *, gchar * group);
 
 void            task_icon_remove_menu_item(TaskIcon * icon,gint id);
+
+gboolean        task_icon_is_ephemeral (TaskIcon * icon);
+
 
 AwnApplet *task_icon_get_applet (TaskIcon * icon);
 

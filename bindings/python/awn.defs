@@ -395,6 +395,16 @@
   )
 )
 
+(define-method popup_gtk_menu
+  (of-object "AwnApplet")
+  (c-name "awn_applet_popup_gtk_menu")
+  (parameters
+    '("GtkWidget*" "menu")
+    '("guint" "button")
+    '("guint32" "activate_time")
+  )
+)
+
 (define-method create_default_menu
   (of-object "AwnApplet")
   (c-name "awn_applet_create_default_menu")
@@ -952,6 +962,16 @@
   (return-type "gint")
 )
 
+(define-method popup_gtk_menu
+  (of-object "AwnIcon")
+  (c-name "awn_icon_popup_gtk_menu")
+  (parameters
+    '("GtkWidget*" "menu")
+    '("guint" "button")
+    '("guint32" "activate_time")
+  )
+)
+
 ;; From awn-icon-box.h
 
 (define-function awn_iconbox_new
@@ -1419,6 +1439,15 @@
   (of-object "AwnThemedIcon")
   (c-name "awn_themed_icon_clear_info")
   (return-type "none")
+)
+
+(define-method create_remove_custom_icon_item
+  (of-object "AwnThemedIcon")
+  (c-name "awn_themed_icon_create_remove_custom_icon_item")
+  (return-type "GtkWidget*")
+  (parameters
+   '("const-gchar*" "icon_name" (default "NULL") (null-ok))
+  )
 )
 
 ;; From awn-utils.h

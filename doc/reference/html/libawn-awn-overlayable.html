@@ -3,25 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>awn-overlayable</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
 <link rel="home" href="index.html" title="Awn Reference Manual">
 <link rel="up" href="ch02.html" title="Base Components">
-<link rel="prev" href="AwnTooltip.html" title="AwnTooltip">
+<link rel="prev" href="libawn-awn-tooltip.html" title="AwnTooltip">
 <link rel="next" href="ch03.html" title="Icons">
-<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="part" href="api-reference.html" title="Part I. API Reference">
-<link rel="chapter" href="ch01.html" title="Applets">
-<link rel="chapter" href="ch02.html" title="Base Components">
-<link rel="chapter" href="ch03.html" title="Icons">
-<link rel="chapter" href="ch04.html" title="Icon Overlays">
-<link rel="chapter" href="ch05.html" title="Utilities">
-<link rel="index" href="index-all.html" title="Index">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="AwnTooltip.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="libawn-awn-tooltip.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">Awn Reference Manual</th>
@@ -29,15 +22,15 @@
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#libawn-awn-overlayable.synopsis" class="shortcut">Top</a>
-                 | 
-                <a href="#libawn-awn-overlayable.description" class="shortcut">Description</a>
-                 | 
-                <a href="#libawn-awn-overlayable.object-hierarchy" class="shortcut">Object Hierarchy</a>
-                 | 
-                <a href="#libawn-awn-overlayable.implementations" class="shortcut">Known Implementations</a>
+                   | 
+                  <a href="#libawn-awn-overlayable.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libawn-awn-overlayable.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libawn-awn-overlayable.implementations" class="shortcut">Known Implementations</a>
 </td></tr>
 </table>
-<div class="refentry" title="awn-overlayable">
+<div class="refentry">
 <a name="libawn-awn-overlayable"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
@@ -46,172 +39,148 @@
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsynopsisdiv" title="Synopsis">
+<div class="refsynopsisdiv">
 <a name="libawn-awn-overlayable.synopsis"></a><h2>Synopsis</h2>
-<a name="AwnOverlayable"></a><pre class="synopsis">
-#define             <a class="link" href="libawn-awn-overlayable.html#AWN-OVERLAYABLE-GET-INTERFACE--CAPS" title="AWN_OVERLAYABLE_GET_INTERFACE()">AWN_OVERLAYABLE_GET_INTERFACE</a>       (inst)
+<a name="AwnOverlayable"></a><pre class="synopsis">#define             <a class="link" href="libawn-awn-overlayable.html#AWN-OVERLAYABLE-GET-INTERFACE:CAPS" title="AWN_OVERLAYABLE_GET_INTERFACE()">AWN_OVERLAYABLE_GET_INTERFACE</a>       (inst)
                     <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable-struct" title="AwnOverlayable">AwnOverlayable</a>;
-                    <a class="link" href="libawn-awn-overlayable.html#AwnOverlayableIface" title="AwnOverlayableIface">AwnOverlayableIface</a>;
-<a class="link" href="AwnEffects.html" title="AwnEffects">AwnEffects</a>*         <a class="link" href="libawn-awn-overlayable.html#awn-overlayable-get-effects" title="awn_overlayable_get_effects ()">awn_overlayable_get_effects</a>         (<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a> *self);
-void                <a class="link" href="libawn-awn-overlayable.html#awn-overlayable-add-overlay" title="awn_overlayable_add_overlay ()">awn_overlayable_add_overlay</a>         (<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a> *self,
-                                                         <a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay);
-void                <a class="link" href="libawn-awn-overlayable.html#awn-overlayable-remove-overlay" title="awn_overlayable_remove_overlay ()">awn_overlayable_remove_overlay</a>      (<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a> *self,
-                                                         <a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay);
-<a
-href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
->GList</a>*              <a class="link" href="libawn-awn-overlayable.html#awn-overlayable-get-overlays" title="awn_overlayable_get_overlays ()">awn_overlayable_get_overlays</a>        (<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a> *self);
+struct              <a class="link" href="libawn-awn-overlayable.html#AwnOverlayableIface" title="struct AwnOverlayableIface">AwnOverlayableIface</a>;
+<a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="returnvalue">AwnEffects</span></a> *        <a class="link" href="libawn-awn-overlayable.html#awn-overlayable-get-effects" title="awn_overlayable_get_effects ()">awn_overlayable_get_effects</a>         (<em class="parameter"><code><a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-overlayable.html#awn-overlayable-add-overlay" title="awn_overlayable_add_overlay ()">awn_overlayable_add_overlay</a>         (<em class="parameter"><code><a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-overlayable.html#awn-overlayable-remove-overlay" title="awn_overlayable_remove_overlay ()">awn_overlayable_remove_overlay</a>      (<em class="parameter"><code><a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="libawn-awn-overlayable.html#awn-overlayable-get-overlays" title="awn_overlayable_get_overlays ()">awn_overlayable_get_overlays</a>        (<em class="parameter"><code><a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> *self</code></em>);
 </pre>
 </div>
-<div class="refsect1" title="Object Hierarchy">
+<div class="refsect1">
 <a name="libawn-awn-overlayable.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
   GInterface
    +----AwnOverlayable
 </pre>
 </div>
-<div class="refsect1" title="Known Implementations">
+<div class="refsect1">
 <a name="libawn-awn-overlayable.implementations"></a><h2>Known Implementations</h2>
 <p>
 AwnOverlayable is implemented by
- <a class="link" href="AwnThemedIcon.html" title="AwnThemedIcon">AwnThemedIcon</a>,  <a class="link" href="AwnIcon.html" title="AwnIcon">AwnIcon</a>,  <a class="link" href="AwnImage.html" title="AwnImage">AwnImage</a> and  <a class="link" href="AwnAppletSimple.html" title="AwnAppletSimple">AwnAppletSimple</a>.</p>
+ <a class="link" href="libawn-awn-applet-simple.html#AwnAppletSimple">AwnAppletSimple</a>,  <a class="link" href="libawn-awn-icon.html#AwnIcon">AwnIcon</a>,  <a class="link" href="libawn-awn-image.html#AwnImage">AwnImage</a> and  <a class="link" href="libawn-awn-themed-icon.html#AwnThemedIcon">AwnThemedIcon</a>.</p>
 </div>
-<div class="refsect1" title="Description">
+<div class="refsect1">
 <a name="libawn-awn-overlayable.description"></a><h2>Description</h2>
 <p>
 </p>
 </div>
-<div class="refsect1" title="Details">
+<div class="refsect1">
 <a name="libawn-awn-overlayable.details"></a><h2>Details</h2>
-<div class="refsect2" title="AWN_OVERLAYABLE_GET_INTERFACE()">
-<a name="AWN-OVERLAYABLE-GET-INTERFACE--CAPS"></a><h3>AWN_OVERLAYABLE_GET_INTERFACE()</h3>
+<div class="refsect2">
+<a name="AWN-OVERLAYABLE-GET-INTERFACE:CAPS"></a><h3>AWN_OVERLAYABLE_GET_INTERFACE()</h3>
 <pre class="programlisting">#define             AWN_OVERLAYABLE_GET_INTERFACE(inst)</pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><span class="term"><em class="parameter"><code>inst</code></em> :</span></p></td>
-<td>
-</td>
-</tr></tbody>
-</table></div>
 </div>
 <hr>
-<div class="refsect2" title="AwnOverlayable">
+<div class="refsect2">
 <a name="AwnOverlayable-struct"></a><h3>AwnOverlayable</h3>
 <pre class="programlisting">typedef struct _AwnOverlayable AwnOverlayable;</pre>
 <p>
 </p>
 </div>
 <hr>
-<div class="refsect2" title="AwnOverlayableIface">
-<a name="AwnOverlayableIface"></a><h3>AwnOverlayableIface</h3>
-<pre class="programlisting">typedef struct {
+<div class="refsect2">
+<a name="AwnOverlayableIface"></a><h3>struct AwnOverlayableIface</h3>
+<pre class="programlisting">struct AwnOverlayableIface {
   GTypeInterface parent;
 
   AwnEffects*   (*get_effects)          (AwnOverlayable* self);
-} AwnOverlayableIface;
+};
 </pre>
 <p>
 </p>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlayable_get_effects ()">
+<div class="refsect2">
 <a name="awn-overlayable-get-effects"></a><h3>awn_overlayable_get_effects ()</h3>
-<pre class="programlisting"><a class="link" href="AwnEffects.html" title="AwnEffects">AwnEffects</a>*         awn_overlayable_get_effects         (<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a> *self);</pre>
-<p>
-</p>
-<p>
-</p>
+<pre class="programlisting"><a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="returnvalue">AwnEffects</span></a> *        awn_overlayable_get_effects         (<em class="parameter"><code><a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> *self</code></em>);</pre>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td> <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> instance.
-</td>
+<td>
+<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> instance.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td> <a class="link" href="AwnEffects.html" title="AwnEffects"><span class="type">AwnEffects</span></a> instance managing animations for this instance.
-</td>
+<td>
+<a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> instance managing animations for this instance.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlayable_add_overlay ()">
+<div class="refsect2">
 <a name="awn-overlayable-add-overlay"></a><h3>awn_overlayable_add_overlay ()</h3>
-<pre class="programlisting">void                awn_overlayable_add_overlay         (<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a> *self,
-                                                         <a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_overlayable_add_overlay         (<em class="parameter"><code><a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);</pre>
 <p>
-Adds an overlay to the list of rendered overlays.</p>
-<p>
+Adds an overlay to the list of rendered overlays.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td> <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> instance.
-</td>
+<td>
+<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> instance.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td> <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> instance which should be added.
-</td>
+<td>
+<a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> instance which should be added.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlayable_remove_overlay ()">
+<div class="refsect2">
 <a name="awn-overlayable-remove-overlay"></a><h3>awn_overlayable_remove_overlay ()</h3>
-<pre class="programlisting">void                awn_overlayable_remove_overlay      (<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a> *self,
-                                                         <a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_overlayable_remove_overlay      (<em class="parameter"><code><a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);</pre>
 <p>
-Removes overlay from the list of rendered overlays.</p>
-<p>
+Removes overlay from the list of rendered overlays.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td> <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> instance.
-</td>
+<td>
+<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> instance.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td> <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> which was previously added using
- awn_overlayable_add_overlay.
-</td>
+<td>
+<a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> which was previously added using
+awn_overlayable_add_overlay.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlayable_get_overlays ()">
+<div class="refsect2">
 <a name="awn-overlayable-get-overlays"></a><h3>awn_overlayable_get_overlays ()</h3>
-<pre class="programlisting"><a
-href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
->GList</a>*              awn_overlayable_get_overlays        (<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a> *self);</pre>
-<p>
-</p>
-<p>
-</p>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             awn_overlayable_get_overlays        (<em class="parameter"><code><a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> *self</code></em>);</pre>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td> <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> instance.
-</td>
+<td>
+<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a> instance.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td> a newly-allocated list of the overlays added for this instance.
-</td>
+<td>a newly-allocated list of the overlays added for this instance.</td>
 </tr>
 </tbody>
 </table></div>
@@ -220,6 +189,6 @@ href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.11</div>
+          Generated by GTK-Doc V1.17</div>
 </body>
 </html>

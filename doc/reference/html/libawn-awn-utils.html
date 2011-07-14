@@ -3,20 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>awn-utils</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
 <link rel="home" href="index.html" title="Awn Reference Manual">
 <link rel="up" href="ch05.html" title="Utilities">
 <link rel="prev" href="libawn-awn-cairo-utils.html" title="awn-cairo-utils">
 <link rel="next" href="index-all.html" title="Index">
-<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="part" href="api-reference.html" title="Part I. API Reference">
-<link rel="chapter" href="ch01.html" title="Applets">
-<link rel="chapter" href="ch02.html" title="Base Components">
-<link rel="chapter" href="ch03.html" title="Icons">
-<link rel="chapter" href="ch04.html" title="Icon Overlays">
-<link rel="chapter" href="ch05.html" title="Utilities">
-<link rel="index" href="index-all.html" title="Index">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
@@ -29,11 +22,11 @@
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#libawn-awn-utils.synopsis" class="shortcut">Top</a>
-                 | 
-                <a href="#libawn-awn-utils.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libawn-awn-utils.description" class="shortcut">Description</a>
 </td></tr>
 </table>
-<div class="refentry" title="awn-utils">
+<div class="refentry">
 <a name="libawn-awn-utils"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
@@ -42,244 +35,122 @@
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsynopsisdiv" title="Synopsis">
+<div class="refsynopsisdiv">
 <a name="libawn-awn-utils.synopsis"></a><h2>Synopsis</h2>
-<pre class="synopsis">
-void                <a class="link" href="libawn-awn-utils.html#awn-utils-ensure-transparent-bg" title="awn_utils_ensure_transparent_bg ()">awn_utils_ensure_transparent_bg</a>     (<a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget);
-void                <a class="link" href="libawn-awn-utils.html#awn-utils-make-transparent-bg" title="awn_utils_make_transparent_bg ()">awn_utils_make_transparent_bg</a>       (<a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget);
-<a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
->gfloat</a>              <a class="link" href="libawn-awn-utils.html#awn-utils-get-offset-modifier-by-path-type" title="awn_utils_get_offset_modifier_by_path_type ()">awn_utils_get_offset_modifier_by_path_type</a>
-                                                        (<a class="link" href="libawn-awn-defines.html#AwnPathType" title="enum AwnPathType">AwnPathType</a> path_type,
-                                                         <a
-href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
->GtkPositionType</a> position,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> offset,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
->gfloat</a> offset_modifier,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> pos_x,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> pos_y,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> height);
-<a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"
->GValueArray</a>*        <a class="link" href="libawn-awn-utils.html#awn-utils-gslist-to-gvaluearray" title="awn_utils_gslist_to_gvaluearray ()">awn_utils_gslist_to_gvaluearray</a>     (<a
-href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
->GSList</a> *list);
-void                <a class="link" href="libawn-awn-utils.html#awn-utils-show-menu-images" title="awn_utils_show_menu_images ()">awn_utils_show_menu_images</a>          (<a
-href="http://library.gnome.org/devel/gtk/unstable/GtkMenu.html"
->GtkMenu</a> *menu);
+<pre class="synopsis"><span class="returnvalue">void</span>                <a class="link" href="libawn-awn-utils.html#awn-utils-ensure-transparent-bg" title="awn_utils_ensure_transparent_bg ()">awn_utils_ensure_transparent_bg</a>     (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-utils.html#awn-utils-make-transparent-bg" title="awn_utils_make_transparent_bg ()">awn_utils_make_transparent_bg</a>       (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="returnvalue">gfloat</span></a>              <a class="link" href="libawn-awn-utils.html#awn-utils-get-offset-modifier-by-path-type" title="awn_utils_get_offset_modifier_by_path_type ()">awn_utils_get_offset_modifier_by_path_type</a>
+                                                        (<em class="parameter"><code><a class="link" href="libawn-awn-defines.html#AwnPathType" title="enum AwnPathType"><span class="type">AwnPathType</span></a> path_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> offset</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> offset_modifier</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> pos_x</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> pos_y</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"><span class="returnvalue">GValueArray</span></a> *       <a class="link" href="libawn-awn-utils.html#awn-utils-gslist-to-gvaluearray" title="awn_utils_gslist_to_gvaluearray ()">awn_utils_gslist_to_gvaluearray</a>     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *list</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-utils.html#awn-utils-show-menu-images" title="awn_utils_show_menu_images ()">awn_utils_show_menu_images</a>          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkMenu.html"><span class="type">GtkMenu</span></a> *menu</code></em>);
 </pre>
 </div>
-<div class="refsect1" title="Description">
+<div class="refsect1">
 <a name="libawn-awn-utils.description"></a><h2>Description</h2>
 <p>
 </p>
 </div>
-<div class="refsect1" title="Details">
+<div class="refsect1">
 <a name="libawn-awn-utils.details"></a><h2>Details</h2>
-<div class="refsect2" title="awn_utils_ensure_transparent_bg ()">
+<div class="refsect2">
 <a name="awn-utils-ensure-transparent-bg"></a><h3>awn_utils_ensure_transparent_bg ()</h3>
-<pre class="programlisting">void                awn_utils_ensure_transparent_bg     (<a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_utils_ensure_transparent_bg     (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);</pre>
 <p>
 Ensures that the widget has transparent background all the time
-by connecting to the GtkWidget::realize and GtkWidget::style-set signals.</p>
-<p>
+by connecting to the GtkWidget::realize and GtkWidget::style-set signals.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
-<td> Widget which should have transparent background.
-</td>
+<td>Widget which should have transparent background.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_utils_make_transparent_bg ()">
+<div class="refsect2">
 <a name="awn-utils-make-transparent-bg"></a><h3>awn_utils_make_transparent_bg ()</h3>
-<pre class="programlisting">void                awn_utils_make_transparent_bg       (<a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_utils_make_transparent_bg       (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);</pre>
 <p>
 Modifies the background pixmap on the widget to be transparent if composited
-environment is used.</p>
-<p>
+environment is used.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
-<td> Widget which background will be modified.
-</td>
+<td>Widget which background will be modified.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_utils_get_offset_modifier_by_path_type ()">
+<div class="refsect2">
 <a name="awn-utils-get-offset-modifier-by-path-type"></a><h3>awn_utils_get_offset_modifier_by_path_type ()</h3>
-<pre class="programlisting"><a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
->gfloat</a>              awn_utils_get_offset_modifier_by_path_type
-                                                        (<a class="link" href="libawn-awn-defines.html#AwnPathType" title="enum AwnPathType">AwnPathType</a> path_type,
-                                                         <a
-href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkPositionType"
->GtkPositionType</a> position,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> offset,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
->gfloat</a> offset_modifier,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> pos_x,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> pos_y,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> height);</pre>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="returnvalue">gfloat</span></a>              awn_utils_get_offset_modifier_by_path_type
+                                                        (<em class="parameter"><code><a class="link" href="libawn-awn-defines.html#AwnPathType" title="enum AwnPathType"><span class="type">AwnPathType</span></a> path_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> offset</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> offset_modifier</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> pos_x</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> pos_y</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
 <p>
 Computes modifier for offset value based on current path_type and position
-of a widget on the panel.</p>
-<p>
+of a widget on the panel.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>path_type</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>offset_modifier</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>pos_x</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>pos_y</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td> Offset modifier, offset value should be multiplied by this
-modifier.
-</td>
-</tr>
-</tbody>
+<td>Offset modifier, offset value should be multiplied by this
+modifier.</td>
+</tr></tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_utils_gslist_to_gvaluearray ()">
+<div class="refsect2">
 <a name="awn-utils-gslist-to-gvaluearray"></a><h3>awn_utils_gslist_to_gvaluearray ()</h3>
-<pre class="programlisting"><a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"
->GValueArray</a>*        awn_utils_gslist_to_gvaluearray     (<a
-href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
->GSList</a> *list);</pre>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"><span class="returnvalue">GValueArray</span></a> *       awn_utils_gslist_to_gvaluearray     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *list</code></em>);</pre>
 <p>
-Converts a <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
-><span class="type">GSList</span></a> of strings to a <a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"
-><span class="type">GValueArray</span></a>, suitable for use with a
-configuration client.</p>
-<p>
+Converts a <a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> of strings to a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"><span class="type">GValueArray</span></a>, suitable for use with a
+configuration client.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
-<td> The <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
-><span class="type">GSList</span></a> of <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
-><span class="type">gchar</span></a> pointers to convert.
-</td>
+<td>The <a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> of <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> pointers to convert.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td> A newly allocated <a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"
-><span class="type">GValueArray</span></a> (the <a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"
-><span class="type">GValue</span></a> elements and their
-         contents are also newly allocated).
-</td>
+<td>A newly allocated <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"><span class="type">GValueArray</span></a> (the <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> elements and their
+contents are also newly allocated).</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_utils_show_menu_images ()">
+<div class="refsect2">
 <a name="awn-utils-show-menu-images"></a><h3>awn_utils_show_menu_images ()</h3>
-<pre class="programlisting">void                awn_utils_show_menu_images          (<a
-href="http://library.gnome.org/devel/gtk/unstable/GtkMenu.html"
->GtkMenu</a> *menu);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_utils_show_menu_images          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkMenu.html"><span class="type">GtkMenu</span></a> *menu</code></em>);</pre>
 <p>
-Set all instances <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkImageMenuItem.html"
-><span class="type">GtkImageMenuItem</span></a> in the <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkMenu.html"
-><span class="type">GtkMenu</span></a> are set to visible. A 
-null op for GTK+ &lt; 2.16.0</p>
-<p>
+Set all instances <a href="http://library.gnome.org/devel/gtk/GtkImageMenuItem.html"><span class="type">GtkImageMenuItem</span></a> in the <a href="http://library.gnome.org/devel/gtk/GtkMenu.html"><span class="type">GtkMenu</span></a> are set to visible. A 
+null op for GTK+ &lt; 2.16.0
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>menu</code></em> :</span></p></td>
-<td> A GtkMenu.
-</td>
+<td>A GtkMenu.</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -287,6 +158,6 @@ null op for GTK+ &lt; 2.16.0</p>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.11</div>
+          Generated by GTK-Doc V1.17</div>
 </body>
 </html>
