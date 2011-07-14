@@ -13,6 +13,14 @@ avant-window-navigator (0.4.0-3) UNRELEASED; urgency=low
 
  -- Julien Lavergne <gilir@ubuntu.com>  Thu, 14 Jul 2011 11:12:23 +0200
 
+avant-window-navigator (0.4.0-2.1) unstable; urgency=low
+
+   * Non-maintainer upload.
+   * debian/patches/ld-no-add-needed.patch
+     - fix a FTBFS with ld --no-add-needed; patch from ubuntu; Closes: #605875
+
+ -- Sandro Tosi <morph@debian.org>  Thu, 02 Jun 2011 20:45:08 +0200
+
 avant-window-navigator (0.4.0-2) unstable; urgency=medium
 
   * Set priority to medium to fix RC bug.
