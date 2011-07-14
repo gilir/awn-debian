@@ -22,6 +22,7 @@ avant-window-navigator (0.4.1~bzr830-1) unstable; urgency=low
    - Add gbp configuration.
   * debian/rules:
    - Use --with python2
+   - Passing --no-guessing-versions to dh_python2
 
  -- Julien Lavergne <julien.lavergne@gmail.com>  Thu, 14 Jul 2011 11:54:48 +0200
 
