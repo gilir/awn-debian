@@ -1,5 +1,6 @@
-avant-window-navigator (0.4.0-3) UNRELEASED; urgency=low
+avant-window-navigator (0.4.1~bzr830-1) UNRELEASED; urgency=low
 
+  * New upstream snapshot.
   * debian/copyright:
    - Update copyright years and upstream authors.
   * debian/control:
