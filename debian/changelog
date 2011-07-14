@@ -5,6 +5,7 @@ avant-window-navigator (0.4.0-3) UNRELEASED; urgency=low
   * debian/control:
    - Build-depends on valac-0.10 (>= 0.9.1), to force stable version of Vala.
    - Add dockmanager to Recommends to enable helpers support.
+   - Build-depends on libdesktop-agnostic-dev (>= 0.3.92)
   * debian/libawn1.symbols:
    - Update with new symbols. 
 
