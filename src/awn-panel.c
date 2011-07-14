@@ -39,14 +39,17 @@
 
 #include "awn-applet-manager.h"
 #include "awn-background.h"
+#include "awn-background-null.h"
 #include "awn-background-flat.h"
 #include "awn-background-3d.h"
 #include "awn-background-curves.h"
 #include "awn-background-edgy.h"
+#include "awn-background-lucido.h"
 #include "awn-background-floaty.h"
 #include "awn-defines.h"
 #include "awn-marshal.h"
 #include "awn-monitor.h"
+#include "awn-panel-dispatcher.h"
 #include "awn-throbber.h"
 #include "awn-x.h"
 
@@ -67,6 +70,7 @@ struct _AwnPanelPrivate
   GHashTable *inhibits;
   guint startup_inhibit_cookie;
 
+  AwnPanelDispatcher *dbus_proxy;
   AwnBackground *bg;
 
   GtkWidget *alignment;
@@ -89,6 +93,7 @@ struct _AwnPanelPrivate
   gboolean animated_resize;
 
   gint size;
+  gint glow_size;
   gint offset;
   gfloat offset_mod;
   GtkPositionType position;
@@ -166,6 +171,7 @@ typedef struct _AwnInhibitItem
 
 #define ROUND(x) (x < 0 ? x - 0.5 : x + 0.5)
 
+//#define DEBUG_INPUT_SHAPE
 //#define DEBUG_DRAW_AREA
 //#define DEBUG_APPLET_AREA
 
@@ -221,6 +227,7 @@ enum
   STYLE_CURVES,
   STYLE_EDGY,
   STYLE_FLOATY,
+  STYLE_LUCIDO,
 
   STYLE_LAST
 };
@@ -294,7 +301,9 @@ static gboolean awn_panel_button_press      (GtkWidget      *widget,
                                              GdkEventButton *event);
 static gboolean awn_panel_resize_timeout    (gpointer data);
 
-static void     awn_panel_add               (GtkContainer   *window, 
+static void     awn_panel_add               (GtkContainer   *window,
+                                             GtkWidget      *widget);
+static void     awn_panel_remove            (GtkContainer   *window,
                                              GtkWidget      *widget);
 
 static void     awn_panel_set_offset        (AwnPanel *panel,
@@ -359,6 +368,11 @@ static gboolean awn_panel_dnd_check         (gpointer data);
 
 static gboolean awn_panel_set_drag_proxy    (AwnPanel *panel,
                                              gboolean check_mouse_pos);
+
+static void     dbus_inhibitor_lost         (AwnDBusWatcher *watcher,
+                                             gchar *name,
+                                             AwnInhibitItem *item);
+
 
 /*
  * GOBJECT CODE 
@@ -492,6 +506,7 @@ awn_panel_set_drag_proxy (AwnPanel *panel, gboolean check_mouse_pos)
   return priv->dnd_proxy_win != NULL;
 }
 
+#if !GTK_CHECK_VERSION(2, 19, 5)
 static gboolean
 awn_panel_drag_motion (GtkWidget *widget, GdkDragContext *context, 
                        gint x, gint y, guint time_)
@@ -510,6 +525,7 @@ awn_panel_drag_motion (GtkWidget *widget, GdkDragContext *context,
 
   return TRUE;
 }
+#endif
 
 static gboolean
 on_startup_complete (AwnPanel *panel)
@@ -526,8 +542,10 @@ on_prefs_activated (GtkMenuItem *item, AwnPanel *panel)
 {
   GError *err = NULL;
 
+  gchar cmd[45];
+  sprintf (cmd, "awn-settings --panel-id=%d", panel->priv->panel_id);
   gdk_spawn_command_line_on_screen (gtk_widget_get_screen (GTK_WIDGET (panel)),
-                                    "awn-settings", &err);
+                                    cmd, &err);
 
   if (err)
   {
@@ -558,6 +576,15 @@ on_about_activated (GtkMenuItem *item, AwnPanel *panel)
 }
 
 static void
+on_screen_changed (GtkWidget *panel, GdkScreen *screen, gpointer userdata)
+{
+  AwnPanelPrivate *priv;
+
+  priv = AWN_PANEL_GET_PRIVATE (panel);
+  g_object_set (priv->monitor, "screen", gtk_widget_get_screen (panel), NULL);
+}
+
+static void
 awn_panel_constructed (GObject *object)
 {
   AwnPanelPrivate *priv;
@@ -567,8 +594,11 @@ awn_panel_constructed (GObject *object)
   priv = AWN_PANEL_GET_PRIVATE (object);
   panel = GTK_WIDGET (object);
 
-  priv->monitor = awn_monitor_new_from_config (priv->client);
-  g_signal_connect (priv->monitor, "geometry_changed",
+  screen = gtk_widget_get_screen (panel);
+  priv->monitor = awn_monitor_new_for_screen (screen, priv->client);
+  g_signal_connect (panel, "screen-changed",
+                    G_CALLBACK (on_screen_changed), NULL);
+  g_signal_connect (priv->monitor, "geometry-changed",
                     G_CALLBACK (on_geometry_changed), panel);
 
   g_signal_connect_swapped (priv->monitor, "notify::monitor-align",
@@ -581,7 +611,6 @@ awn_panel_constructed (GObject *object)
   g_timeout_add (10000, (GSourceFunc)on_startup_complete, panel);
 
   /* Composited checks/setup */
-  screen = gtk_widget_get_screen (panel);
   priv->composited = gdk_screen_is_composited (screen);
   priv->animated_resize = priv->composited;
   g_print ("Screen %s composited\n", priv->composited ? "is" : "isn't");
@@ -593,6 +622,9 @@ awn_panel_constructed (GObject *object)
                     G_CALLBACK (on_window_state_event), NULL);
   g_signal_connect (panel, "delete-event",
                     G_CALLBACK (gtk_true), NULL);
+
+  /* DBus interface */
+  priv->dbus_proxy = awn_panel_dispatcher_new (AWN_PANEL (object));
   
   /* Contents */
   priv->manager = awn_applet_manager_new_from_config (priv->client);
@@ -927,6 +959,7 @@ awn_panel_size_request (GtkWidget *widget, GtkRequisition *requisition)
   {
     if (*target_size != *current_draw_size && !priv->resize_timer_id)
     {
+      /* background invalidation is in awn_panel_resize_timeout */
       priv->resize_timer_id = g_timeout_add (40, awn_panel_resize_timeout,
                                              widget); // 25 FPS
     }
@@ -935,6 +968,12 @@ awn_panel_size_request (GtkWidget *widget, GtkRequisition *requisition)
   {
     // this ensures there's a shrinking animation when expand is turned off
     *current_draw_size = *target_size;
+    awn_background_invalidate (priv->bg);
+  }
+  else
+  {
+    /* If in non-composited mode, invalidate background on size changed */
+    awn_background_invalidate (priv->bg);
   }
 }
 
@@ -1000,13 +1039,14 @@ awn_panel_resize_timeout (gpointer data)
   gint end_y = MAX (rect1.y + rect1.height, rect2.y + rect2.height);
   GdkRectangle invalid_rect =
   {
-    .x = MIN (rect1.x, rect2.x),
-    .y = MIN (rect1.y, rect2.y),
-    .width = end_x - MIN (rect1.x, rect2.x),
-    .height = end_y - MIN (rect1.y, rect2.y)
+    .x = MIN (rect1.x, rect2.x) - priv->glow_size,
+    .y = MIN (rect1.y, rect2.y) - priv->glow_size,
+    .width = end_x - MIN (rect1.x, rect2.x) + priv->glow_size * 2,
+    .height = end_y - MIN (rect1.y, rect2.y) + priv->glow_size * 2
   };
   gdk_window_invalidate_rect (gtk_widget_get_window (GTK_WIDGET (panel)),
                               &invalid_rect, FALSE);
+  awn_background_invalidate (priv->bg);
   // without this there are some artifacts on sad face & throbbers
   awn_applet_manager_redraw_throbbers (AWN_APPLET_MANAGER (priv->manager));
 
@@ -1064,6 +1104,14 @@ awn_panel_refresh_alignment (AwnPanel *panel)
   }
 
   awn_panel_queue_masks_update (panel);
+
+  /* do not remove this check, because this method 
+   * is called also before priv->bg
+   */
+  if (priv->bg)
+  {
+    awn_background_invalidate (priv->bg);
+  }
 }
 
 static
@@ -1071,15 +1119,6 @@ void awn_panel_refresh_padding (AwnPanel *panel, gpointer user_data)
 {
   AwnPanelPrivate *priv = panel->priv;
   guint top, left, bottom, right;
-
-  if (!priv->bg || !AWN_IS_BACKGROUND (priv->bg))
-  {
-    gtk_alignment_set_padding (GTK_ALIGNMENT (priv->alignment), 0, 0, 0, 0);
-    priv->extra_padding = AWN_EFFECTS_ACTIVE_RECT_PADDING;
-
-    gtk_widget_queue_draw (GTK_WIDGET (panel));
-    return;
-  }
 
   /* refresh the padding */
   awn_background_padding_request (priv->bg, priv->position,
@@ -1281,6 +1320,11 @@ static void free_inhibit_item (gpointer data)
 {
   AwnInhibitItem *item = data;
 
+  // remove the dbus watcher
+  g_signal_handlers_disconnect_by_func (awn_dbus_watcher_get_default (),
+                                        G_CALLBACK (dbus_inhibitor_lost),
+                                        item);
+
   if (item->description) g_free (item->description);
 
   g_free (item);
@@ -1334,23 +1378,35 @@ awn_panel_get_mask (AwnPanel *panel)
 static gboolean awn_panel_check_mouse_pos (AwnPanel *panel,
                                            MouseCheckType check_type)
 {
-  g_return_val_if_fail(AWN_IS_PANEL(panel), FALSE);
+  g_return_val_if_fail (AWN_IS_PANEL (panel), FALSE);
 
   GtkWidget *widget = GTK_WIDGET (panel);
   AwnPanelPrivate *priv = panel->priv;
   GdkWindow *panel_win;
+  GdkScreen *screen;
   GdkRectangle area;
+  gint mouse_screen_num, panel_screen_num;
 
   gint x, y, window_x, window_y, width, height;
   /* FIXME: probably needs some love to work on multiple monitors */
-  gdk_display_get_pointer (gdk_display_get_default (), NULL, &x, &y, NULL);
   panel_win = gtk_widget_get_window (widget);
+
+  if (!panel_win)
+  {
+    return FALSE;
+  }
+
+  gdk_display_get_pointer (gdk_display_get_default (), &screen, &x, &y, NULL);
   gdk_window_get_root_origin (panel_win, &window_x, &window_y);
 
   switch (check_type)
   {
     case MOUSE_CHECK_EDGE_ONLY:
     {
+      mouse_screen_num = gdk_screen_get_monitor_at_point (screen, x, y);
+      panel_screen_num = gdk_screen_get_monitor_at_window (screen, panel_win);
+      if (mouse_screen_num != panel_screen_num) return FALSE;
+
       /* edge detection */
       awn_panel_get_draw_rect (AWN_PANEL (panel), &area, 0, 0);
       window_x += area.x;
@@ -1362,17 +1418,17 @@ static gboolean awn_panel_check_mouse_pos (AwnPanel *panel,
       {
         case GTK_POS_LEFT:
           return y >= window_y && y < window_y + height &&
-                 x == window_x;
+                 x <= window_x;
         case GTK_POS_RIGHT:
           return y >= window_y && y < window_y + height &&
-                 x == window_x + width - 1;
+                 x >= window_x + width - 1;
         case GTK_POS_TOP:
           return x >= window_x && x < window_x + width &&
-                 y == window_y;
+                 y <= window_y;
         case GTK_POS_BOTTOM:
         default:
           return x >= window_x && x < window_x + width &&
-                 y == window_y + height - 1;
+                 y >= window_y + height - 1;
       }
     }
     case MOUSE_CHECK_ACTIVE_MASK:
@@ -1389,11 +1445,32 @@ static gboolean awn_panel_check_mouse_pos (AwnPanel *panel,
 
       if (inside_mask) return TRUE;
 
+      mouse_screen_num = gdk_screen_get_monitor_at_point (screen, x, y);
+      panel_screen_num = gdk_screen_get_monitor_at_window (screen, panel_win);
+      if (mouse_screen_num != panel_screen_num) return FALSE;
+
       awn_panel_get_draw_rect (AWN_PANEL (panel), &area, 0, 0);
       window_x += area.x;
       window_y += area.y;
       width = area.width;
       height = area.height;
+
+      switch (priv->position)
+      {
+        case GTK_POS_LEFT:
+          if (x < window_x) return TRUE;
+          break;
+        case GTK_POS_RIGHT:
+          if (x > window_x + width - 1) return TRUE;
+          break;
+        case GTK_POS_TOP:
+          if (y < window_y) return TRUE;
+          break;
+        case GTK_POS_BOTTOM:
+        default:
+          if (y > window_y + height - 1) return TRUE;
+          break;
+      }
 
       return (x >= window_x && x < window_x + width &&
               y >= window_y && y < window_y + height);
@@ -1517,7 +1594,7 @@ static void transparentize_end (AwnPanel *panel, gpointer data)
 static gboolean
 autohide_start_timeout (gpointer data)
 {
-  g_return_val_if_fail(AWN_IS_PANEL(data), FALSE);
+  g_return_val_if_fail (AWN_IS_PANEL (data), FALSE);
   gboolean signal_ret = FALSE;
 
   AwnPanel *panel = AWN_PANEL (data);
@@ -1715,6 +1792,12 @@ awn_panel_dispose (GObject *object)
     priv->resize_timer_id = 0;
   }
 
+  if (priv->dbus_proxy)
+  {
+    g_object_unref (priv->dbus_proxy);
+    priv->dbus_proxy = NULL;
+  }
+
   desktop_agnostic_config_client_unbind_all_for_object (priv->client,
                                                         object, NULL);
 
@@ -1732,10 +1815,14 @@ awn_panel_finalize (GObject *object)
     priv->inhibits = NULL;
   }
 
+  if (priv->monitor)
+  {
+    g_object_unref (priv->monitor);
+    priv->monitor = NULL;
+  }
+
   G_OBJECT_CLASS (awn_panel_parent_class)->finalize (object);
 }
-
-#include "awn-panel-glue.h"
 
 static void
 awn_panel_class_init (AwnPanelClass *klass)
@@ -1749,8 +1836,9 @@ awn_panel_class_init (AwnPanelClass *klass)
   obj_class->finalize      = awn_panel_finalize;
   obj_class->get_property  = awn_panel_get_property;
   obj_class->set_property  = awn_panel_set_property;
-    
+
   cont_class->add          = awn_panel_add;
+  cont_class->remove       = awn_panel_remove;
   
   wid_class->expose_event  = awn_panel_expose;
   wid_class->show          = awn_panel_show;
@@ -2006,9 +2094,6 @@ awn_panel_class_init (AwnPanelClass *klass)
 			      0);
 
   g_type_class_add_private (obj_class, sizeof (AwnPanelPrivate));
-
-  dbus_g_object_type_install_info (G_TYPE_FROM_CLASS (klass), 
-                                   &dbus_glib_awn_panel_object_info);
 }
 
 static gboolean
@@ -2153,6 +2238,14 @@ awn_panel_arrow_out (AwnPanel *panel, GdkEventCrossing *event,
   return FALSE;
 }
 
+gint 
+awn_panel_get_glow_size (AwnPanel *panel)
+{
+  g_return_val_if_fail (AWN_IS_PANEL (panel), 0);
+  AwnPanelPrivate *priv = AWN_PANEL_GET_PRIVATE (panel);
+  return priv->glow_size;
+}
+
 static void
 awn_panel_init (AwnPanel *panel)
 {
@@ -2165,6 +2258,8 @@ awn_panel_init (AwnPanel *panel)
 
   priv->docklet_alpha = 1.0;
   priv->docklet_close_on_pos_change = TRUE;
+
+  priv->glow_size = 10;
 
   priv->inhibits = g_hash_table_new_full (g_direct_hash, g_direct_equal,
                                           NULL, free_inhibit_item);
@@ -2459,21 +2554,19 @@ awn_panel_update_masks (GtkWidget *panel,
     cairo_paint (cr);
 
     cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
-    if (priv->bg)
+
+    GdkRectangle area;
+    awn_panel_get_draw_rect (AWN_PANEL (panel), &area,
+                             real_width, real_height);
+    /* Set the input shape of the window if the window is composited */
+    if (priv->composited)
     {
-      GdkRectangle area;
-      awn_panel_get_draw_rect (AWN_PANEL (panel), &area,
-                               real_width, real_height);
-      /* Set the input shape of the window if the window is composited */
-      if (priv->composited)
-      {
-        awn_background_get_input_shape_mask (priv->bg, cr, priv->position, &area);
-      }
-      /* If window is not composited set shape of the window */
-      else
-      {
-        awn_background_get_shape_mask (priv->bg, cr, priv->position, &area);
-      }
+      awn_background_get_input_shape_mask (priv->bg, cr, priv->position, &area);
+    }
+    /* If window is not composited set shape of the window */
+    else
+    {
+      awn_background_get_shape_mask (priv->bg, cr, priv->position, &area);
     }
 
     /* combine with applet's eventbox (with proper dimensions) */
@@ -2662,12 +2755,9 @@ on_eb_expose (GtkWidget *eb, GdkEventExpose *event, AwnPanel *panel)
   gdk_cairo_region (cr, event->region);
   cairo_clip (cr);
 
-  if (priv->bg)
-  {
-    GdkRectangle area;
-    awn_panel_get_draw_rect (panel, &area, 0, 0);
-    awn_background_draw (priv->bg, cr, priv->position, &area);
-  }
+  GdkRectangle area;
+  awn_panel_get_draw_rect (panel, &area, 0, 0);
+  awn_background_draw (priv->bg, cr, priv->position, &area);
 
   return FALSE;
 }
@@ -2710,12 +2800,9 @@ awn_panel_expose (GtkWidget *widget, GdkEventExpose *event)
   cairo_set_operator (cr, CAIRO_OPERATOR_CLEAR);
   cairo_paint (cr); */
 
-  if (priv->bg)
-  {
-    GdkRectangle area;
-    awn_panel_get_draw_rect (AWN_PANEL (widget), &area, 0, 0);
-    awn_background_draw (priv->bg, cr, priv->position, &area);
-  }
+  GdkRectangle area;
+  awn_panel_get_draw_rect (AWN_PANEL (widget), &area, 0, 0);
+  awn_background_draw (priv->bg, cr, priv->position, &area);
 
 #if 0
   if (1)
@@ -2835,6 +2922,23 @@ awn_panel_expose (GtkWidget *widget, GdkEventExpose *event)
     gdk_region_destroy (region);
   }
 
+#ifdef DEBUG_INPUT_SHAPE
+  if (1)
+  {
+    cairo_save (cr);
+    cairo_reset_clip (cr);
+    cairo_push_group (cr);
+    awn_background_get_input_shape_mask (priv->bg, cr, priv->position, &area);
+    cairo_pattern_t *mask = cairo_pop_group (cr);
+    cairo_set_operator (cr, CAIRO_OPERATOR_OVER);
+    cairo_set_source_rgba (cr, 0.0, 1.0, 0.0, 0.5);
+    cairo_mask (cr, mask);
+    cairo_restore (cr);
+
+    cairo_pattern_destroy (mask);
+  }
+#endif
+
   cairo_destroy (cr);
 
 #ifdef DEBUG_DRAW_AREA
@@ -2909,6 +3013,28 @@ awn_panel_add (GtkContainer *window, GtkWidget *widget)
 }
 
 static void
+awn_panel_remove (GtkContainer *panel, GtkWidget *widget)
+{
+  AwnPanelPrivate *priv;
+
+  g_return_if_fail (AWN_IS_PANEL (panel));
+  g_return_if_fail (GTK_IS_WIDGET (widget));
+  priv = AWN_PANEL (panel)->priv;
+
+  if (widget == priv->eventbox)
+  {
+    /* the eventbox was added using the base method,
+         so it also has to be removed using that way */
+    GtkContainerClass *klass = GTK_CONTAINER_CLASS (awn_panel_parent_class);
+    klass->remove (GTK_CONTAINER (panel), widget);
+  }
+  else
+  {
+    gtk_container_remove (GTK_CONTAINER (priv->viewport), widget);
+  }
+}
+
+static void
 on_theme_changed (AwnBackground *bg, AwnPanel *panel)
 {
   g_return_if_fail (AWN_IS_BACKGROUND (bg));
@@ -2930,6 +3056,11 @@ awn_panel_set_offset  (AwnPanel *panel,
   //awn_panel_refresh_padding (panel, NULL);
   awn_icon_set_offset (AWN_ICON (priv->arrow1), offset);
   awn_icon_set_offset (AWN_ICON (priv->arrow2), offset);
+
+  if (priv->bg)
+  {
+    awn_background_invalidate (priv->bg);
+  }
 
   g_signal_emit (panel, _panel_signals[OFFSET_CHANGED], 0, priv->offset);
 
@@ -2981,10 +3112,15 @@ awn_panel_set_size (AwnPanel *panel, gint size)
   AwnPanelPrivate *priv = panel->priv;
   
   priv->size = size;
+  priv->glow_size = MIN (14, sqrt (size) * 3);
 
   if (!gtk_widget_get_realized (GTK_WIDGET (panel)))
     return;
-  
+
+  if (priv->bg)
+  {
+    awn_background_invalidate (priv->bg);
+  }
   g_signal_emit (panel, _panel_signals[SIZE_CHANGED], 0, priv->size);
 
   position_window (panel);
@@ -3144,6 +3280,7 @@ awn_panel_set_style (AwnPanel *panel, gint style)
   AwnBackground *old_bg = NULL;
   AwnPathType path = AWN_PATH_LINEAR;
   gfloat offset_mod = 1.0;
+  GType bg_type;
 
   /* if the style hasn't changed and the background exist everything is done. */
   if(priv->style == style && priv->bg) return;
@@ -3154,37 +3291,45 @@ awn_panel_set_style (AwnPanel *panel, gint style)
   switch (priv->style)
   {
     case STYLE_NONE:
-      priv->bg = NULL;
+      bg_type = AWN_TYPE_BACKGROUND_NULL;
       break;
     case STYLE_FLAT:
-      priv->bg = awn_background_flat_new (priv->client, panel);
+      bg_type = AWN_TYPE_BACKGROUND_FLAT;
       break;
     case STYLE_3D:
-      priv->bg = awn_background_3d_new (priv->client, panel);
+      bg_type = AWN_TYPE_BACKGROUND_3D;
       break;
     case STYLE_CURVES:
-      priv->bg = awn_background_curves_new (priv->client, panel);
+      bg_type = AWN_TYPE_BACKGROUND_CURVES;
       break;
     case STYLE_EDGY:
-      priv->bg = awn_background_edgy_new (priv->client, panel);
+      bg_type = AWN_TYPE_BACKGROUND_EDGY;
       break;
     case STYLE_FLOATY:
-      priv->bg = awn_background_floaty_new (priv->client, panel);
+      bg_type = AWN_TYPE_BACKGROUND_FLOATY;
+      break;
+    case STYLE_LUCIDO:
+      bg_type = AWN_TYPE_BACKGROUND_LUCIDO;
       break;
     default:
       g_assert_not_reached ();
   }
 
-  if (old_bg) g_object_unref (old_bg);
+  priv->bg = g_object_new (bg_type, 
+                           "client", priv->client,
+                           "panel", panel, NULL);
 
-  if (priv->bg)
+  if (old_bg)
   {
-    g_signal_connect (priv->bg, "changed", G_CALLBACK (on_theme_changed),
-                      panel);
-    g_signal_connect_swapped (priv->bg, "padding-changed",
-                              G_CALLBACK (awn_panel_refresh_padding), panel);
-    path = awn_background_get_path_type (priv->bg, &offset_mod);
+    awn_background_set_glow (priv->bg, awn_background_get_glow (old_bg));
+    g_object_unref (old_bg);
   }
+
+  g_signal_connect (priv->bg, "changed", G_CALLBACK (on_theme_changed),
+                    panel);
+  g_signal_connect_swapped (priv->bg, "padding-changed",
+                            G_CALLBACK (awn_panel_refresh_padding), panel);
+  path = awn_background_get_path_type (priv->bg, &offset_mod);
 
   awn_panel_refresh_padding (panel, NULL);
 
@@ -3192,9 +3337,9 @@ awn_panel_set_style (AwnPanel *panel, gint style)
   if (offset_mod != 1.0)
   {
     GValue mod_value = {0};
-    g_value_init (&mod_value, G_TYPE_FLOAT);
+    g_value_init (&mod_value, G_TYPE_DOUBLE);
     /* FIXME: we also need to calculate our dimensions based on offset_mod */
-    g_value_set_float (&mod_value, offset_mod);
+    g_value_set_double (&mod_value, offset_mod);
 
     priv->offset_mod = offset_mod;
     g_object_notify (G_OBJECT (panel), "offset-modifier");
@@ -3497,9 +3642,8 @@ awn_panel_set_strut (AwnPanel *panel)
   }
  
   /* allow AwnBackground to change the strut */
-  if (priv->bg != NULL)
-    awn_background_get_strut_offsets (priv->bg, priv->position, &area,
-                                      &strut, &strut_start, &strut_end);
+  awn_background_get_strut_offsets (priv->bg, priv->position, &area,
+                                    &strut, &strut_start, &strut_end);
 
   win = gtk_widget_get_window (GTK_WIDGET (panel));
 
@@ -3561,6 +3705,37 @@ awn_panel_delete_applet (AwnPanel  *panel,
   priv = panel->priv;
 
   return TRUE;
+}
+
+static void
+dbus_glow_activator_lost (AwnDBusWatcher *watcher, gchar *name,
+                          AwnPanel *panel)
+{
+  g_return_if_fail (AWN_IS_PANEL (panel));
+
+  awn_background_set_glow (panel->priv->bg, FALSE);
+}
+
+void
+awn_panel_set_glow (AwnPanel *panel, const gchar *sender, gboolean activate)
+{
+  g_return_if_fail (AWN_IS_PANEL (panel));
+
+  g_signal_handlers_disconnect_by_func (awn_dbus_watcher_get_default (),
+                                        dbus_glow_activator_lost,
+                                        panel);
+
+  if (activate)
+  {
+    // watch the sender on dbus and remove the glow when it disappears
+    gchar *detailed_signal = g_strdup_printf ("name-disappeared::%s", sender);
+    g_signal_connect (awn_dbus_watcher_get_default (), detailed_signal,
+                      G_CALLBACK (dbus_glow_activator_lost),
+                      panel);
+    g_free (detailed_signal);
+  }
+
+  awn_background_set_glow (panel->priv->bg, activate);
 }
 
 gboolean 
@@ -3653,11 +3828,11 @@ dbus_inhibitor_lost (AwnDBusWatcher *watcher, gchar *name,
   awn_panel_uninhibit_autohide (item->panel, item->cookie);
 }
 
-void
+guint
 awn_panel_inhibit_autohide (AwnPanel *panel,
+                            const gchar *sender,
                             const gchar *app_name,
-                            const gchar *reason,
-                            DBusGMethodInvocation *context)
+                            const gchar *reason)
 {
   AwnPanelPrivate *priv = panel->priv;
 
@@ -3665,7 +3840,6 @@ awn_panel_inhibit_autohide (AwnPanel *panel,
 
   // watch the sender on dbus and remove all its inhibits when it
   //   disappears (to be sure that we don't misbehave due to crashing app)
-  gchar *sender = dbus_g_method_get_sender (context);
   gchar *detailed_signal = g_strdup_printf ("name-disappeared::%s", sender);
   g_signal_connect (awn_dbus_watcher_get_default (), detailed_signal,
                     G_CALLBACK (dbus_inhibitor_lost),
@@ -3673,9 +3847,8 @@ awn_panel_inhibit_autohide (AwnPanel *panel,
                                          GINT_TO_POINTER (cookie)));
 
   g_free (detailed_signal);
-  g_free (sender);
 
-  dbus_g_method_return (context, cookie);
+  return cookie;
 }
 
 gboolean
@@ -3687,11 +3860,6 @@ awn_panel_uninhibit_autohide  (AwnPanel *panel, guint cookie)
                                               GINT_TO_POINTER (cookie));
 
   if (!item) return TRUE; // we could set an error
-
-  // remove the dbus watcher
-  g_signal_handlers_disconnect_by_func (awn_dbus_watcher_get_default (),
-                                        G_CALLBACK (dbus_inhibitor_lost),
-                                        item);
 
   g_hash_table_remove (priv->inhibits, GINT_TO_POINTER (cookie));
 
@@ -3709,13 +3877,14 @@ awn_panel_uninhibit_autohide  (AwnPanel *panel, guint cookie)
   return TRUE;
 }
 
-gboolean
-awn_panel_get_inhibitors (AwnPanel *panel, GStrv *reasons)
+GStrv
+awn_panel_get_inhibitors (AwnPanel *panel)
 {
   AwnPanelPrivate *priv = panel->priv;
   GList *list, *l;
+  GStrv reasons;
 
-  *reasons = g_new0 (char*, g_hash_table_size (priv->inhibits) + 1);
+  reasons = g_new0 (char*, g_hash_table_size (priv->inhibits) + 1);
 
   list = l = g_hash_table_get_values (priv->inhibits); // list should be freed
   int i=0;
@@ -3723,14 +3892,14 @@ awn_panel_get_inhibitors (AwnPanel *panel, GStrv *reasons)
   while (list)
   {
     AwnInhibitItem *item = list->data;
-    (*reasons)[i++] = g_strdup (item->description);
+    reasons[i++] = g_strdup (item->description);
 
     list = list->next;
   }
 
   g_list_free (l);
 
-  return TRUE;
+  return reasons;
 }
 
 static void
@@ -3899,6 +4068,18 @@ docklet_closer_click (GtkWidget *widget, AwnPanel *panel)
   return FALSE;
 }
 
+gboolean
+awn_panel_get_docklet_mode (AwnPanel *panel)
+{
+  return panel->priv->docklet != NULL;
+}
+
+gboolean
+awn_panel_get_composited (AwnPanel *panel)
+{
+  return panel->priv->composited;
+}
+
 static void
 awn_panel_docklet_destroy (AwnPanel *panel)
 {
@@ -3918,12 +4099,12 @@ awn_panel_docklet_destroy (AwnPanel *panel)
   gtk_widget_hide (priv->docklet_closer);
 }
 
-void
+gint64
 awn_panel_docklet_request (AwnPanel *panel,
                            gint min_size,
                            gboolean shrink,
                            gboolean expand,
-                           DBusGMethodInvocation *context)
+                           GError **error)
 {
   AwnPanelPrivate *priv = panel->priv;
   GtkAllocation alloc;
@@ -4008,50 +4189,23 @@ awn_panel_docklet_request (AwnPanel *panel,
 
   window_id = gtk_socket_get_id (GTK_SOCKET (priv->docklet));
 
-  dbus_g_method_return (context, window_id);
-}
-
-static void
-value_array_append_int (GValueArray *array, gint i)
-{
-  GValue *value = g_new0 (GValue, 1);
-
-  g_value_init (value, G_TYPE_INT);
-  g_value_set_int (value, i);
-
-  g_value_array_append (array, value);
-}
-
-static void
-value_array_append_bool (GValueArray *array, gboolean b)
-{
-  GValue *value = g_new0 (GValue, 1);
-
-  g_value_init (value, G_TYPE_BOOLEAN);
-  g_value_set_boolean (value, b);
-
-  g_value_array_append (array, value);
-}
-
-static void
-value_array_append_array (GValueArray *array, guchar *data, gsize data_len)
-{
-  GArray *byte_array;
-  GValue *value = g_new0 (GValue, 1);
-
-  byte_array = g_array_sized_new (FALSE, FALSE, sizeof(guchar), data_len);
-  g_array_append_vals (byte_array, data, data_len);
-
-  g_value_init (value, dbus_g_type_get_collection ("GArray", G_TYPE_CHAR));
-  g_value_take_boxed (value, byte_array);
-
-  g_value_array_append (array, value);
+  return window_id;
 }
 
 gboolean
-awn_panel_get_snapshot (AwnPanel *panel, GValue *value, GError **error)
+awn_panel_get_snapshot (AwnPanel *panel,
+                        gint     *width,
+                        gint     *height,
+                        gint     *rowstride,
+                        gboolean *has_alpha,
+                        gint     *bits_per_sample,
+                        gint     *num_channels,
+                        gchar   **pixels,
+                        gint     *pixels_length,
+                        GError **error)
 {
   GdkRectangle rect;
+  guint        data_len;
   g_return_val_if_fail (AWN_IS_PANEL (panel), FALSE);
 
   awn_panel_get_draw_rect (panel, &rect, 0, 0);
@@ -4075,28 +4229,20 @@ awn_panel_get_snapshot (AwnPanel *panel, GValue *value, GError **error)
   cairo_surface_flush (surface);  
 
   // stuff the pixbuf to our out param
-  gint width = rect.width;
-  gint height = rect.height;
-  gint rowstride = cairo_image_surface_get_stride (surface);
-  gint n_channels = 4;
-  gint bits_per_sample = 8;
+  *width = rect.width;
+  *height = rect.height;
+  *rowstride = cairo_image_surface_get_stride (surface);
+  *has_alpha = TRUE;
+  *bits_per_sample = 8;
+  *num_channels = 4;
+
+  data_len = rect.height * cairo_image_surface_get_stride (surface);
   //gint image_len = (height - 1) * rowstride + width *
   //  ((n_channels * bits_per_sample + 7) / 8);
 
   guchar *image = cairo_image_surface_get_data (surface);
-
-  GValueArray *image_struct = g_value_array_new (1);
-
-  value_array_append_int (image_struct, width);
-  value_array_append_int (image_struct, height);
-  value_array_append_int (image_struct, rowstride);
-  value_array_append_bool (image_struct, TRUE);
-  value_array_append_int (image_struct, bits_per_sample);
-  value_array_append_int (image_struct, n_channels);
-  value_array_append_array (image_struct, image, height * rowstride);
-
-  g_value_init (value, G_TYPE_VALUE_ARRAY);
-  g_value_take_boxed (value, image_struct);
+  *pixels = g_memdup (image, data_len);
+  *pixels_length = data_len;
 
   cairo_surface_destroy (surface);
 

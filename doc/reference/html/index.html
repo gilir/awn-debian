@@ -3,21 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Awn Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
 <link rel="home" href="index.html" title="Awn Reference Manual">
 <link rel="next" href="api-reference.html" title="Part I. API Reference">
-<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="part" href="api-reference.html" title="Part I. API Reference">
-<link rel="chapter" href="ch01.html" title="Applets">
-<link rel="chapter" href="ch02.html" title="Base Components">
-<link rel="chapter" href="ch03.html" title="Icons">
-<link rel="chapter" href="ch04.html" title="Icon Overlays">
-<link rel="chapter" href="ch05.html" title="Utilities">
-<link rel="index" href="index-all.html" title="Index">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<div lang="en" class="book" title="Awn Reference Manual">
+<div lang="en" class="book">
 <div class="titlepage">
 <div><div><table class="navigation" id="top" width="100%" cellpadding="2" cellspacing="0"><tr><th valign="middle"><p class="title">Awn Reference Manual</p></th></tr></table></div></div>
 <hr>
@@ -28,35 +21,35 @@
 <dt><span class="chapter"><a href="ch01.html">Applets</a></span></dt>
 <dd><dl>
 <dt>
-<span class="refentrytitle"><a href="AwnApplet.html">AwnApplet</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-applet.html">AwnApplet</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnAppletSimple.html">AwnAppletSimple</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-applet-simple.html">AwnAppletSimple</a></span><span class="refpurpose"></span>
 </dt>
 </dl></dd>
 <dt><span class="chapter"><a href="ch02.html">Base Components</a></span></dt>
 <dd><dl>
 <dt>
-<span class="refentrytitle"><a href="AwnBox.html">AwnBox</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-box.html">AwnBox</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="libawn-awn-config.html">awn-config</a></span><span class="refpurpose"> — Convenience functions for handling dock/applet
 configuration.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnDialog.html">AwnDialog</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-dialog.html">AwnDialog</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnEffects.html">AwnEffects</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-effects.html">AwnEffects</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnImage.html">AwnImage</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-image.html">AwnImage</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="AwnLabel.html">AwnLabel</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnTooltip.html">AwnTooltip</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-tooltip.html">AwnTooltip</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="libawn-awn-overlayable.html">awn-overlayable</a></span><span class="refpurpose"></span>
@@ -65,13 +58,13 @@ configuration.</span>
 <dt><span class="chapter"><a href="ch03.html">Icons</a></span></dt>
 <dd><dl>
 <dt>
-<span class="refentrytitle"><a href="AwnIcon.html">AwnIcon</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-icon.html">AwnIcon</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnThemedIcon.html">AwnThemedIcon</a></span><span class="refpurpose"> — A AwnIcon subclass that provides gtk themed icon support</span>
+<span class="refentrytitle"><a href="libawn-awn-themed-icon.html">AwnThemedIcon</a></span><span class="refpurpose"> — A AwnIcon subclass that provides gtk themed icon support</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnIconBox.html">AwnIconBox</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-icon-box.html">AwnIconBox</a></span><span class="refpurpose"></span>
 </dt>
 </dl></dd>
 <dt><span class="chapter"><a href="ch04.html">Icon Overlays</a></span></dt>
@@ -80,36 +73,32 @@ configuration.</span>
 <span class="refentrytitle"><a href="libawn-awn-overlay.html">awn-overlay</a></span><span class="refpurpose"> — Base object for overlays used with <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a>.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnOverlayThemedIcon.html">AwnOverlayThemedIcon</a></span><span class="refpurpose"> — Themed Icon overlay for use with <a class="link" href="AwnThemedIcon.html" title="AwnThemedIcon"><span class="type">AwnThemedIcon</span></a>.</span>
+<span class="refentrytitle"><a href="AwnOverlayThemedIcon.html">AwnOverlayThemedIcon</a></span><span class="refpurpose"> — Themed Icon overlay for use with <a class="link" href="libawn-awn-themed-icon.html#AwnThemedIcon"><span class="type">AwnThemedIcon</span></a>.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnOverlayText.html">AwnOverlayText</a></span><span class="refpurpose"> — Text overlay for use with <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.</span>
+<span class="refentrytitle"><a href="AwnOverlayText.html">AwnOverlayText</a></span><span class="refpurpose"> — Text overlay for use with <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="AwnOverlayThrobber.html">AwnOverlayThrobber</a></span><span class="refpurpose"> — Throbber overlay.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnOverlayPixbuf.html">AwnOverlayPixbuf</a></span><span class="refpurpose"> — An <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> subclass to overlay a <a
-href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
-><span class="type">GdkPixbuf</span></a></span>
+<span class="refentrytitle"><a href="AwnOverlayPixbuf.html">AwnOverlayPixbuf</a></span><span class="refpurpose"> — An <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> subclass to overlay a <span class="type">GdkPixbuf</span></span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnOverlayPixbufFile.html">AwnOverlayPixbufFile</a></span><span class="refpurpose"> — An subclass of <a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf"><span class="type">AwnOverlayPixbuf</span></a> to overlay a <a
-href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
-><span class="type">GdkPixbuf</span></a> 
+<span class="refentrytitle"><a href="AwnOverlayPixbufFile.html">AwnOverlayPixbufFile</a></span><span class="refpurpose"> — An subclass of <a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf"><span class="type">AwnOverlayPixbuf</span></a> to overlay a <span class="type">GdkPixbuf</span> 
 loaded from a Filename.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnOverlayProgress.html">AwnOverlayProgress</a></span><span class="refpurpose"> — Progress overlay for use with <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.</span>
+<span class="refentrytitle"><a href="AwnOverlayProgress.html">AwnOverlayProgress</a></span><span class="refpurpose"> — Progress overlay for use with <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="AwnOverlayProgressCircle.html">AwnOverlayProgressCircle</a></span><span class="refpurpose"> — Circle Progress overlay for use with <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.</span>
+<span class="refentrytitle"><a href="AwnOverlayProgressCircle.html">AwnOverlayProgressCircle</a></span><span class="refpurpose"> — Circle Progress overlay for use with <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</span>
 </dt>
 </dl></dd>
 <dt><span class="chapter"><a href="ch05.html">Utilities</a></span></dt>
 <dd><dl>
 <dt>
-<span class="refentrytitle"><a href="AwnAlignment.html">AwnAlignment</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="libawn-awn-alignment.html">AwnAlignment</a></span><span class="refpurpose"></span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="libawn-awn-defines.html">awn-defines</a></span><span class="refpurpose"></span>
@@ -127,6 +116,6 @@ loaded from a Filename.</span>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.11</div>
+          Generated by GTK-Doc V1.17</div>
 </body>
 </html>

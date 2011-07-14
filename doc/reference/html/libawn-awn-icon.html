@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnIcon</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch03.html" title="Icons">
+<link rel="prev" href="ch03.html" title="Icons">
+<link rel="next" href="libawn-awn-themed-icon.html" title="AwnThemedIcon">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch03.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="libawn-awn-themed-icon.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libawn-awn-icon.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libawn-awn-icon.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libawn-awn-icon.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libawn-awn-icon.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#libawn-awn-icon.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#libawn-awn-icon.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libawn-awn-icon"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libawn-awn-icon.top_of_page"></a>AwnIcon</span></h2>
+<p>AwnIcon</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libawn-awn-icon.synopsis"></a><h2>Synopsis</h2>
+<a name="AwnIcon"></a><pre class="synopsis">                    <a class="link" href="libawn-awn-icon.html#AwnIconPrivate" title="AwnIconPrivate">AwnIconPrivate</a>;
+struct              <a class="link" href="libawn-awn-icon.html#AwnIcon-struct" title="struct AwnIcon">AwnIcon</a>;
+<a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="libawn-awn-icon.html#awn-icon-new" title="awn_icon_new ()">awn_icon_new</a>                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-pos-type" title="awn_icon_set_pos_type ()">awn_icon_set_pos_type</a>               (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a> position</code></em>);
+<a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="returnvalue">GtkPositionType</span></a>     <a class="link" href="libawn-awn-icon.html#awn-icon-get-pos-type" title="awn_icon_get_pos_type ()">awn_icon_get_pos_type</a>               (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-offset" title="awn_icon_set_offset ()">awn_icon_set_offset</a>                 (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> offset</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libawn-awn-icon.html#awn-icon-get-offset" title="awn_icon_get_offset ()">awn_icon_get_offset</a>                 (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-effect" title="awn_icon_set_effect ()">awn_icon_set_effect</a>                 (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-from-pixbuf" title="awn_icon_set_from_pixbuf ()">awn_icon_set_from_pixbuf</a>            (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkPixbuf</span> *pixbuf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-from-context" title="awn_icon_set_from_context ()">awn_icon_set_from_context</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *ctx</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-from-surface" title="awn_icon_set_from_surface ()">awn_icon_set_from_surface</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> *surface</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-custom-paint" title="awn_icon_set_custom_paint ()">awn_icon_set_custom_paint</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);
+<a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="returnvalue">AwnTooltip</span></a> *        <a class="link" href="libawn-awn-icon.html#awn-icon-get-tooltip" title="awn_icon_get_tooltip ()">awn_icon_get_tooltip</a>                (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-tooltip-text" title="awn_icon_set_tooltip_text ()">awn_icon_set_tooltip_text</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="libawn-awn-icon.html#awn-icon-get-tooltip-text" title="awn_icon_get_tooltip_text ()">awn_icon_get_tooltip_text</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-is-active" title="awn_icon_set_is_active ()">awn_icon_set_is_active</a>              (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_active</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libawn-awn-icon.html#awn-icon-get-is-active" title="awn_icon_get_is_active ()">awn_icon_get_is_active</a>              (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-indicator-count" title="awn_icon_set_indicator_count ()">awn_icon_set_indicator_count</a>        (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> count</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libawn-awn-icon.html#awn-icon-get-indicator-count" title="awn_icon_get_indicator_count ()">awn_icon_get_indicator_count</a>        (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libawn-awn-icon.html#awn-icon-get-hover-effects" title="awn_icon_get_hover_effects ()">awn_icon_get_hover_effects</a>          (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-set-hover-effects" title="awn_icon_set_hover_effects ()">awn_icon_set_hover_effects</a>          (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enable</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-clicked" title="awn_icon_clicked ()">awn_icon_clicked</a>                    (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-icon.html#awn-icon-middle-clicked" title="awn_icon_middle_clicked ()">awn_icon_middle_clicked</a>             (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-icon.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk3/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/GtkDrawingArea.html">GtkDrawingArea</a>
+                           +----AwnIcon
+                                 +----<a class="link" href="libawn-awn-themed-icon.html#AwnThemedIcon">AwnThemedIcon</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-icon.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnIcon implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/GtkBuildable.html">GtkBuildable</a> and  <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable">AwnOverlayable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-icon.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon--bind-effects" title='The "bind-effects" property'>bind-effects</a>"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct Only
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon--icon-height" title='The "icon-height" property'>icon-height</a>"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon--icon-width" title='The "icon-width" property'>icon-width</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon--long-press-timeout" title='The "long-press-timeout" property'>long-press-timeout</a>"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-icon.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon-clicked" title='The "clicked" signal'>clicked</a>"                                        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon-context-menu-popup" title='The "context-menu-popup" signal'>context-menu-popup</a>"                             : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon-long-press" title='The "long-press" signal'>long-press</a>"                                     : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon-middle-clicked" title='The "middle-clicked" signal'>middle-clicked</a>"                                 : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
+  "<a class="link" href="libawn-awn-icon.html#AwnIcon-size-changed" title='The "size-changed" signal'>size-changed</a>"                                   : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-icon.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-icon.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AwnIconPrivate"></a><h3>AwnIconPrivate</h3>
+<pre class="programlisting">typedef struct _AwnIconPrivate AwnIconPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnIcon-struct"></a><h3>struct AwnIcon</h3>
+<pre class="programlisting">struct AwnIcon;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-new"></a><h3>awn_icon_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         awn_icon_new                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates new <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>newly created <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-pos-type"></a><h3>awn_icon_set_pos_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_pos_type               (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a> position</code></em>);</pre>
+<p>
+Sets position of the icon.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>position of the icon.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-get-pos-type"></a><h3>awn_icon_get_pos_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="returnvalue">GtkPositionType</span></a>     awn_icon_get_pos_type               (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>current position type set for the icon.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-offset"></a><h3>awn_icon_set_offset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_offset                 (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> offset</code></em>);</pre>
+<p>
+Sets offset of the icon.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>new offset for the icon.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-get-offset"></a><h3>awn_icon_get_offset ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                awn_icon_get_offset                 (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>current offset set for the icon.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-effect"></a><h3>awn_icon_set_effect ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_effect                 (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> effect</code></em>);</pre>
+<p>
+Sets effect on the icon. Note that the effect will loop until
+<a class="link" href="libawn-awn-effects.html#awn-effects-stop" title="awn_effects_stop ()"><code class="function">awn_effects_stop()</code></a> is called.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>effect</code></em> :</span></p></td>
+<td>
+<a class="link" href="libawn-awn-effects.html#AwnEffect" title="enum AwnEffect"><span class="type">AwnEffect</span></a> to start looping.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-from-pixbuf"></a><h3>awn_icon_set_from_pixbuf ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_from_pixbuf            (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkPixbuf</span> *pixbuf</code></em>);</pre>
+<p>
+Sets the icon from the given pixbuf. Note that a copy of the pixbuf is made.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>a <span class="type">GdkPixbuf</span>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-from-context"></a><h3>awn_icon_set_from_context ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_from_context           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *ctx</code></em>);</pre>
+<p>
+Extracts the icon from the cairo surface associated with given cairo
+context. Note that the surface is only referenced, so any later changes
+made to it will change the icon as well
+(after a call to <a href="http://library.gnome.org/devel/gtk/GtkWidget.html#gtk-widget-queue-draw"><code class="function">gtk_widget_queue_draw()</code></a>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-from-surface"></a><h3>awn_icon_set_from_surface ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_from_surface           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> *surface</code></em>);</pre>
+<p>
+Sets the icon from the given cairo surface. Note that the surface is only
+referenced, so any later changes made to it will change the icon as well
+(after a call to <a href="http://library.gnome.org/devel/gtk/GtkWidget.html#gtk-widget-queue-draw"><code class="function">gtk_widget_queue_draw()</code></a>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-custom-paint"></a><h3>awn_icon_set_custom_paint ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_custom_paint           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+<p>
+Prepares the icon for custom painting (by overriding
+<a href="http://library.gnome.org/devel/gtk3/GtkWidget.html#GtkWidget-expose-event"><span class="type">"expose-event"</span></a>). Sets proper size requisition, tooltip position,
+parameters for <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> and may emit size changed signal.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+ If there's already an icon set, it is not freed, so if you later disconnect
+ from the <a href="http://library.gnome.org/devel/gtk3/GtkWidget.html#GtkWidget-expose-event"><span class="type">"expose-event"</span></a>, a second call to
+ <a class="link" href="libawn-awn-icon.html#awn-icon-set-custom-paint" title="awn_icon_set_custom_paint ()"><code class="function">awn_icon_set_custom_paint()</code></a> with the original dimensions of the icon will
+ restore the icon.
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>new width of the icon.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>new height of the icon.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-get-tooltip"></a><h3>awn_icon_get_tooltip ()</h3>
+<pre class="programlisting"><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="returnvalue">AwnTooltip</span></a> *        awn_icon_get_tooltip                (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<p>
+Gets the <a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> associated with this icon.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>tooltip widget.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-tooltip-text"></a><h3>awn_icon_set_tooltip_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_tooltip_text           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);</pre>
+<p>
+Sets tooltip message.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>tooltip message.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-get-tooltip-text"></a><h3>awn_icon_get_tooltip_text ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             awn_icon_get_tooltip_text           (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<p>
+Gets the message currently set for the associated <a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a>. The caller
+is responsible for freeing the string.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>currently used message by the associated <a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-is-active"></a><h3>awn_icon_set_is_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_is_active              (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_active</code></em>);</pre>
+<p>
+Sets whether the icon is active (if it is paints a rectangle around the icon
+by default).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_active</code></em> :</span></p></td>
+<td>value.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-get-is-active"></a><h3>awn_icon_get_is_active ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            awn_icon_get_is_active              (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<p>
+Gets whether the icon is active.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the icon is active, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-indicator-count"></a><h3>awn_icon_set_indicator_count ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_indicator_count        (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> count</code></em>);</pre>
+<p>
+Paints an indicator (or multiple) on the border of icon.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
+<td>indicator count.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-get-indicator-count"></a><h3>awn_icon_get_indicator_count ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                awn_icon_get_indicator_count        (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<p>
+Gets number of indicators set for this icon.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>an <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>number of indicators.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-get-hover-effects"></a><h3>awn_icon_get_hover_effects ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            awn_icon_get_hover_effects          (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-set-hover-effects"></a><h3>awn_icon_set_hover_effects ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_set_hover_effects          (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enable</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-clicked"></a><h3>awn_icon_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_clicked                    (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-icon-middle-clicked"></a><h3>awn_icon_middle_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_icon_middle_clicked             (<em class="parameter"><code><a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *icon</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-icon.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="AwnIcon--bind-effects"></a><h3>The <code class="literal">"bind-effects"</code> property</h3>
+<pre class="programlisting">  "bind-effects"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct Only</pre>
+<p>If set to true, will load and bind effect property values from config client.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnIcon--icon-height"></a><h3>The <code class="literal">"icon-height"</code> property</h3>
+<pre class="programlisting">  "icon-height"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<p>Current icon height.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnIcon--icon-width"></a><h3>The <code class="literal">"icon-width"</code> property</h3>
+<pre class="programlisting">  "icon-width"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<p>Current icon width.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnIcon--long-press-timeout"></a><h3>The <code class="literal">"long-press-timeout"</code> property</h3>
+<pre class="programlisting">  "long-press-timeout"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>Timeout after which long-press signal is emit.</p>
+<p>Allowed values: [250,10000]</p>
+<p>Default value: 750</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-icon.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="AwnIcon-clicked"></a><h3>The <code class="literal">"clicked"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *awnicon,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnIcon-context-menu-popup"></a><h3>The <code class="literal">"context-menu-popup"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>  *awnicon,
+                                                        <a href="http://library.gnome.org/devel/gdk/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnIcon-long-press"></a><h3>The <code class="literal">"long-press"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *awnicon,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnIcon-middle-clicked"></a><h3>The <code class="literal">"middle-clicked"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *awnicon,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnIcon-size-changed"></a><h3>The <code class="literal">"size-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> *awnicon,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>awnicon</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

@@ -27,6 +27,7 @@ G_BEGIN_DECLS
 #define g_marshal_value_peek_boxed(v)    g_value_get_boxed (v)
 #define g_marshal_value_peek_pointer(v)  g_value_get_pointer (v)
 #define g_marshal_value_peek_object(v)   g_value_get_object (v)
+#define g_marshal_value_peek_variant(v)  g_value_get_variant (v)
 #else /* !G_ENABLE_DEBUG */
 /* WARNING: This code accesses GValues directly, which is UNSUPPORTED API.
  *          Do not access GValues directly in your code. Instead, use the
@@ -50,106 +51,11 @@ G_BEGIN_DECLS
 #define g_marshal_value_peek_boxed(v)    (v)->data[0].v_pointer
 #define g_marshal_value_peek_pointer(v)  (v)->data[0].v_pointer
 #define g_marshal_value_peek_object(v)   (v)->data[0].v_pointer
+#define g_marshal_value_peek_variant(v)  (v)->data[0].v_pointer
 #endif /* !G_ENABLE_DEBUG */
 
 
-/* BOOLEAN:STRING,INT,POINTER (/tmp/dbus-binding-tool-c-marshallers.PD8CBV:1) */
-extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__STRING_INT_POINTER (GClosure     *closure,
-                                                                                    GValue       *return_value,
-                                                                                    guint         n_param_values,
-                                                                                    const GValue *param_values,
-                                                                                    gpointer      invocation_hint,
-                                                                                    gpointer      marshal_data);
-void
-dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__STRING_INT_POINTER (GClosure     *closure,
-                                                                        GValue       *return_value G_GNUC_UNUSED,
-                                                                        guint         n_param_values,
-                                                                        const GValue *param_values,
-                                                                        gpointer      invocation_hint G_GNUC_UNUSED,
-                                                                        gpointer      marshal_data)
-{
-  typedef gboolean (*GMarshalFunc_BOOLEAN__STRING_INT_POINTER) (gpointer     data1,
-                                                                gpointer     arg_1,
-                                                                gint         arg_2,
-                                                                gpointer     arg_3,
-                                                                gpointer     data2);
-  register GMarshalFunc_BOOLEAN__STRING_INT_POINTER callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
-  gboolean v_return;
-
-  g_return_if_fail (return_value != NULL);
-  g_return_if_fail (n_param_values == 4);
-
-  if (G_CCLOSURE_SWAP_DATA (closure))
-    {
-      data1 = closure->data;
-      data2 = g_value_peek_pointer (param_values + 0);
-    }
-  else
-    {
-      data1 = g_value_peek_pointer (param_values + 0);
-      data2 = closure->data;
-    }
-  callback = (GMarshalFunc_BOOLEAN__STRING_INT_POINTER) (marshal_data ? marshal_data : cc->callback);
-
-  v_return = callback (data1,
-                       g_marshal_value_peek_string (param_values + 1),
-                       g_marshal_value_peek_int (param_values + 2),
-                       g_marshal_value_peek_pointer (param_values + 3),
-                       data2);
-
-  g_value_set_boolean (return_value, v_return);
-}
-
-/* BOOLEAN:INT64,POINTER (/tmp/dbus-binding-tool-c-marshallers.PD8CBV:2) */
-extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_POINTER (GClosure     *closure,
-                                                                               GValue       *return_value,
-                                                                               guint         n_param_values,
-                                                                               const GValue *param_values,
-                                                                               gpointer      invocation_hint,
-                                                                               gpointer      marshal_data);
-void
-dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_POINTER (GClosure     *closure,
-                                                                   GValue       *return_value G_GNUC_UNUSED,
-                                                                   guint         n_param_values,
-                                                                   const GValue *param_values,
-                                                                   gpointer      invocation_hint G_GNUC_UNUSED,
-                                                                   gpointer      marshal_data)
-{
-  typedef gboolean (*GMarshalFunc_BOOLEAN__INT64_POINTER) (gpointer     data1,
-                                                           gint64       arg_1,
-                                                           gpointer     arg_2,
-                                                           gpointer     data2);
-  register GMarshalFunc_BOOLEAN__INT64_POINTER callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
-  gboolean v_return;
-
-  g_return_if_fail (return_value != NULL);
-  g_return_if_fail (n_param_values == 3);
-
-  if (G_CCLOSURE_SWAP_DATA (closure))
-    {
-      data1 = closure->data;
-      data2 = g_value_peek_pointer (param_values + 0);
-    }
-  else
-    {
-      data1 = g_value_peek_pointer (param_values + 0);
-      data2 = closure->data;
-    }
-  callback = (GMarshalFunc_BOOLEAN__INT64_POINTER) (marshal_data ? marshal_data : cc->callback);
-
-  v_return = callback (data1,
-                       g_marshal_value_peek_int64 (param_values + 1),
-                       g_marshal_value_peek_pointer (param_values + 2),
-                       data2);
-
-  g_value_set_boolean (return_value, v_return);
-}
-
-/* BOOLEAN:INT64,INT,POINTER (/tmp/dbus-binding-tool-c-marshallers.PD8CBV:3) */
+/* BOOLEAN:INT64,INT,POINTER */
 extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_INT_POINTER (GClosure     *closure,
                                                                                    GValue       *return_value,
                                                                                    guint         n_param_values,
@@ -198,56 +104,7 @@ dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_INT_POINTER (GClosure 
   g_value_set_boolean (return_value, v_return);
 }
 
-/* BOOLEAN:INT64,STRING,POINTER (/tmp/dbus-binding-tool-c-marshallers.PD8CBV:4) */
-extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_STRING_POINTER (GClosure     *closure,
-                                                                                      GValue       *return_value,
-                                                                                      guint         n_param_values,
-                                                                                      const GValue *param_values,
-                                                                                      gpointer      invocation_hint,
-                                                                                      gpointer      marshal_data);
-void
-dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_STRING_POINTER (GClosure     *closure,
-                                                                          GValue       *return_value G_GNUC_UNUSED,
-                                                                          guint         n_param_values,
-                                                                          const GValue *param_values,
-                                                                          gpointer      invocation_hint G_GNUC_UNUSED,
-                                                                          gpointer      marshal_data)
-{
-  typedef gboolean (*GMarshalFunc_BOOLEAN__INT64_STRING_POINTER) (gpointer     data1,
-                                                                  gint64       arg_1,
-                                                                  gpointer     arg_2,
-                                                                  gpointer     arg_3,
-                                                                  gpointer     data2);
-  register GMarshalFunc_BOOLEAN__INT64_STRING_POINTER callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
-  gboolean v_return;
-
-  g_return_if_fail (return_value != NULL);
-  g_return_if_fail (n_param_values == 4);
-
-  if (G_CCLOSURE_SWAP_DATA (closure))
-    {
-      data1 = closure->data;
-      data2 = g_value_peek_pointer (param_values + 0);
-    }
-  else
-    {
-      data1 = g_value_peek_pointer (param_values + 0);
-      data2 = closure->data;
-    }
-  callback = (GMarshalFunc_BOOLEAN__INT64_STRING_POINTER) (marshal_data ? marshal_data : cc->callback);
-
-  v_return = callback (data1,
-                       g_marshal_value_peek_int64 (param_values + 1),
-                       g_marshal_value_peek_string (param_values + 2),
-                       g_marshal_value_peek_pointer (param_values + 3),
-                       data2);
-
-  g_value_set_boolean (return_value, v_return);
-}
-
-/* BOOLEAN:STRING,STRING,POINTER (/tmp/dbus-binding-tool-c-marshallers.PD8CBV:5) */
+/* BOOLEAN:STRING,STRING,POINTER */
 extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__STRING_STRING_POINTER (GClosure     *closure,
                                                                                        GValue       *return_value,
                                                                                        guint         n_param_values,
@@ -296,7 +153,7 @@ dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__STRING_STRING_POINTER (GClos
   g_value_set_boolean (return_value, v_return);
 }
 
-/* BOOLEAN:STRING,POINTER (/tmp/dbus-binding-tool-c-marshallers.PD8CBV:6) */
+/* BOOLEAN:STRING,POINTER */
 extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__STRING_POINTER (GClosure     *closure,
                                                                                 GValue       *return_value,
                                                                                 guint         n_param_values,
@@ -343,6 +200,151 @@ dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__STRING_POINTER (GClosure    
   g_value_set_boolean (return_value, v_return);
 }
 
+/* BOOLEAN:STRING,INT,POINTER */
+extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__STRING_INT_POINTER (GClosure     *closure,
+                                                                                    GValue       *return_value,
+                                                                                    guint         n_param_values,
+                                                                                    const GValue *param_values,
+                                                                                    gpointer      invocation_hint,
+                                                                                    gpointer      marshal_data);
+void
+dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__STRING_INT_POINTER (GClosure     *closure,
+                                                                        GValue       *return_value G_GNUC_UNUSED,
+                                                                        guint         n_param_values,
+                                                                        const GValue *param_values,
+                                                                        gpointer      invocation_hint G_GNUC_UNUSED,
+                                                                        gpointer      marshal_data)
+{
+  typedef gboolean (*GMarshalFunc_BOOLEAN__STRING_INT_POINTER) (gpointer     data1,
+                                                                gpointer     arg_1,
+                                                                gint         arg_2,
+                                                                gpointer     arg_3,
+                                                                gpointer     data2);
+  register GMarshalFunc_BOOLEAN__STRING_INT_POINTER callback;
+  register GCClosure *cc = (GCClosure*) closure;
+  register gpointer data1, data2;
+  gboolean v_return;
+
+  g_return_if_fail (return_value != NULL);
+  g_return_if_fail (n_param_values == 4);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+  callback = (GMarshalFunc_BOOLEAN__STRING_INT_POINTER) (marshal_data ? marshal_data : cc->callback);
+
+  v_return = callback (data1,
+                       g_marshal_value_peek_string (param_values + 1),
+                       g_marshal_value_peek_int (param_values + 2),
+                       g_marshal_value_peek_pointer (param_values + 3),
+                       data2);
+
+  g_value_set_boolean (return_value, v_return);
+}
+
+/* BOOLEAN:INT64,STRING,POINTER */
+extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_STRING_POINTER (GClosure     *closure,
+                                                                                      GValue       *return_value,
+                                                                                      guint         n_param_values,
+                                                                                      const GValue *param_values,
+                                                                                      gpointer      invocation_hint,
+                                                                                      gpointer      marshal_data);
+void
+dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_STRING_POINTER (GClosure     *closure,
+                                                                          GValue       *return_value G_GNUC_UNUSED,
+                                                                          guint         n_param_values,
+                                                                          const GValue *param_values,
+                                                                          gpointer      invocation_hint G_GNUC_UNUSED,
+                                                                          gpointer      marshal_data)
+{
+  typedef gboolean (*GMarshalFunc_BOOLEAN__INT64_STRING_POINTER) (gpointer     data1,
+                                                                  gint64       arg_1,
+                                                                  gpointer     arg_2,
+                                                                  gpointer     arg_3,
+                                                                  gpointer     data2);
+  register GMarshalFunc_BOOLEAN__INT64_STRING_POINTER callback;
+  register GCClosure *cc = (GCClosure*) closure;
+  register gpointer data1, data2;
+  gboolean v_return;
+
+  g_return_if_fail (return_value != NULL);
+  g_return_if_fail (n_param_values == 4);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+  callback = (GMarshalFunc_BOOLEAN__INT64_STRING_POINTER) (marshal_data ? marshal_data : cc->callback);
+
+  v_return = callback (data1,
+                       g_marshal_value_peek_int64 (param_values + 1),
+                       g_marshal_value_peek_string (param_values + 2),
+                       g_marshal_value_peek_pointer (param_values + 3),
+                       data2);
+
+  g_value_set_boolean (return_value, v_return);
+}
+
+/* BOOLEAN:INT64,POINTER */
+extern void dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_POINTER (GClosure     *closure,
+                                                                               GValue       *return_value,
+                                                                               guint         n_param_values,
+                                                                               const GValue *param_values,
+                                                                               gpointer      invocation_hint,
+                                                                               gpointer      marshal_data);
+void
+dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_POINTER (GClosure     *closure,
+                                                                   GValue       *return_value G_GNUC_UNUSED,
+                                                                   guint         n_param_values,
+                                                                   const GValue *param_values,
+                                                                   gpointer      invocation_hint G_GNUC_UNUSED,
+                                                                   gpointer      marshal_data)
+{
+  typedef gboolean (*GMarshalFunc_BOOLEAN__INT64_POINTER) (gpointer     data1,
+                                                           gint64       arg_1,
+                                                           gpointer     arg_2,
+                                                           gpointer     data2);
+  register GMarshalFunc_BOOLEAN__INT64_POINTER callback;
+  register GCClosure *cc = (GCClosure*) closure;
+  register gpointer data1, data2;
+  gboolean v_return;
+
+  g_return_if_fail (return_value != NULL);
+  g_return_if_fail (n_param_values == 3);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+  callback = (GMarshalFunc_BOOLEAN__INT64_POINTER) (marshal_data ? marshal_data : cc->callback);
+
+  v_return = callback (data1,
+                       g_marshal_value_peek_int64 (param_values + 1),
+                       g_marshal_value_peek_pointer (param_values + 2),
+                       data2);
+
+  g_value_set_boolean (return_value, v_return);
+}
+
 G_END_DECLS
 
 #endif /* __dbus_glib_marshal_task_manager_api_wrapper_MARSHAL_H__ */
@@ -361,8 +363,7 @@ static const DBusGMethodInfo dbus_glib_task_manager_api_wrapper_methods[] = {
   { (GCallback) task_manager_api_wrapper_unset_info_by_xid, dbus_glib_marshal_task_manager_api_wrapper_BOOLEAN__INT64_POINTER, 508 },
 };
 
-const DBusGObjectInfo dbus_glib_task_manager_api_wrapper_object_info = {
-  0,
+const DBusGObjectInfo dbus_glib_task_manager_api_wrapper_object_info = {  1,
   dbus_glib_task_manager_api_wrapper_methods,
   10,
 "com.google.code.Awn\0SetTaskIconByName\0S\0name\0I\0s\0icon_path\0I\0s\0\0com.google.code.Awn\0SetTaskIconByXid\0S\0xid\0I\0x\0icon_path\0I\0s\0\0com.google.code.Awn\0UnsetTaskIconByName\0S\0name\0I\0s\0\0com.google.code.Awn\0UnsetTaskIconByXid\0S\0xid\0I\0x\0\0com.google.code.Awn\0SetProgressByName\0S\0name\0I\0s\0progress\0I\0i\0\0com.google.code.Awn\0SetProgressByXid\0S\0xid\0I\0x\0progress\0I\0i\0\0com.google.code.Awn\0SetInfoByName\0S\0name\0I\0s\0info\0I\0s\0\0com.google.code.Awn\0SetInfoByXid\0S\0xid\0I\0x\0info\0I\0s\0\0com.google.code.Awn\0UnsetInfoByName\0S\0name\0I\0s\0\0com.google.code.Awn\0UnsetInfoByXid\0S\0xid\0I\0x\0\0\0",

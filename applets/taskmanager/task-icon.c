@@ -47,12 +47,16 @@
 #include "task-launcher.h"
 #include "task-settings.h"
 #include "task-manager.h"
+#include "labelled-separator.h"
 
 #include "task-icon-build-context-menus.h"
+#include "task-manager-dialog.h"
 #include "config.h"
 
 //#define DEBUG 1
 #define TASK_ICON_PLUGIN_MENU_ITEM "TASK_ICON_PLUGIN_MENU_ITEM"
+#define TASK_ICON_PLUGIN_MENU_GROUP_ITEM "TASK_ICON_PLUGIN_MENU_GROUP_ITEM"
+
 enum{
   DESKTOP_COPY_ALL=0,
   DESKTOP_COPY_OWNER,
@@ -102,9 +106,9 @@ static guint32 _icon_signals[LAST_SIGNAL] = { 0 };
 
 static const GtkTargetEntry drop_types[] = 
 {
+  { (gchar*)"text/uri-list", 0, 0 },
   { (gchar*)"STRING", 0, 0 },
   { (gchar*)"text/plain", 0,  },
-  { (gchar*)"text/uri-list", 0, 0 },
   { (gchar*)"awn/task-icon", 0, 0 }
 };
 static const gint n_drop_types = G_N_ELEMENTS (drop_types);
@@ -177,6 +181,10 @@ static void     task_icon_search_main_item (TaskIcon *icon, TaskItem *main_item)
 static void     task_icon_active_window_changed (WnckScreen *screen,
                                  WnckWindow *previously_active_window,
                                  TaskIcon *icon);
+static void     task_icon_active_workspace_changed (WnckScreen *screen,
+                                    WnckScreen * prev_workspace,
+                                    TaskIcon * icon);
+static void     task_icon_viewport_changed (WnckScreen *screen,TaskIcon * icon);
 
 static void     size_changed_cb(AwnApplet *app, guint size, TaskIcon *icon);
 static gint     task_icon_count_require_attention (TaskIcon *icon);
@@ -389,6 +397,14 @@ task_icon_dispose (GObject *object)
     g_list_free (priv->plugin_menu_items);
     priv->plugin_menu_items = NULL;
   }
+  if (priv->items)
+  {
+    GSList * i;
+    for ( i = priv->items; i; i=i->next)
+    {
+      gtk_widget_destroy (i->data);
+    }
+  }
 
   G_OBJECT_CLASS (task_icon_parent_class)->dispose (object);  
 }
@@ -397,6 +413,7 @@ static void
 task_icon_finalize (GObject *object)
 {
   TaskIconPrivate *priv = TASK_ICON_GET_PRIVATE (object);
+
   /*
    This needs to be an empty list.
 
@@ -423,6 +440,10 @@ task_icon_finalize (GObject *object)
   
   g_signal_handlers_disconnect_by_func (wnck_screen_get_default (),
                           G_CALLBACK (task_icon_active_window_changed), object);
+  g_signal_handlers_disconnect_by_func (wnck_screen_get_default (),
+                          G_CALLBACK (task_icon_active_workspace_changed), object);
+  g_signal_handlers_disconnect_by_func (wnck_screen_get_default (),
+                          G_CALLBACK (task_icon_viewport_changed), object);  
   g_signal_handlers_disconnect_by_func (awn_themed_icon_get_awn_theme (AWN_THEMED_ICON(object)),
                           G_CALLBACK (theme_changed_cb),object);
   g_signal_handlers_disconnect_by_func (G_OBJECT(gtk_icon_theme_get_default()),
@@ -471,13 +492,20 @@ task_icon_constructed (GObject *object)
     G_OBJECT_CLASS (task_icon_parent_class)->constructed (object);
   }
   
-  priv->dialog = awn_dialog_new_for_widget_with_applet (GTK_WIDGET (object),
-                                                        priv->applet);
+  priv->dialog = task_manager_dialog_new (GTK_WIDGET (object),priv->applet);
   g_signal_connect (G_OBJECT (priv->dialog),"focus-out-event",
                     G_CALLBACK (task_icon_dialog_unfocus), object);
   g_signal_connect  (wnck_screen_get_default (), 
                      "active-window-changed",
                      G_CALLBACK (task_icon_active_window_changed), 
+                     object);
+  g_signal_connect_after  (wnck_screen_get_default (), 
+                     "active-workspace-changed",
+                     G_CALLBACK (task_icon_active_workspace_changed), 
+                     object);
+  g_signal_connect_after  (wnck_screen_get_default (), 
+                     "viewports-changed",
+                     G_CALLBACK (task_icon_viewport_changed), 
                      object);
 
   g_signal_connect (G_OBJECT (widget), "size-allocate",
@@ -578,8 +606,9 @@ task_icon_constructed (GObject *object)
   {
     return;
   }
+  gtk_widget_add_events (GTK_WIDGET (object), GDK_ALL_EVENTS_MASK);
   gtk_drag_dest_set (GTK_WIDGET (object), 
-                     GTK_DEST_DEFAULT_DROP,
+                     GTK_DEST_DEFAULT_ALL & (~GTK_DEST_DEFAULT_HIGHLIGHT),
                      drop_types, n_drop_types,
                      GDK_ACTION_COPY | GDK_ACTION_MOVE);
 
@@ -906,6 +935,18 @@ task_icon_class_init (TaskIconClass *klass)
 }
 
 static void
+task_icon_close (TaskIcon * icon)
+{
+  TaskIconPrivate *priv;
+  priv = icon->priv = TASK_ICON_GET_PRIVATE (icon);
+
+  priv->proxy_obj = NULL;
+  awn_effects_start_ex (awn_overlayable_get_effects (AWN_OVERLAYABLE (icon)), 
+                  AWN_EFFECT_CLOSING, 1, FALSE, TRUE);
+
+}
+
+static void
 task_icon_init (TaskIcon *icon)
 {
   TaskIconPrivate *priv;
@@ -923,9 +964,12 @@ task_icon_init (TaskIcon *icon)
   priv->main_item = NULL;
   priv->visible = FALSE;
   priv->overlay_text = NULL;
-  priv->ephemeral_count = 0;
-  priv->plugin_menu_items = NULL;
+  priv->plugin_menu_items = g_list_append (priv->plugin_menu_items, g_object_ref_sink (gtk_separator_menu_item_new ()));
+  priv->autohide_cookie = 0;
+  
+  priv->proxy_obj = g_object_new (G_TYPE_OBJECT,NULL);
 
+  g_object_weak_ref (priv->proxy_obj,(GWeakNotify)task_icon_close,icon);
   priv->overlay_app_icon = awn_overlay_pixbuf_new ();
   awn_overlayable_add_overlay (AWN_OVERLAYABLE (icon), 
                                AWN_OVERLAY (priv->overlay_app_icon));
@@ -939,7 +983,7 @@ task_icon_init (TaskIcon *icon)
   /* D&D accept dragged objs */
   gtk_widget_add_events (GTK_WIDGET (icon), GDK_ALL_EVENTS_MASK);
   gtk_drag_dest_set (GTK_WIDGET (icon), 
-                     GTK_DEST_DEFAULT_DROP,
+                     GTK_DEST_DEFAULT_ALL & (~GTK_DEST_DEFAULT_HIGHLIGHT),
                      drop_types, n_drop_types,
                      GDK_ACTION_COPY | GDK_ACTION_MOVE);
   g_signal_connect (G_OBJECT (icon), "drag-failed",
@@ -1063,6 +1107,38 @@ on_main_item_visible_changed (TaskItem  *item,
 }
 
 static void
+task_icon_viewport_changed (WnckScreen *screen, TaskIcon * icon)
+{
+  TaskIconPrivate *priv = icon->priv;
+  if ( task_manager_get_show_all_windows (TASK_MANAGER(priv->applet)) )
+  {
+    return;
+  }
+
+  if (TASK_IS_LAUNCHER (priv->main_item))
+  {
+    task_icon_search_main_item (icon,NULL);
+  }
+}
+static void
+task_icon_active_workspace_changed (WnckScreen *screen,
+                                    WnckScreen * prev_workspace,
+                                    TaskIcon * icon)
+{
+  TaskIconPrivate *priv = icon->priv;
+  if ( task_manager_get_show_all_windows (TASK_MANAGER(priv->applet)) )
+  {
+    return;
+  }
+
+  if (TASK_IS_LAUNCHER (priv->main_item))
+  {
+    task_icon_search_main_item (icon,NULL);
+  }
+}
+
+
+static void
 task_icon_active_window_changed (WnckScreen *screen,
                                  WnckWindow *previously_active_window,
                                  TaskIcon *icon)
@@ -1164,10 +1240,6 @@ _destroyed_task_item (TaskIcon *icon, TaskItem *old_item)
   if ( (g_slist_length (priv->items) == 1 ) && task_icon_contains_launcher(icon))
   {
     awn_effects_stop (effects,AWN_EFFECT_ATTENTION); 
-  }
-  else if ( g_slist_length (priv->items) <= priv->ephemeral_count)
-  {    
-    awn_effects_stop (effects, AWN_EFFECT_ATTENTION);
   }
   else if ( !task_icon_count_require_attention (icon) )
   {
@@ -1281,7 +1353,10 @@ task_icon_search_main_item (TaskIcon *icon, TaskItem *main_item)
         g_debug ("%s: Match #4",__func__);
 #endif                    
       main_item = item;
-      break;
+      if (!TASK_IS_LAUNCHER(main_item))
+      {
+        break;
+      }
     }
   }
   //remove signals of old main_item
@@ -1322,6 +1397,7 @@ task_icon_search_main_item (TaskIcon *icon, TaskItem *main_item)
                       G_CALLBACK (on_main_item_icon_changed), icon);
     g_signal_connect (priv->main_item, "visible-changed",
                       G_CALLBACK (on_main_item_visible_changed), icon);
+
   }
 }
 
@@ -1335,10 +1411,12 @@ task_icon_refresh_visible (TaskIcon *icon)
   GSList *w;
   guint count = 0;
   guint count_windows = 0;
-
+  gboolean ephemeral = TRUE;
+ 
   g_return_if_fail (TASK_IS_ICON (icon));
   priv = icon->priv;
 
+  ephemeral = task_icon_is_ephemeral (icon);
   for (w = priv->items; w; w = w->next)
   {
     TaskItem *item = w->data;
@@ -1386,28 +1464,20 @@ task_icon_refresh_visible (TaskIcon *icon)
                     NULL);
     }
   }
-
-  if (count != priv->shown_items)
-  {  
-    if (count <= task_icon_count_ephemeral_items(icon))
-    {
-      priv->visible = FALSE;
-    }
-    else
-    {
-      if (!priv->main_item)
-        task_icon_search_main_item (icon,NULL);
-      
-      priv->visible = TRUE;
-    }
-    g_signal_emit (icon, _icon_signals[VISIBLE_CHANGED], 0);
-  }
-  else if ( count<=1 && !count_windows)  /*FIXME  this sort of thing will be resolved early in 0.6.  
-                                      FTM makes sure TaskIcons get destroyed if the icon is visible*/
+  if (ephemeral && ( count==1 && count_windows==0) )
   {
-    g_signal_emit (icon, _icon_signals[VISIBLE_CHANGED], 0);
+    priv->visible = FALSE;
+  }
+  else if (count)
+  {
+    priv->visible = TRUE;
+  }
+  else
+  {
+    priv->visible = FALSE;
   }
   priv->shown_items = count;
+  g_signal_emit (icon, _icon_signals[VISIBLE_CHANGED], 0);  
 }
 
 /**
@@ -1591,6 +1661,24 @@ task_icon_is_visible (TaskIcon      *icon)
   return icon->priv->visible;
 }
 
+gboolean
+task_icon_is_ephemeral (TaskIcon * icon)
+{
+  GObject * launcher_proxy_obj = NULL;
+  const TaskItem * launcher = NULL;
+  
+  g_return_val_if_fail (TASK_IS_ICON (icon), FALSE);
+  
+  launcher = task_icon_get_launcher (icon);
+  if (launcher)
+  {
+    g_object_get (G_OBJECT(launcher),
+                "proxy",&launcher_proxy_obj,
+                NULL);
+  }
+  return (launcher_proxy_obj == NULL);
+}
+
 /**
  * Returns whetever this icon contains atleast one (visible?) launcher.
  * TODO: adapt TaskIcon so it has a guint with the numbers of TaskLaunchers/TaskWindows
@@ -1685,45 +1773,6 @@ task_icon_count_tasklist_windows (TaskIcon * icon)
   return count;
 }
 
-guint
-task_icon_count_ephemeral_items (TaskIcon * icon)
-{
-  TaskIconPrivate *priv;
-
-  g_return_val_if_fail (TASK_IS_ICON (icon), FALSE);
-  priv = icon->priv;
-  
-  return priv->ephemeral_count; 
-}
-
-void
-task_icon_decrement_ephemeral_count (TaskIcon *icon)
-{
-  TaskIconPrivate *priv;
-
-  g_return_if_fail (TASK_IS_ICON (icon));
-  priv = icon->priv;
-
-  priv->ephemeral_count--;
-}
-
-void
-task_icon_increment_ephemeral_count (TaskIcon *icon)
-{
-  TaskIconPrivate *priv;
-
-  g_return_if_fail (TASK_IS_ICON (icon));
-  priv = icon->priv;
-
-  priv->ephemeral_count++;
-/* TODO
-   Leaving this here for a little bit.  Going to review some code am assure
-   myself this is no longer required.*/
- if (priv->ephemeral_count >= g_slist_length (priv->items) )
- {
-   gtk_widget_destroy (GTK_WIDGET(icon));
- }  
-}
 /**
  * Returns the number of visible and unvisible items this TaskIcon contains.
  */
@@ -1791,10 +1840,10 @@ task_icon_set_icon_pixbuf (TaskIcon * icon,const TaskItem *item)
       fallback_used
     )
   {
-    if ( TASK_IS_WINDOW(item) && task_window_get_use_win_icon(TASK_WINDOW(item))!=USE_NEVER)
+    if ( TASK_IS_WINDOW(item))
     {
       if (launcher)
-      {
+      {  
         item = launcher;
       }
     }
@@ -2030,13 +2079,14 @@ task_icon_append_item (TaskIcon      *icon,
   priv->items = g_slist_append (priv->items, item);
   gtk_widget_show_all (GTK_WIDGET (item));
 
-  gtk_container_add (GTK_CONTAINER (priv->dialog), GTK_WIDGET (item));
+//  gtk_container_add (GTK_CONTAINER (priv->dialog), GTK_WIDGET (item));
+  task_manager_dialog_add (TASK_MANAGER_DIALOG(priv->dialog),TASK_ITEM (item));
   /*if we have a launcher move it to the top of the list*/
-  if (TASK_IS_LAUNCHER(item))
+/*  if (TASK_IS_LAUNCHER(item))
   {
     gtk_box_reorder_child (GTK_BOX(awn_dialog_get_content_area(AWN_DIALOG(priv->dialog))),
                            GTK_WIDGET(item),0);    
-  }
+  }*/
   
   g_object_weak_ref (G_OBJECT (item), (GWeakNotify)_destroyed_task_item, icon);
 
@@ -2076,23 +2126,16 @@ task_icon_append_item (TaskIcon      *icon,
   task_icon_set_icon_pixbuf (icon,priv->main_item);
 }
 
-void
-task_icon_append_ephemeral_item (TaskIcon      *icon,
-                       TaskItem      *item)
+GObject *
+task_icon_get_proxy (TaskIcon *icon)
 {
   TaskIconPrivate *priv;
   
-  g_assert (item);
   g_assert (icon);
-  g_return_if_fail (TASK_IS_ICON (icon));
-  g_return_if_fail (TASK_IS_LAUNCHER (item));
-
-  priv = icon->priv;
-
-  priv->ephemeral_count++;
-  task_icon_append_item (icon,item); 
+  g_return_val_if_fail (TASK_IS_ICON (icon),NULL);
+  priv = TASK_ICON_GET_PRIVATE (icon);
+  return priv->proxy_obj;
 }
-
 
 GSList *  
 task_icon_get_items (TaskIcon     *icon)
@@ -2286,13 +2329,13 @@ task_icon_set_inhibit_focus_loss (TaskIcon *icon, gboolean val)
 }
 
 gint
-task_icon_add_menu_item(TaskIcon * icon,GtkMenuItem *item)
+task_icon_add_menu_item(TaskIcon * icon,GtkMenuItem *item, gchar * group)
 {
   TaskIconPrivate *priv;
   static gint cookie = 0;
   GList * needle = NULL;
   GQuark q = g_quark_from_static_string (TASK_ICON_PLUGIN_MENU_ITEM);
-  
+
   g_return_val_if_fail (TASK_IS_ICON (icon),-1);
   g_return_val_if_fail (GTK_IS_MENU_ITEM (item),-1);
   priv = icon->priv;
@@ -2301,8 +2344,47 @@ task_icon_add_menu_item(TaskIcon * icon,GtkMenuItem *item)
   if (!needle )
   {
     cookie++;
-    priv->plugin_menu_items = g_list_append (priv->plugin_menu_items,
-                                             g_object_ref_sink (item));
+    if (!group)
+    {
+      priv->plugin_menu_items = g_list_insert_before (priv->plugin_menu_items,
+                                                      g_list_last (priv->plugin_menu_items),
+                                                      g_object_ref_sink (item));
+    }
+    else
+    {
+      GList  * i;
+      GQuark gq = g_quark_from_static_string (TASK_ICON_PLUGIN_MENU_GROUP_ITEM);
+      gboolean found = FALSE;
+      
+      for (i=priv->plugin_menu_items;i;i=i->next)
+      {
+        /*does this menu item have a group name attached. is it the one we want?*/
+        if ( g_strcmp0 (group, g_object_get_qdata (G_OBJECT(i->data), gq)) ==0  )
+        {
+          /*if yes, search forward until we find a new group or the default (separator)*/
+          for (i=i->next;i;i=i->next)
+          {
+            if (GTK_IS_SEPARATOR_MENU_ITEM (i->data) || g_object_get_qdata (G_OBJECT(i->data), gq) )
+            {
+              priv->plugin_menu_items = g_list_insert_before (priv->plugin_menu_items,i,g_object_ref_sink (item));
+              found = TRUE;
+              break;
+            }
+          }
+          break;
+        }
+      }
+      if (!found)
+      {
+        GtkWidget * new_group_item = GTK_WIDGET(task_manager_labelled_separator_new (group));
+        gchar * group_text = g_strdup (group);
+        
+        g_object_set_qdata (G_OBJECT(new_group_item),gq,group_text );
+        g_object_weak_ref (G_OBJECT(new_group_item), (GWeakNotify)g_free,group_text);
+        priv->plugin_menu_items = g_list_prepend (priv->plugin_menu_items,g_object_ref_sink (item));
+        priv->plugin_menu_items = g_list_prepend (priv->plugin_menu_items,g_object_ref_sink (new_group_item));
+      }
+    }
     g_object_set_qdata (G_OBJECT(item), q, GINT_TO_POINTER (cookie));
   }
   else
@@ -2404,7 +2486,13 @@ task_icon_clicked (TaskIcon * icon,GdkEventButton *event)
 {
   TaskIconPrivate *priv;
   TaskItem        *main_item;
+  WnckWorkspace   *space = NULL;
+  
   priv = icon->priv;
+  if (TASK_IS_WINDOW (priv->main_item))
+  {
+    space = wnck_window_get_workspace (task_window_get_window (TASK_WINDOW(priv->main_item)));
+  }
 
   /*
    use of dbus visible may have left the main_item as a Launcher when there are
@@ -2414,6 +2502,24 @@ task_icon_clicked (TaskIcon * icon,GdkEventButton *event)
   {
     task_icon_search_main_item (icon,NULL);
   }
+  /*A Compiz clause*/
+  if ( TASK_IS_WINDOW(priv->main_item) && space && WNCK_IS_WORKSPACE(space) && wnck_workspace_is_virtual (space))
+  {
+    if ( ! wnck_window_is_in_viewport (task_window_get_window (TASK_WINDOW(priv->main_item)),
+                                       wnck_window_get_workspace (task_window_get_window (TASK_WINDOW(priv->main_item)))))
+    {
+      TaskItem * save_item = priv->main_item;
+      priv->main_item = NULL;
+      task_icon_search_main_item (icon,NULL);
+      /*if our new main item isn't in the current viewport then revert back*/
+      if (!wnck_window_is_in_viewport (task_window_get_window (TASK_WINDOW(priv->main_item)),
+                                       wnck_window_get_workspace (task_window_get_window (TASK_WINDOW(priv->main_item)))))
+      {
+        task_icon_search_main_item (icon,save_item);
+      }
+    }
+  }
+
   /*If long press is enabled then we try to be smart about what we do on short clicks*/
   if (priv->enable_long_press)
   {
@@ -2480,7 +2586,7 @@ task_icon_clicked (TaskIcon * icon,GdkEventButton *event)
         TaskItem *item = w->data;
 
         if (!task_item_is_visible (item)) continue;
-        
+
         if (!TASK_IS_WINDOW(item))
         {
           /*it's a launcher*/
@@ -2543,6 +2649,7 @@ task_icon_clicked (TaskIcon * icon,GdkEventButton *event)
       TaskItem *item = w->data;
 
       if (!TASK_IS_WINDOW (item) ) continue;
+      if (!task_item_is_visible (item)) continue;
       
       if (task_window_is_active (TASK_WINDOW(item)))
       {
@@ -2684,12 +2791,13 @@ grouping_changed_cb (TaskManager * applet,gboolean grouping,TaskIcon *icon)
           }
           if (new_launcher)
           {
-            task_icon_append_ephemeral_item (TASK_ICON (new_icon), new_launcher);
+              task_icon_append_item (TASK_ICON (new_icon), new_launcher);
           }
           next = iter->next;
           priv->items = g_slist_remove (priv->items,item);
           g_object_ref (item);
-          gtk_container_remove(GTK_CONTAINER(awn_dialog_get_content_area(AWN_DIALOG(priv->dialog))), item);
+
+          task_manager_dialog_remove(TASK_MANAGER_DIALOG(priv->dialog),TASK_ITEM(item));
           if (TASK_ICON_GET_PRIVATE(icon)->main_item == TASK_ITEM(item))
           {
             g_signal_handlers_disconnect_by_func(item, 
@@ -2759,6 +2867,32 @@ window_closed_cb (WnckScreen *screen,WnckWindow *window,TaskIcon * icon)
   }
   if (taskwin)
   {
+    if (!task_icon_is_ephemeral (icon) )
+    {
+      GSList * iter_icons;
+      for (iter_icons=(GSList*)task_manager_get_icons(TASK_MANAGER(priv->applet));iter_icons;iter_icons=iter_icons->next)
+      {
+        if (icon == iter_icons->data)
+        {
+          continue;
+        }
+        const TaskItem * launcher = task_icon_get_launcher (iter_icons->data);
+        if (launcher)
+        {
+          if (g_strcmp0 (task_launcher_get_desktop_path (TASK_LAUNCHER(task_icon_get_launcher(icon))),
+                      task_launcher_get_desktop_path (TASK_LAUNCHER(launcher)) )== 0)
+          {
+            const TaskItem * moving = task_icon_get_main_item (iter_icons->data);
+            if (TASK_IS_WINDOW (moving) )
+            {
+              task_icon_moving_item (icon,iter_icons->data,TASK_ITEM(moving));
+              g_object_unref (task_icon_get_proxy(iter_icons->data));
+              break;
+            }
+          }
+        }
+      }
+    }
     on_window_needs_attention_changed (taskwin,FALSE,icon);
   }
 }
@@ -2786,6 +2920,22 @@ theme_changed_cb (GtkIconTheme *icon_theme,TaskIcon * icon)
   }
 }
 
+static void 
+_context_menu_closed (GtkMenuShell *menu,TaskIcon *icon)
+{
+  TaskIconPrivate *priv;
+  
+  g_return_if_fail (TASK_IS_ICON (icon));  
+  priv = icon->priv;
+
+  if (priv->autohide_cookie)
+  {     
+    awn_applet_uninhibit_autohide (AWN_APPLET (priv->applet), priv->autohide_cookie);
+    priv->autohide_cookie = 0;
+  }
+}
+
+
 /**
  * Whenever there is a press event on the TaskIcon it will do the proper actions.
  * right click: - show the context menu 
@@ -2797,7 +2947,7 @@ theme_changed_cb (GtkIconTheme *icon_theme,TaskIcon * icon)
 static gboolean  
 task_icon_button_press_event (GtkWidget *widget,GdkEventButton *event)
 {
- TaskIconPrivate *priv;
+  TaskIconPrivate *priv;
   TaskIcon *icon;
   
   g_return_val_if_fail (TASK_IS_ICON (widget), FALSE);
@@ -2840,11 +2990,17 @@ task_icon_button_press_event (GtkWidget *widget,GdkEventButton *event)
 
   if (priv->menu)
   {
-    gtk_menu_popup (GTK_MENU (priv->menu), NULL, NULL, 
-                    NULL, NULL, event->button, event->time);
+    awn_icon_popup_gtk_menu (AWN_ICON(icon), priv->menu, event->button, event->time);
     
     g_signal_connect_swapped (priv->menu,"deactivate", 
-                              G_CALLBACK(gtk_widget_hide),priv->dialog);      
+                              G_CALLBACK(gtk_widget_hide),priv->dialog);
+    g_signal_connect (priv->menu,"deactivate", 
+                              G_CALLBACK(_context_menu_closed),icon);
+    if (!priv->autohide_cookie)
+    {
+      priv->autohide_cookie = awn_applet_inhibit_autohide (AWN_APPLET(priv->applet), "TaskmanContextMenuUp");
+    }
+
   }
 
   return FALSE;  
@@ -3029,7 +3185,7 @@ task_icon_source_drag_end (GtkWidget      *widget,
 #endif
   g_return_if_fail (TASK_IS_ICON (widget));
   priv = TASK_ICON (widget)->priv;
-
+  task_manager_add_icon_hide (TASK_MANAGER(priv->applet));
   if(!priv->gets_dragged) return;
 
   priv->gets_dragged = FALSE;
@@ -3047,7 +3203,7 @@ task_icon_source_drag_fail (GtkWidget      *widget,
 #endif
   g_return_val_if_fail (TASK_IS_ICON (widget), FALSE);
   priv = TASK_ICON (widget)->priv;
-
+  task_manager_add_icon_hide (TASK_MANAGER(priv->applet));
   if(!priv->draggable) return TRUE;
   if(!priv->gets_dragged) return TRUE;
 
@@ -3059,7 +3215,6 @@ task_icon_source_drag_fail (GtkWidget      *widget,
 }
 
 /* DnD 'destination' forwards */
-
 static gboolean
 task_icon_dest_drag_motion (GtkWidget      *widget,
                             GdkDragContext *context,
@@ -3070,14 +3225,12 @@ task_icon_dest_drag_motion (GtkWidget      *widget,
   TaskIconPrivate *priv;
   GdkAtom target;
   gchar *target_name;
-#ifdef DEBUG
-  g_debug ("%s",__func__);
-#endif
   g_return_val_if_fail (TASK_IS_ICON (widget), FALSE);
   priv = TASK_ICON (widget)->priv;
 
   target = gtk_drag_dest_find_target (widget, context, NULL);
   target_name = gdk_atom_name (target);
+  
   if (g_strcmp0("awn/task-icon", target_name) == 0)
   {
     if(!priv->draggable) return FALSE;
@@ -3100,7 +3253,7 @@ task_icon_dest_drag_motion (GtkWidget      *widget,
 
     awn_effects_start_ex (awn_overlayable_get_effects (AWN_OVERLAYABLE (widget)), 
                   AWN_EFFECT_LAUNCHING, 1, FALSE, FALSE); 
-    
+    task_manager_add_icon_show (TASK_MANAGER(priv->applet));    
     if (priv->drag_tag)
     {
       /* If it is a launcher it should show that it accepts the drag.
@@ -3126,6 +3279,7 @@ task_icon_dest_drag_motion (GtkWidget      *widget,
                                         (GSourceFunc)drag_timeout, widget);
         priv->drag_time = t;
       }
+      return TRUE;
     }
     else
     {
@@ -3147,7 +3301,6 @@ task_icon_dest_drag_leave (GtkWidget      *widget,
 #endif
   g_return_if_fail (TASK_IS_ICON (widget));
   priv = TASK_ICON (widget)->priv;
-
   if(priv->drag_motion)
   {
     priv->drag_motion = FALSE;
@@ -3196,7 +3349,6 @@ copy_over_error:
   }
 }
 
-
 static void
 task_icon_dest_drag_data_received (GtkWidget      *widget,
                                    GdkDragContext *context,
@@ -3216,13 +3368,12 @@ task_icon_dest_drag_data_received (GtkWidget      *widget,
   TaskLauncher    *launcher = NULL;
   GStrv           tokens = NULL;
   gchar           ** i;  
-  
-#ifdef DEBUG
-  g_debug ("%s",__func__);
-#endif
+
   g_return_if_fail (TASK_IS_ICON (widget));
   priv = icon->priv;
 
+  task_manager_add_icon_hide (TASK_MANAGER(priv->applet));
+  
   target = gtk_drag_dest_find_target (widget, context, NULL);
   target_name = gdk_atom_name (target);
 

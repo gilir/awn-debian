@@ -316,7 +316,8 @@ _enable_unfocus (GtkWidget *widget)
 
   priv->unfocus_timer_id = 0;
   if (priv->unfocus_hide &&
-      gtk_window_is_active (GTK_WINDOW (widget)) == FALSE)
+      gtk_window_is_active (GTK_WINDOW (widget)) == FALSE &&
+      gtk_grab_get_current () == NULL)
   {
     gtk_widget_hide (widget);
   }
@@ -615,7 +616,10 @@ _on_active_changed(GObject *dialog, GParamSpec *spec, gpointer null)
                   "active", gtk_window_is_active (GTK_WINDOW (dialog)), NULL);
   }
 
-  if (priv->unfocus_hide && priv->unfocus_timer_id == 0)
+  if (gtk_window_is_active (GTK_WINDOW (dialog))) return;
+
+  if (priv->unfocus_hide && priv->unfocus_timer_id == 0 &&
+      gtk_grab_get_current () == NULL)
   {
     gtk_widget_hide (GTK_WIDGET (dialog));
   }
@@ -769,6 +773,14 @@ awn_dialog_constructed (GObject *object)
                                          NULL);
   }
   g_signal_connect (object, "window-state-event", G_CALLBACK (_on_window_state_event), NULL);
+
+  /*
+   AwnDialogs tend to periodically lose various hints (skip tasklist) under
+     certain WMs (openbox) which leads to python AwnDialogs appearing briefly
+     until the hint is set again. 
+   Make certain that wm_class is set.
+   */
+  gtk_window_set_wmclass (GTK_WINDOW(object),"awn-applet","awn-applet");
 }
 
 static void

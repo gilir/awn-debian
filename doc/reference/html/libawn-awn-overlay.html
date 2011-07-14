@@ -3,20 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>awn-overlay</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
 <link rel="home" href="index.html" title="Awn Reference Manual">
 <link rel="up" href="ch04.html" title="Icon Overlays">
 <link rel="prev" href="ch04.html" title="Icon Overlays">
 <link rel="next" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon">
-<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="part" href="api-reference.html" title="Part I. API Reference">
-<link rel="chapter" href="ch01.html" title="Applets">
-<link rel="chapter" href="ch02.html" title="Base Components">
-<link rel="chapter" href="ch03.html" title="Icons">
-<link rel="chapter" href="ch04.html" title="Icon Overlays">
-<link rel="chapter" href="ch05.html" title="Utilities">
-<link rel="index" href="index-all.html" title="Index">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
@@ -29,15 +22,15 @@
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#libawn-awn-overlay.synopsis" class="shortcut">Top</a>
-                 | 
-                <a href="#libawn-awn-overlay.description" class="shortcut">Description</a>
-                 | 
-                <a href="#libawn-awn-overlay.object-hierarchy" class="shortcut">Object Hierarchy</a>
-                 | 
-                <a href="#libawn-awn-overlay.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#libawn-awn-overlay.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libawn-awn-overlay.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libawn-awn-overlay.properties" class="shortcut">Properties</a>
 </td></tr>
 </table>
-<div class="refentry" title="awn-overlay">
+<div class="refentry">
 <a name="libawn-awn-overlay"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
@@ -46,87 +39,48 @@
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsect1" title="Stability Level">
+<div class="refsect1">
 <a name="libawn-awn-overlay.stability-level"></a><h2>Stability Level</h2>
 Unstable, unless otherwise indicated
 </div>
-<div class="refsynopsisdiv" title="Synopsis">
+<div class="refsynopsisdiv">
 <a name="libawn-awn-overlay.synopsis"></a><h2>Synopsis</h2>
 <a name="AwnOverlay"></a><pre class="synopsis">
-
 #include &lt;libawn/libawn.h&gt;
 
                     <a class="link" href="libawn-awn-overlay.html#AwnOverlay-struct" title="AwnOverlay">AwnOverlay</a>;
-void                <a class="link" href="libawn-awn-overlay.html#render" title="render ()">render</a>                              (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget,
-                                                         <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> height);
+<span class="returnvalue">void</span>                (<a class="link" href="libawn-awn-overlay.html#render" title="render ()">*render</a>)                           (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);
 enum                <a class="link" href="libawn-awn-overlay.html#AwnOverlayAlign" title="enum AwnOverlayAlign">AwnOverlayAlign</a>;
-<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a>*         <a class="link" href="libawn-awn-overlay.html#awn-overlay-new" title="awn_overlay_new ()">awn_overlay_new</a>                     (void);
-void                <a class="link" href="libawn-awn-overlay.html#awn-overlay-render" title="awn_overlay_render ()">awn_overlay_render</a>                  (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget,
-                                                         <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> height);
-void                <a class="link" href="libawn-awn-overlay.html#awn-overlay-move-to" title="awn_overlay_move_to ()">awn_overlay_move_to</a>                 (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> icon_width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> icon_height,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> overlay_width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> overlay_height,
-                                                         AwnOverlayCoord *coord_req);
-<a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>            <a class="link" href="libawn-awn-overlay.html#awn-overlay-get-apply-effects" title="awn_overlay_get_apply_effects ()">awn_overlay_get_apply_effects</a>       (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay);
-void                <a class="link" href="libawn-awn-overlay.html#awn-overlay-set-apply-effects" title="awn_overlay_set_apply_effects ()">awn_overlay_set_apply_effects</a>       (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a> value);
-<a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>            <a class="link" href="libawn-awn-overlay.html#awn-overlay-get-use-source-op" title="awn_overlay_get_use_source_op ()">awn_overlay_get_use_source_op</a>       (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay);
-void                <a class="link" href="libawn-awn-overlay.html#awn-overlay-set-use-source-op" title="awn_overlay_set_use_source_op ()">awn_overlay_set_use_source_op</a>       (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a> value);
+<a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="returnvalue">AwnOverlay</span></a> *        <a class="link" href="libawn-awn-overlay.html#awn-overlay-new" title="awn_overlay_new ()">awn_overlay_new</a>                     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-overlay.html#awn-overlay-render" title="awn_overlay_render ()">awn_overlay_render</a>                  (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-overlay.html#awn-overlay-move-to" title="awn_overlay_move_to ()">awn_overlay_move_to</a>                 (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> icon_width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> icon_height</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> overlay_width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> overlay_height</code></em>,
+                                                         <em class="parameter"><code><span class="type">AwnOverlayCoord</span> *coord_req</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libawn-awn-overlay.html#awn-overlay-get-apply-effects" title="awn_overlay_get_apply_effects ()">awn_overlay_get_apply_effects</a>       (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-overlay.html#awn-overlay-set-apply-effects" title="awn_overlay_set_apply_effects ()">awn_overlay_set_apply_effects</a>       (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libawn-awn-overlay.html#awn-overlay-get-use-source-op" title="awn_overlay_get_use_source_op ()">awn_overlay_get_use_source_op</a>       (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-overlay.html#awn-overlay-set-use-source-op" title="awn_overlay_set_use_source_op ()">awn_overlay_set_use_source_op</a>       (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);
 </pre>
 </div>
-<div class="refsect1" title="Object Hierarchy">
+<div class="refsect1">
 <a name="libawn-awn-overlay.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
->GObject</a>
-   +----<a
-href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
->GInitiallyUnowned</a>
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
          +----AwnOverlay
                +----<a class="link" href="AwnOverlayProgress.html" title="AwnOverlayProgress">AwnOverlayProgress</a>
                +----<a class="link" href="AwnOverlayPixbuf.html" title="AwnOverlayPixbuf">AwnOverlayPixbuf</a>
@@ -135,108 +89,50 @@ href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Ty
                +----<a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber">AwnOverlayThrobber</a>
 </pre>
 </div>
-<div class="refsect1" title="Properties">
+<div class="refsect1">
 <a name="libawn-awn-overlay.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--active" title='The "active" property'>active</a>"                   <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>              : Read / Write / Construct
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--align" title='The "align" property'>align</a>"                    <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a>                  : Read / Write / Construct
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--apply-effects" title='The "apply-effects" property'>apply-effects</a>"            <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>              : Read / Write
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--gravity" title='The "gravity" property'>gravity</a>"                  <a
-href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkGravity"
->GdkGravity</a>            : Read / Write / Construct
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--use-source-op" title='The "use-source-op" property'>use-source-op</a>"            <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>              : Read / Write
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--x-adj" title='The "x-adj" property'>x-adj</a>"                    <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--x-override" title='The "x-override" property'>x-override</a>"               <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--y-adj" title='The "y-adj" property'>y-adj</a>"                    <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct
-  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--y-override" title='The "y-override" property'>y-override</a>"               <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--active" title='The "active" property'>active</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--align" title='The "align" property'>align</a>"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--apply-effects" title='The "apply-effects" property'>apply-effects</a>"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--gravity" title='The "gravity" property'>gravity</a>"                  <a href="http://library.gnome.org/devel/gdk/gdk3-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a>            : Read / Write / Construct
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--use-source-op" title='The "use-source-op" property'>use-source-op</a>"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--x-adj" title='The "x-adj" property'>x-adj</a>"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--x-override" title='The "x-override" property'>x-override</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--y-adj" title='The "y-adj" property'>y-adj</a>"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct
+  "<a class="link" href="libawn-awn-overlay.html#AwnOverlay--y-override" title='The "y-override" property'>y-override</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct
 </pre>
 </div>
-<div class="refsect1" title="Description">
+<div class="refsect1">
 <a name="libawn-awn-overlay.description"></a><h2>Description</h2>
 <p>
 Base object for overlays used with <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a>.  This object is only
-useful as a base class from which other classes are derived.</p>
-<p>
+useful as a base class from which other classes are derived.
 </p>
 </div>
-<div class="refsect1" title="Details">
+<div class="refsect1">
 <a name="libawn-awn-overlay.details"></a><h2>Details</h2>
-<div class="refsect2" title="AwnOverlay">
+<div class="refsect2">
 <a name="AwnOverlay-struct"></a><h3>AwnOverlay</h3>
 <pre class="programlisting">typedef struct _AwnOverlay AwnOverlay;</pre>
 <p>
 Base object for overlays used with <a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a>.  This object is only
-useful as a base class from which other classes are derived.</p>
-<p>
+useful as a base class from which other classes are derived.
 </p>
 </div>
 <hr>
-<div class="refsect2" title="render ()">
+<div class="refsect2">
 <a name="render"></a><h3>render ()</h3>
-<pre class="programlisting">void                render                              (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget,
-                                                         <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> height);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*render)                           (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
-<div class="refsect2" title="enum AwnOverlayAlign">
+<div class="refsect2">
 <a name="AwnOverlayAlign"></a><h3>enum AwnOverlayAlign</h3>
 <pre class="programlisting">typedef enum
 {
@@ -246,438 +142,282 @@ href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
 }AwnOverlayAlign;
 </pre>
 <p>
-An enum for horizontal alignment relative to the <a
-href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkGravity"
-><span class="type">GdkGravity</span></a> specified for
-an <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.  Possible values are <a class="link" href="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-CENTRE--CAPS"><code class="literal">AWN_OVERLAY_ALIGN_CENTRE</code></a>,
-<a class="link" href="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-LEFT--CAPS"><code class="literal">AWN_OVERLAY_ALIGN_LEFT</code></a> and <a class="link" href="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-RIGHT--CAPS"><code class="literal">AWN_OVERLAY_ALIGN_RIGHT</code></a></p>
-<p>
+An enum for horizontal alignment relative to the <a href="http://library.gnome.org/devel/gdk/gdk3-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> specified for
+an <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.  Possible values are <a class="link" href="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-CENTRE:CAPS"><code class="literal">AWN_OVERLAY_ALIGN_CENTRE</code></a>,
+<a class="link" href="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-LEFT:CAPS"><code class="literal">AWN_OVERLAY_ALIGN_LEFT</code></a> and <a class="link" href="libawn-awn-overlay.html#AWN-OVERLAY-ALIGN-RIGHT:CAPS"><code class="literal">AWN_OVERLAY_ALIGN_RIGHT</code></a>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><a name="AWN-OVERLAY-ALIGN-CENTRE--CAPS"></a><span class="term"><code class="literal">AWN_OVERLAY_ALIGN_CENTRE</code></span></p></td>
-<td> Centre alignment.
+<td><p><a name="AWN-OVERLAY-ALIGN-CENTRE:CAPS"></a><span class="term"><code class="literal">AWN_OVERLAY_ALIGN_CENTRE</code></span></p></td>
+<td>Centre alignment.
 </td>
 </tr>
 <tr>
-<td><p><a name="AWN-OVERLAY-ALIGN-LEFT--CAPS"></a><span class="term"><code class="literal">AWN_OVERLAY_ALIGN_LEFT</code></span></p></td>
-<td> Left alignment.
+<td><p><a name="AWN-OVERLAY-ALIGN-LEFT:CAPS"></a><span class="term"><code class="literal">AWN_OVERLAY_ALIGN_LEFT</code></span></p></td>
+<td>Left alignment.
 </td>
 </tr>
 <tr>
-<td><p><a name="AWN-OVERLAY-ALIGN-RIGHT--CAPS"></a><span class="term"><code class="literal">AWN_OVERLAY_ALIGN_RIGHT</code></span></p></td>
-<td> Right alignment.
+<td><p><a name="AWN-OVERLAY-ALIGN-RIGHT:CAPS"></a><span class="term"><code class="literal">AWN_OVERLAY_ALIGN_RIGHT</code></span></p></td>
+<td>Right alignment.
 </td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_new ()">
+<div class="refsect2">
 <a name="awn-overlay-new"></a><h3>awn_overlay_new ()</h3>
-<pre class="programlisting"><a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a>*         awn_overlay_new                     (void);</pre>
+<pre class="programlisting"><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="returnvalue">AwnOverlay</span></a> *        awn_overlay_new                     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
-Creates a new instance of <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.</p>
-<p>
+Creates a new instance of <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td> an instance of <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.
-</td>
+<td>an instance of <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_render ()">
+<div class="refsect2">
 <a name="awn-overlay-render"></a><h3>awn_overlay_render ()</h3>
-<pre class="programlisting">void                awn_overlay_render                  (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
->GtkWidget</a> *widget,
-                                                         <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> height);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_overlay_render                  (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
 <p>
 A virtual function invoked by <span class="type">AwnOverlaidIcon</span> for each overlay it contains, 
 on <span class="type">"expose"</span>.  This should be implemented by subclasses of 
-<a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.</p>
-<p>
+<a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td> An pointer to an <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> (or subclass) object.
-</td>
+<td>An pointer to an <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> (or subclass) object.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
-<td> The <a
-href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
-><span class="type">GtkWidget</span></a> that is being overlaid.
-</td>
+<td>The <a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> that is being overlaid.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
-<td> Pointer to cairo context ( <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
-><span class="type">cairo_t</span></a> ) for the surface being overlaid. 
-</td>
+<td>Pointer to cairo context ( <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> ) for the surface being overlaid.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
-<td> The width of the <a class="link" href="AwnThemedIcon.html" title="AwnThemedIcon"><span class="type">AwnThemedIcon</span></a> as <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
-><span class="type">gint</span></a>.
-</td>
+<td>The width of the <a class="link" href="libawn-awn-themed-icon.html#AwnThemedIcon"><span class="type">AwnThemedIcon</span></a> as <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
-<td> The height of the <a class="link" href="AwnThemedIcon.html" title="AwnThemedIcon"><span class="type">AwnThemedIcon</span></a> as <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
-><span class="type">gint</span></a>.
-</td>
+<td>The height of the <a class="link" href="libawn-awn-themed-icon.html#AwnThemedIcon"><span class="type">AwnThemedIcon</span></a> as <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_move_to ()">
+<div class="refsect2">
 <a name="awn-overlay-move-to"></a><h3>awn_overlay_move_to ()</h3>
-<pre class="programlisting">void                awn_overlay_move_to                 (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
->cairo_t</a> *cr,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> icon_width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> icon_height,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> overlay_width,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a> overlay_height,
-                                                         AwnOverlayCoord *coord_req);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_overlay_move_to                 (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> icon_width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> icon_height</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> overlay_width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> overlay_height</code></em>,
+                                                         <em class="parameter"><code><span class="type">AwnOverlayCoord</span> *coord_req</code></em>);</pre>
 <p>
 A convenience function for subclasses of <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.  For most cases will
 provide correct placement of the overlay within the surface.  Only of 
-interest for those implementing <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> subclass.</p>
-<p>
+interest for those implementing <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> subclass.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td> An pointer to an <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> (or subclass) object.
-</td>
+<td>An pointer to an <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> (or subclass) object.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
-<td> Pointer to Cairo context ( <a
-href="/usr/share/gtk-doc/html/cairo/cairo-context.html#cairo-t"
-><span class="type">cairo_t</span></a>) for the surface being overlaid.  Poi
-</td>
+<td>Pointer to Cairo context ( <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a>) for the surface being overlaid.  Poi</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>icon_width</code></em> :</span></p></td>
-<td> The width of the <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a> as <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
-><span class="type">gint</span></a>.
-</td>
+<td>The width of the <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> as <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>icon_height</code></em> :</span></p></td>
-<td> The height of the <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a> as <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
-><span class="type">gint</span></a>.
-</td>
+<td>The height of the <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a> as <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>overlay_width</code></em> :</span></p></td>
-<td> The width of the <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> as <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
-><span class="type">gint</span></a>.
-</td>
+<td>The width of the <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> as <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>overlay_height</code></em> :</span></p></td>
-<td> The height of the <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> as <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
-><span class="type">gint</span></a>.
-</td>
+<td>The height of the <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> as <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>coord_req</code></em> :</span></p></td>
-<td> Address of a <span class="type">AwnOverlayCoord</span> structure or NULL.  The x,y coords
+<td>Address of a <span class="type">AwnOverlayCoord</span> structure or NULL.  The x,y coords
 will be returned in the structure if one is provided so they can be used
-a later time if needed.
-</td>
+a later time if needed.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_get_apply_effects ()">
+<div class="refsect2">
 <a name="awn-overlay-get-apply-effects"></a><h3>awn_overlay_get_apply_effects ()</h3>
-<pre class="programlisting"><a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>            awn_overlay_get_apply_effects       (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay);</pre>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            awn_overlay_get_apply_effects       (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);</pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_set_apply_effects ()">
+<div class="refsect2">
 <a name="awn-overlay-set-apply-effects"></a><h3>awn_overlay_set_apply_effects ()</h3>
-<pre class="programlisting">void                awn_overlay_set_apply_effects       (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a> value);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_overlay_set_apply_effects       (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);</pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_get_use_source_op ()">
+<div class="refsect2">
 <a name="awn-overlay-get-use-source-op"></a><h3>awn_overlay_get_use_source_op ()</h3>
-<pre class="programlisting"><a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>            awn_overlay_get_use_source_op       (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay);</pre>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            awn_overlay_get_use_source_op       (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>);</pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
-<div class="refsect2" title="awn_overlay_set_use_source_op ()">
+<div class="refsect2">
 <a name="awn-overlay-set-use-source-op"></a><h3>awn_overlay_set_use_source_op ()</h3>
-<pre class="programlisting">void                awn_overlay_set_use_source_op       (<a class="link" href="libawn-awn-overlay.html#AwnOverlay">AwnOverlay</a> *overlay,
-                                                         <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a> value);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_overlay_set_use_source_op       (<em class="parameter"><code><a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a> *overlay</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);</pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>overlay</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
-<td>
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 </div>
-<div class="refsect1" title="Property Details">
+<div class="refsect1">
 <a name="libawn-awn-overlay.property-details"></a><h2>Property Details</h2>
-<div class="refsect2" title='The "active" property'>
+<div class="refsect2">
 <a name="AwnOverlay--active"></a><h3>The <code class="literal">"active"</code> property</h3>
-<pre class="programlisting">  "active"                   <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>              : Read / Write / Construct</pre>
+<pre class="programlisting">  "active"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
 <p>
 The active property controls if the render virtual method of
 <span class="type">AwnOverlayClass</span> is invoked when <code class="function">awn_overlay_render_overlay()</code> .  If set to
 FALSE the overlay is not rendered.  Subclass implementors should monitor this_effect
 property for changes if it is appropriate to disengage timers etc when set to
-FALSE.</p>
-<p>
+FALSE.
 </p>
 <p>Default value: TRUE</p>
 </div>
 <hr>
-<div class="refsect2" title='The "align" property'>
+<div class="refsect2">
 <a name="AwnOverlay--align"></a><h3>The <code class="literal">"align"</code> property</h3>
-<pre class="programlisting">  "align"                    <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
->gint</a>                  : Read / Write / Construct</pre>
+<pre class="programlisting">  "align"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
 <p>
 An <a class="link" href="libawn-awn-overlay.html#AwnOverlayAlign" title="enum AwnOverlayAlign"><span class="type">AwnOverlayAlign</span></a> property that controls horizontal alignment of the overlay 
 relative to it's position as specified by the gravity property.  Often used 
 with <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a> overlays.  Setting to AWN_OVERLAY_ALIGN_RIGHT or 
 AWN_OVERLAY_ALIGN_LEFT will allow for a fixed right or left position for the 
-overlay.</p>
-<p>
+overlay.
 </p>
 <p>Allowed values: [0,2]</p>
 <p>Default value: 0</p>
 </div>
 <hr>
-<div class="refsect2" title='The "apply-effects" property'>
+<div class="refsect2">
 <a name="AwnOverlay--apply-effects"></a><h3>The <code class="literal">"apply-effects"</code> property</h3>
-<pre class="programlisting">  "apply-effects"            <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>              : Read / Write</pre>
+<pre class="programlisting">  "apply-effects"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
 <p>
-The apply-effects property controls <a class="link" href="AwnEffects.html" title="AwnEffects"><span class="type">AwnEffects</span></a> effects are applied to the
-overlay.</p>
-<p>
+The apply-effects property controls <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a> effects are applied to the
+overlay.
 </p>
 <p>Default value: TRUE</p>
 </div>
 <hr>
-<div class="refsect2" title='The "gravity" property'>
+<div class="refsect2">
 <a name="AwnOverlay--gravity"></a><h3>The <code class="literal">"gravity"</code> property</h3>
-<pre class="programlisting">  "gravity"                  <a
-href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkGravity"
->GdkGravity</a>            : Read / Write / Construct</pre>
+<pre class="programlisting">  "gravity"                  <a href="http://library.gnome.org/devel/gdk/gdk3-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a>            : Read / Write / Construct</pre>
 <p>
-A property that controls placement of the overlay of type <a
-href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkGravity"
-><span class="type">GdkGravity</span></a>.  
-GDK_GRAVITY_STATIC is NOT a valid value.</p>
-<p>
+A property that controls placement of the overlay of type <a href="http://library.gnome.org/devel/gdk/gdk3-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a>.  
+GDK_GRAVITY_STATIC is NOT a valid value.
 </p>
 <p>Default value: GDK_GRAVITY_CENTER</p>
 </div>
 <hr>
-<div class="refsect2" title='The "use-source-op" property'>
+<div class="refsect2">
 <a name="AwnOverlay--use-source-op"></a><h3>The <code class="literal">"use-source-op"</code> property</h3>
-<pre class="programlisting">  "use-source-op"            <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
->gboolean</a>              : Read / Write</pre>
+<pre class="programlisting">  "use-source-op"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
 <p>
 The use-source-op property controls if this overlay replaces graphics
 already painted beneath the overlay. (support for this has to be implemented
-by the subclasses)</p>
-<p>
+by the subclasses)
 </p>
 <p>Default value: FALSE</p>
 </div>
 <hr>
-<div class="refsect2" title='The "x-adj" property'>
+<div class="refsect2">
 <a name="AwnOverlay--x-adj"></a><h3>The <code class="literal">"x-adj"</code> property</h3>
-<pre class="programlisting">  "x-adj"                    <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct</pre>
+<pre class="programlisting">  "x-adj"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct</pre>
 <p>
-An property of type <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
-><span class="type">gdouble</span></a> that allows the adjustment of the horizontal
+An property of type <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> that allows the adjustment of the horizontal
 position of the <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.  Range of -1.0...1.0.  The amount of adjustment is
-this x-adj * width of the <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.  A value of 0.0 indicates that gravity 
-and align will solely determine the x position.</p>
-<p>
+this x-adj * width of the <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.  A value of 0.0 indicates that gravity 
+and align will solely determine the x position.
 </p>
 <p>Allowed values: [-1,1]</p>
 <p>Default value: 0</p>
 </div>
 <hr>
-<div class="refsect2" title='The "x-override" property'>
+<div class="refsect2">
 <a name="AwnOverlay--x-override"></a><h3>The <code class="literal">"x-override"</code> property</h3>
-<pre class="programlisting">  "x-override"               <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct</pre>
+<pre class="programlisting">  "x-override"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct</pre>
 <p>
 Overrides the x coordinates.  In most cases if you're using this then you 
-are probably doing something wrong.</p>
-<p>
+are probably doing something wrong.
 </p>
 <p>Allowed values: [-10000,1000]</p>
 <p>Default value: -10000</p>
 </div>
 <hr>
-<div class="refsect2" title='The "y-adj" property'>
+<div class="refsect2">
 <a name="AwnOverlay--y-adj"></a><h3>The <code class="literal">"y-adj"</code> property</h3>
-<pre class="programlisting">  "y-adj"                    <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct</pre>
+<pre class="programlisting">  "y-adj"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct</pre>
 <p>
-An property of type <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
-><span class="type">gdouble</span></a> that allows the adjustment of the vertical
+An property of type <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> that allows the adjustment of the vertical
 position of the <a class="link" href="libawn-awn-overlay.html#AwnOverlay"><span class="type">AwnOverlay</span></a>.  Range of -1.0...1.0.  The amount of adjustment is
-this y-adj * height of the <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>.  A value of 0.0 indicates that gravity 
-and align will solely determine the y position.</p>
-<p>
+this y-adj * height of the <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>.  A value of 0.0 indicates that gravity 
+and align will solely determine the y position.
 </p>
 <p>Allowed values: [-1,1]</p>
 <p>Default value: 0</p>
 </div>
 <hr>
-<div class="refsect2" title='The "y-override" property'>
+<div class="refsect2">
 <a name="AwnOverlay--y-override"></a><h3>The <code class="literal">"y-override"</code> property</h3>
-<pre class="programlisting">  "y-override"               <a
-href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
->gdouble</a>               : Read / Write / Construct</pre>
+<pre class="programlisting">  "y-override"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write / Construct</pre>
 <p>
 Overrides the y coordinates.  In most cases if you're using this then you 
-are probably doing something wrong.</p>
-<p>
+are probably doing something wrong.
 </p>
 <p>Allowed values: [-10000,1000]</p>
 <p>Default value: -10000</p>
 </div>
 </div>
-<div class="refsect1" title="See Also">
+<div class="refsect1">
 <a name="libawn-awn-overlay.see-also"></a><h2>See Also</h2>
-#AwnOverlayable, <a class="link" href="AwnEffects.html" title="AwnEffects"><span class="type">AwnEffects</span></a>, <a class="link" href="AwnIcon.html" title="AwnIcon"><span class="type">AwnIcon</span></a>, <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a>, <a class="link" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon"><span class="type">AwnOverlayThemedIcon</span></a>, <a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber"><span class="type">AwnOverlayThrobber</span></a>
+<a class="link" href="libawn-awn-overlayable.html#AwnOverlayable"><span class="type">AwnOverlayable</span></a>, <a class="link" href="libawn-awn-effects.html#AwnEffects"><span class="type">AwnEffects</span></a>, <a class="link" href="libawn-awn-icon.html#AwnIcon"><span class="type">AwnIcon</span></a>, <a class="link" href="AwnOverlayText.html" title="AwnOverlayText"><span class="type">AwnOverlayText</span></a>, <a class="link" href="AwnOverlayThemedIcon.html" title="AwnOverlayThemedIcon"><span class="type">AwnOverlayThemedIcon</span></a>, <a class="link" href="AwnOverlayThrobber.html" title="AwnOverlayThrobber"><span class="type">AwnOverlayThrobber</span></a>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.11</div>
+          Generated by GTK-Doc V1.17</div>
 </body>
 </html>

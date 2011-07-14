@@ -4,23 +4,23 @@
   <chapters>
     <sub name="API Reference" link="api-reference.html">
       <sub name="Applets" link="ch01.html">
-        <sub name="AwnApplet" link="AwnApplet.html"/>
-        <sub name="AwnAppletSimple" link="AwnAppletSimple.html"/>
+        <sub name="AwnApplet" link="libawn-awn-applet.html"/>
+        <sub name="AwnAppletSimple" link="libawn-awn-applet-simple.html"/>
       </sub>
       <sub name="Base Components" link="ch02.html">
-        <sub name="AwnBox" link="AwnBox.html"/>
+        <sub name="AwnBox" link="libawn-awn-box.html"/>
         <sub name="awn-config" link="libawn-awn-config.html"/>
-        <sub name="AwnDialog" link="AwnDialog.html"/>
-        <sub name="AwnEffects" link="AwnEffects.html"/>
-        <sub name="AwnImage" link="AwnImage.html"/>
+        <sub name="AwnDialog" link="libawn-awn-dialog.html"/>
+        <sub name="AwnEffects" link="libawn-awn-effects.html"/>
+        <sub name="AwnImage" link="libawn-awn-image.html"/>
         <sub name="AwnLabel" link="AwnLabel.html"/>
-        <sub name="AwnTooltip" link="AwnTooltip.html"/>
+        <sub name="AwnTooltip" link="libawn-awn-tooltip.html"/>
         <sub name="awn-overlayable" link="libawn-awn-overlayable.html"/>
       </sub>
       <sub name="Icons" link="ch03.html">
-        <sub name="AwnIcon" link="AwnIcon.html"/>
-        <sub name="AwnThemedIcon" link="AwnThemedIcon.html"/>
-        <sub name="AwnIconBox" link="AwnIconBox.html"/>
+        <sub name="AwnIcon" link="libawn-awn-icon.html"/>
+        <sub name="AwnThemedIcon" link="libawn-awn-themed-icon.html"/>
+        <sub name="AwnIconBox" link="libawn-awn-icon-box.html"/>
       </sub>
       <sub name="Icon Overlays" link="ch04.html">
         <sub name="awn-overlay" link="libawn-awn-overlay.html"/>
@@ -33,252 +33,253 @@
         <sub name="AwnOverlayProgressCircle" link="AwnOverlayProgressCircle.html"/>
       </sub>
       <sub name="Utilities" link="ch05.html">
-        <sub name="AwnAlignment" link="AwnAlignment.html"/>
+        <sub name="AwnAlignment" link="libawn-awn-alignment.html"/>
         <sub name="awn-defines" link="libawn-awn-defines.html"/>
         <sub name="awn-cairo-utils" link="libawn-awn-cairo-utils.html"/>
         <sub name="awn-utils" link="libawn-awn-utils.html"/>
       </sub>
+      <sub name="Index" link="index-all.html"/>
     </sub>
   </chapters>
   <functions>
-    <function name="AwnAppletPrivate" link="AwnApplet.html#AwnAppletPrivate"/>
-    <function name="AwnApplet" link="AwnApplet.html#AwnApplet-struct"/>
-    <function name="AwnAppletInitFunc ()" link="AwnApplet.html#AwnAppletInitFunc"/>
-    <function name="AwnAppletInitPFunc ()" link="AwnApplet.html#AwnAppletInitPFunc"/>
-    <function name="awn_applet_new ()" link="AwnApplet.html#awn-applet-new"/>
-    <function name="awn_applet_get_canonical_name ()" link="AwnApplet.html#awn-applet-get-canonical-name"/>
-    <function name="awn_applet_get_pos_type ()" link="AwnApplet.html#awn-applet-get-pos-type"/>
-    <function name="awn_applet_set_pos_type ()" link="AwnApplet.html#awn-applet-set-pos-type"/>
-    <function name="awn_applet_get_path_type ()" link="AwnApplet.html#awn-applet-get-path-type"/>
-    <function name="awn_applet_set_path_type ()" link="AwnApplet.html#awn-applet-set-path-type"/>
-    <function name="awn_applet_get_offset ()" link="AwnApplet.html#awn-applet-get-offset"/>
-    <function name="awn_applet_get_offset_at ()" link="AwnApplet.html#awn-applet-get-offset-at"/>
-    <function name="awn_applet_set_offset ()" link="AwnApplet.html#awn-applet-set-offset"/>
-    <function name="awn_applet_get_size ()" link="AwnApplet.html#awn-applet-get-size"/>
-    <function name="awn_applet_set_size ()" link="AwnApplet.html#awn-applet-set-size"/>
-    <function name="awn_applet_get_uid ()" link="AwnApplet.html#awn-applet-get-uid"/>
-    <function name="awn_applet_set_uid ()" link="AwnApplet.html#awn-applet-set-uid"/>
-    <function name="awn_applet_get_behavior ()" link="AwnApplet.html#awn-applet-get-behavior"/>
-    <function name="awn_applet_set_behavior ()" link="AwnApplet.html#awn-applet-set-behavior"/>
-    <function name="awn_applet_create_default_menu ()" link="AwnApplet.html#awn-applet-create-default-menu"/>
-    <function name="awn_applet_inhibit_autohide ()" link="AwnApplet.html#awn-applet-inhibit-autohide"/>
-    <function name="awn_applet_uninhibit_autohide ()" link="AwnApplet.html#awn-applet-uninhibit-autohide"/>
-    <function name="awn_applet_docklet_request ()" link="AwnApplet.html#awn-applet-docklet-request"/>
-    <function name="awn_applet_create_pref_item ()" link="AwnApplet.html#awn-applet-create-pref-item"/>
-    <function name="awn_applet_create_about_item ()" link="AwnApplet.html#awn-applet-create-about-item"/>
-    <function name="awn_applet_create_about_item_simple ()" link="AwnApplet.html#awn-applet-create-about-item-simple"/>
-    <function name="The &quot;canonical-name&quot; property" link="AwnApplet.html#AwnApplet--canonical-name"/>
-    <function name="The &quot;display-name&quot; property" link="AwnApplet.html#AwnApplet--display-name"/>
-    <function name="The &quot;max-size&quot; property" link="AwnApplet.html#AwnApplet--max-size"/>
-    <function name="The &quot;offset&quot; property" link="AwnApplet.html#AwnApplet--offset"/>
-    <function name="The &quot;offset-modifier&quot; property" link="AwnApplet.html#AwnApplet--offset-modifier"/>
-    <function name="The &quot;panel-id&quot; property" link="AwnApplet.html#AwnApplet--panel-id"/>
-    <function name="The &quot;panel-xid&quot; property" link="AwnApplet.html#AwnApplet--panel-xid"/>
-    <function name="The &quot;path-type&quot; property" link="AwnApplet.html#AwnApplet--path-type"/>
-    <function name="The &quot;position&quot; property" link="AwnApplet.html#AwnApplet--position"/>
-    <function name="The &quot;quit-on-delete&quot; property" link="AwnApplet.html#AwnApplet--quit-on-delete"/>
-    <function name="The &quot;show-all-on-embed&quot; property" link="AwnApplet.html#AwnApplet--show-all-on-embed"/>
-    <function name="The &quot;size&quot; property" link="AwnApplet.html#AwnApplet--size"/>
-    <function name="The &quot;uid&quot; property" link="AwnApplet.html#AwnApplet--uid"/>
-    <function name="The &quot;applet-deleted&quot; signal" link="AwnApplet.html#AwnApplet-applet-deleted"/>
-    <function name="The &quot;flags-changed&quot; signal" link="AwnApplet.html#AwnApplet-flags-changed"/>
-    <function name="The &quot;menu-creation&quot; signal" link="AwnApplet.html#AwnApplet-menu-creation"/>
-    <function name="The &quot;offset-changed&quot; signal" link="AwnApplet.html#AwnApplet-offset-changed"/>
-    <function name="The &quot;origin-changed&quot; signal" link="AwnApplet.html#AwnApplet-origin-changed"/>
-    <function name="The &quot;panel-configure-event&quot; signal" link="AwnApplet.html#AwnApplet-panel-configure-event"/>
-    <function name="The &quot;position-changed&quot; signal" link="AwnApplet.html#AwnApplet-position-changed"/>
-    <function name="The &quot;size-changed&quot; signal" link="AwnApplet.html#AwnApplet-size-changed"/>
-    <function name="AwnAppletSimplePrivate" link="AwnAppletSimple.html#AwnAppletSimplePrivate"/>
-    <function name="AwnAppletSimple" link="AwnAppletSimple.html#AwnAppletSimple-struct"/>
-    <function name="awn_applet_simple_new ()" link="AwnAppletSimple.html#awn-applet-simple-new"/>
-    <function name="awn_applet_simple_set_icon_pixbuf ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-pixbuf"/>
-    <function name="awn_applet_simple_set_icon_context ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-context"/>
-    <function name="awn_applet_simple_set_icon_surface ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-surface"/>
-    <function name="awn_applet_simple_set_icon_name ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-name"/>
-    <function name="awn_applet_simple_set_icon_info ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-info"/>
-    <function name="awn_applet_simple_set_icon_state ()" link="AwnAppletSimple.html#awn-applet-simple-set-icon-state"/>
-    <function name="awn_applet_simple_set_tooltip_text ()" link="AwnAppletSimple.html#awn-applet-simple-set-tooltip-text"/>
-    <function name="awn_applet_simple_get_tooltip_text ()" link="AwnAppletSimple.html#awn-applet-simple-get-tooltip-text"/>
-    <function name="awn_applet_simple_set_message ()" link="AwnAppletSimple.html#awn-applet-simple-set-message"/>
-    <function name="awn_applet_simple_get_message ()" link="AwnAppletSimple.html#awn-applet-simple-get-message"/>
-    <function name="awn_applet_simple_set_progress ()" link="AwnAppletSimple.html#awn-applet-simple-set-progress"/>
-    <function name="awn_applet_simple_get_progress ()" link="AwnAppletSimple.html#awn-applet-simple-get-progress"/>
-    <function name="awn_applet_simple_get_icon ()" link="AwnAppletSimple.html#awn-applet-simple-get-icon"/>
-    <function name="awn_applet_simple_set_effect ()" link="AwnAppletSimple.html#awn-applet-simple-set-effect"/>
-    <function name="The &quot;clicked&quot; signal" link="AwnAppletSimple.html#AwnAppletSimple-clicked"/>
-    <function name="The &quot;context-menu-popup&quot; signal" link="AwnAppletSimple.html#AwnAppletSimple-context-menu-popup"/>
-    <function name="The &quot;middle-clicked&quot; signal" link="AwnAppletSimple.html#AwnAppletSimple-middle-clicked"/>
-    <function name="AwnBoxPrivate" link="AwnBox.html#AwnBoxPrivate"/>
-    <function name="AwnBox" link="AwnBox.html#AwnBox-struct"/>
-    <function name="awn_box_new ()" link="AwnBox.html#awn-box-new"/>
-    <function name="awn_box_set_orientation ()" link="AwnBox.html#awn-box-set-orientation"/>
-    <function name="awn_box_set_orientation_from_pos_type ()" link="AwnBox.html#awn-box-set-orientation-from-pos-type"/>
+    <function name="AwnAppletPrivate" link="libawn-awn-applet.html#AwnAppletPrivate"/>
+    <function name="struct AwnApplet" link="libawn-awn-applet.html#AwnApplet-struct"/>
+    <function name="AwnAppletInitFunc ()" link="libawn-awn-applet.html#AwnAppletInitFunc"/>
+    <function name="AwnAppletInitPFunc ()" link="libawn-awn-applet.html#AwnAppletInitPFunc"/>
+    <function name="awn_applet_new ()" link="libawn-awn-applet.html#awn-applet-new"/>
+    <function name="awn_applet_get_canonical_name ()" link="libawn-awn-applet.html#awn-applet-get-canonical-name"/>
+    <function name="awn_applet_get_pos_type ()" link="libawn-awn-applet.html#awn-applet-get-pos-type"/>
+    <function name="awn_applet_set_pos_type ()" link="libawn-awn-applet.html#awn-applet-set-pos-type"/>
+    <function name="awn_applet_get_path_type ()" link="libawn-awn-applet.html#awn-applet-get-path-type"/>
+    <function name="awn_applet_set_path_type ()" link="libawn-awn-applet.html#awn-applet-set-path-type"/>
+    <function name="awn_applet_get_offset ()" link="libawn-awn-applet.html#awn-applet-get-offset"/>
+    <function name="awn_applet_get_offset_at ()" link="libawn-awn-applet.html#awn-applet-get-offset-at"/>
+    <function name="awn_applet_set_offset ()" link="libawn-awn-applet.html#awn-applet-set-offset"/>
+    <function name="awn_applet_get_size ()" link="libawn-awn-applet.html#awn-applet-get-size"/>
+    <function name="awn_applet_set_size ()" link="libawn-awn-applet.html#awn-applet-set-size"/>
+    <function name="awn_applet_get_uid ()" link="libawn-awn-applet.html#awn-applet-get-uid"/>
+    <function name="awn_applet_set_uid ()" link="libawn-awn-applet.html#awn-applet-set-uid"/>
+    <function name="awn_applet_get_behavior ()" link="libawn-awn-applet.html#awn-applet-get-behavior"/>
+    <function name="awn_applet_set_behavior ()" link="libawn-awn-applet.html#awn-applet-set-behavior"/>
+    <function name="awn_applet_create_default_menu ()" link="libawn-awn-applet.html#awn-applet-create-default-menu"/>
+    <function name="awn_applet_inhibit_autohide ()" link="libawn-awn-applet.html#awn-applet-inhibit-autohide"/>
+    <function name="awn_applet_uninhibit_autohide ()" link="libawn-awn-applet.html#awn-applet-uninhibit-autohide"/>
+    <function name="awn_applet_docklet_request ()" link="libawn-awn-applet.html#awn-applet-docklet-request"/>
+    <function name="awn_applet_create_pref_item ()" link="libawn-awn-applet.html#awn-applet-create-pref-item"/>
+    <function name="awn_applet_create_about_item ()" link="libawn-awn-applet.html#awn-applet-create-about-item"/>
+    <function name="awn_applet_create_about_item_simple ()" link="libawn-awn-applet.html#awn-applet-create-about-item-simple"/>
+    <function name="The &quot;canonical-name&quot; property" link="libawn-awn-applet.html#AwnApplet--canonical-name"/>
+    <function name="The &quot;display-name&quot; property" link="libawn-awn-applet.html#AwnApplet--display-name"/>
+    <function name="The &quot;max-size&quot; property" link="libawn-awn-applet.html#AwnApplet--max-size"/>
+    <function name="The &quot;offset&quot; property" link="libawn-awn-applet.html#AwnApplet--offset"/>
+    <function name="The &quot;offset-modifier&quot; property" link="libawn-awn-applet.html#AwnApplet--offset-modifier"/>
+    <function name="The &quot;panel-id&quot; property" link="libawn-awn-applet.html#AwnApplet--panel-id"/>
+    <function name="The &quot;panel-xid&quot; property" link="libawn-awn-applet.html#AwnApplet--panel-xid"/>
+    <function name="The &quot;path-type&quot; property" link="libawn-awn-applet.html#AwnApplet--path-type"/>
+    <function name="The &quot;position&quot; property" link="libawn-awn-applet.html#AwnApplet--position"/>
+    <function name="The &quot;quit-on-delete&quot; property" link="libawn-awn-applet.html#AwnApplet--quit-on-delete"/>
+    <function name="The &quot;show-all-on-embed&quot; property" link="libawn-awn-applet.html#AwnApplet--show-all-on-embed"/>
+    <function name="The &quot;size&quot; property" link="libawn-awn-applet.html#AwnApplet--size"/>
+    <function name="The &quot;uid&quot; property" link="libawn-awn-applet.html#AwnApplet--uid"/>
+    <function name="The &quot;applet-deleted&quot; signal" link="libawn-awn-applet.html#AwnApplet-applet-deleted"/>
+    <function name="The &quot;flags-changed&quot; signal" link="libawn-awn-applet.html#AwnApplet-flags-changed"/>
+    <function name="The &quot;menu-creation&quot; signal" link="libawn-awn-applet.html#AwnApplet-menu-creation"/>
+    <function name="The &quot;offset-changed&quot; signal" link="libawn-awn-applet.html#AwnApplet-offset-changed"/>
+    <function name="The &quot;origin-changed&quot; signal" link="libawn-awn-applet.html#AwnApplet-origin-changed"/>
+    <function name="The &quot;panel-configure-event&quot; signal" link="libawn-awn-applet.html#AwnApplet-panel-configure-event"/>
+    <function name="The &quot;position-changed&quot; signal" link="libawn-awn-applet.html#AwnApplet-position-changed"/>
+    <function name="The &quot;size-changed&quot; signal" link="libawn-awn-applet.html#AwnApplet-size-changed"/>
+    <function name="AwnAppletSimplePrivate" link="libawn-awn-applet-simple.html#AwnAppletSimplePrivate"/>
+    <function name="struct AwnAppletSimple" link="libawn-awn-applet-simple.html#AwnAppletSimple-struct"/>
+    <function name="awn_applet_simple_new ()" link="libawn-awn-applet-simple.html#awn-applet-simple-new"/>
+    <function name="awn_applet_simple_set_icon_pixbuf ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-icon-pixbuf"/>
+    <function name="awn_applet_simple_set_icon_context ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-icon-context"/>
+    <function name="awn_applet_simple_set_icon_surface ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-icon-surface"/>
+    <function name="awn_applet_simple_set_icon_name ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-icon-name"/>
+    <function name="awn_applet_simple_set_icon_info ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-icon-info"/>
+    <function name="awn_applet_simple_set_icon_state ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-icon-state"/>
+    <function name="awn_applet_simple_set_tooltip_text ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-tooltip-text"/>
+    <function name="awn_applet_simple_get_tooltip_text ()" link="libawn-awn-applet-simple.html#awn-applet-simple-get-tooltip-text"/>
+    <function name="awn_applet_simple_set_message ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-message"/>
+    <function name="awn_applet_simple_get_message ()" link="libawn-awn-applet-simple.html#awn-applet-simple-get-message"/>
+    <function name="awn_applet_simple_set_progress ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-progress"/>
+    <function name="awn_applet_simple_get_progress ()" link="libawn-awn-applet-simple.html#awn-applet-simple-get-progress"/>
+    <function name="awn_applet_simple_get_icon ()" link="libawn-awn-applet-simple.html#awn-applet-simple-get-icon"/>
+    <function name="awn_applet_simple_set_effect ()" link="libawn-awn-applet-simple.html#awn-applet-simple-set-effect"/>
+    <function name="The &quot;clicked&quot; signal" link="libawn-awn-applet-simple.html#AwnAppletSimple-clicked"/>
+    <function name="The &quot;context-menu-popup&quot; signal" link="libawn-awn-applet-simple.html#AwnAppletSimple-context-menu-popup"/>
+    <function name="The &quot;middle-clicked&quot; signal" link="libawn-awn-applet-simple.html#AwnAppletSimple-middle-clicked"/>
+    <function name="AwnBoxPrivate" link="libawn-awn-box.html#AwnBoxPrivate"/>
+    <function name="struct AwnBox" link="libawn-awn-box.html#AwnBox-struct"/>
+    <function name="awn_box_new ()" link="libawn-awn-box.html#awn-box-new"/>
+    <function name="awn_box_set_orientation ()" link="libawn-awn-box.html#awn-box-set-orientation"/>
+    <function name="awn_box_set_orientation_from_pos_type ()" link="libawn-awn-box.html#awn-box-set-orientation-from-pos-type"/>
     <function name="awn_config_get_default ()" link="libawn-awn-config.html#awn-config-get-default"/>
     <function name="awn_config_get_default_for_applet ()" link="libawn-awn-config.html#awn-config-get-default-for-applet"/>
     <function name="awn_config_get_default_for_applet_by_info ()" link="libawn-awn-config.html#awn-config-get-default-for-applet-by-info"/>
     <function name="awn_config_free ()" link="libawn-awn-config.html#awn-config-free"/>
-    <function name="AwnDialogPrivate" link="AwnDialog.html#AwnDialogPrivate"/>
-    <function name="AwnDialog" link="AwnDialog.html#AwnDialog-struct"/>
-    <function name="awn_dialog_new ()" link="AwnDialog.html#awn-dialog-new"/>
-    <function name="awn_dialog_new_for_widget ()" link="AwnDialog.html#awn-dialog-new-for-widget"/>
-    <function name="awn_dialog_new_for_widget_with_applet ()" link="AwnDialog.html#awn-dialog-new-for-widget-with-applet"/>
-    <function name="awn_dialog_set_padding ()" link="AwnDialog.html#awn-dialog-set-padding"/>
-    <function name="The &quot;anchor&quot; property" link="AwnDialog.html#AwnDialog--anchor"/>
-    <function name="The &quot;anchor-applet&quot; property" link="AwnDialog.html#AwnDialog--anchor-applet"/>
-    <function name="The &quot;anchored&quot; property" link="AwnDialog.html#AwnDialog--anchored"/>
-    <function name="The &quot;border&quot; property" link="AwnDialog.html#AwnDialog--border"/>
-    <function name="The &quot;dialog-bg&quot; property" link="AwnDialog.html#AwnDialog--dialog-bg"/>
-    <function name="The &quot;effects-hilight&quot; property" link="AwnDialog.html#AwnDialog--effects-hilight"/>
-    <function name="The &quot;hide-on-esc&quot; property" link="AwnDialog.html#AwnDialog--hide-on-esc"/>
-    <function name="The &quot;hide-on-unfocus&quot; property" link="AwnDialog.html#AwnDialog--hide-on-unfocus"/>
-    <function name="The &quot;hilight&quot; property" link="AwnDialog.html#AwnDialog--hilight"/>
-    <function name="The &quot;position&quot; property" link="AwnDialog.html#AwnDialog--position"/>
-    <function name="The &quot;title-bg&quot; property" link="AwnDialog.html#AwnDialog--title-bg"/>
-    <function name="The &quot;window-offset&quot; property" link="AwnDialog.html#AwnDialog--window-offset"/>
-    <function name="The &quot;window-padding&quot; property" link="AwnDialog.html#AwnDialog--window-padding"/>
-    <function name="enum AwnEffect" link="AwnEffects.html#AwnEffect"/>
-    <function name="AwnEffectsPrivate" link="AwnEffects.html#AwnEffectsPrivate"/>
-    <function name="AwnEffects" link="AwnEffects.html#AwnEffects-struct"/>
-    <function name="awn_effects_new_for_widget ()" link="AwnEffects.html#awn-effects-new-for-widget"/>
-    <function name="awn_effects_start ()" link="AwnEffects.html#awn-effects-start"/>
-    <function name="awn_effects_stop ()" link="AwnEffects.html#awn-effects-stop"/>
-    <function name="awn_effects_start_ex ()" link="AwnEffects.html#awn-effects-start-ex"/>
-    <function name="awn_effects_set_icon_size ()" link="AwnEffects.html#awn-effects-set-icon-size"/>
-    <function name="awn_effects_cairo_create ()" link="AwnEffects.html#awn-effects-cairo-create"/>
-    <function name="awn_effects_cairo_create_clipped ()" link="AwnEffects.html#awn-effects-cairo-create-clipped"/>
-    <function name="awn_effects_cairo_destroy ()" link="AwnEffects.html#awn-effects-cairo-destroy"/>
-    <function name="awn_effects_add_overlay ()" link="AwnEffects.html#awn-effects-add-overlay"/>
-    <function name="awn_effects_remove_overlay ()" link="AwnEffects.html#awn-effects-remove-overlay"/>
-    <function name="awn_effects_get_overlays ()" link="AwnEffects.html#awn-effects-get-overlays"/>
-    <function name="awn_effects_redraw ()" link="AwnEffects.html#awn-effects-redraw"/>
-    <function name="awn_effects_main_effect_loop ()" link="AwnEffects.html#awn-effects-main-effect-loop"/>
-    <function name="awn_effects_emit_anim_start ()" link="AwnEffects.html#awn-effects-emit-anim-start"/>
-    <function name="awn_effects_emit_anim_end ()" link="AwnEffects.html#awn-effects-emit-anim-end"/>
-    <function name="The &quot;active&quot; property" link="AwnEffects.html#AwnEffects--active"/>
-    <function name="The &quot;active-rect-color&quot; property" link="AwnEffects.html#AwnEffects--active-rect-color"/>
-    <function name="The &quot;active-rect-outline&quot; property" link="AwnEffects.html#AwnEffects--active-rect-outline"/>
-    <function name="The &quot;arrow-png&quot; property" link="AwnEffects.html#AwnEffects--arrow-png"/>
-    <function name="The &quot;arrows-count&quot; property" link="AwnEffects.html#AwnEffects--arrows-count"/>
-    <function name="The &quot;border-clip&quot; property" link="AwnEffects.html#AwnEffects--border-clip"/>
-    <function name="The &quot;custom-active-png&quot; property" link="AwnEffects.html#AwnEffects--custom-active-png"/>
-    <function name="The &quot;depressed&quot; property" link="AwnEffects.html#AwnEffects--depressed"/>
-    <function name="The &quot;dot-color&quot; property" link="AwnEffects.html#AwnEffects--dot-color"/>
-    <function name="The &quot;effects&quot; property" link="AwnEffects.html#AwnEffects--effects"/>
-    <function name="The &quot;icon-alpha&quot; property" link="AwnEffects.html#AwnEffects--icon-alpha"/>
-    <function name="The &quot;icon-offset&quot; property" link="AwnEffects.html#AwnEffects--icon-offset"/>
-    <function name="The &quot;indirect-paint&quot; property" link="AwnEffects.html#AwnEffects--indirect-paint"/>
-    <function name="The &quot;make-shadow&quot; property" link="AwnEffects.html#AwnEffects--make-shadow"/>
-    <function name="The &quot;no-clear&quot; property" link="AwnEffects.html#AwnEffects--no-clear"/>
-    <function name="The &quot;position&quot; property" link="AwnEffects.html#AwnEffects--position"/>
-    <function name="The &quot;progress&quot; property" link="AwnEffects.html#AwnEffects--progress"/>
-    <function name="The &quot;reflection-alpha&quot; property" link="AwnEffects.html#AwnEffects--reflection-alpha"/>
-    <function name="The &quot;reflection-offset&quot; property" link="AwnEffects.html#AwnEffects--reflection-offset"/>
-    <function name="The &quot;reflection-visible&quot; property" link="AwnEffects.html#AwnEffects--reflection-visible"/>
-    <function name="The &quot;spotlight-png&quot; property" link="AwnEffects.html#AwnEffects--spotlight-png"/>
-    <function name="The &quot;widget&quot; property" link="AwnEffects.html#AwnEffects--widget"/>
-    <function name="The &quot;animation-end&quot; signal" link="AwnEffects.html#AwnEffects-animation-end"/>
-    <function name="The &quot;animation-start&quot; signal" link="AwnEffects.html#AwnEffects-animation-start"/>
-    <function name="AwnImagePrivate" link="AwnImage.html#AwnImagePrivate"/>
-    <function name="AwnImage" link="AwnImage.html#AwnImage-struct"/>
-    <function name="awn_image_new ()" link="AwnImage.html#awn-image-new"/>
+    <function name="AwnDialogPrivate" link="libawn-awn-dialog.html#AwnDialogPrivate"/>
+    <function name="struct AwnDialog" link="libawn-awn-dialog.html#AwnDialog-struct"/>
+    <function name="awn_dialog_new ()" link="libawn-awn-dialog.html#awn-dialog-new"/>
+    <function name="awn_dialog_new_for_widget ()" link="libawn-awn-dialog.html#awn-dialog-new-for-widget"/>
+    <function name="awn_dialog_new_for_widget_with_applet ()" link="libawn-awn-dialog.html#awn-dialog-new-for-widget-with-applet"/>
+    <function name="awn_dialog_set_padding ()" link="libawn-awn-dialog.html#awn-dialog-set-padding"/>
+    <function name="The &quot;anchor&quot; property" link="libawn-awn-dialog.html#AwnDialog--anchor"/>
+    <function name="The &quot;anchor-applet&quot; property" link="libawn-awn-dialog.html#AwnDialog--anchor-applet"/>
+    <function name="The &quot;anchored&quot; property" link="libawn-awn-dialog.html#AwnDialog--anchored"/>
+    <function name="The &quot;border&quot; property" link="libawn-awn-dialog.html#AwnDialog--border"/>
+    <function name="The &quot;dialog-bg&quot; property" link="libawn-awn-dialog.html#AwnDialog--dialog-bg"/>
+    <function name="The &quot;effects-hilight&quot; property" link="libawn-awn-dialog.html#AwnDialog--effects-hilight"/>
+    <function name="The &quot;hide-on-esc&quot; property" link="libawn-awn-dialog.html#AwnDialog--hide-on-esc"/>
+    <function name="The &quot;hide-on-unfocus&quot; property" link="libawn-awn-dialog.html#AwnDialog--hide-on-unfocus"/>
+    <function name="The &quot;hilight&quot; property" link="libawn-awn-dialog.html#AwnDialog--hilight"/>
+    <function name="The &quot;position&quot; property" link="libawn-awn-dialog.html#AwnDialog--position"/>
+    <function name="The &quot;title-bg&quot; property" link="libawn-awn-dialog.html#AwnDialog--title-bg"/>
+    <function name="The &quot;window-offset&quot; property" link="libawn-awn-dialog.html#AwnDialog--window-offset"/>
+    <function name="The &quot;window-padding&quot; property" link="libawn-awn-dialog.html#AwnDialog--window-padding"/>
+    <function name="enum AwnEffect" link="libawn-awn-effects.html#AwnEffect"/>
+    <function name="AwnEffectsPrivate" link="libawn-awn-effects.html#AwnEffectsPrivate"/>
+    <function name="struct AwnEffects" link="libawn-awn-effects.html#AwnEffects-struct"/>
+    <function name="awn_effects_new_for_widget ()" link="libawn-awn-effects.html#awn-effects-new-for-widget"/>
+    <function name="awn_effects_start ()" link="libawn-awn-effects.html#awn-effects-start"/>
+    <function name="awn_effects_stop ()" link="libawn-awn-effects.html#awn-effects-stop"/>
+    <function name="awn_effects_start_ex ()" link="libawn-awn-effects.html#awn-effects-start-ex"/>
+    <function name="awn_effects_set_icon_size ()" link="libawn-awn-effects.html#awn-effects-set-icon-size"/>
+    <function name="awn_effects_cairo_create ()" link="libawn-awn-effects.html#awn-effects-cairo-create"/>
+    <function name="awn_effects_cairo_create_clipped ()" link="libawn-awn-effects.html#awn-effects-cairo-create-clipped"/>
+    <function name="awn_effects_cairo_destroy ()" link="libawn-awn-effects.html#awn-effects-cairo-destroy"/>
+    <function name="awn_effects_add_overlay ()" link="libawn-awn-effects.html#awn-effects-add-overlay"/>
+    <function name="awn_effects_remove_overlay ()" link="libawn-awn-effects.html#awn-effects-remove-overlay"/>
+    <function name="awn_effects_get_overlays ()" link="libawn-awn-effects.html#awn-effects-get-overlays"/>
+    <function name="awn_effects_redraw ()" link="libawn-awn-effects.html#awn-effects-redraw"/>
+    <function name="awn_effects_main_effect_loop ()" link="libawn-awn-effects.html#awn-effects-main-effect-loop"/>
+    <function name="awn_effects_emit_anim_start ()" link="libawn-awn-effects.html#awn-effects-emit-anim-start"/>
+    <function name="awn_effects_emit_anim_end ()" link="libawn-awn-effects.html#awn-effects-emit-anim-end"/>
+    <function name="The &quot;active&quot; property" link="libawn-awn-effects.html#AwnEffects--active"/>
+    <function name="The &quot;active-rect-color&quot; property" link="libawn-awn-effects.html#AwnEffects--active-rect-color"/>
+    <function name="The &quot;active-rect-outline&quot; property" link="libawn-awn-effects.html#AwnEffects--active-rect-outline"/>
+    <function name="The &quot;arrow-png&quot; property" link="libawn-awn-effects.html#AwnEffects--arrow-png"/>
+    <function name="The &quot;arrows-count&quot; property" link="libawn-awn-effects.html#AwnEffects--arrows-count"/>
+    <function name="The &quot;border-clip&quot; property" link="libawn-awn-effects.html#AwnEffects--border-clip"/>
+    <function name="The &quot;custom-active-png&quot; property" link="libawn-awn-effects.html#AwnEffects--custom-active-png"/>
+    <function name="The &quot;depressed&quot; property" link="libawn-awn-effects.html#AwnEffects--depressed"/>
+    <function name="The &quot;dot-color&quot; property" link="libawn-awn-effects.html#AwnEffects--dot-color"/>
+    <function name="The &quot;effects&quot; property" link="libawn-awn-effects.html#AwnEffects--effects"/>
+    <function name="The &quot;icon-alpha&quot; property" link="libawn-awn-effects.html#AwnEffects--icon-alpha"/>
+    <function name="The &quot;icon-offset&quot; property" link="libawn-awn-effects.html#AwnEffects--icon-offset"/>
+    <function name="The &quot;indirect-paint&quot; property" link="libawn-awn-effects.html#AwnEffects--indirect-paint"/>
+    <function name="The &quot;make-shadow&quot; property" link="libawn-awn-effects.html#AwnEffects--make-shadow"/>
+    <function name="The &quot;no-clear&quot; property" link="libawn-awn-effects.html#AwnEffects--no-clear"/>
+    <function name="The &quot;position&quot; property" link="libawn-awn-effects.html#AwnEffects--position"/>
+    <function name="The &quot;progress&quot; property" link="libawn-awn-effects.html#AwnEffects--progress"/>
+    <function name="The &quot;reflection-alpha&quot; property" link="libawn-awn-effects.html#AwnEffects--reflection-alpha"/>
+    <function name="The &quot;reflection-offset&quot; property" link="libawn-awn-effects.html#AwnEffects--reflection-offset"/>
+    <function name="The &quot;reflection-visible&quot; property" link="libawn-awn-effects.html#AwnEffects--reflection-visible"/>
+    <function name="The &quot;spotlight-png&quot; property" link="libawn-awn-effects.html#AwnEffects--spotlight-png"/>
+    <function name="The &quot;widget&quot; property" link="libawn-awn-effects.html#AwnEffects--widget"/>
+    <function name="The &quot;animation-end&quot; signal" link="libawn-awn-effects.html#AwnEffects-animation-end"/>
+    <function name="The &quot;animation-start&quot; signal" link="libawn-awn-effects.html#AwnEffects-animation-start"/>
+    <function name="AwnImagePrivate" link="libawn-awn-image.html#AwnImagePrivate"/>
+    <function name="AwnImage" link="libawn-awn-image.html#AwnImage-struct"/>
+    <function name="awn_image_new ()" link="libawn-awn-image.html#awn-image-new"/>
     <function name="AwnLabel" link="AwnLabel.html#AwnLabel-struct"/>
     <function name="awn_label_new ()" link="AwnLabel.html#awn-label-new"/>
     <function name="The &quot;font-mode&quot; property" link="AwnLabel.html#AwnLabel--font-mode"/>
     <function name="The &quot;text-color&quot; property" link="AwnLabel.html#AwnLabel--text-color"/>
     <function name="The &quot;text-outline-color&quot; property" link="AwnLabel.html#AwnLabel--text-outline-color"/>
     <function name="The &quot;text-outline-width&quot; property" link="AwnLabel.html#AwnLabel--text-outline-width"/>
-    <function name="AwnTooltipPrivate" link="AwnTooltip.html#AwnTooltipPrivate"/>
-    <function name="AwnTooltip" link="AwnTooltip.html#AwnTooltip-struct"/>
-    <function name="awn_tooltip_new_for_widget ()" link="AwnTooltip.html#awn-tooltip-new-for-widget"/>
-    <function name="awn_tooltip_set_text ()" link="AwnTooltip.html#awn-tooltip-set-text"/>
-    <function name="awn_tooltip_get_text ()" link="AwnTooltip.html#awn-tooltip-get-text"/>
-    <function name="awn_tooltip_set_focus_widget ()" link="AwnTooltip.html#awn-tooltip-set-focus-widget"/>
-    <function name="awn_tooltip_set_font_name ()" link="AwnTooltip.html#awn-tooltip-set-font-name"/>
-    <function name="awn_tooltip_set_font_color ()" link="AwnTooltip.html#awn-tooltip-set-font-color"/>
-    <function name="awn_tooltip_set_background_color ()" link="AwnTooltip.html#awn-tooltip-set-background-color"/>
-    <function name="awn_tooltip_set_delay ()" link="AwnTooltip.html#awn-tooltip-set-delay"/>
-    <function name="awn_tooltip_get_delay ()" link="AwnTooltip.html#awn-tooltip-get-delay"/>
-    <function name="awn_tooltip_update_position ()" link="AwnTooltip.html#awn-tooltip-update-position"/>
-    <function name="awn_tooltip_set_position_hint ()" link="AwnTooltip.html#awn-tooltip-set-position-hint"/>
-    <function name="The &quot;delay&quot; property" link="AwnTooltip.html#AwnTooltip--delay"/>
-    <function name="The &quot;focus-widget&quot; property" link="AwnTooltip.html#AwnTooltip--focus-widget"/>
-    <function name="The &quot;offset&quot; property" link="AwnTooltip.html#AwnTooltip--offset"/>
-    <function name="The &quot;smart-behavior&quot; property" link="AwnTooltip.html#AwnTooltip--smart-behavior"/>
-    <function name="The &quot;toggle-on-click&quot; property" link="AwnTooltip.html#AwnTooltip--toggle-on-click"/>
-    <function name="The &quot;tooltip-bg-color&quot; property" link="AwnTooltip.html#AwnTooltip--tooltip-bg-color"/>
-    <function name="The &quot;tooltip-font-color&quot; property" link="AwnTooltip.html#AwnTooltip--tooltip-font-color"/>
-    <function name="The &quot;tooltip-font-name&quot; property" link="AwnTooltip.html#AwnTooltip--tooltip-font-name"/>
-    <function name="The &quot;tooltip-outline-color&quot; property" link="AwnTooltip.html#AwnTooltip--tooltip-outline-color"/>
-    <function name="AWN_OVERLAYABLE_GET_INTERFACE()" link="libawn-awn-overlayable.html#AWN-OVERLAYABLE-GET-INTERFACE--CAPS"/>
+    <function name="AwnTooltipPrivate" link="libawn-awn-tooltip.html#AwnTooltipPrivate"/>
+    <function name="struct AwnTooltip" link="libawn-awn-tooltip.html#AwnTooltip-struct"/>
+    <function name="awn_tooltip_new_for_widget ()" link="libawn-awn-tooltip.html#awn-tooltip-new-for-widget"/>
+    <function name="awn_tooltip_set_text ()" link="libawn-awn-tooltip.html#awn-tooltip-set-text"/>
+    <function name="awn_tooltip_get_text ()" link="libawn-awn-tooltip.html#awn-tooltip-get-text"/>
+    <function name="awn_tooltip_set_focus_widget ()" link="libawn-awn-tooltip.html#awn-tooltip-set-focus-widget"/>
+    <function name="awn_tooltip_set_font_name ()" link="libawn-awn-tooltip.html#awn-tooltip-set-font-name"/>
+    <function name="awn_tooltip_set_font_color ()" link="libawn-awn-tooltip.html#awn-tooltip-set-font-color"/>
+    <function name="awn_tooltip_set_background_color ()" link="libawn-awn-tooltip.html#awn-tooltip-set-background-color"/>
+    <function name="awn_tooltip_set_delay ()" link="libawn-awn-tooltip.html#awn-tooltip-set-delay"/>
+    <function name="awn_tooltip_get_delay ()" link="libawn-awn-tooltip.html#awn-tooltip-get-delay"/>
+    <function name="awn_tooltip_update_position ()" link="libawn-awn-tooltip.html#awn-tooltip-update-position"/>
+    <function name="awn_tooltip_set_position_hint ()" link="libawn-awn-tooltip.html#awn-tooltip-set-position-hint"/>
+    <function name="The &quot;delay&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--delay"/>
+    <function name="The &quot;focus-widget&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--focus-widget"/>
+    <function name="The &quot;offset&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--offset"/>
+    <function name="The &quot;smart-behavior&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--smart-behavior"/>
+    <function name="The &quot;toggle-on-click&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--toggle-on-click"/>
+    <function name="The &quot;tooltip-bg-color&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--tooltip-bg-color"/>
+    <function name="The &quot;tooltip-font-color&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--tooltip-font-color"/>
+    <function name="The &quot;tooltip-font-name&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--tooltip-font-name"/>
+    <function name="The &quot;tooltip-outline-color&quot; property" link="libawn-awn-tooltip.html#AwnTooltip--tooltip-outline-color"/>
+    <function name="AWN_OVERLAYABLE_GET_INTERFACE()" link="libawn-awn-overlayable.html#AWN-OVERLAYABLE-GET-INTERFACE:CAPS"/>
     <function name="AwnOverlayable" link="libawn-awn-overlayable.html#AwnOverlayable-struct"/>
-    <function name="AwnOverlayableIface" link="libawn-awn-overlayable.html#AwnOverlayableIface"/>
+    <function name="struct AwnOverlayableIface" link="libawn-awn-overlayable.html#AwnOverlayableIface"/>
     <function name="awn_overlayable_get_effects ()" link="libawn-awn-overlayable.html#awn-overlayable-get-effects"/>
     <function name="awn_overlayable_add_overlay ()" link="libawn-awn-overlayable.html#awn-overlayable-add-overlay"/>
     <function name="awn_overlayable_remove_overlay ()" link="libawn-awn-overlayable.html#awn-overlayable-remove-overlay"/>
     <function name="awn_overlayable_get_overlays ()" link="libawn-awn-overlayable.html#awn-overlayable-get-overlays"/>
-    <function name="AwnIconPrivate" link="AwnIcon.html#AwnIconPrivate"/>
-    <function name="AwnIcon" link="AwnIcon.html#AwnIcon-struct"/>
-    <function name="awn_icon_new ()" link="AwnIcon.html#awn-icon-new"/>
-    <function name="awn_icon_set_pos_type ()" link="AwnIcon.html#awn-icon-set-pos-type"/>
-    <function name="awn_icon_get_pos_type ()" link="AwnIcon.html#awn-icon-get-pos-type"/>
-    <function name="awn_icon_set_offset ()" link="AwnIcon.html#awn-icon-set-offset"/>
-    <function name="awn_icon_get_offset ()" link="AwnIcon.html#awn-icon-get-offset"/>
-    <function name="awn_icon_set_effect ()" link="AwnIcon.html#awn-icon-set-effect"/>
-    <function name="awn_icon_set_from_pixbuf ()" link="AwnIcon.html#awn-icon-set-from-pixbuf"/>
-    <function name="awn_icon_set_from_context ()" link="AwnIcon.html#awn-icon-set-from-context"/>
-    <function name="awn_icon_set_from_surface ()" link="AwnIcon.html#awn-icon-set-from-surface"/>
-    <function name="awn_icon_set_custom_paint ()" link="AwnIcon.html#awn-icon-set-custom-paint"/>
-    <function name="awn_icon_get_tooltip ()" link="AwnIcon.html#awn-icon-get-tooltip"/>
-    <function name="awn_icon_set_tooltip_text ()" link="AwnIcon.html#awn-icon-set-tooltip-text"/>
-    <function name="awn_icon_get_tooltip_text ()" link="AwnIcon.html#awn-icon-get-tooltip-text"/>
-    <function name="awn_icon_set_is_active ()" link="AwnIcon.html#awn-icon-set-is-active"/>
-    <function name="awn_icon_get_is_active ()" link="AwnIcon.html#awn-icon-get-is-active"/>
-    <function name="awn_icon_set_indicator_count ()" link="AwnIcon.html#awn-icon-set-indicator-count"/>
-    <function name="awn_icon_get_indicator_count ()" link="AwnIcon.html#awn-icon-get-indicator-count"/>
-    <function name="awn_icon_get_hover_effects ()" link="AwnIcon.html#awn-icon-get-hover-effects"/>
-    <function name="awn_icon_set_hover_effects ()" link="AwnIcon.html#awn-icon-set-hover-effects"/>
-    <function name="awn_icon_clicked ()" link="AwnIcon.html#awn-icon-clicked"/>
-    <function name="awn_icon_middle_clicked ()" link="AwnIcon.html#awn-icon-middle-clicked"/>
-    <function name="The &quot;bind-effects&quot; property" link="AwnIcon.html#AwnIcon--bind-effects"/>
-    <function name="The &quot;icon-height&quot; property" link="AwnIcon.html#AwnIcon--icon-height"/>
-    <function name="The &quot;icon-width&quot; property" link="AwnIcon.html#AwnIcon--icon-width"/>
-    <function name="The &quot;long-press-timeout&quot; property" link="AwnIcon.html#AwnIcon--long-press-timeout"/>
-    <function name="The &quot;clicked&quot; signal" link="AwnIcon.html#AwnIcon-clicked"/>
-    <function name="The &quot;context-menu-popup&quot; signal" link="AwnIcon.html#AwnIcon-context-menu-popup"/>
-    <function name="The &quot;long-press&quot; signal" link="AwnIcon.html#AwnIcon-long-press"/>
-    <function name="The &quot;middle-clicked&quot; signal" link="AwnIcon.html#AwnIcon-middle-clicked"/>
-    <function name="The &quot;size-changed&quot; signal" link="AwnIcon.html#AwnIcon-size-changed"/>
-    <function name="AwnThemedIconPrivate" link="AwnThemedIcon.html#AwnThemedIconPrivate"/>
-    <function name="AwnThemedIcon" link="AwnThemedIcon.html#AwnThemedIcon-struct"/>
-    <function name="awn_themed_icon_new ()" link="AwnThemedIcon.html#awn-themed-icon-new"/>
-    <function name="awn_themed_icon_set_state ()" link="AwnThemedIcon.html#awn-themed-icon-set-state"/>
-    <function name="awn_themed_icon_get_state ()" link="AwnThemedIcon.html#awn-themed-icon-get-state"/>
-    <function name="awn_themed_icon_set_size ()" link="AwnThemedIcon.html#awn-themed-icon-set-size"/>
-    <function name="awn_themed_icon_get_size ()" link="AwnThemedIcon.html#awn-themed-icon-get-size"/>
-    <function name="awn_themed_icon_get_default_theme_name ()" link="AwnThemedIcon.html#awn-themed-icon-get-default-theme-name"/>
-    <function name="awn_themed_icon_set_info ()" link="AwnThemedIcon.html#awn-themed-icon-set-info"/>
-    <function name="awn_themed_icon_set_info_simple ()" link="AwnThemedIcon.html#awn-themed-icon-set-info-simple"/>
-    <function name="awn_themed_icon_set_info_append ()" link="AwnThemedIcon.html#awn-themed-icon-set-info-append"/>
-    <function name="awn_themed_icon_set_applet_info ()" link="AwnThemedIcon.html#awn-themed-icon-set-applet-info"/>
-    <function name="awn_themed_icon_override_gtk_theme ()" link="AwnThemedIcon.html#awn-themed-icon-override-gtk-theme"/>
-    <function name="awn_themed_icon_get_icon_at_size ()" link="AwnThemedIcon.html#awn-themed-icon-get-icon-at-size"/>
-    <function name="awn_themed_icon_clear_icons ()" link="AwnThemedIcon.html#awn-themed-icon-clear-icons"/>
-    <function name="awn_themed_icon_clear_info ()" link="AwnThemedIcon.html#awn-themed-icon-clear-info"/>
-    <function name="awn_themed_icon_preload_icon ()" link="AwnThemedIcon.html#awn-themed-icon-preload-icon"/>
-    <function name="awn_themed_icon_get_awn_theme ()" link="AwnThemedIcon.html#awn-themed-icon-get-awn-theme"/>
-    <function name="awn_themed_icon_create_custom_icon_item ()" link="AwnThemedIcon.html#awn-themed-icon-create-custom-icon-item"/>
-    <function name="awn_themed_icon_create_remove_custom_icon_item ()" link="AwnThemedIcon.html#awn-themed-icon-create-remove-custom-icon-item"/>
-    <function name="awn_themed_icon_drag_data_received ()" link="AwnThemedIcon.html#awn-themed-icon-drag-data-received"/>
-    <function name="The &quot;applet-name&quot; property" link="AwnThemedIcon.html#AwnThemedIcon--applet-name"/>
-    <function name="The &quot;drag-and-drop&quot; property" link="AwnThemedIcon.html#AwnThemedIcon--drag-and-drop"/>
-    <function name="The &quot;rotate&quot; property" link="AwnThemedIcon.html#AwnThemedIcon--rotate"/>
-    <function name="AwnIconBoxPrivate" link="AwnIconBox.html#AwnIconBoxPrivate"/>
-    <function name="AwnIconBox" link="AwnIconBox.html#AwnIconBox-struct"/>
-    <function name="awn_icon_box_new ()" link="AwnIconBox.html#awn-icon-box-new"/>
-    <function name="awn_icon_box_new_for_applet ()" link="AwnIconBox.html#awn-icon-box-new-for-applet"/>
-    <function name="awn_icon_box_set_pos_type ()" link="AwnIconBox.html#awn-icon-box-set-pos-type"/>
-    <function name="awn_icon_box_set_offset ()" link="AwnIconBox.html#awn-icon-box-set-offset"/>
-    <function name="The &quot;applet&quot; property" link="AwnIconBox.html#AwnIconBox--applet"/>
+    <function name="AwnIconPrivate" link="libawn-awn-icon.html#AwnIconPrivate"/>
+    <function name="struct AwnIcon" link="libawn-awn-icon.html#AwnIcon-struct"/>
+    <function name="awn_icon_new ()" link="libawn-awn-icon.html#awn-icon-new"/>
+    <function name="awn_icon_set_pos_type ()" link="libawn-awn-icon.html#awn-icon-set-pos-type"/>
+    <function name="awn_icon_get_pos_type ()" link="libawn-awn-icon.html#awn-icon-get-pos-type"/>
+    <function name="awn_icon_set_offset ()" link="libawn-awn-icon.html#awn-icon-set-offset"/>
+    <function name="awn_icon_get_offset ()" link="libawn-awn-icon.html#awn-icon-get-offset"/>
+    <function name="awn_icon_set_effect ()" link="libawn-awn-icon.html#awn-icon-set-effect"/>
+    <function name="awn_icon_set_from_pixbuf ()" link="libawn-awn-icon.html#awn-icon-set-from-pixbuf"/>
+    <function name="awn_icon_set_from_context ()" link="libawn-awn-icon.html#awn-icon-set-from-context"/>
+    <function name="awn_icon_set_from_surface ()" link="libawn-awn-icon.html#awn-icon-set-from-surface"/>
+    <function name="awn_icon_set_custom_paint ()" link="libawn-awn-icon.html#awn-icon-set-custom-paint"/>
+    <function name="awn_icon_get_tooltip ()" link="libawn-awn-icon.html#awn-icon-get-tooltip"/>
+    <function name="awn_icon_set_tooltip_text ()" link="libawn-awn-icon.html#awn-icon-set-tooltip-text"/>
+    <function name="awn_icon_get_tooltip_text ()" link="libawn-awn-icon.html#awn-icon-get-tooltip-text"/>
+    <function name="awn_icon_set_is_active ()" link="libawn-awn-icon.html#awn-icon-set-is-active"/>
+    <function name="awn_icon_get_is_active ()" link="libawn-awn-icon.html#awn-icon-get-is-active"/>
+    <function name="awn_icon_set_indicator_count ()" link="libawn-awn-icon.html#awn-icon-set-indicator-count"/>
+    <function name="awn_icon_get_indicator_count ()" link="libawn-awn-icon.html#awn-icon-get-indicator-count"/>
+    <function name="awn_icon_get_hover_effects ()" link="libawn-awn-icon.html#awn-icon-get-hover-effects"/>
+    <function name="awn_icon_set_hover_effects ()" link="libawn-awn-icon.html#awn-icon-set-hover-effects"/>
+    <function name="awn_icon_clicked ()" link="libawn-awn-icon.html#awn-icon-clicked"/>
+    <function name="awn_icon_middle_clicked ()" link="libawn-awn-icon.html#awn-icon-middle-clicked"/>
+    <function name="The &quot;bind-effects&quot; property" link="libawn-awn-icon.html#AwnIcon--bind-effects"/>
+    <function name="The &quot;icon-height&quot; property" link="libawn-awn-icon.html#AwnIcon--icon-height"/>
+    <function name="The &quot;icon-width&quot; property" link="libawn-awn-icon.html#AwnIcon--icon-width"/>
+    <function name="The &quot;long-press-timeout&quot; property" link="libawn-awn-icon.html#AwnIcon--long-press-timeout"/>
+    <function name="The &quot;clicked&quot; signal" link="libawn-awn-icon.html#AwnIcon-clicked"/>
+    <function name="The &quot;context-menu-popup&quot; signal" link="libawn-awn-icon.html#AwnIcon-context-menu-popup"/>
+    <function name="The &quot;long-press&quot; signal" link="libawn-awn-icon.html#AwnIcon-long-press"/>
+    <function name="The &quot;middle-clicked&quot; signal" link="libawn-awn-icon.html#AwnIcon-middle-clicked"/>
+    <function name="The &quot;size-changed&quot; signal" link="libawn-awn-icon.html#AwnIcon-size-changed"/>
+    <function name="AwnThemedIconPrivate" link="libawn-awn-themed-icon.html#AwnThemedIconPrivate"/>
+    <function name="struct AwnThemedIcon" link="libawn-awn-themed-icon.html#AwnThemedIcon-struct"/>
+    <function name="awn_themed_icon_new ()" link="libawn-awn-themed-icon.html#awn-themed-icon-new"/>
+    <function name="awn_themed_icon_set_state ()" link="libawn-awn-themed-icon.html#awn-themed-icon-set-state"/>
+    <function name="awn_themed_icon_get_state ()" link="libawn-awn-themed-icon.html#awn-themed-icon-get-state"/>
+    <function name="awn_themed_icon_set_size ()" link="libawn-awn-themed-icon.html#awn-themed-icon-set-size"/>
+    <function name="awn_themed_icon_get_size ()" link="libawn-awn-themed-icon.html#awn-themed-icon-get-size"/>
+    <function name="awn_themed_icon_get_default_theme_name ()" link="libawn-awn-themed-icon.html#awn-themed-icon-get-default-theme-name"/>
+    <function name="awn_themed_icon_set_info ()" link="libawn-awn-themed-icon.html#awn-themed-icon-set-info"/>
+    <function name="awn_themed_icon_set_info_simple ()" link="libawn-awn-themed-icon.html#awn-themed-icon-set-info-simple"/>
+    <function name="awn_themed_icon_set_info_append ()" link="libawn-awn-themed-icon.html#awn-themed-icon-set-info-append"/>
+    <function name="awn_themed_icon_set_applet_info ()" link="libawn-awn-themed-icon.html#awn-themed-icon-set-applet-info"/>
+    <function name="awn_themed_icon_override_gtk_theme ()" link="libawn-awn-themed-icon.html#awn-themed-icon-override-gtk-theme"/>
+    <function name="awn_themed_icon_get_icon_at_size ()" link="libawn-awn-themed-icon.html#awn-themed-icon-get-icon-at-size"/>
+    <function name="awn_themed_icon_clear_icons ()" link="libawn-awn-themed-icon.html#awn-themed-icon-clear-icons"/>
+    <function name="awn_themed_icon_clear_info ()" link="libawn-awn-themed-icon.html#awn-themed-icon-clear-info"/>
+    <function name="awn_themed_icon_preload_icon ()" link="libawn-awn-themed-icon.html#awn-themed-icon-preload-icon"/>
+    <function name="awn_themed_icon_get_awn_theme ()" link="libawn-awn-themed-icon.html#awn-themed-icon-get-awn-theme"/>
+    <function name="awn_themed_icon_create_custom_icon_item ()" link="libawn-awn-themed-icon.html#awn-themed-icon-create-custom-icon-item"/>
+    <function name="awn_themed_icon_create_remove_custom_icon_item ()" link="libawn-awn-themed-icon.html#awn-themed-icon-create-remove-custom-icon-item"/>
+    <function name="awn_themed_icon_drag_data_received ()" link="libawn-awn-themed-icon.html#awn-themed-icon-drag-data-received"/>
+    <function name="The &quot;applet-name&quot; property" link="libawn-awn-themed-icon.html#AwnThemedIcon--applet-name"/>
+    <function name="The &quot;drag-and-drop&quot; property" link="libawn-awn-themed-icon.html#AwnThemedIcon--drag-and-drop"/>
+    <function name="The &quot;rotate&quot; property" link="libawn-awn-themed-icon.html#AwnThemedIcon--rotate"/>
+    <function name="AwnIconBoxPrivate" link="libawn-awn-icon-box.html#AwnIconBoxPrivate"/>
+    <function name="struct AwnIconBox" link="libawn-awn-icon-box.html#AwnIconBox-struct"/>
+    <function name="awn_icon_box_new ()" link="libawn-awn-icon-box.html#awn-icon-box-new"/>
+    <function name="awn_icon_box_new_for_applet ()" link="libawn-awn-icon-box.html#awn-icon-box-new-for-applet"/>
+    <function name="awn_icon_box_set_pos_type ()" link="libawn-awn-icon-box.html#awn-icon-box-set-pos-type"/>
+    <function name="awn_icon_box_set_offset ()" link="libawn-awn-icon-box.html#awn-icon-box-set-offset"/>
+    <function name="The &quot;applet&quot; property" link="libawn-awn-icon-box.html#AwnIconBox--applet"/>
     <function name="AwnOverlay" link="libawn-awn-overlay.html#AwnOverlay-struct"/>
     <function name="render ()" link="libawn-awn-overlay.html#render"/>
     <function name="enum AwnOverlayAlign" link="libawn-awn-overlay.html#AwnOverlayAlign"/>
@@ -336,26 +337,26 @@
     <function name="The &quot;foreground-color&quot; property" link="AwnOverlayProgressCircle.html#AwnOverlayProgressCircle--foreground-color"/>
     <function name="The &quot;outline-color&quot; property" link="AwnOverlayProgressCircle.html#AwnOverlayProgressCircle--outline-color"/>
     <function name="The &quot;scale&quot; property" link="AwnOverlayProgressCircle.html#AwnOverlayProgressCircle--scale"/>
-    <function name="AwnAlignmentPrivate" link="AwnAlignment.html#AwnAlignmentPrivate"/>
-    <function name="AwnAlignment" link="AwnAlignment.html#AwnAlignment-struct"/>
-    <function name="awn_alignment_new_for_applet ()" link="AwnAlignment.html#awn-alignment-new-for-applet"/>
-    <function name="awn_alignment_get_offset_modifier ()" link="AwnAlignment.html#awn-alignment-get-offset-modifier"/>
-    <function name="awn_alignment_set_offset_modifier ()" link="AwnAlignment.html#awn-alignment-set-offset-modifier"/>
-    <function name="The &quot;applet&quot; property" link="AwnAlignment.html#AwnAlignment--applet"/>
-    <function name="The &quot;offset-modifier&quot; property" link="AwnAlignment.html#AwnAlignment--offset-modifier"/>
-    <function name="The &quot;offset-multiplier&quot; property" link="AwnAlignment.html#AwnAlignment--offset-multiplier"/>
-    <function name="The &quot;scale&quot; property" link="AwnAlignment.html#AwnAlignment--scale"/>
-    <function name="AWN_MAX_HEIGHT" link="libawn-awn-defines.html#AWN-MAX-HEIGHT--CAPS"/>
-    <function name="AWN_MIN_HEIGHT" link="libawn-awn-defines.html#AWN-MIN-HEIGHT--CAPS"/>
+    <function name="AwnAlignmentPrivate" link="libawn-awn-alignment.html#AwnAlignmentPrivate"/>
+    <function name="struct AwnAlignment" link="libawn-awn-alignment.html#AwnAlignment-struct"/>
+    <function name="awn_alignment_new_for_applet ()" link="libawn-awn-alignment.html#awn-alignment-new-for-applet"/>
+    <function name="awn_alignment_get_offset_modifier ()" link="libawn-awn-alignment.html#awn-alignment-get-offset-modifier"/>
+    <function name="awn_alignment_set_offset_modifier ()" link="libawn-awn-alignment.html#awn-alignment-set-offset-modifier"/>
+    <function name="The &quot;applet&quot; property" link="libawn-awn-alignment.html#AwnAlignment--applet"/>
+    <function name="The &quot;offset-modifier&quot; property" link="libawn-awn-alignment.html#AwnAlignment--offset-modifier"/>
+    <function name="The &quot;offset-multiplier&quot; property" link="libawn-awn-alignment.html#AwnAlignment--offset-multiplier"/>
+    <function name="The &quot;scale&quot; property" link="libawn-awn-alignment.html#AwnAlignment--scale"/>
+    <function name="AWN_MAX_HEIGHT" link="libawn-awn-defines.html#AWN-MAX-HEIGHT:CAPS"/>
+    <function name="AWN_MIN_HEIGHT" link="libawn-awn-defines.html#AWN-MIN-HEIGHT:CAPS"/>
     <function name="enum AwnAppletFlags" link="libawn-awn-defines.html#AwnAppletFlags"/>
     <function name="enum AwnAppletLicense" link="libawn-awn-defines.html#AwnAppletLicense"/>
     <function name="enum AwnPathType" link="libawn-awn-defines.html#AwnPathType"/>
-    <function name="AWN_PANEL_ID_DEFAULT" link="libawn-awn-defines.html#AWN-PANEL-ID-DEFAULT--CAPS"/>
-    <function name="AWN_FONT_SIZE_EXTRA_SMALL" link="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-SMALL--CAPS"/>
-    <function name="AWN_FONT_SIZE_SMALL" link="libawn-awn-defines.html#AWN-FONT-SIZE-SMALL--CAPS"/>
-    <function name="AWN_FONT_SIZE_MEDIUM" link="libawn-awn-defines.html#AWN-FONT-SIZE-MEDIUM--CAPS"/>
-    <function name="AWN_FONT_SIZE_LARGE" link="libawn-awn-defines.html#AWN-FONT-SIZE-LARGE--CAPS"/>
-    <function name="AWN_FONT_SIZE_EXTRA_LARGE" link="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-LARGE--CAPS"/>
+    <function name="AWN_PANEL_ID_DEFAULT" link="libawn-awn-defines.html#AWN-PANEL-ID-DEFAULT:CAPS"/>
+    <function name="AWN_FONT_SIZE_EXTRA_SMALL" link="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-SMALL:CAPS"/>
+    <function name="AWN_FONT_SIZE_SMALL" link="libawn-awn-defines.html#AWN-FONT-SIZE-SMALL:CAPS"/>
+    <function name="AWN_FONT_SIZE_MEDIUM" link="libawn-awn-defines.html#AWN-FONT-SIZE-MEDIUM:CAPS"/>
+    <function name="AWN_FONT_SIZE_LARGE" link="libawn-awn-defines.html#AWN-FONT-SIZE-LARGE:CAPS"/>
+    <function name="AWN_FONT_SIZE_EXTRA_LARGE" link="libawn-awn-defines.html#AWN-FONT-SIZE-EXTRA-LARGE:CAPS"/>
     <function name="enum AwnCairoRoundCorners" link="libawn-awn-cairo-utils.html#AwnCairoRoundCorners"/>
     <function name="awn_cairo_rounded_rect ()" link="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect"/>
     <function name="awn_cairo_rounded_rect_shadow ()" link="libawn-awn-cairo-utils.html#awn-cairo-rounded-rect-shadow"/>

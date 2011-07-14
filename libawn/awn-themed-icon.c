@@ -798,6 +798,7 @@ get_pixbuf_at_size (AwnThemedIcon *icon, gint size, const gchar *state)
 
   if (size<=0)
   {
+    g_warning ("Requested pixbuf for invalid size (%d).", size);
     return NULL;
   }
   /* Find the index of the current state in states */
@@ -847,13 +848,12 @@ get_pixbuf_at_size (AwnThemedIcon *icon, gint size, const gchar *state)
             break;
 
           case SCOPE_AWN_THEME:
-            base = g_path_get_basename (icon_name);
+            name = g_path_get_basename (icon_name);
             pixbuf = awn_themed_icon_lookup_pixbuf (icon,
                                                     "scope_awn_theme",
                                                     priv->awn_theme,
-                                                    base,
+                                                    name,
                                                     size);
-            g_free (base);
             break;
 
           case SCOPE_OVERRIDE_THEME:
@@ -1217,15 +1217,28 @@ awn_themed_icon_set_info (AwnThemedIcon  *icon,
     priv->applet_name = g_strdup (applet_name);
 
     /* Add the applet's system-wide icon dir first */ 
-    search_dir = g_strdup_printf (PKGDATADIR"/applets/%s/icons", applet_name);
     priv->cache_sentinel++; /*don't invalidate the pixbuf cache*/
+    search_dir = g_strdup_printf (PKGDATADIR"/applets/%s/icons", applet_name);
     gtk_icon_theme_append_search_path (priv->gtk_theme, search_dir);
     g_free (search_dir);
 
     search_dir = g_strdup_printf (PKGDATADIR"/applets/%s/themes", applet_name);
     gtk_icon_theme_append_search_path (priv->gtk_theme, search_dir);
-    priv->cache_sentinel--; /*unprotect the pixbuf cache*/    
     g_free (search_dir); 
+
+    search_dir = g_strdup_printf ("%s/awn/applets/%s/icons",
+                                  g_get_user_config_dir (), 
+                                  applet_name);
+    gtk_icon_theme_append_search_path (priv->gtk_theme, search_dir);
+    g_free (search_dir); 
+
+    search_dir = g_strdup_printf ("%s/awn/applets/%s/themes",
+                                  g_get_user_config_dir (), 
+                                  applet_name);
+    gtk_icon_theme_append_search_path (priv->gtk_theme, search_dir);
+    g_free (search_dir); 
+
+    priv->cache_sentinel--; /*unprotect the pixbuf cache*/    
   }
   if (state)
   {
@@ -1246,7 +1259,7 @@ awn_themed_icon_set_info (AwnThemedIcon  *icon,
       if (g_strstr_len (item->state,-1, "::no_drop::") !=  item->state)
       {
         gtk_drag_dest_set (GTK_WIDGET (icon),
-                           GTK_DEST_DEFAULT_ALL,
+                           GTK_DEST_DEFAULT_ALL & (~GTK_DEST_DEFAULT_HIGHLIGHT),
                            drop_types, n_drop_types,
                            GDK_ACTION_COPY | GDK_ACTION_ASK | GDK_ACTION_MOVE);        
         break;
@@ -1808,7 +1821,33 @@ awn_themed_icon_drag_data_received (GtkWidget        *widget,
   pixbuf = gdk_pixbuf_new_from_file (sdata, NULL);
 
   if (!GDK_IS_PIXBUF (pixbuf))
+  {
     goto drag_out;
+  }
+  else
+  {
+    if ( gdk_pixbuf_get_width (pixbuf) > gdk_pixbuf_get_height (pixbuf) )
+    {
+      if (gdk_pixbuf_get_width (pixbuf) > 64)
+      {
+        GdkPixbuf * tmp = pixbuf;
+        pixbuf = gdk_pixbuf_scale_simple ( pixbuf,
+                                           64,
+                                           64 * gdk_pixbuf_get_height (pixbuf)/gdk_pixbuf_get_width(pixbuf),
+                                           GDK_INTERP_BILINEAR);
+        g_object_unref (tmp);
+      }
+    }
+    else if (gdk_pixbuf_get_height (pixbuf) > 64)
+    {
+      GdkPixbuf * tmp = pixbuf;
+      pixbuf = gdk_pixbuf_scale_simple ( pixbuf,
+                                         64 * gdk_pixbuf_get_width (pixbuf) / gdk_pixbuf_get_height(pixbuf),
+                                         64,
+                                         GDK_INTERP_BILINEAR);
+      g_object_unref (tmp);
+    }
+  }
 
   /* Construct the dialog used for changing icons */
   builder = gtk_builder_new ();

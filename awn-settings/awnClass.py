@@ -42,8 +42,6 @@ except Exception, e:
     sys.exit(1)
 from xdg.DesktopEntry import DesktopEntry
 
-from awnSettingsHelper import bind_to_gtk_component
-
 import awn
 import awnDefs as defs
 from desktopagnostic import config
@@ -55,9 +53,13 @@ import shutil
 import tempfile
 import dbus
 
-from bzrlib import branch
-from bzrlib.builtins import cmd_branch, cmd_pull
-from bzrlib.plugins.launchpad.lp_directory import LaunchpadDirectory
+try:
+    from bzrlib import branch
+    from bzrlib.builtins import cmd_branch, cmd_pull
+    from bzrlib.plugins.launchpad.lp_directory import LaunchpadDirectory
+    support_bzr = True
+except:
+    support_bzr = False
 
 defs.i18nize(globals())
 
@@ -129,8 +131,11 @@ class awnBzr(gobject.GObject):
                 path: a url from a branch
                 return: the http format of a lp: format, or the same url
         '''
-        directory = LaunchpadDirectory()
-        return directory._resolve(path).replace("bzr+ssh","http")
+        if support_bzr == True:
+            directory = LaunchpadDirectory()
+            return directory._resolve(path).replace("bzr+ssh","http")
+        else:
+            return path
 
     def read_list(self, file_path):
         '''     Read a flat file and return the content in a list
@@ -150,34 +155,44 @@ class awnBzr(gobject.GObject):
                 path: the path of the branch
                 bzr_dir: the location of the futur tree.
         '''
-        if os.path.exists(path):
-            print ("Error, the path already exist")
+        if support_bzr == False:
+            print (_("Bzr support is not enable, try to install bzr"))
         else:
-            try:
-                bzr_branch = cmd_branch()
-                status = StringIO()
-                status = bzr_branch._setup_outf()
-                bzr_branch.run(from_location=self.lp_path_normalize(bzr_dir), to_location=path)
-            except socket.gaierror:
-                print 'Socket error, could not create branch.'
+            if os.path.exists(path):
+                print (_("Error, the path already exist"))
+            else:
+                try:
+                    bzr_branch = cmd_branch()
+                    status = StringIO()
+                    status = bzr_branch._setup_outf()
+                    bzr_branch.run(from_location=self.lp_path_normalize(bzr_dir), to_location=path)
+                except socket.gaierror:
+                    print (_('Socket error, could not create branch.'))
 
     def update_branch(self, path):
         '''     Update a local branch
                 path: Location of the branch
                 Return the output of the command
         '''
-        bzr_pull = cmd_pull()
-        status = StringIO()
-        status = bzr_pull._setup_outf()
-        bzr_pull.run(directory=path)
+        if support_bzr == False:
+            print (_("Bzr support is not enable, try to install bzr"))
+        else:
+            bzr_pull = cmd_pull()
+            status = StringIO()
+            status = bzr_pull._setup_outf()
+            bzr_pull.run(directory=path)
 
     def get_revision_from_path(self, path):
         '''     Return the last revision number of the branch
                 specify with path parameter
         '''
-        tree = branch.Branch.open(path)
-        revision_number, revision_id = tree.last_revision_info()
-        return revision_number
+        if support_bzr == False:
+            print (_("Bzr support is not enable, try to install bzr"))
+            return 0
+        else:
+            tree = branch.Branch.open(path)
+            revision_number, revision_id = tree.last_revision_info()
+            return revision_number
 
     #Sources.list
     def dict_from_sources_list(self, config=defs.HOME_CONFIG_DIR):
@@ -1061,13 +1076,6 @@ class awnManager:
     def changeTab(self, iconView):
         self.notebook.set_current_page(iconView.get_cursor()[0][0])
 
-    def refresh(self, button):
-        dialog = gtk.MessageDialog(self.window, 0, gtk.MESSAGE_INFO,
-                                   gtk.BUTTONS_OK,
-                                   _('AWN has been successfully refreshed'))
-        dialog.run()
-        dialog.hide()
-
     def about(self, button):
         self.about = gtk.AboutDialog()
         self.about.set_name(_("Avant Window Navigator"))
@@ -1221,7 +1229,7 @@ class awnApplet(awnBzr):
         dialog.set_default_response(gtk.RESPONSE_OK)
 
         filter = gtk.FileFilter()
-        filter.set_name("AWN Applet Package")
+        filter.set_name(_("Awn Applet Package"))
         filter.add_pattern("*.tar.gz")
         filter.add_pattern("*.tgz")
         filter.add_pattern("*.bz2")
@@ -1266,7 +1274,7 @@ class awnApplet(awnBzr):
             else:
                 self.register_applet(appletpath, False, applet_exists)
         else:
-            message = "Applet Installation Failed"
+            message = _("Applet Installation Failed")
             success = gtk.MessageDialog(parent=None, flags=0, type=gtk.MESSAGE_WARNING, buttons=gtk.BUTTONS_OK, message_format=message)
             success.run()
             success.destroy()
@@ -1278,7 +1286,7 @@ class awnApplet(awnBzr):
             model = self.appmodel
 
         if applet_exists:
-            message = "Applet Successfully Updated"
+            message = _("Applet Successfully Updated")
         else:
             icon, text, name = self.make_row (appletpath)
             if len (text) > 2:
@@ -1294,9 +1302,9 @@ class awnApplet(awnBzr):
                     model.set_value (row, 3, name)
 
             if msg:
-                message = "Applet Successfully Added"
+                message = _("Applet Successfully Added")
             else:
-                message = "Applet Installation Failed"
+                message = _("Applet Installation Failed")
 
         if msg:
             success = gtk.MessageDialog(parent=None, flags=0, type=gtk.MESSAGE_WARNING, buttons=gtk.BUTTONS_OK, message_format=message)
@@ -1346,15 +1354,15 @@ class awnApplet(awnBzr):
 
         self.active_model.foreach(self.test_active, path)
         if self.active_found:
-            self.popup_msg("Can not delete active applet")
+            self.popup_msg(_("Can not delete active applet"))
             return
 
-        dialog = gtk.Dialog("Delete Applet",
+        dialog = gtk.Dialog(_("Delete Applet"),
                             None,
                             gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                             (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
                             gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
-        label = gtk.Label("<b>Delete %s?</b>" % item.getName())
+        label = gtk.Label(_("<b>Delete %s?</b>") % item.getName())
         label.set_use_markup(True)
         align = gtk.Alignment()
         align.set_padding(5,5,5,5)
@@ -1374,7 +1382,7 @@ class awnApplet(awnBzr):
                 dialog.destroy()
             else:
                 dialog.destroy()
-                self.popup_msg("Unable to Delete Applet")
+                self.popup_msg(_("Unable to Delete Applet"))
         else:
             dialog.destroy()
             
@@ -1570,7 +1578,7 @@ class awnApplet(awnBzr):
                 
 class awnThemeCustomize(awnBzr):
 
-    def export_theme(self, config, filename, newfilename, save_pattern):
+    def export_theme(self, config, filename, newfilename, panel_id, save_pattern):
         tmpdir = tempfile.gettempdir()
         themedir = os.path.join(tmpdir, filename)
         themefile = os.path.join(tmpdir, filename+'.awn-theme')
@@ -1580,7 +1588,8 @@ class awnThemeCustomize(awnBzr):
                 shutil.rmtree(themedir)
         if os.path.exists(themedir):
             self.hide_export_dialog(None)
-            msg = themedir+" already exists, unable to export theme."
+            # Translators: This string is preceded by a filename
+            msg = _("%s already exists, unable to export theme.") % (themedir)
             self.theme_message(msg)
             return
 
@@ -1603,7 +1612,7 @@ class awnThemeCustomize(awnBzr):
         if active_icon_path and os.path.exists(active_icon_path):
             shutil.copy(active_icon_path, themedir+'/active_icon.png')
 
-        self.get_dock_image(themedir)
+        self.get_dock_image(themedir, panel_id)
 
         tarpath = os.path.join(tmpdir, filename+'.tgz')
         tFile = tarfile.open(tarpath, "w:gz")
@@ -1616,10 +1625,10 @@ class awnThemeCustomize(awnBzr):
         os.remove(themefile)
         self.hide_export_dialog(None)
 
-    def get_dock_image(self, themedir):
+    def get_dock_image(self, themedir, panel_id):
         bus = dbus.SessionBus()
         panel = bus.get_object('org.awnproject.Awn',
-                               '/org/awnproject/Awn/Panel1',
+                               '/org/awnproject/Awn/Panel%d' % (panel_id),
                                'org.awnproject.Awn.Panel')
         data = panel.GetSnapshot(byte_arrays=True)
         width, height, rowstride, has_alpha, bits_per_sample, n_channels, pixels = data
@@ -1656,7 +1665,7 @@ class awnThemeCustomize(awnBzr):
                 themedir = os.path.join(defs.HOME_THEME_DIR, filename)
                 
                 if os.path.exists(themefile):
-                    msg = "Theme already installed, do you wish to overwrite it?"
+                    msg = _("Theme already installed, do you wish to overwrite it?")
                     message = gtk.MessageDialog(parent=None, flags=0, type=gtk.MESSAGE_WARNING, buttons=gtk.BUTTONS_YES_NO, message_format=msg)
                     resp = message.run()
                     if resp != gtk.RESPONSE_YES:
@@ -1690,7 +1699,7 @@ class awnThemeCustomize(awnBzr):
                 f.close()
                 self.add_uris_to_model(self.treeview_themes.get_model(),[themefile])
             else:
-                msg = "This is an incompatible theme file."
+                msg = _("This is an incompatible theme file.")
                 self.theme_message(msg)
                 
     def delete_theme(self):
@@ -1733,5 +1742,13 @@ class awnThemeCustomize(awnBzr):
                                    
 class awnTaskManager(awnBzr):
     
+    def runDockmanagerSettings(self, xid):
+        bus = dbus.SessionBus()
+        daemon = bus.get_object('net.launchpad.DockManager.Daemon',
+                                '/net/launchpad/DockManager/Daemon')
+        daemon_interface = dbus.Interface(daemon, 
+                                          'net.launchpad.DockManager.Daemon')
+        daemon_interface.EmbedPreferences(xid, {'no-install': True})
+
     def ding(self):
         pass

@@ -29,6 +29,13 @@ using DBus;
 // only here so that config.h is before gi18n-lib.h
 private const string not_used = Build.APPLETSDIR;
 
+[DBus (name="net.launchpad.DockManager")]
+interface DockManager: GLib.Object
+{
+  public async abstract string[] get_capabilities () throws DBus.Error;
+  public async abstract void awn_set_visibility (string win_class, bool visible) throws DBus.Error;
+}
+
 public class PrefsApplet : AppletSimple
 {
   const TargetEntry[] targets = {
@@ -47,9 +54,9 @@ public class PrefsApplet : AppletSimple
 
   public PrefsApplet (string canonical_name, string uid, int panel_id)
   {
-    this.canonical_name = canonical_name;
-    this.uid = uid;
-    this.panel_id = panel_id;
+    GLib.Object (canonical_name: canonical_name,
+                 uid: uid,
+                 panel_id: panel_id);
   }
 
   construct
@@ -94,7 +101,7 @@ public class PrefsApplet : AppletSimple
     this.initialize_menu ();
 
     unowned DBusWatcher watcher = DBusWatcher.get_default ();
-    watcher.name_appeared["org.freedesktop.DockManager"].
+    watcher.name_appeared["net.launchpad.DockManager"].
         connect (this.taskmanager_appeared);
 
     // ask taskman to hide awn-settings
@@ -136,19 +143,19 @@ public class PrefsApplet : AppletSimple
     this.update_taskmanager (false);
   }
 
-  private void
+  private async void
   update_taskmanager (bool visible)
   {
     try
     {
       DBus.Connection con = DBus.Bus.get (DBus.BusType.SESSION);
 
-      dynamic DBus.Object taskman;
-      taskman = con.get_object ("org.freedesktop.DockManager",
-                                "/org/freedesktop/DockManager",
-                                "org.freedesktop.DockManager");
+      var taskman = (DockManager) 
+        con.get_object ("net.launchpad.DockManager",
+                        "/net/launchpad/DockManager",
+                        "net.launchpad.DockManager");
 
-      string[] caps = taskman.GetCapabilities ();
+      string[] caps = yield taskman.get_capabilities ();
       bool supports_visibility_setting = false;
       foreach (string cap in caps)
       {
@@ -157,7 +164,7 @@ public class PrefsApplet : AppletSimple
 
       if (supports_visibility_setting)
       {
-        taskman.AwnSetVisibility ("awn-settings", visible);
+        taskman.awn_set_visibility ("awn-settings", visible);
       }
     }
     catch (DBus.Error err)
@@ -525,7 +532,7 @@ public class PrefsApplet : AppletSimple
     box.add (icon);
 
     // we're done initializing, show the docklet
-    this.docklet.@construct (window_id);
+    (this.docklet as Gtk.Plug).@construct (window_id);
   }
 
   private void
@@ -553,7 +560,8 @@ public class PrefsApplet : AppletSimple
       }
       else
       {
-        argv = new string[] { "awn-settings" };
+        argv = new string[] { "awn-settings",
+                              "--panel-id=%d".printf (this.panel_id) };
       }
       spawn_on_screen (this.get_screen (),
                        null,
@@ -595,7 +603,7 @@ public class PrefsApplet : AppletSimple
   private void
   on_context_menu_popup (EventButton evt)
   {
-    this.ctx_menu.popup (null, null, null, evt.button, evt.time);
+    this.get_icon().popup_gtk_menu (this.ctx_menu, evt.button, evt.time);
   }
 }
 

@@ -25,6 +25,7 @@ import os
 import shutil
 import time
 import pwd
+import getopt
 
 PLAT_PKG = '@PY_PLAT_PKG@'
 SITE_PKG = '@PY_SITE_PKG@'
@@ -54,11 +55,10 @@ from awnClass import awnPreferences, awnManager, awnLauncher, awnApplet, awnThem
 #from awnApplet import awnApplet
 #from awnLauncher import awnLauncher
 
-
-from awnSettingsHelper import bind_to_gtk_component
-
 import awn
 import awnDefs as defs
+
+from awnSettingsHelper import set_panel_glow, bind_to_gtk_component
 
 from desktopagnostic import config
 from desktopagnostic import vfs
@@ -101,14 +101,13 @@ class awnPreferencesMini(awnPreferences):
     show_shadows = gobject.property(type=bool, default=False)
     match_strength = gobject.property(type=int, default=99)
 
-    intellihide = gobject.property(type=bool, default=True)
     intellihide_type = gobject.property(type=int, default=1)
 
-    def __init__(self, wTree):
+    def __init__(self, wTree, panel_id):
         awnPreferences.__init__(self)
         
         self.wTree = wTree
-        self.client = awn.config_get_default(awn.PANEL_ID_DEFAULT)
+        self.client = awn.config_get_default(panel_id)
         self.client_taskman = awn.config_get_default_for_applet_by_info("taskmanager", "")
 
         self.btn_edit_custom_effects = self.wTree.get_object("btn_edit_custom_effects")
@@ -141,7 +140,8 @@ class awnPreferencesMini(awnPreferences):
         #setup style mode
         dropdown = self.wTree.get_object("stylecombo")
         self.create_dropdown(dropdown, [_("None"), _("Flat"), _("3d"),
-                                        _("Curved"), _("Edgy"), _("Floaty")])
+                                        _("Curved"), _("Edgy"), _("Floaty"),
+                                        _("Lucido")])
 
         #setup behaviour combo
         dropdown = self.wTree.get_object("behaviorcombo")
@@ -221,15 +221,15 @@ class awnPreferencesMini(awnPreferences):
             # "Custom" - otherwise
             new_active = 4 # custom
             if is_autohiding:
-                if self.intellihide:
-                    if behaviour == (1, False, 0):
+                if self.intellihide_type > 0:
+                    if behaviour == (2, False, 0):
                         new_active = 2
-                    elif behaviour == (0, False, 0):
+                    elif behaviour == (1, False, 0):
                         new_active = 3
             else:
-                if behaviour in [(0, True, 0), (1, True, 0)]:
+                if behaviour in [(0, True, 0), (1, True, 0), (2, True, 0)]:
                     new_active = 0
-                elif behaviour in [(0, False, 1), (1, False, 1)]:
+                elif behaviour in [(0, False, 1), (1, False, 1), (2, True, 1)]:
                     new_active = 1
 
             if (self.choose_behavior.get_active() != new_active):
@@ -249,40 +249,36 @@ class awnPreferencesMini(awnPreferences):
                 if not self.panel_mode: self.panel_mode = True
                 if self.clickthrough != 0: self.clickthrough = 0
                 if self.autohide_type != 0: self.autohide_type = 0
+                self.intellihide_type = 0
             elif widget.get_active() == 1:
                 if self.panel_mode: self.panel_mode = False
                 if self.clickthrough != 1: self.clickthrough = 1
                 if self.autohide_type != 0: self.autohide_type = 0
+                self.intellihide_type = 0
             elif widget.get_active() == 2:
                 if self.panel_mode: self.panel_mode = False
                 if self.clickthrough != 0: self.clickthrough = 0
                 if self.autohide_type == 0: self.autohide_type = 2
-                self.intellihide = True
-                self.intellihide_type = 1
+                self.intellihide_type = 2
             elif widget.get_active() == 3:
                 if self.panel_mode: self.panel_mode = False
                 if self.clickthrough != 0: self.clickthrough = 0
                 if self.autohide_type == 0: self.autohide_type = 2
-                self.intellihide = True
-                self.intellihide_type = 0
+                self.intellihide_type = 1
 
         self.client.bind (defs.PANEL, defs.PANEL_MODE, self, "panel-mode",
                           False, config.BIND_METHOD_FALLBACK)
         self.client.bind (defs.PANEL, defs.AUTOHIDE, self, "autohide-type",
                           False, config.BIND_METHOD_FALLBACK)
-        self.client_taskman.bind (GROUP_DEFAULT, defs.INTELLIHIDE,
-                                  self, "intellihide",
-                                  False, config.BIND_METHOD_FALLBACK)
-        self.client_taskman.bind (GROUP_DEFAULT, defs.INTELLIHIDE_TYPE,
-                                  self, "intellihide-type",
-                                  False, config.BIND_METHOD_FALLBACK)
+        self.client.bind (defs.PANEL, defs.INTELLIHIDE_TYPE,
+                          self, "intellihide-type",
+                          False, config.BIND_METHOD_FALLBACK)
 
         # clickthough is already bound
 
         self.connect("notify::panel-mode", refresh_behaviour)
         self.connect("notify::autohide-type", refresh_behaviour)
         self.connect("notify::clickthrough", refresh_behaviour)
-        self.connect("notify::intellihide", refresh_behaviour)
         self.connect("notify::intellihide-type", refresh_behaviour)
 
         refresh_behaviour()
@@ -488,11 +484,11 @@ class awnLauncherMini(awnLauncher):
         self.launcher_edit.connect("clicked", self.edit)
 
 class awnAppletMini(awnApplet):
-    def __init__(self, glade):
+    def __init__(self, glade, panel_id):
         if not os.path.isdir(defs.HOME_APPLET_DIR):
             os.mkdir(defs.HOME_APPLET_DIR)
 
-        self.client = awn.config_get_default(1)
+        self.client = awn.config_get_default(panel_id)
 
         self.treeview_current = None
 
@@ -576,8 +572,10 @@ class awnAppletMini(awnApplet):
 
 class awnThemeCustomizeMini(awnThemeCustomize):
     
-    curviness = gobject.property(type=int, default=10)
+    curviness = gobject.property(type=float, default=1)
     curves_symmetry = gobject.property(type=float, default=0)
+    floaty_offset = gobject.property(type=int, default=10)
+    thickness = gobject.property(type=float, default=0)
     angle = gobject.property(type=int, default=45)
     radius = gobject.property(type=int, default=10)
     gtk_theme_mode = gobject.property(type=bool, default=False)
@@ -586,10 +584,11 @@ class awnThemeCustomizeMini(awnThemeCustomize):
     tooltip_font_name = gobject.property(type=gobject.TYPE_STRING, default='Sans 8')
     pattern_alpha = gobject.property(type=float, default=1)
     arrow_type = gobject.property(type=str)
+    current_panel_id = awn.PANEL_ID_DEFAULT
             
-    def __init__(self, wTree):
+    def __init__(self, wTree, panel_id):
         awnThemeCustomize.__init__(self)
-        
+        self.current_panel_id = panel_id
         if not os.path.isdir(defs.HOME_THEME_DIR):
             os.mkdir(defs.HOME_THEME_DIR)
 				
@@ -601,7 +600,7 @@ class awnThemeCustomizeMini(awnThemeCustomize):
         if gtk.gdk.screen_get_default().is_composited() == False:
             infobar.get_parent().show_all()
 		
-        self.client = awn.config_get_default(awn.PANEL_ID_DEFAULT)
+        self.client = awn.config_get_default(panel_id)
         self.view_themes_scroll = self.wTree.get_object("list_themes_scroll")
         self.treeview_themes = self.wTree.get_object("list_themes_view")
         treeview_themes_selection = self.treeview_themes.get_selection()
@@ -623,7 +622,7 @@ class awnThemeCustomizeMini(awnThemeCustomize):
             self.custom_arrow_chooser.set_filename(filename)
         self.custom_arrow_chooser.connect('file-set', self.arrow_select_callback)
         filter = gtk.FileFilter()
-        filter.set_name("PNG Image")
+        filter.set_name(_("PNG Image"))
         filter.add_pattern("*.png")
         self.custom_arrow_chooser.add_filter(filter)
         self.custom_arrow_chooser.set_filter(filter)
@@ -635,7 +634,7 @@ class awnThemeCustomizeMini(awnThemeCustomize):
             self.pattern_chooser.set_filename(filename)
         self.pattern_chooser.connect('file-set', self.pattern_select_callback)
         filter = gtk.FileFilter()
-        filter.set_name("Images")
+        filter.set_name(_("Images"))
         filter.add_pattern("*.png")
         filter.add_pattern("*.svg")
         filter.add_pattern("*.xpm")
@@ -727,6 +726,8 @@ class awnThemeCustomizeMini(awnThemeCustomize):
 			(defs.THEME, defs.PANEL_ANGLE, 'float', sizes),
 			(defs.THEME, defs.CURVINESS, 'float', sizes),
 			(defs.THEME, defs.CURVES_SYMMETRY, 'float', sizes),
+			(defs.THEME, defs.THICKNESS, 'float', sizes),
+			(defs.THEME, defs.FLOATY_OFFSET, 'int', sizes),
 			(defs.THEME, defs.TOOLTIP_FONT_NAME, 'str', icon),
 			(defs.THEME, defs.TOOLTIP_FONT_COLOR, 'str', icon),
 			(defs.THEME, defs.TOOLTIP_BG_COLOR, 'str', icon),
@@ -751,7 +752,7 @@ class awnThemeCustomizeMini(awnThemeCustomize):
 
 		filename = "".join([x for x in name if x.isalpha() or x.isdigit()])
 		
-		fc = gtk.FileChooserDialog(title='Save Theme...',
+		fc = gtk.FileChooserDialog(title=_('Save Theme...'),
                                    parent=None,
                                    action=gtk.FILE_CHOOSER_ACTION_SAVE,
                                    buttons=(gtk.STOCK_CANCEL,gtk.RESPONSE_CANCEL,gtk.STOCK_SAVE,gtk.RESPONSE_OK))
@@ -760,14 +761,14 @@ class awnThemeCustomizeMini(awnThemeCustomize):
 		fc.set_current_name(filename+'.tgz')
 		fc.set_do_overwrite_confirmation(True)
 		filter = gtk.FileFilter()
-		filter.set_name('Awn Theme')
+		filter.set_name(_('Awn Theme'))
 		filter.add_pattern('*.tgz')
 		fc.add_filter(filter)
 		response = fc.run()
 		if response == gtk.RESPONSE_OK:
 			result = fc.get_filename()
 			fc.destroy()
-			self.export_theme(config, filename, result, save_pattern=pattern_mode)
+			self.export_theme(config, filename, result, self.current_panel_id, save_pattern=pattern_mode)
 		else:
 			fc.destroy()
 			self.hide_export_dialog(None)	
@@ -825,6 +826,10 @@ class awnThemeCustomizeMini(awnThemeCustomize):
                 "curves-symmetry", "theme_symmetry"),
             (self.client, defs.THEME, defs.PANEL_ANGLE,
                 "angle", "theme_angle"),
+            (self.client, defs.THEME, defs.FLOATY_OFFSET,
+                "floaty-offset", "theme_floaty_offset"),
+            (self.client, defs.THEME, defs.THICKNESS,
+                "thickness", "theme_thickness"),
             (self.client, defs.THEME, defs.CORNER_RADIUS,
                 "radius", "theme_radius"),
             (self.client, defs.THEME, defs.TOOLTIP_FONT_NAME,
@@ -871,7 +876,7 @@ class awnThemeCustomizeMini(awnThemeCustomize):
         return state
 		
 	def tooltip_font_name_callback(self, data=None):
-		fontselect = gtk.FontSelectionDialog('Select Tooltip Font')	
+		fontselect = gtk.FontSelectionDialog(_('Select Tooltip Font'))	
 		fontselect.set_font_name(fontname)
 		
     def update_view_themes(self, data=None):
@@ -911,7 +916,7 @@ class awnThemeCustomizeMini(awnThemeCustomize):
         dialog.set_default_response(gtk.RESPONSE_OK)
         
         filter = gtk.FileFilter()
-        filter.set_name("AWN Theme File")
+        filter.set_name(_("Awn Theme File"))
         filter.add_pattern("*.tar.gz")
         filter.add_pattern("*.tgz")
         dialog.add_filter(filter)
@@ -964,15 +969,35 @@ class awnTaskManagerMini(awnTaskManager):
     icon_behavior = gobject.property(type=int, default=1)
     icon_overlay_swap = gobject.property(type=bool, default=False)
         
-    def __init__(self, wTree):
+    def __init__(self, wTree, panel_id):
         awnTaskManager.__init__(self)
 			
         self.wTree = wTree
-        self.client = awn.config_get_default(awn.PANEL_ID_DEFAULT)
+        self.client = awn.config_get_default(panel_id)
         self.client_taskman = awn.config_get_default_for_applet_by_info("taskmanager", "")
         
         infobar = self.wTree.get_object("tm_infobar")
         infobar.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#F7F7BD"))
+
+        self.helpers_panel = self.wTree.get_object("helpers_panel")
+        self.launchers_panel = self.wTree.get_object("launchers_panel")
+
+        self.helpersButton = self.wTree.get_object("helpers_button")
+        self.helpersButton.connect('clicked', self.show_helpers)
+        self.launchersButton = self.wTree.get_object("launchers_button")
+        self.launchersButton.connect('clicked', self.hide_helpers)
+        self.installHelper = self.wTree.get_object("install_helper_button")
+        self.installHelper.set_sensitive(False)
+
+        self.helpers_unavailable = self.wTree.get_object("helpers_unavailable")
+        self.helpers_container = self.wTree.get_object("helpers_container")
+        self.socket = gtk.Socket()
+        self.socket.connect('plug-removed', lambda w: True)
+        self.socket.connect('plug-added', lambda w: w.show())
+        self.helpers_container.pack_start(self.socket)
+        self.helpers_container.reorder_child(self.socket, 0)
+        self.socket.show()
+        self.socket.hide()
 
         if not self.check_for_task_manager():
 			infobar.get_parent().show_all()
@@ -1042,10 +1067,32 @@ class awnTaskManagerMini(awnTaskManager):
         self.client_taskman.bind (GROUP_DEFAULT, defs.OVERLAY_ICON_SWAP, self, "icon-overlay-swap",
                           False, config.BIND_METHOD_FALLBACK)
 
-        refresh_behaviour()   			
-		
+        refresh_behaviour()
+
         icon_behave.connect('changed', icon_behave_callback)
-			                                                                      
+
+    def refresh (self):
+        if gtk.VISIBLE & self.helpers_panel.flags() != 0:
+            self.show_helpers()
+
+    def show_helpers (self, w = None):
+        self.launchers_panel.hide()
+        self.helpers_panel.show()
+
+        if self.socket.get_plug_window() is None:
+            socket_xid = self.socket.get_id()
+            try:
+                self.runDockmanagerSettings(socket_xid)
+                self.helpers_unavailable.hide()
+            except:
+                self.socket.hide()
+                self.helpers_unavailable.show()
+
+    def hide_helpers (self, w = None):
+        self.helpers_panel.hide()
+        self.launchers_panel.show()
+
+
 class awnManagerMini(awnManager):
     PREFERENCE_PANEL = 0
     APPLET_PANEL = 1
@@ -1054,9 +1101,13 @@ class awnManagerMini(awnManager):
     ADVANCED_PANEL = 4
     
     current_panel = None
+    current_panel_id = awn.PANEL_ID_DEFAULT
+    global_configuration = False
     
-    def __init__(self):
+    def __init__(self, panel_id):
         awnManager.__init__(self)
+        self.panel_list = []
+        self.current_panel_id = panel_id
         self.XML_PATH = os.path.join(AWN_SETTINGS_DIR, 'awn-settings.ui')
 
         self.wTree = gtk.Builder()
@@ -1070,7 +1121,11 @@ class awnManagerMini(awnManager):
         self.window = self.wTree.get_object("awnManagerWindow")
         self.panel_container = self.wTree.get_object("panelContainer")
         self.createMainMenu()
-        
+
+        self.client = awn.config_get_default(0)
+        self.panel_list = self.client.get_value("panels", "panel_list")
+        self.client.notify_add("panels", "panel_list", self.panel_list_changed)
+
         icon_list = []
         icon_sizes = self.theme.get_icon_sizes('awn-settings')
         for size in icon_sizes:
@@ -1086,11 +1141,11 @@ class awnManagerMini(awnManager):
             gtk.window_set_default_icon_list(*icon_list)
         self.window.connect("delete-event", gtk.main_quit)
 
-        self.prefManager = awnPreferencesMini(self.wTree)
+        self.prefManager = awnPreferencesMini(self.wTree, panel_id)
         self.prefLauncher = awnLauncherMini(self.wTree)
-        self.appletManager = awnAppletMini(self.wTree)
-        self.themeCustomize = awnThemeCustomizeMini(self.wTree)
-        self.taskManager = awnTaskManagerMini(self.wTree)
+        self.appletManager = awnAppletMini(self.wTree, panel_id)
+        self.themeCustomize = awnThemeCustomizeMini(self.wTree, panel_id)
+        self.taskManager = awnTaskManagerMini(self.wTree, panel_id)
 		
         about = self.wTree.get_object("buttonAbout")
         about.connect("clicked", self.about)
@@ -1098,8 +1153,81 @@ class awnManagerMini(awnManager):
         close = self.wTree.get_object("buttonClose")
         close.connect("clicked", gtk.main_quit)
 
+        self.connect_panel_buttons()
+
+        self.window.connect("notify::is-active", self.activateGlow)
         self.window.show()
-        
+
+    def connect_panel_buttons(self):
+        create_panel_button = self.wTree.get_object("create_panel_button")
+        create_panel_button.connect("clicked", self.createPanel)
+        delete_panel_button = self.wTree.get_object("delete_panel_button")
+        delete_panel_button.connect("clicked", self.removePanel)
+        delete_panel_button.set_sensitive(self.current_panel_id > 1)
+
+    def panel_list_changed(self, g, k, val):
+        self.panel_list = val
+        if len(self.panel_list) > 1:
+            if self.global_configuration: return
+            grabbed = gtk.grab_get_current() is not None
+            active = self.window.is_active()
+            self.toggleGlow(active or grabbed)
+        else:
+            self.toggleGlow(False)
+
+    def reloadSettingsForPanel(self, panel_id):
+        if panel_id == self.current_panel_id: return
+
+        if self.current_panel is not None:
+            self.panel_container.remove(self.current_panel)
+            self.current_panel = None
+
+        self.toggleGlow(False)
+
+        self.current_panel_id = panel_id
+
+        self.wTree = gtk.Builder()
+        self.wTree.set_translation_domain(defs.I18N_DOMAIN)
+        self.wTree.add_from_file(self.XML_PATH)
+    
+        self.prefManager = awnPreferencesMini(self.wTree, panel_id)
+        self.prefLauncher = awnLauncherMini(self.wTree)
+        self.appletManager = awnAppletMini(self.wTree, panel_id)
+        self.themeCustomize = awnThemeCustomizeMini(self.wTree, panel_id)
+        self.taskManager = awnTaskManagerMini(self.wTree, panel_id)
+
+        self.main_menu_icon_view.select_path(self.PREFERENCE_PANEL)
+        self.main_menu_icon_view.item_activated(self.PREFERENCE_PANEL)
+
+        self.connect_panel_buttons()
+
+    def createPanel(self, w = None):
+        i = 1
+        while i in self.panel_list: i = i+1
+
+        panel_client = awn.config_get_default(i)
+
+        new_panel_list = self.panel_list[:]
+        new_panel_list.append(i)
+        new_panel_list.sort()
+        self.client.set_value("panels", "panel_list", new_panel_list)
+
+        self.reloadSettingsForPanel(i)
+
+    def removePanel(self, w = None):
+        if self.current_panel_id == 1: return
+        new_panel_list = filter(lambda x: x != self.current_panel_id, self.panel_list)
+        self.client.set_value("panels", "panel_list", new_panel_list)
+        self.reloadSettingsForPanel(new_panel_list[-1])
+
+    def activateGlow(self, w, p):
+        grabbed = gtk.grab_get_current() is not None
+        self.toggleGlow((w.is_active() or grabbed) and (not self.global_configuration))
+
+    def toggleGlow(self, active):
+        if len(self.panel_list) <= 1: active = False
+        set_panel_glow(active, self.current_panel_id)
+
     def createMainMenu(self):
         self.main_menu_icon_view = self.wTree.get_object("mainMenuIconView")
 
@@ -1124,28 +1252,28 @@ class awnManagerMini(awnManager):
         self.main_menu_icon_view.connect("selection-changed", activate_on_select)
         self.main_menu_icon_view.connect("item-activated", self.showPanel)
 
-        store = gtk.ListStore(str, gtk.gdk.Pixbuf, str)
+        store = gtk.ListStore(str, gtk.gdk.Pixbuf, int)
         size = 32
         store.append([
-            'Preferences', 
+            _('Preferences'), 
             self.safe_load_icon('gtk-preferences', size, gtk.ICON_LOOKUP_USE_BUILTIN),
             self.PREFERENCE_PANEL
         ])
 
         store.append([
-            'Task Manager', 
+            _('Task Manager'), 
             self.safe_load_icon('gtk-execute', size, gtk.ICON_LOOKUP_USE_BUILTIN),
             self.LAUNCHER_PANEL
         ])
         
         store.append([
-            'Applets', 
+            _('Applets'), 
             self.safe_load_icon('awn-plugins', size, gtk.ICON_LOOKUP_USE_BUILTIN),
             self.APPLET_PANEL
         ])
         '''
         store.append([
-            'Launchers',
+            _('Launchers'),
             self.safe_load_icon(['gnome-panel-launcher', 'launcher-program',
                                  'system-run', 'run'],
                                 size, gtk.ICON_LOOKUP_USE_BUILTIN),
@@ -1153,13 +1281,13 @@ class awnManagerMini(awnManager):
         ])
         '''
         store.append([
-            'Themes', 
+            _('Themes'), 
             self.safe_load_icon("preferences-desktop-theme", size, gtk.ICON_LOOKUP_USE_BUILTIN),
             self.THEME_PANEL
         ])
 
         store.append([
-            'Advanced', 
+            _('Advanced'), 
             self.safe_load_icon('gtk-properties', size, gtk.ICON_LOOKUP_USE_BUILTIN),
 	        self.ADVANCED_PANEL
         ])
@@ -1192,35 +1320,52 @@ class awnManagerMini(awnManager):
         else:
             self.showPrefPanel()
 
+        self.toggleGlow(not self.global_configuration)
+
     def showPrefPanel(self):
         self.current_panel = self.wTree.get_object("prefPanel")
         self.panel_container.add(self.current_panel)
+        self.global_configuration = False
         
     def showAppletPanel(self):
         self.current_panel = self.wTree.get_object("appletPanel")
         self.panel_container.add(self.current_panel)
+        self.global_configuration = False
 
     def showLaunchPanel(self):
         self.current_panel = self.wTree.get_object("launchPanel")
         self.panel_container.add(self.current_panel)
+        # Taskman panel needs a ping
+        self.taskManager.refresh()
+        self.global_configuration = True
 
     def showThemePanel(self):
         self.current_panel = self.wTree.get_object("themePanel")
         self.panel_container.add(self.current_panel)
+        self.global_configuration = True
 	
     def showAdvPanel(self):
         self.current_panel = self.wTree.get_object("advPanel")
         self.panel_container.add(self.current_panel)
+        self.global_configuration = False
 		
         
-if __name__ == "__main__":
+def main(argv):
     vfs.init()
+    panel_id = awn.PANEL_ID_DEFAULT
     try:
-        if '--about' in sys.argv:
+        opts, args = getopt.getopt(argv, "", ["about", "panel-id="])
+        args = dict(opts)
+        if '--about' in args:
             awnmanager = awnManager()
             awnmanager.about(None)
         else:
-            awnmanager = awnManagerMini()
+            if '--panel-id' in args:
+                panel_id = int(args['--panel-id'])
+            awnmanager = awnManagerMini(panel_id)
             awnmanager.main()
     finally:
         vfs.shutdown()
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

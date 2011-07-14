@@ -77,8 +77,15 @@ get_workspace_name_with_accel (WnckWindow *window, int idx)
 {
   const char *name;
   int number;
- 
-  name = wnck_workspace_get_name (wnck_screen_get_workspace (wnck_window_get_screen (window),idx));
+  WnckWorkspace * workspace;
+  const char * fallback_name = "Unnamed";
+
+  workspace = wnck_screen_get_workspace (wnck_window_get_screen (window),idx);
+  if (!workspace || !WNCK_IS_WORKSPACE(workspace))
+  {
+    return g_strdup (fallback_name);
+  }
+  name = wnck_workspace_get_name (workspace);
 
   g_assert (name != NULL);
 
@@ -155,6 +162,7 @@ add_to_launcher_list_cb (GtkMenuItem * menu_item, TaskIcon * icon)
   {
     TaskManager * applet;
     gboolean grouping;
+    
     g_object_get (icon,
                   "applet",&applet,
                   NULL);
@@ -164,7 +172,13 @@ add_to_launcher_list_cb (GtkMenuItem * menu_item, TaskIcon * icon)
 
     task_manager_append_launcher (TASK_MANAGER(applet),
                                   task_launcher_get_desktop_path(launcher));
-    task_icon_decrement_ephemeral_count (TASK_ICON(icon));
+
+    if ( task_icon_is_ephemeral(icon))
+    {
+      g_object_set (G_OBJECT(task_icon_get_launcher (icon)),
+                    "proxy", task_icon_get_proxy (icon),
+                  NULL);
+    }
     g_object_set (applet,
                   "grouping",grouping,
                   NULL);
@@ -172,55 +186,216 @@ add_to_launcher_list_cb (GtkMenuItem * menu_item, TaskIcon * icon)
 }
 
 static void
+remove_from_launcher_list_cb (GtkMenuItem * menu_item, TaskIcon * icon)
+{
+  TaskLauncher    *launcher = NULL;
+  
+  g_return_if_fail (TASK_IS_ICON (icon));  
+  
+  launcher = TASK_LAUNCHER(task_icon_get_launcher (icon));
+  if (launcher)
+  {
+    TaskManager * applet;
+    gboolean grouping;
+    g_object_get (icon,
+                  "applet",&applet,
+                  NULL);
+    g_object_get (applet,
+                  "grouping",&grouping,
+                  NULL);
+    task_manager_remove_launcher (TASK_MANAGER(applet),
+                                  task_launcher_get_desktop_path(launcher));
+    g_object_set (applet,
+                  "grouping",grouping,
+                  NULL);
+  }
+}
+
+/*
+ When a window is moved to another "workspace" in Compiz it will remain active
+ if it was already active...  we really prefer that this not happen
+ */
+
+static void
+activate_appropriate_window (WnckWindow * win_on_the_move)
+{
+  WnckWorkspace * workspace;
+  workspace = wnck_screen_get_active_workspace (wnck_screen_get_default());
+  if (workspace)
+  {
+    GList* windows = wnck_screen_get_windows_stacked (wnck_screen_get_default());
+    GList * iter;
+    for (iter = g_list_last (windows); iter; iter=g_list_previous (iter))
+    {
+      if (iter->data != win_on_the_move)
+      {
+        if (wnck_window_is_in_viewport (iter->data,workspace) )
+        {
+          wnck_window_activate (iter->data,gtk_get_current_event_time ());
+          break;
+        }
+      }
+    }
+  }
+}
+
+static void
 _move_window_left_cb (GtkMenuItem *menuitem, WnckWindow * win)
 {
   WnckWorkspace *workspace;
-  workspace = wnck_screen_get_workspace_neighbor (wnck_window_get_screen (win),
+  workspace = wnck_window_get_workspace (win);
+  if ( workspace && WNCK_IS_WORKSPACE (workspace) && wnck_workspace_is_virtual (workspace) )
+  {
+    int x,y,w,h;
+    wnck_window_get_geometry (win,&x,&y,&w,&h);
+    wnck_window_set_geometry (win,
+                              WNCK_WINDOW_GRAVITY_CURRENT,
+                              WNCK_WINDOW_CHANGE_X,
+                              x - wnck_screen_get_width (wnck_screen_get_default ()),
+                              y,
+                              w,
+                              h);
+    activate_appropriate_window (win);
+  }
+  else
+  {
+    workspace = wnck_screen_get_workspace_neighbor (wnck_window_get_screen (win),
                                                   wnck_window_get_workspace (win), 
                                                   WNCK_MOTION_LEFT);
-  wnck_window_move_to_workspace (win, workspace);
+
+    wnck_window_move_to_workspace (win, workspace);
+  }
 }
 
 static void
 _move_window_right_cb (GtkMenuItem *menuitem, WnckWindow * win)
 {
   WnckWorkspace *workspace;
-  workspace = wnck_screen_get_workspace_neighbor (wnck_window_get_screen ( win),
-                                                  wnck_window_get_workspace (win),
-                                                  WNCK_MOTION_RIGHT);
-  wnck_window_move_to_workspace (win, workspace);
+  workspace = wnck_window_get_workspace (win);
+  if ( workspace && WNCK_IS_WORKSPACE (workspace) && wnck_workspace_is_virtual (workspace) )
+  {
+    int x,y,w,h;
+    wnck_window_get_geometry (win,&x,&y,&w,&h);
+    wnck_window_set_geometry (win,
+                              WNCK_WINDOW_GRAVITY_CURRENT,
+                              WNCK_WINDOW_CHANGE_X,
+                              x + wnck_screen_get_width (wnck_screen_get_default ()),
+                              y,
+                              w,
+                              h);
+    activate_appropriate_window (win);
+  }
+  else
+  {
+    workspace = wnck_screen_get_workspace_neighbor (wnck_window_get_screen ( win),
+                                                    wnck_window_get_workspace (win),
+                                                    WNCK_MOTION_RIGHT);
+    wnck_window_move_to_workspace (win, workspace);
+  }
 }
 
 static void
 _move_window_up_cb (GtkMenuItem *menuitem, WnckWindow * win)
 {
   WnckWorkspace *workspace;
-  workspace = wnck_screen_get_workspace_neighbor (wnck_window_get_screen (win),
-                                                  wnck_window_get_workspace (win),
-                                                  WNCK_MOTION_UP);
-  wnck_window_move_to_workspace (win, workspace);
+
+  workspace = wnck_window_get_workspace (win);
+  if ( workspace && WNCK_IS_WORKSPACE (workspace) &&wnck_workspace_is_virtual (workspace) )
+  {
+    int x,y,w,h;
+    wnck_window_get_geometry (win,&x,&y,&w,&h);
+    wnck_window_set_geometry (win,
+                              WNCK_WINDOW_GRAVITY_CURRENT,
+                              WNCK_WINDOW_CHANGE_Y,
+                              x,
+                              y - wnck_screen_get_height (wnck_screen_get_default ()),
+                              w,
+                              h);
+    activate_appropriate_window (win);
+  }
+  else
+  {
+    workspace = wnck_screen_get_workspace_neighbor (wnck_window_get_screen (win),
+                                                    wnck_window_get_workspace (win),
+                                                    WNCK_MOTION_UP);
+    wnck_window_move_to_workspace (win, workspace);
+  }
 }
 
 static void
 _move_window_down_cb (GtkMenuItem *menuitem, WnckWindow * win)
 {
   WnckWorkspace *workspace;
-  workspace = wnck_screen_get_workspace_neighbor (wnck_window_get_screen (win),
-                                                  wnck_window_get_workspace (win),
-                                                  WNCK_MOTION_DOWN);
-  wnck_window_move_to_workspace (win, workspace);
+  workspace = wnck_window_get_workspace (win);
+  if ( workspace && WNCK_IS_WORKSPACE (workspace) &&wnck_workspace_is_virtual (workspace) )
+  {
+    int x,y,w,h;
+    wnck_window_get_geometry (win,&x,&y,&w,&h);
+    wnck_window_set_geometry (win,
+                              WNCK_WINDOW_GRAVITY_CURRENT,
+                              WNCK_WINDOW_CHANGE_Y,
+                              x,
+                              y + wnck_screen_get_height (wnck_screen_get_default ()),
+                              w,
+                              h);
+    activate_appropriate_window (win);
+  }
+  else
+  {
+
+    workspace = wnck_screen_get_workspace_neighbor (wnck_window_get_screen (win),
+                                                    wnck_window_get_workspace (win),
+                                                    WNCK_MOTION_DOWN);
+    wnck_window_move_to_workspace (win, workspace);
+  }
 }
 
 static void
 _move_window_to_index (GtkMenuItem *menuitem, WnckWindow * win)
 {
   int workspace_index;
+  WnckWorkspace * workspace = NULL;
   workspace_index =  GPOINTER_TO_INT (g_object_get_qdata (G_OBJECT(menuitem), g_quark_from_static_string("WORKSPACE")));  
 //  workspace_index = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (menuitem), "workspace"));
 
-  wnck_window_move_to_workspace (win,
+  workspace = wnck_window_get_workspace (win);
+  if ( workspace && WNCK_IS_WORKSPACE (workspace) && wnck_workspace_is_virtual (workspace) )
+  {
+    int x,y,w,h;
+    int viewport_x, viewport_y;
+    int cols;
+    int dest_col, dest_row;
+    int delta_x, delta_y;
+    int screen_width;
+    int screen_height;
+    
+    screen_width = wnck_screen_get_width (wnck_screen_get_default());
+    screen_height = wnck_screen_get_height (wnck_screen_get_default());
+    
+    viewport_x = wnck_workspace_get_viewport_x (workspace);
+    viewport_y = wnck_workspace_get_viewport_y (workspace);
+    cols = wnck_workspace_get_width (workspace)/screen_width;
+    dest_col = workspace_index % cols;
+    dest_row = workspace_index / cols;
+    wnck_window_get_geometry (win,&x,&y,&w,&h);
+    delta_x = (dest_col * screen_width) - viewport_x + (x % screen_width);
+    delta_y = (dest_row * screen_height) - viewport_y + (y % screen_height);
+
+    wnck_window_set_geometry (win,
+                              WNCK_WINDOW_GRAVITY_STATIC,
+                              WNCK_WINDOW_CHANGE_Y | WNCK_WINDOW_CHANGE_X,
+                              delta_x,
+                              delta_y,
+                              w,
+                              h);
+    activate_appropriate_window (win);
+  }
+  else
+  {
+    wnck_window_move_to_workspace (win,
                                  wnck_screen_get_workspace (wnck_window_get_screen (win),
                                  workspace_index));
+  }
 }
 
 static void
@@ -253,7 +428,7 @@ _close_all_cb (GtkMenuItem *menuitem, TaskIcon * icon)
 }
 
 static void
-_close_window_cb (GtkMenuItem *menuitem, TaskIcon * icon)
+_close_window_cb (GtkMenuItem *menuitem, WnckWindow * win)
 {
   /*
    This might actually be a key event?  but it doesn't matter... the time
@@ -261,10 +436,7 @@ _close_window_cb (GtkMenuItem *menuitem, TaskIcon * icon)
   GdkEventButton * event = (GdkEventButton*)gtk_get_current_event ();
 
   g_return_if_fail (event);
-  if (TASK_IS_WINDOW (task_icon_get_main_item (icon)))
-  {
-    wnck_window_close (task_window_get_window (TASK_WINDOW(task_icon_get_main_item (icon))),event->time);
-  }
+  wnck_window_close (win,event->time);
   gdk_event_free ((GdkEvent*)event);
 }
 
@@ -285,10 +457,15 @@ _minimize_window_cb (GtkMenuItem *menuitem, WnckWindow * win)
 static void
 _maximize_window_cb (GtkMenuItem *menuitem, WnckWindow *win)
 {
+  GdkEventButton * event = (GdkEventButton*)gtk_get_current_event ();
+  
   if (wnck_window_is_maximized (win))
     wnck_window_unmaximize (win);
   else
+  {
+    wnck_window_unminimize (win,event->time);
     wnck_window_maximize (win);
+  }
 }
 
 static void
@@ -327,10 +504,33 @@ _shade_window_cb (GtkMenuItem *menuitem, WnckWindow * win)
 static void
 _pin_window_cb (GtkMenuItem *menuitem, WnckWindow * win)
 {
+  WnckWorkspace *space = wnck_window_get_workspace (win);
+
+  /*all the extra crap in here is courtesy of compiz*/
+  if (!space)
+  {
+    space = wnck_screen_get_active_workspace (wnck_screen_get_default ());
+  }
   if (wnck_window_is_pinned (win))
+  {
     wnck_window_unpin (win);
+    if (space && WNCK_IS_WORKSPACE(space) && wnck_workspace_is_virtual (space) )
+    {
+      GdkWindow *foreign_win = gdk_window_foreign_new(wnck_window_get_xid (win));
+      gdk_window_unstick (foreign_win);
+      g_object_unref (foreign_win);
+    }
+  }
   else
+  {
     wnck_window_pin (win);
+    if (space && WNCK_IS_WORKSPACE(space) && wnck_workspace_is_virtual (space) )
+    {
+      GdkWindow *foreign_win = gdk_window_foreign_new(wnck_window_get_xid (win));
+      gdk_window_stick (foreign_win);
+      g_object_unref (foreign_win);
+    }
+  }
 }
 
 static void
@@ -399,6 +599,7 @@ static void
 _maximize_all_cb (GtkMenuItem *menuitem, TaskIcon * icon)
 {
   TaskIconPrivate * priv = NULL;
+  GdkEventButton * event = (GdkEventButton*)gtk_get_current_event ();
 
   g_return_if_fail (TASK_IS_ICON(icon));
   
@@ -421,6 +622,7 @@ _maximize_all_cb (GtkMenuItem *menuitem, TaskIcon * icon)
     {
       continue;
     }
+    wnck_window_unminimize (task_window_get_window (TASK_WINDOW(iter->data)),event->time);
     wnck_window_maximize (task_window_get_window (TASK_WINDOW(iter->data)));
   }
 }
@@ -429,7 +631,8 @@ static void
 _unmaximize_all_cb (GtkMenuItem *menuitem, TaskIcon * icon)
 {
   TaskIconPrivate * priv = NULL;
-
+  GdkEventButton * event = (GdkEventButton*)gtk_get_current_event ();
+  
   g_return_if_fail (TASK_IS_ICON(icon));
   
   GSList * items = task_icon_get_items (icon);
@@ -451,6 +654,7 @@ _unmaximize_all_cb (GtkMenuItem *menuitem, TaskIcon * icon)
     {
       continue;
     }
+    wnck_window_unminimize (task_window_get_window (TASK_WINDOW(iter->data)),event->time);
     wnck_window_unmaximize (task_window_get_window (TASK_WINDOW(iter->data)));
   }
 }
@@ -515,7 +719,7 @@ task_icon_get_menu_item_add_to_launcher_list (TaskIcon * icon)
     g_value_unset (&val);
     g_value_array_free (launcher_paths);
   }
-  if (found || !launcher || !task_icon_count_ephemeral_items (icon) )
+  if (found || !launcher || !task_icon_is_ephemeral (icon)  )
   {
     return NULL;
   }
@@ -528,7 +732,46 @@ task_icon_get_menu_item_add_to_launcher_list (TaskIcon * icon)
 }
 
 static GtkWidget *
-task_icon_get_menu_item_close_active (TaskIcon * icon)
+task_icon_get_menu_item_remove_from_launcher_list (TaskIcon * icon)
+{
+  g_return_val_if_fail (TASK_IS_ICON (icon),NULL);  
+  
+  GtkWidget * item;
+  TaskIconPrivate * priv = TASK_ICON_GET_PRIVATE(icon);
+  GValueArray *launcher_paths;
+  GValue val = {0,};
+  const TaskItem * launcher = task_icon_get_launcher (icon);
+  gboolean found = FALSE;
+  if (launcher)
+  {
+    const gchar * launcher_path = task_launcher_get_desktop_path (TASK_LAUNCHER(launcher));
+    g_object_get (G_OBJECT (priv->applet), "launcher_paths", &launcher_paths, NULL);
+    g_value_init (&val, G_TYPE_STRING);
+    for (guint idx = 0; idx < launcher_paths->n_values; idx++)
+    {
+      const gchar *path = g_value_get_string (g_value_array_get_nth (launcher_paths, idx));
+      if (g_strcmp0 (path,launcher_path)==0)
+      {
+        found = TRUE;
+      }
+    }
+    g_value_unset (&val);
+    g_value_array_free (launcher_paths);
+  }
+  if ( !found || !launcher )
+  {
+    return NULL;
+  }
+  item = gtk_menu_item_new_with_label (_("Remove Launcher"));
+  gtk_widget_show (item);
+  g_signal_connect (item,"activate",
+                    G_CALLBACK(remove_from_launcher_list_cb),
+                    icon);
+  return item;
+}
+
+static GtkWidget *
+task_icon_get_menu_item_close_active (TaskIcon * icon, WnckWindow * win)
 {
   GtkWidget * item;
   const TaskItem * main_item = task_icon_get_main_item (icon);
@@ -547,7 +790,7 @@ task_icon_get_menu_item_close_active (TaskIcon * icon)
   gtk_widget_show (item);
   g_signal_connect (item,"activate",
                 G_CALLBACK(_close_window_cb),
-                icon);
+                win);
   return item;
 }
 
@@ -612,7 +855,7 @@ task_icon_get_minimize_all (TaskIcon * icon)
     {
       continue;
     }
-    menuitem = gtk_image_menu_item_new_with_label ("Minimize all");
+    menuitem = gtk_image_menu_item_new_with_label (_("Minimize all"));
     gtk_widget_show (menuitem);
     g_signal_connect (menuitem,"activate",G_CALLBACK(_minimize_all_cb),icon);
   }
@@ -648,7 +891,7 @@ task_icon_get_unminimize_all (TaskIcon * icon)
     {
       continue;
     }
-    menuitem = gtk_image_menu_item_new_with_label ("Unminimize all");
+    menuitem = gtk_image_menu_item_new_with_label (_("Unminimize all"));
     gtk_widget_show (menuitem);
     g_signal_connect (menuitem,"activate",G_CALLBACK(_unminimize_all_cb),icon);
   }
@@ -684,7 +927,7 @@ task_icon_get_maximize_all (TaskIcon * icon)
     {
       continue;
     }
-    menuitem = gtk_image_menu_item_new_with_label ("Maximize all");
+    menuitem = gtk_image_menu_item_new_with_label (_("Maximize all"));
     gtk_widget_show (menuitem);
     g_signal_connect (menuitem,"activate",G_CALLBACK(_maximize_all_cb),icon);
   }
@@ -720,7 +963,7 @@ task_icon_get_unmaximize_all (TaskIcon * icon)
     {
       continue;
     }
-    menuitem = gtk_image_menu_item_new_with_label ("Unmaximize all");
+    menuitem = gtk_image_menu_item_new_with_label (_("Unmaximize all"));
     gtk_widget_show (menuitem);
     g_signal_connect (menuitem,"activate",G_CALLBACK(_unmaximize_all_cb),icon);
   }
@@ -901,28 +1144,51 @@ task_icon_inline_menu_move_to_workspace (TaskIcon * icon,GtkMenu * menu,WnckWind
   WnckWorkspaceLayout layout;
 
   num_workspaces = wnck_screen_get_workspace_count (wnck_window_get_screen (win));
-  if (num_workspaces == 1)
+  if (num_workspaces == 1  && ( !workspace || ( WNCK_IS_WORKSPACE(workspace) && !wnck_workspace_is_virtual (workspace))))
   {
     return;
   }
-
-  if (workspace)
+  else if (num_workspaces > 1 )
   {
-    present_workspace = wnck_workspace_get_number (workspace);
+    if (workspace && WNCK_IS_WORKSPACE(workspace))
+    {
+      present_workspace = wnck_workspace_get_number (workspace);
+    }
+    else
+    {
+      present_workspace = -1;
+    }
+
+    wnck_screen_calc_workspace_layout (wnck_window_get_screen (win),
+                                       num_workspaces,
+                                       present_workspace,
+                                       &layout);
+  }
+  else if ( workspace && WNCK_IS_WORKSPACE (workspace) )
+  {
+    int x,y,w,h;
+
+    wnck_window_get_geometry (win,&x,&y,&w,&h);
+    x = x + wnck_workspace_get_viewport_x (workspace);
+    y = y + wnck_workspace_get_viewport_y (workspace);
+    layout.current_col = present_workspace = x/wnck_screen_get_width (wnck_screen_get_default());
+    layout.current_col = present_workspace = x/wnck_screen_get_width (wnck_screen_get_default());
+    layout.current_row = present_workspace = y/wnck_screen_get_height (wnck_screen_get_default());
+    layout.cols = wnck_workspace_get_width (workspace) / wnck_screen_get_width(wnck_screen_get_default());
+    layout.rows = wnck_workspace_get_height (workspace) / wnck_screen_get_height(wnck_screen_get_default());
+    num_workspaces = layout.cols * layout.rows;
+    present_workspace = layout.current_col + 
+                        layout.current_row * 
+                        layout.cols;
   }
   else
   {
-    present_workspace = -1;
+    return;
   }
-
-  wnck_screen_calc_workspace_layout (wnck_window_get_screen (win),
-                                     num_workspaces,
-                                     present_workspace,
-                                     &layout);
   
   if (!wnck_window_is_pinned (win))
     {
-      if (layout.current_col > 0)
+      if (layout.current_col > 0) 
         {
           menuitem = gtk_menu_item_new_with_mnemonic (_("Move to Workspace _Left"));
           gtk_menu_shell_append (GTK_MENU_SHELL (menu),menuitem);
@@ -932,6 +1198,7 @@ task_icon_inline_menu_move_to_workspace (TaskIcon * icon,GtkMenu * menu,WnckWind
           gtk_widget_show (menuitem);          
         }
 
+      
       if ((layout.current_col < layout.cols - 1) && (layout.current_row * layout.cols + (layout.current_col + 1) < num_workspaces ))
         {
           menuitem = gtk_menu_item_new_with_mnemonic (_("Move to Workspace _Right"));
@@ -975,10 +1242,17 @@ task_icon_inline_menu_move_to_workspace (TaskIcon * icon,GtkMenu * menu,WnckWind
     {
       char *name, *label;
       GtkWidget *item;
-	
-      name = get_workspace_name_with_accel (win, i);
-      label = g_strdup_printf ("%s", name);
 
+      if (workspace && WNCK_IS_WORKSPACE (workspace) && !wnck_workspace_is_virtual (workspace) )
+      {
+        name = get_workspace_name_with_accel (win, i);
+        label = g_strdup_printf ("%s", name);
+        g_free (name);
+      }
+      else
+      {
+        label = g_strdup_printf ("%d",i+1);
+      }
       item = gtk_menu_item_new_with_label (label);
       g_object_set_qdata (G_OBJECT (item), g_quark_from_static_string("WORKSPACE"), GINT_TO_POINTER (i));
       if (i == present_workspace)
@@ -988,7 +1262,6 @@ task_icon_inline_menu_move_to_workspace (TaskIcon * icon,GtkMenu * menu,WnckWind
                       win);
       gtk_widget_show (item);
       gtk_menu_shell_append (GTK_MENU_SHELL (submenu), item);
-      g_free (name);
       g_free (label);	
     }
 }
@@ -1012,7 +1285,7 @@ task_icon_inline_action_simple_menu (TaskIcon * icon, GtkMenu * menu, WnckWindow
     gtk_widget_show (menuitem);
   }
   
-  menuitem = task_icon_get_menu_item_close_active (icon);
+  menuitem = task_icon_get_menu_item_close_active (icon,win);
   gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
   gtk_widget_show (menuitem);
 }
@@ -1075,7 +1348,7 @@ task_icon_inline_action_menu (TaskIcon * icon, GtkMenu * menu, WnckWindow * win)
   gtk_widget_show (menuitem);
   gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
   
-  menuitem = task_icon_get_menu_item_close_active (icon);
+  menuitem = task_icon_get_menu_item_close_active (icon,win);
   gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
 
 }
@@ -1159,6 +1432,7 @@ typedef enum{
       INTERNAL_MAXIMIZE_ALL,
       INTERNAL_MINIMIZE_ALL,
       INTERNAL_REMOVE_CUSTOMIZED_ICON,
+      INTERNAL_REMOVE_FROM_LAUNCHER_LIST,
       INTERNAL_SEPARATOR,
       INTERNAL_SMART_WNCK_MENU,
       INTERNAL_SMART_WNCK_SIMPLE_MENU,
@@ -1193,6 +1467,7 @@ const ContextMenuItemType context_menu_item_type_list[] = {
         { INTERNAL_MAXIMIZE_ALL,"Internal-Maximize-All"},
         { INTERNAL_MINIMIZE_ALL,"Internal-Minimize-All"},
         { INTERNAL_REMOVE_CUSTOMIZED_ICON,"Internal-Remove-Customized-Icon"},
+        { INTERNAL_REMOVE_FROM_LAUNCHER_LIST,"Internal-Remove-From-Launcher-List"},
         { INTERNAL_SEPARATOR,"Internal-Separator"},
         { INTERNAL_SMART_WNCK_MENU,"Internal-Smart-Wnck-Menu"},
         { INTERNAL_SMART_WNCK_SIMPLE_MENU,"Internal-Smart-Wnck-Simple-Menu"},
@@ -1436,7 +1711,10 @@ menu_parse_start_element (GMarkupParseContext *context,
       menuitem = task_icon_get_menu_item_add_to_launcher_list (icon);
       break;
     case INTERNAL_CLOSE_ACTIVE:
-      menuitem = task_icon_get_menu_item_close_active (icon);
+      if (TASK_IS_WINDOW (task_icon_get_main_item (icon)))
+      {      
+        menuitem = task_icon_get_menu_item_close_active (icon,task_window_get_window(TASK_WINDOW(task_icon_get_main_item (icon))));
+      }
       break;
     case INTERNAL_CLOSE_ALL:
       menuitem = task_icon_get_menu_item_close_all (icon);
@@ -1471,6 +1749,9 @@ menu_parse_start_element (GMarkupParseContext *context,
       break;
     case INTERNAL_REMOVE_CUSTOMIZED_ICON:
       menuitem = awn_themed_icon_create_remove_custom_icon_item (AWN_THEMED_ICON(icon),task_icon_get_custom_name(icon));
+      break;
+    case INTERNAL_REMOVE_FROM_LAUNCHER_LIST:
+      menuitem = task_icon_get_menu_item_remove_from_launcher_list (icon);
       break;
     case INTERNAL_SEPARATOR:
       {

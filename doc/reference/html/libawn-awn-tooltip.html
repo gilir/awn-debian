@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AwnTooltip</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Awn Reference Manual">
+<link rel="up" href="ch02.html" title="Base Components">
+<link rel="prev" href="AwnLabel.html" title="AwnLabel">
+<link rel="next" href="libawn-awn-overlayable.html" title="awn-overlayable">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AwnLabel.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Awn Reference Manual</th>
+<td><a accesskey="n" href="libawn-awn-overlayable.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libawn-awn-tooltip.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libawn-awn-tooltip.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libawn-awn-tooltip.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libawn-awn-tooltip.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#libawn-awn-tooltip.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libawn-awn-tooltip"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libawn-awn-tooltip.top_of_page"></a>AwnTooltip</span></h2>
+<p>AwnTooltip</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libawn-awn-tooltip.synopsis"></a><h2>Synopsis</h2>
+<a name="AwnTooltip"></a><pre class="synopsis">                    <a class="link" href="libawn-awn-tooltip.html#AwnTooltipPrivate" title="AwnTooltipPrivate">AwnTooltipPrivate</a>;
+struct              <a class="link" href="libawn-awn-tooltip.html#AwnTooltip-struct" title="struct AwnTooltip">AwnTooltip</a>;
+<a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-new-for-widget" title="awn_tooltip_new_for_widget ()">awn_tooltip_new_for_widget</a>          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-set-text" title="awn_tooltip_set_text ()">awn_tooltip_set_text</a>                (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-get-text" title="awn_tooltip_get_text ()">awn_tooltip_get_text</a>                (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-set-focus-widget" title="awn_tooltip_set_focus_widget ()">awn_tooltip_set_focus_widget</a>        (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-set-font-name" title="awn_tooltip_set_font_name ()">awn_tooltip_set_font_name</a>           (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *font_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-set-font-color" title="awn_tooltip_set_font_color ()">awn_tooltip_set_font_color</a>          (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *font_color</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-set-background-color" title="awn_tooltip_set_background_color ()">awn_tooltip_set_background_color</a>    (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *bg_color</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-set-delay" title="awn_tooltip_set_delay ()">awn_tooltip_set_delay</a>               (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> msecs</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-get-delay" title="awn_tooltip_get_delay ()">awn_tooltip_get_delay</a>               (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-update-position" title="awn_tooltip_update_position ()">awn_tooltip_update_position</a>         (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libawn-awn-tooltip.html#awn-tooltip-set-position-hint" title="awn_tooltip_set_position_hint ()">awn_tooltip_set_position_hint</a>       (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-tooltip.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk3/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/GtkBin.html">GtkBin</a>
+                                 +----<a href="http://library.gnome.org/devel/gtk/GtkWindow.html">GtkWindow</a>
+                                       +----AwnTooltip
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-tooltip.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AwnTooltip implements
+ AtkImplementorIface and  <a href="http://library.gnome.org/devel/gtk/GtkBuildable.html">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-tooltip.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--delay" title='The "delay" property'>delay</a>"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--focus-widget" title='The "focus-widget" property'>focus-widget</a>"             <a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a>*            : Read / Write
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--offset" title='The "offset" property'>offset</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--smart-behavior" title='The "smart-behavior" property'>smart-behavior</a>"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--toggle-on-click" title='The "toggle-on-click" property'>toggle-on-click</a>"          <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--tooltip-bg-color" title='The "tooltip-bg-color" property'>tooltip-bg-color</a>"         <span class="type">DesktopAgnosticColor</span>*  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--tooltip-font-color" title='The "tooltip-font-color" property'>tooltip-font-color</a>"       <span class="type">DesktopAgnosticColor</span>*  : Read / Write / Construct
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--tooltip-font-name" title='The "tooltip-font-name" property'>tooltip-font-name</a>"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct
+  "<a class="link" href="libawn-awn-tooltip.html#AwnTooltip--tooltip-outline-color" title='The "tooltip-outline-color" property'>tooltip-outline-color</a>"    <span class="type">DesktopAgnosticColor</span>*  : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-tooltip.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-tooltip.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AwnTooltipPrivate"></a><h3>AwnTooltipPrivate</h3>
+<pre class="programlisting">typedef struct _AwnTooltipPrivate AwnTooltipPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip-struct"></a><h3>struct AwnTooltip</h3>
+<pre class="programlisting">struct AwnTooltip;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-new-for-widget"></a><h3>awn_tooltip_new_for_widget ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         awn_tooltip_new_for_widget          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-set-text"></a><h3>awn_tooltip_set_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_tooltip_set_text                (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-get-text"></a><h3>awn_tooltip_get_text ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             awn_tooltip_get_text                (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-set-focus-widget"></a><h3>awn_tooltip_set_focus_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_tooltip_set_focus_widget        (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-set-font-name"></a><h3>awn_tooltip_set_font_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_tooltip_set_font_name           (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *font_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-set-font-color"></a><h3>awn_tooltip_set_font_color ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_tooltip_set_font_color          (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *font_color</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-set-background-color"></a><h3>awn_tooltip_set_background_color ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_tooltip_set_background_color    (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><span class="type">DesktopAgnosticColor</span> *bg_color</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-set-delay"></a><h3>awn_tooltip_set_delay ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_tooltip_set_delay               (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> msecs</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-get-delay"></a><h3>awn_tooltip_get_delay ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                awn_tooltip_get_delay               (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-update-position"></a><h3>awn_tooltip_update_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_tooltip_update_position         (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="awn-tooltip-set-position-hint"></a><h3>awn_tooltip_set_position_hint ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                awn_tooltip_set_position_hint       (<em class="parameter"><code><a class="link" href="libawn-awn-tooltip.html#AwnTooltip"><span class="type">AwnTooltip</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GtkPositionType"><span class="type">GtkPositionType</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libawn-awn-tooltip.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="AwnTooltip--delay"></a><h3>The <code class="literal">"delay"</code> property</h3>
+<pre class="programlisting">  "delay"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>Delay.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip--focus-widget"></a><h3>The <code class="literal">"focus-widget"</code> property</h3>
+<pre class="programlisting">  "focus-widget"             <a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a>*            : Read / Write</pre>
+<p>Widget to focus on.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip--offset"></a><h3>The <code class="literal">"offset"</code> property</h3>
+<pre class="programlisting">  "offset"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>Icon Offset.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip--smart-behavior"></a><h3>The <code class="literal">"smart-behavior"</code> property</h3>
+<pre class="programlisting">  "smart-behavior"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>Will show the tooltip on enter-notify-event and hide on leave-notify-event.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip--toggle-on-click"></a><h3>The <code class="literal">"toggle-on-click"</code> property</h3>
+<pre class="programlisting">  "toggle-on-click"          <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>Toggles tooltip visibility on click.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip--tooltip-bg-color"></a><h3>The <code class="literal">"tooltip-bg-color"</code> property</h3>
+<pre class="programlisting">  "tooltip-bg-color"         <span class="type">DesktopAgnosticColor</span>*  : Read / Write / Construct</pre>
+<p>Tooltip Background Color.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip--tooltip-font-color"></a><h3>The <code class="literal">"tooltip-font-color"</code> property</h3>
+<pre class="programlisting">  "tooltip-font-color"       <span class="type">DesktopAgnosticColor</span>*  : Read / Write / Construct</pre>
+<p>Tooltip Font Color.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip--tooltip-font-name"></a><h3>The <code class="literal">"tooltip-font-name"</code> property</h3>
+<pre class="programlisting">  "tooltip-font-name"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct</pre>
+<p>Tooltip Font Name.</p>
+<p>Default value: "Sans 8"</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AwnTooltip--tooltip-outline-color"></a><h3>The <code class="literal">"tooltip-outline-color"</code> property</h3>
+<pre class="programlisting">  "tooltip-outline-color"    <span class="type">DesktopAgnosticColor</span>*  : Read / Write / Construct</pre>
+<p>Tooltip Outline Color.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>
