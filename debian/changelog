@@ -8,6 +8,8 @@ avant-window-navigator (0.4.1~bzr830-1) unstable; urgency=low
    - 03-python-import.patch: refresh.
   * debian/copyright:
    - Update copyright years and upstream authors.
+  * debian/vala-awn.install:
+   - Remove, merge contents in libawn-dev.
   * debian/control:
    - Build-depends on valac-0.10 (>= 0.9.1), to force stable version of Vala.
    - Add dockmanager to Recommends to enable helpers support.
