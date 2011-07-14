@@ -19,6 +19,7 @@ avant-window-navigator (0.4.1~bzr830-1) unstable; urgency=low
    - Remove python-support build-depends.
    - Use X-Python-Version instead of debian/pyversions.
    - Fix replace for libawn1-dbg.
+   - Bump Standards-Version to 3.9.2 (no change needed).
   * debian/libawn1.symbols:
    - Update with new symbols. 
   * debian/gbp.conf:

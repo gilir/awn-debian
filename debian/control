@@ -21,7 +21,7 @@ Build-Depends: debhelper (>= 7.0.50~),
                gtk-doc-tools, 
                doc-base,
                valac-0.10 (>= 0.9.1) | valac
-Standards-Version: 3.8.4
+Standards-Version: 3.9.2
 Homepage: https://launchpad.net/avant-window-navigator/
 Vcs-Git: git://github.com/gilir/awn-debian.git
 Vcs-Browser: http://github.com/gilir/awn-debian/tree
