@@ -21,6 +21,7 @@ avant-window-navigator (0.4.1~bzr830-1) unstable; urgency=low
    - Fix replace for libawn1-dbg.
    - Bump Standards-Version to 3.9.2 (no change needed).
    - Fix description.
+   - Remove vala-awn binary, merged with libawn-dev.
   * debian/libawn1.symbols:
    - Update with new symbols. 
   * debian/gbp.conf:

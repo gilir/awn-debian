@@ -122,16 +122,6 @@ Description: Python bindings for avant-window-navigator library
  This library is used by avant-window-navigator. It provides Python bindings 
  to create and use Python applets for avant-window-navigator.
 
-Package: vala-awn
-Architecture: all
-Depends: libawn1 (>= ${source:Version}),
-         ${shlibs:Depends}, 
-         ${misc:Depends},
-         vala-desktop-agnostic
-Description: Vala bindings for avant-window-navigator library 
- This library is used by avant-window-navigator. It provides Vala bindings 
- to create and use Vala applets for avant-window-navigator.
-
 Package: libawn1-dbg
 Section: debug
 Priority: extra
