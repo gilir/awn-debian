@@ -1,6 +1,6 @@
 avant-window-navigator (0.4.0-2) unstable; urgency=medium
 
-  * Version 0.4.0 have some incompatible changes with previous version :
+  Version 0.4.0 have some incompatible changes with previous version :
    - All settings are lost, and back to default when you upgrade from 0.3.X
    - Old themes are incompatible, and need to be ported to the 0.4.X API. 
 
