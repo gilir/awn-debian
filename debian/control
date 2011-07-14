@@ -86,6 +86,8 @@ Depends: libawn1 (= ${binary:Version}),
          libdesktop-agnostic-dev,
          libgtk2.0-dev,
          libdbus-glib-1-dev
+Replaces: vala-awn
+Conflicts: vala-awn
 Description: library for avant-window-navigator - development files
  This package provides the include files and static library for the
  avant-window-navigator library functions.
