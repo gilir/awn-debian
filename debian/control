@@ -44,7 +44,7 @@ Recommends: awn-applets-python-core,
             metacity (>= 2.21.5) | xcompmgr | compiz | xfwm4 (>= 4.2) | kde-window-manager (>= 4:4.0.0) | mutter
 Conflicts: awn-applets-c-core (<<  0.3.9~bzr1890)
 Replaces: awn-applets-c-core (<<  0.3.9~bzr1890)
-Description: A MacOS X like panel for GNOME
+Description: MacOS X like panel for GNOME
  Avant-window-navigator (Awn) is a MacOS X like panel for the GNOME Desktop
  written in C.  In addition to launchers that can be dragged onto the bar, 
  it features a taskbar that behaves similarly to the Mac OSX dock. The window 
@@ -104,7 +104,7 @@ Depends: ${python:Depends},
          python-dbus
 Conflicts: awn-manager
 Replaces: awn-manager
-Description: A preferences manager for avant-window-navigator
+Description: Preferences manager for avant-window-navigator
  awn-settings provides a simple way to configure avant-window-navigator.
  You can manage preferences, themes, applets and launchers.
 
