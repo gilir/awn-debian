@@ -1,3 +1,10 @@
+avant-window-navigator (0.4.0-3) UNRELEASED; urgency=low
+
+  * debian/copyright:
+   - Update copyright years and upstream authors.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Thu, 14 Jul 2011 11:12:23 +0200
+
 avant-window-navigator (0.4.0-2) unstable; urgency=medium
 
   * Set priority to medium to fix RC bug.
