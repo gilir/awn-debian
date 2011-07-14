@@ -14,6 +14,7 @@ avant-window-navigator (0.4.1~bzr830-1) unstable; urgency=low
    - Build-depends on libdesktop-agnostic-dev (>= 0.3.92)
    - Remove vala-desktop-agnostic build-depends, merged in
      libdesktop-agnostic-dev (Closes: #633810).
+   - Add DM-Upload-Allowed: yes
   * debian/libawn1.symbols:
    - Update with new symbols. 
   * debian/gbp.conf:
